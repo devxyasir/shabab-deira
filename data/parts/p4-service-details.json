@@ -1,0 +1,202 @@
+{
+  "serviceDetails": [
+    {
+      "id": "packing-repacking",
+      "intro": {
+        "en": "Proper packing protects goods in transit and keeps operations moving. Our packing and repacking teams work in warehouses, distribution centres, and client premises across the UAE — handling cartons, pallets, shrink wrap, and export-standard repacking with care and consistency.",
+        "ar": "التغليف الجيد يحمي البضائع أثناء النقل ويحافظ على انتظام العمليات. تعمل فرق التغليف وإعادة التغليف لدينا في المستودعات ومراكز التوزيع ومقرات العملاء في جميع أنحاء الإمارات — التعامل مع الكراتين والمنصات والتغليف الحراري وإعادة التغليف وفق معايير التصدير بعناية وثبات."
+      },
+      "includes": [
+        { "en": "Carton and box packing", "ar": "تغليف الكراتين والصناديق" },
+        { "en": "Pallet building and shrink wrapping", "ar": "تجهيز المنصات والتغليف الحراري" },
+        { "en": "Fragile-goods handling", "ar": "مناولة البضائع القابلة للكسر" },
+        { "en": "Repacking and consolidation", "ar": "إعادة التغليف وتجميع الشحنات" },
+        { "en": "Labelling and sorting", "ar": "الترميز والفرز" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "loading-unloading",
+      "intro": {
+        "en": "Container and truck loading is physical, skilled work that rewards experience. Our crews load and unload containers, trucks, and warehouse bays across the UAE — maximising space, protecting cargo, and keeping turnaround times short.",
+        "ar": "تحميل الحاويات والشاحنات عمل بدني ومهني تتطلبه الخبرة. تقوم طواقمنا بتحميل وتنزيل الحاويات والشاحنات ومواقع المستودعات في جميع أنحاء الإمارات — مع استغلال أمثل للمساحة وحماية البضائع واختصار زمن المناولة."
+      },
+      "includes": [
+        { "en": "Container loading and unloading", "ar": "تحميل الحاويات وتنزيلها" },
+        { "en": "Truck and van loading", "ar": "تحميل الشاحنات والباصات الصغيرة" },
+        { "en": "Warehouse bay loading", "ar": "تحميل مواقع المستودعات" },
+        { "en": "Cargo stacking and securing", "ar": "رصف البضائع وتثبيتها" },
+        { "en": "Supervised crews of any size", "ar": "طواقم بإشراف وبأي عدد" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "delivery-services",
+      "intro": {
+        "en": "Last-mile delivery runs on dependable staff. We supply delivery personnel and support crews for parcels, goods, and scheduled distribution runs — for logistics companies, retailers, and businesses delivering across the Emirates.",
+        "ar": "التوصيل للميل الأخير يعتمد على كوادر موثوقة. نوفر موظفي توصيل وطواقم مساندة للطرود والبضائع وجولات التوزيع المجدولة — لشركات اللوجستيات وتجار التجزئة والمنشآت التي توصل في جميع الإمارات."
+      },
+      "includes": [
+        { "en": "Delivery staff and drivers' assistants", "ar": "موظفو التوصيل ومساعدو السائقين" },
+        { "en": "Parcel sorting and dispatch support", "ar": "دعم فرز الطرود وإرسالها" },
+        { "en": "Scheduled daily distribution runs", "ar": "جولات توزيع يومية مجدولة" },
+        { "en": "Peak-season delivery reinforcement", "ar": "تعزيز طواقم التوصيل في مواسم الذروة" },
+        { "en": "Proof-of-delivery handling", "ar": "معالجة إثباتات التسليم" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "cleaning-services",
+      "intro": {
+        "en": "A clean site is a professional site. Our cleaning staff cover offices, warehouses, retail spaces, and event venues — on regular schedules or one-time deep cleans, before or after your operating hours.",
+        "ar": "الموقع النظيف موقع احترافي. تغطي عمالة النظافة لدينا المكاتب والمستودعات والمنشآت التجارية وأماكن الفعاليات — بجداول منتظمة أو تنظيف عميق لمرة واحدة، قبل ساعات العمل أو بعدها."
+      },
+      "includes": [
+        { "en": "Office and commercial cleaning", "ar": "تنظيف المكاتب والمنشآت التجارية" },
+        { "en": "Warehouse and storage cleaning", "ar": "تنظيف المستودعات ومناطق التخزين" },
+        { "en": "Retail and showroom cleaning", "ar": "تنظيف المتاجر وصالات العرض" },
+        { "en": "Pre- and post-event cleaning", "ar": "التنظيف قبل الفعاليات وبعدها" },
+        { "en": "Deep cleaning assignments", "ar": "مهمات التنظيف العميق" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "factory-helpers",
+      "intro": {
+        "en": "Production lines don't pause. Our factory helpers support manufacturing and processing plants across the UAE — feeding lines, moving materials, packing output, and keeping stations clear and safe.",
+        "ar": "خطوط الإنتاج لا تتوقف. يدعم مساعدو المصانع لدينا مصانع التصنيع والتجهيز في جميع أنحاء الإمارات — بتغذية الخطوط ونقل المواد وتغليف المنتجات وإبقاء مواقع العمل منظمة وآمنة."
+      },
+      "includes": [
+        { "en": "Production line support", "ar": "دعم خطوط الإنتاج" },
+        { "en": "Raw material movement", "ar": "نقل المواد الخام" },
+        { "en": "Packing station staffing", "ar": "تجهيز محطات التغليف بالكوادر" },
+        { "en": "Housekeeping around lines", "ar": "تنظيم ونظافة محيط الخطوط" },
+        { "en": "Shift coverage, day and night", "ar": "تغطية الورديات صباحاً ومساءً" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "catering-services",
+      "intro": {
+        "en": "Good catering depends on a good kitchen team. We supply cooks, kitchen helpers, and service crews for events, labour camps, and corporate functions — experienced hands who keep service smooth and hygienic.",
+        "ar": "الكاترينج الناجح يعتمد على فريق مطبخ جيد. نوفر طهاة ومساعدي مطبخ وطواقم تقديم للفعاليات والمخيمات والمناسبات الرسمية — أيادٍ خبيرة تحافظ على سلاسة الخدمة ونظافتها."
+      },
+      "includes": [
+        { "en": "Cooks and kitchen helpers", "ar": "طهاة ومساعدو مطبخ" },
+        { "en": "Buffet and table service crews", "ar": "طواقم خدمة البوفيهات والطاولات" },
+        { "en": "Event catering support", "ar": "دعم كاترينج الفعاليات" },
+        { "en": "Camp and accommodation catering", "ar": "إعاشة المخيمات وأماكن الإقامة" },
+        { "en": "Setup and clearing teams", "ar": "فرق التجهيز والتنظيف بعد التقديم" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "event-management",
+      "intro": {
+        "en": "Events run on people. We provide setup crews, event staff, and on-site support for exhibitions, conferences, weddings, and corporate functions across the UAE — briefed, uniformed where required, and supervised.",
+        "ar": "نجاح الفعاليات يقوم على الأشخاص. نوفر فرق تجهيز وطاقم فعاليات ودعماً ميدانياً للمعارض والمؤتمرات والأعراس والمناسبات في جميع أنحاء الإمارات — بعد تدريبهم وتزويدهم بالزي المطلوب عند الحاجة وبإشراف مستمر."
+      },
+      "includes": [
+        { "en": "Venue setup and teardown", "ar": "تجهيز أماكن الفعاليات وفكّها" },
+        { "en": "Registration and guest support", "ar": "دعم التسجيل واستقبال الضيوف" },
+        { "en": "Runner and logistics staff", "ar": "طاقم مهام ميدانية ولوجستية" },
+        { "en": "Stage and exhibition support", "ar": "دعم المسرح والمعارض" },
+        { "en": "Crowd and queue management", "ar": "إدارة الحشود والطوابير" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "machine-operators",
+      "intro": {
+        "en": "The right operator protects both equipment and output. We supply licensed machine operators for forklifts, pallet trucks, and production machinery — verified licences, real experience.",
+        "ar": "المشغل المناسب يحمي المعدات والإنتاج معاً. نوفر مشغلي ماكينات مرخصين للرافعات الشوكية ومنصات النقل وماكينات الإنتاج — برخص موثقة وخبرة حقيقية."
+      },
+      "includes": [
+        { "en": "Forklift operators", "ar": "مشغلو الرافعات الشوكية" },
+        { "en": "Pallet truck operators", "ar": "مشغلو منصات النقل" },
+        { "en": "Production machine operators", "ar": "مشغلو ماكينات الإنتاج" },
+        { "en": "Equipment-trained helpers", "ar": "مساعدون مدربون على المعدات" },
+        { "en": "Verified licence checks", "ar": "التحقق من الرخص التشغيلية" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "drivers-vehicle-services",
+      "intro": {
+        "en": "Staff and goods move on schedule or not at all. Our drivers and pick & drop crews run daily staff transport, goods movement, and scheduled routes across the Emirates — with drivers who know the roads and keep to the clock.",
+        "ar": "الموظفون والبضائع يتحركون في الموعد أو لا يتحركون أبداً. يشغّل سائقونا وطواقم التوصيل لدينا النقل اليومي للموظفين وتحريك البضائع والمسارات المجدولة في جميع الإمارات — بسائقين يعرفون الطرق ويلتزمون بالوقت."
+      },
+      "includes": [
+        { "en": "Staff pick & drop services", "ar": "خدمات توصيل الموظفين ذهاباً وإياباً" },
+        { "en": "Light vehicle drivers", "ar": "سائقو المركبات الخفيفة" },
+        { "en": "Goods and cargo transport runs", "ar": "رحلات نقل البضائع والشحنات" },
+        { "en": "Scheduled daily routes", "ar": "مسارات يومية مجدولة" },
+        { "en": "Event and shuttle transport", "ar": "نقل الفعاليات والرحلات المكوكية" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    {
+      "id": "sea-port-helpers",
+      "intro": {
+        "en": "Port work demands discipline and stamina. Our sea port helpers support cargo operations at UAE ports and terminal yards — loading, lashing, sorting, and moving goods under tight schedules.",
+        "ar": "العمل في الموانئ يتطلب انضباطاً وقدرة على التحمل. يدعم مساعدو الموانئ البحرية لدينا عمليات البضائع في موانئ الإمارات وساحات المحطات — بالتحميل والتثبيت والفرز ونقل البضائع ضمن جداول زمنية دقيقة."
+      },
+      "includes": [
+        { "en": "Container and cargo handling", "ar": "مناولة الحاويات والبضائع" },
+        { "en": "Lashing, unlashing, and securing", "ar": "التثبيت والفك والربط" },
+        { "en": "Cargo sorting and stacking", "ar": "فرز البضائع ورصفها" },
+        { "en": "Yard and warehouse support", "ar": "دعم الساحات والمستودعات" },
+        { "en": "Shift-based port crews", "ar": "طواقم موانئ بنظام الورديات" }
+      ],
+      "availability": {
+        "en": "Available at UAE sea ports and terminal yards, with crews based in Dubai and Sharjah.",
+        "ar": "متوفرة في الموانئ البحرية وساحات المحطات بالإمارات، بطواقم مقرها دبي والشارقة."
+      }
+    },
+    {
+      "id": "general-helpers",
+      "intro": {
+        "en": "Every operation needs dependable extra hands. Our general helpers support warehouses, stores, events, and day-to-day operations across the UAE — flexible workers who take direction and get the job done.",
+        "ar": "كل عملية تحتاج إلى أيادٍ إضافية موثوقة. يدعم مساعدونا العامون المستودعات والمتاجر والفعاليات والعمليات اليومية في جميع أنحاء الإمارات — عمال مرنون يتقبلون التوجيه وينجزون العمل."
+      },
+      "includes": [
+        { "en": "Warehouse helper duties", "ar": "مهام مساعدي المستودعات" },
+        { "en": "Store and stockroom support", "ar": "دعم المتاجر ومخازن العرض" },
+        { "en": "Event and venue assistance", "ar": "المساعدة في الفعاليات وأماكنها" },
+        { "en": "Moving and shifting support", "ar": "دعم النقل والتحريك" },
+        { "en": "General day-labour assignments", "ar": "مهمات العمل اليومي العام" }
+      ],
+      "availability": {
+        "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    }
+  ]
+}

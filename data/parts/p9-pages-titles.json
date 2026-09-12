@@ -1,0 +1,173 @@
+{
+  "servicesPage": {
+    "eyebrow": { "en": "Our Services", "ar": "خدماتنا" },
+    "title": { "en": "Manpower and workforce services across the UAE", "ar": "خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات" },
+    "desc": {
+      "en": "Eleven services, one point of contact — all delivered inside the UAE, by workers who are screened, documented, and paid on time through WPS.",
+      "ar": "إحدى عشرة خدمة ووجهة اتصال واحدة — كلها داخل الإمارات، بعمالة مدققة وموثقة تُصرف أجورها في موعدها عبر نظام حماية الأجور."
+    },
+    "detailIntro": { "en": "What's included", "ar": "ما تشمله الخدمة" },
+    "detailAvailability": { "en": "Availability", "ar": "التوفر" },
+    "summaryTitle": { "en": "Services at a glance", "ar": "خدماتنا في لمحة" },
+    "summaryDesc": {
+      "en": "A quick view of our service categories and the workers we supply in each.",
+      "ar": "نظرة سريعة على فئات الخدمات والعمالة التي نوفرها في كل منها."
+    },
+    "colService": { "en": "Service", "ar": "الخدمة" },
+    "colCategory": { "en": "Category", "ar": "الفئة" },
+    "colWorkers": { "en": "Workers Supplied", "ar": "العمالة الموفرة" }
+  },
+  "requestManpowerPage": {
+    "eyebrow": { "en": "Book Manpower", "ar": "احجز عمالة" },
+    "title": { "en": "Book manpower for your business", "ar": "احجز العمالة لمنشأتك" },
+    "desc": {
+      "en": "Tell us the service, number of workers, location, and dates — our operations desk responds with availability and a clear quotation.",
+      "ar": "أخبرنا بالخدمة وعدد العمال والموقع والتواريخ — وسيرد مكتب العمليات بالتأكيد على التوفر وعرض سعر واضح."
+    },
+    "formHeading": { "en": "Workforce Requirement", "ar": "تفاصيل طلب العمالة" },
+    "requiredNotice": { "en": "Fields marked * are required.", "ar": "الحقول المميزة بعلامة * إلزامية." },
+    "companyLabel": { "en": "Company Name *", "ar": "اسم المنشأة *" },
+    "companyPlaceholder": { "en": "e.g. Your Company Name LLC", "ar": "مثال: اسم شركتك ذ.م.م" },
+    "companyError": { "en": "Please enter your company name.", "ar": "يرجى إدخال اسم المنشأة." },
+    "contactLabel": { "en": "Contact Person *", "ar": "اسم المسؤول *" },
+    "contactPlaceholder": { "en": "Full name", "ar": "الاسم الكامل" },
+    "contactError": { "en": "Please enter a contact name.", "ar": "يرجى إدخال اسم المسؤول." },
+    "emailPhoneLabel": { "en": "Email or Phone *", "ar": "البريد الإلكتروني أو الهاتف *" },
+    "emailPhonePlaceholder": { "en": "you@company.com or +971 5X XXX XXXX", "ar": "you@company.com أو +971 5X XXX XXXX" },
+    "emailPhoneError": { "en": "Please enter an email address or phone number.", "ar": "يرجى إدخال البريد الإلكتروني أو رقم الهاتف." },
+    "whatsappLabel": { "en": "WhatsApp Number (optional)", "ar": "رقم واتساب (اختياري)" },
+    "whatsappPlaceholder": { "en": "+971 5X XXX XXXX", "ar": "+971 5X XXX XXXX" },
+    "tradeLabel": { "en": "Service Required *", "ar": "الخدمة المطلوبة *" },
+    "tradeSelectPlaceholder": { "en": "Select a service", "ar": "اختر الخدمة" },
+    "tradeError": { "en": "Please select a service.", "ar": "يرجى اختيار الخدمة." },
+    "workersLabel": { "en": "Number of Workers", "ar": "عدد العمال" },
+    "workersOption1": { "en": "1 – 5 workers", "ar": "من 1 إلى 5 عمال" },
+    "workersOption2": { "en": "6 – 15 workers", "ar": "من 6 إلى 15 عاملاً" },
+    "workersOption3": { "en": "16 – 30 workers", "ar": "من 16 إلى 30 عاملاً" },
+    "workersOption4": { "en": "31 – 50 workers", "ar": "من 31 إلى 50 عاملاً" },
+    "workersOption5": { "en": "50+ workers", "ar": "أكثر من 50 عاملاً" },
+    "locationLabel": { "en": "Work Location *", "ar": "موقع العمل *" },
+    "locationSelectPlaceholder": { "en": "Select emirate / area", "ar": "اختر الإمارة أو المنطقة" },
+    "locationOptDubai": { "en": "Dubai", "ar": "دبي" },
+    "locationOptSharjah": { "en": "Sharjah & Ajman", "ar": "الشارقة وعجمان" },
+    "locationOptAbuDhabi": { "en": "Abu Dhabi & Al Ain", "ar": "أبوظبي والعين" },
+    "locationOptNorthern": { "en": "RAK & Northern Emirates", "ar": "رأس الخيمة والإمارات الشمالية" },
+    "locationError": { "en": "Please select a work location.", "ar": "يرجى اختيار موقع العمل." },
+    "durationLabel": { "en": "Duration", "ar": "مدة التعاقد" },
+    "durationOpt1": { "en": "One day / one-time", "ar": "يوم واحد / لمرة واحدة" },
+    "durationOpt2": { "en": "Up to 1 week", "ar": "حتى أسبوع" },
+    "durationOpt3": { "en": "1 week – 1 month", "ar": "من أسبوع إلى شهر" },
+    "durationOpt4": { "en": "Long term", "ar": "طويل الأمد" },
+    "scopeLabel": { "en": "Work Scope & Site Details", "ar": "نطاق العمل وتفاصيل الموقع" },
+    "scopePlaceholder": {
+      "en": "e.g. 4 packing staff for our warehouse in Al Quoz, Monday to Friday, 8 AM to 5 PM, starting next month.",
+      "ar": "مثال: 4 عمال تغليف لمستودعنا في القوز، من الاثنين إلى الجمعة، من 8 صباحاً إلى 5 مساءً، بداية من الشهر القادم."
+    },
+    "scopeError": { "en": "Please describe the work scope.", "ar": "يرجى وصف نطاق العمل." },
+    "consentText": {
+      "en": "I agree to be contacted about my requirement.",
+      "ar": "أوافق على أن يتم التواصل معي بشأن طلبي."
+    },
+    "submitBtn": { "en": "Submit Requirement", "ar": "أرسل الطلب" },
+    "directEyebrow": { "en": "Prefer to Talk?", "ar": "تفضل التواصل المباشر؟" },
+    "directTitle": { "en": "Reach our operations desk directly", "ar": "تواصل مع مكتب العمليات مباشرة" },
+    "directDesc": {
+      "en": "Call or WhatsApp us with your requirement — service, workers, location, and dates — and we will confirm availability.",
+      "ar": "اتصل بنا أو راسلنا واتساب بطلبك — الخدمة وعدد العمال والموقع والتواريخ — وسنؤكد التوفر."
+    },
+    "nextEyebrow": { "en": "What Happens Next", "ar": "الخطوات التالية" },
+    "nextTitle": { "en": "After you submit", "ar": "بعد إرسال الطلب" },
+    "step1Num": "01",
+    "step1Title": { "en": "We review your requirement", "ar": "نراجع طلبك" },
+    "step1Desc": { "en": "Our operations desk checks availability for your service, dates, and location.", "ar": "يتحقق مكتب العمليات من توفر الخدمة والتواريخ والموقع." },
+    "step2Num": "02",
+    "step2Title": { "en": "You receive a quotation", "ar": "تستلم عرض السعر" },
+    "step2Desc": { "en": "Rates, terms, and start dates — confirmed in writing.", "ar": "الأسعار والشروط وتواريخ البدء — تأكيداً كتابياً." },
+    "step3Num": "03",
+    "step3Title": { "en": "Your team is deployed", "ar": "نشر فريقك" },
+    "step3Desc": { "en": "Workers arrive briefed and on schedule, with ongoing support from our team.", "ar": "يصل العمال بعد توجيههم وفي الموعد، مع دعم مستمر من فريقنا." }
+  },
+  "faqPage": {
+    "eyebrow": { "en": "Support & Clarifications", "ar": "الدعم والإيضاحات" },
+    "title": { "en": "Frequently Asked Questions", "ar": "الأسئلة الشائعة" },
+    "desc": {
+      "en": "Clear answers on our services, coverage, booking process, worker compliance, and commercial terms — in Dubai and across the UAE.",
+      "ar": "إجابات واضحة حول خدماتنا ونطاق التغطية وآلية الحجز والامتثال والشروط التعاقدية — في دبي وجميع أنحاء الإمارات."
+    },
+    "searchPlaceholder": {
+      "en": "Search questions (e.g. accommodation, drivers, short-term)...",
+      "ar": "ابحث في الأسئلة (مثال: السكن، السائقون، قصير الأجل)..."
+    },
+    "stillQuestions": { "en": "Have a specific question not answered here?", "ar": "هل لديك استفسار محدد لم تجد إجابته هنا؟" },
+    "stillQuestionsDesc": {
+      "en": "Speak directly with our operations desk in Deira or send your requirement.",
+      "ar": "تواصل مباشرة مع مكتب العمليات في ديرة أو أرسل تفاصيل طلبك."
+    }
+  },
+  "pageTitles": {
+    "home": {
+      "en": "Shabab Deira — Manpower Supply & Labour Supply in Dubai, UAE",
+      "ar": "شباب ديرة — توريد العمالة والقوى العاملة في دبي، الإمارات"
+    },
+    "about": {
+      "en": "About Us — Manpower Company in Dubai Since 2012 | Shabab Deira",
+      "ar": "من نحن — شركة عمالة في دبي منذ 2012 | شباب ديرة"
+    },
+    "services": {
+      "en": "Manpower Supply Services in Dubai & UAE — Packing, Loading, Cleaning & More | Shabab Deira",
+      "ar": "خدمات توريد العمالة في دبي والإمارات — تغليف وتحميل ونظافة والمزيد | شباب ديرة"
+    },
+    "industries": {
+      "en": "Industries Served — Logistics, Retail, Manufacturing & Events | Shabab Deira",
+      "ar": "القطاعات التي نخدمها — اللوجستيات والتجزئة والصناعة والفعاليات | شباب ديرة"
+    },
+    "team": {
+      "en": "Our Team — Shabab Deira Manpower, Dubai",
+      "ar": "فريقنا — شباب ديرة للعمالة، دبي"
+    },
+    "group": {
+      "en": "Our Group — Five Companies, One Standard | Shabab Deira",
+      "ar": "مجموعتنا — خمس شركات ومعيار واحد | شباب ديرة"
+    },
+    "groupShipping": {
+      "en": "Shabab Deira Shipping & Cargo Services — Since 2012, Deira Dubai",
+      "ar": "شباب ديرة لخدمات الشحن والبضائع — منذ 2012، ديرة دبي"
+    },
+    "groupContainerLoading": {
+      "en": "Container Loading & Unloading Services in UAE | Shabab Deira Group",
+      "ar": "خدمات تحميل وتنزيل الحاويات في الإمارات | مجموعة شباب ديرة"
+    },
+    "groupCargoPackaging": {
+      "en": "Cargo Packaging Services in UAE | Fun-al-Wasal, Shabab Deira Group",
+      "ar": "خدمات تغليف البضائع في الإمارات | فن الوصل، مجموعة شباب ديرة"
+    },
+    "groupSupplyLabour": {
+      "en": "Contract Container Loading Labour in UAE | Supply Labour, Shabab Deira Group",
+      "ar": "عمالة تحميل الحاويات التعاقدية في الإمارات | سبلاي لابور، مجموعة شباب ديرة"
+    },
+    "groupMultanMount": {
+      "en": "Technical Services in UAE | Multan Mount, Shabab Deira Group",
+      "ar": "الخدمات الفنية في الإمارات | ملتان ماونت، مجموعة شباب ديرة"
+    },
+    "requestManpower": {
+      "en": "Book Manpower — Workforce Request | Shabab Deira Dubai",
+      "ar": "احجز عمالة — طلب القوى العاملة | شباب ديرة دبي"
+    },
+    "faq": {
+      "en": "FAQs — Manpower Supply in Dubai & UAE | Shabab Deira",
+      "ar": "الأسئلة الشائعة — توريد العمالة في دبي والإمارات | شباب ديرة"
+    },
+    "contact": {
+      "en": "Contact Us — Manpower Supply Dubai, Deira | Shabab Deira",
+      "ar": "اتصل بنا — توريد العمالة في ديرة، دبي | شباب ديرة"
+    },
+    "privacy": {
+      "en": "Privacy Policy — Shabab Deira",
+      "ar": "سياسة الخصوصية — شباب ديرة"
+    },
+    "terms": {
+      "en": "Terms — Shabab Deira",
+      "ar": "الشروط والأحكام — شباب ديرة"
+    }
+  }
+}

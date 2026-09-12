@@ -1,0 +1,105 @@
+{
+  "tradesTable": [
+    { "role": { "en": "Packing & Repacking Staff", "ar": "عمال التغليف وإعادة التغليف" }, "cat": { "en": "Packing", "ar": "التغليف" }, "qual": { "en": "Warehouse experienced", "ar": "خبرة في المستودعات" } },
+    { "role": { "en": "Loading & Unloading Crews", "ar": "طواقم التحميل والتنزيل" }, "cat": { "en": "Cargo Handling", "ar": "مناولة البضائع" }, "qual": { "en": "Physically fit, supervised", "ar": "لياقة بدنية وإشراف" } },
+    { "role": { "en": "Delivery Staff", "ar": "موظفو التوصيل" }, "cat": { "en": "Delivery", "ar": "التوصيل" }, "qual": { "en": "Local route knowledge", "ar": "معرفة بالمسارات المحلية" } },
+    { "role": { "en": "Cleaning Staff", "ar": "عمالة النظافة" }, "cat": { "en": "Cleaning", "ar": "النظافة" }, "qual": { "en": "Trained, equipment-ready", "ar": "مدربة وجاهزة بالمعدات" } },
+    { "role": { "en": "Factory Helpers", "ar": "مساعدو المصانع" }, "cat": { "en": "Manufacturing", "ar": "التصنيع" }, "qual": { "en": "Shift-flexible", "ar": "مرونة في الورديات" } },
+    { "role": { "en": "Catering Staff", "ar": "طاقم الكاترينج" }, "cat": { "en": "Catering", "ar": "الكاترينج" }, "qual": { "en": "Kitchen experienced", "ar": "خبرة في المطابخ" } },
+    { "role": { "en": "Event Staff & Setup Crews", "ar": "طاقم الفعاليات والتجهيز" }, "cat": { "en": "Events", "ar": "الفعاليات" }, "qual": { "en": "Briefed per event", "ar": "توجيه حسب كل فعالية" } },
+    { "role": { "en": "Machine Operators", "ar": "مشغلو الماكينات" }, "cat": { "en": "Operations", "ar": "التشغيل" }, "qual": { "en": "Verified licences", "ar": "رخص موثقة" } },
+    { "role": { "en": "Drivers (Pick & Drop)", "ar": "السائقون (توصيل وتنقلات)" }, "cat": { "en": "Transport", "ar": "النقل" }, "qual": { "en": "Valid UAE licence", "ar": "رخصة إماراتية سارية" } },
+    { "role": { "en": "Sea Port Helpers", "ar": "مساعدو الموانئ البحرية" }, "cat": { "en": "Ports", "ar": "الموانئ" }, "qual": { "en": "Port-experienced", "ar": "خبرة في الموانئ" } },
+    { "role": { "en": "General Helpers", "ar": "العمالة العامة والمساعدون" }, "cat": { "en": "General Support", "ar": "الدعم العام" }, "qual": { "en": "Flexible, directed", "ar": "مرنة وقابلة للتوجيه" } }
+  ],
+  "process": [
+    {
+      "step": "01",
+      "title": { "en": "Tell us what you need", "ar": "أخبرنا باحتياجك" },
+      "desc": { "en": "Service, number of workers, location, and dates — by phone, WhatsApp, or the booking form.", "ar": "الخدمة وعدد العمال والموقع والتواريخ — عبر الهاتف أو واتساب أو نموذج الحجز." }
+    },
+    {
+      "step": "02",
+      "title": { "en": "Receive a clear quotation", "ar": "استلم عرض سعر واضحاً" },
+      "desc": { "en": "We confirm availability, rates, and start dates — in writing, with no hidden terms.", "ar": "نؤكد التوفر والأسعار وتواريخ البدء — كتابياً ودون شروط خفية." }
+    },
+    {
+      "step": "03",
+      "title": { "en": "We prepare your team", "ar": "نجهز فريقك" },
+      "desc": { "en": "Workers are selected, briefed on your site and tasks, and documented before deployment.", "ar": "يتم اختيار العمال وتعريفهم بموقعك ومهامهم واستكمال أوراقهم قبل التوجه." }
+    },
+    {
+      "step": "04",
+      "title": { "en": "Deployment & support", "ar": "التشغيل والدعم" },
+      "desc": { "en": "Your team arrives on schedule, with ongoing supervision and a direct line to our operations desk.", "ar": "يصل فريقك في الموعد المحدد، مع إشراف مستمر وخط اتصال مباشر بمكتب العمليات." }
+    }
+  ],
+  "faqs": [
+    {
+      "q": { "en": "What services does Shabab Deira provide?", "ar": "ما الخدمات التي تقدمها شباب ديرة؟" },
+      "a": { "en": "We provide manpower and workforce services across the UAE: packing and repacking, loading and unloading, delivery services, cleaning services, factory helpers, catering services, event management, machine operators, drivers and vehicle services (pick & drop), sea port helpers, and general helpers.", "ar": "نقدم خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات: التغليف وإعادة التغليف، التحميل والتنزيل، خدمات التوصيل، خدمات النظافة، مساعدو المصانع، خدمات الكاترينج، إدارة الفعاليات، مشغلو الماكينات، خدمات السائقين والنقل (توصيل وتنقلات)، مساعدو الموانئ البحرية، والعمالة العامة والمساعدون." }
+    },
+    {
+      "q": { "en": "Where are your services available?", "ar": "أين تتوفر خدماتكم؟" },
+      "a": { "en": "Our services are available inside the UAE only — covering Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates. We do not provide services outside the UAE.", "ar": "خدماتنا متوفرة داخل الإمارات فقط — وتغطي دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية. لا نقدم خدمات خارج الدولة." }
+    },
+    {
+      "q": { "en": "What types of manpower do you supply?", "ar": "ما أنواع العمالة التي توفرها الشركة؟" },
+      "a": { "en": "We supply skilled, semi-skilled, and unskilled manpower — including packers, loading crews, cleaners, factory helpers, catering staff, event staff, machine operators, drivers, port helpers, and general helpers.", "ar": "نوفر عمالة ماهرة وشبه ماهرة وغير ماهرة — تشمل عمال التغليف وطواقم التحميل والنظافة ومساعدي المصانع وطاقم الكاترينج والفعاليات ومشغلي الماكينات والسائقين ومساعدي الموانئ والعمالة العامة." }
+    },
+    {
+      "q": { "en": "Do you provide accommodation for workers?", "ar": "هل توفرون السكن للعمال؟" },
+      "a": { "en": "Only accommodation and relocation support are provided where applicable. What applies to your engagement is confirmed in writing with your quotation.", "ar": "يتم توفير السكن ودعم التنقل حيث ينطبق ذلك فقط. ويتم تأكيد ما ينطبق على تعاقدك كتابياً مع عرض السعر." }
+    },
+    {
+      "q": { "en": "How can I contact you?", "ar": "كيف يمكنني التواصل معكم؟" },
+      "a": { "en": "By phone, WhatsApp, email, or the booking form on this website. Our operations desk in Deira, Dubai responds during working hours, Monday to Saturday, 8 AM to 7 PM.", "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني أو نموذج الحجز في هذا الموقع. مكتب العمليات لدينا في ديرة، دبي يرد خلال ساعات العمل من الاثنين إلى السبت، من 8 صباحاً إلى 7 مساءً." }
+    },
+    {
+      "q": { "en": "How do I book manpower?", "ar": "كيف أحجز العمالة؟" },
+      "a": { "en": "Use the Book Manpower form, or contact us directly by phone or WhatsApp. Share the service you need, number of workers, location, and dates — we respond with availability and a quotation.", "ar": "استخدم نموذج احجز عمالة، أو تواصل معنا مباشرة عبر الهاتف أو واتساب. شاركنا الخدمة المطلوبة وعدد العمال والموقع والتواريخ — وسنرد بالتأكيد على التوفر وعرض السعر." }
+    },
+    {
+      "q": { "en": "Can I request workers for a short-term assignment?", "ar": "هل يمكنني طلب عمالة لمهمة قصيرة الأجل؟" },
+      "a": { "en": "Yes. We supply workers for daily, weekly, monthly, and long-term engagements. Short-term availability depends on the service and location — tell us your dates and we will confirm.", "ar": "نعم. نوفر عمالة لتعاقدات يومية وأسبوعية وشهرية وطويلة الأجل. يعتمد توفر القِصر الأجل على الخدمة والموقع — أخبرنا بالتواريخ وسنؤكد لك." }
+    },
+    {
+      "q": { "en": "Can I request multiple workers at once?", "ar": "هل يمكنني طلب عدة عمال في الوقت نفسه؟" },
+      "a": { "en": "Yes. We deploy individuals, small teams, and large crews — from a single helper to supervised teams of dozens, depending on your requirement.", "ar": "نعم. نوفر أفراداً وفرقاً صغيرة وطواقم كبيرة — من مساعد واحد إلى فرق مُشرفة تضم عشرات العمال حسب احتياجك." }
+    },
+    {
+      "q": { "en": "Do you provide delivery and driver services?", "ar": "هل تقدمون خدمات التوصيل والسائقين؟" },
+      "a": { "en": "Yes. We supply delivery staff and drivers for pick & drop, staff transport, and goods movement — with drivers holding valid UAE licences.", "ar": "نعم. نوفر موظفي توصيل وسائقين لخدمات التوصيل والتتنقلات ونقل الموظفين وتحريك البضائع — بسائقين يحملون رخصاً إماراتية سارية." }
+    },
+    {
+      "q": { "en": "Can you supply workers for packing and loading?", "ar": "هل يمكنكم توفير عمال للتغليف والتحميل؟" },
+      "a": { "en": "Yes — packing, repacking, loading, and unloading are among our core services. Our crews work with containers, trucks, and warehouse bays across the UAE.", "ar": "نعم — التغليف وإعادة التغليف والتحميل والتنزيل من خدماتنا الأساسية. تعمل طواقمنا مع الحاويات والشاحنات ومواقع المستودعات في جميع أنحاء الإمارات." }
+    },
+    {
+      "q": { "en": "Can I hire cleaners or general helpers?", "ar": "هل يمكنني تعيين عمال نظافة أو مساعدين عامين؟" },
+      "a": { "en": "Yes. Cleaning staff and general helpers are available for offices, warehouses, stores, events, and daily operations — on regular schedules or one-time assignments.", "ar": "نعم. عمالة النظافة والمساعدون العامون متاحون للمكاتب والمستودعات والمتاجر والفعاليات والعمليات اليومية — بجداول منتظمة أو لمرة واحدة." }
+    },
+    {
+      "q": { "en": "Are your workers legally compliant?", "ar": "هل عمالتكم متوافقة مع القوانين؟" },
+      "a": { "en": "Yes. All workers are documented, medically fit, and paid on time through the Wage Protection System (WPS), in line with UAE labour law and MOHRE requirements.", "ar": "نعم. جميع العمال موثقون ولا يمرون بفحوصات طبية لائقة، وتُصرف أجورهم في مواعيدها عبر نظام حماية الأجور (WPS) بما يتوافق مع قانون العمل الإماراتي ومتطلبات وزارة الموارد البشرية." }
+    },
+    {
+      "q": { "en": "How quickly can workers be deployed?", "ar": "كم يستغرق توفير العمال؟" },
+      "a": { "en": "It depends on the service, number of workers, and location. Many requirements can be met within days — contact our operations desk with your dates and we will confirm realistically.", "ar": "يعتمد ذلك على الخدمة وعدد العمال والموقع. يمكن تلبية العديد من الطلبات خلال أيام — تواصل مع مكتب العمليات بتواريخك وسنؤكد لك بواقعية." }
+    },
+    {
+      "q": { "en": "What if a worker is not suitable?", "ar": "ماذا لو لم يكن العامل مناسباً؟" },
+      "a": { "en": "Tell us. If a deployed worker does not meet the agreed requirement, we work with you to arrange a suitable replacement as quickly as possible.", "ar": "أخبرنا. إذا لم يستوفِ العامل المتطلبات المتفق عليها، نتعاون معك لترتيب بديل مناسب في أسرع وقت ممكن." }
+    }
+  ],
+  "partners": [
+    { "name": { "en": "Partner Name 01", "ar": "اسم الشريك 01" } },
+    { "name": { "en": "Partner Name 02", "ar": "اسم الشريك 02" } },
+    { "name": { "en": "Partner Name 03", "ar": "اسم الشريك 03" } },
+    { "name": { "en": "Partner Name 04", "ar": "اسم الشريك 04" } },
+    { "name": { "en": "Partner Name 05", "ar": "اسم الشريك 05" } },
+    { "name": { "en": "Partner Name 06", "ar": "اسم الشريك 06" } },
+    { "name": { "en": "Partner Name 07", "ar": "اسم الشريك 07" } },
+    { "name": { "en": "Partner Name 08", "ar": "اسم الشريك 08" } }
+  ]
+}

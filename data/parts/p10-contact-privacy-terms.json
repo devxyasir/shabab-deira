@@ -1,0 +1,101 @@
+{
+  "contactPage": {
+    "eyebrow": { "en": "Get in Touch", "ar": "تواصل معنا" },
+    "title": { "en": "Contact Shabab Deira Operations", "ar": "التواصل مع مكتب عمليات شباب ديرة" },
+    "desc": {
+      "en": "Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, email — or use the booking form.",
+      "ar": "تواصل مباشر مع فريق العمليات في ديرة، دبي عبر الهاتف أو واتساب أو البريد الإلكتروني — أو من خلال نموذج الحجز."
+    },
+    "locationCardTitle": { "en": "Our Office", "ar": "مقرنا" },
+    "phoneCardTitle": { "en": "Direct Phone", "ar": "الاتصال الهاتفي المباشر" },
+    "whatsappCardTitle": { "en": "WhatsApp Operations", "ar": "واتساب العمليات" },
+    "emailCardTitle": { "en": "Email Inquiries", "ar": "المراسلات الإلكترونية" },
+    "hoursCardTitle": { "en": "Working Hours", "ar": "ساعات العمل" },
+    "formTitle": { "en": "Send a General Inquiry", "ar": "إرسال استفسار عام" },
+    "formDesc": {
+      "en": "To book workers, please use the Book Manpower form. For all general inquiries, reach us below.",
+      "ar": "لحجز العمالة يرجى استخدام نموذج احجز عمالة. ولكل الاستفسارات العامة تواصل معنا عبر النموذج التالي."
+    },
+    "nameLabel": { "en": "Your Full Name", "ar": "الاسم الكامل" },
+    "namePlaceholder": { "en": "Full name", "ar": "الاسم الكامل" },
+    "emailLabel": { "en": "Email Address", "ar": "البريد الإلكتروني" },
+    "emailPlaceholder": { "en": "name@company.ae", "ar": "name@company.ae" },
+    "phoneLabel": { "en": "Phone Number", "ar": "رقم الهاتف" },
+    "phonePlaceholder": { "en": "+971 50 ...", "ar": "‎+971 50 ..." },
+    "subjectLabel": { "en": "Subject / Nature of Inquiry", "ar": "الموضوع / طبيعة الاستفسار" },
+    "subjectPlaceholder": {
+      "en": "e.g. Long-term workforce partnership",
+      "ar": "مثال: شراكة عمالة طويلة الأمد"
+    },
+    "messageLabel": { "en": "Message", "ar": "نص الرسالة" },
+    "messagePlaceholder": { "en": "Write your message here...", "ar": "اكتب تفاصيل استفسارك هنا..." },
+    "sendBtn": { "en": "Send Message", "ar": "إرسال الرسالة" },
+    "mapTitle": { "en": "Central Location in Deira", "ar": "موقع استراتيجي في قلب ديرة" },
+    "mapDesc": {
+      "en": "Easily accessible from Al Ittihad Road, minutes from Dubai Creek and Port Rashid — with rapid connectivity across the Emirates.",
+      "ar": "موقع يسهل الوصول إليه من شارع الاتحاد، على دقائق من خور دبي وميناء راشد — مع اتصال سريع بجميع أنحاء الإمارات."
+    },
+    "tenderSubtext": { "en": "Tender documents & inquiries", "ar": "المناقصات والاستفسارات المؤسسية" },
+    "nameError": { "en": "Please enter your name.", "ar": "يرجى إدخال اسمك." },
+    "companyError": { "en": "Please enter your company name.", "ar": "يرجى إدخال اسم المنشأة." },
+    "emailError": { "en": "Please enter a valid email address.", "ar": "يرجى إدخال بريد إلكتروني صحيح." },
+    "phoneError": { "en": "Please enter a valid phone number.", "ar": "يرجى إدخال رقم هاتف صحيح." },
+    "messageError": { "en": "Please enter your message.", "ar": "يرجى كتابة رسالتك." }
+  },
+  "privacyPage": {
+    "eyebrow": { "en": "Legal & Privacy", "ar": "الخصوصية والبيانات" },
+    "title": { "en": "Privacy Policy", "ar": "سياسة الخصوصية" },
+    "desc": {
+      "en": "How Shabab Deira collects, uses, and protects business and personal data in accordance with UAE Personal Data Protection Law (Federal Decree-Law No. 45/2021).",
+      "ar": "كيفية جمع واستخدام وحماية البيانات الشخصية وبيانات الشركات وفقاً للمرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية في دولة الإمارات."
+    },
+    "sec1Title": { "en": "1. Information Collected", "ar": "١. البيانات والمعلومات التي نجمعها" },
+    "sec1Text": {
+      "en": "Shabab Deira Shipping & Cargo Services collects information submitted voluntarily by business representatives when booking manpower or contacting our operations desk. This includes company name, contact person, email address, phone numbers, service requirements, and site location details.",
+      "ar": "تجمع شباب ديرة لخدمات الشحن والبضائع المعلومات المقدمة طواعية من ممثلي المنشآت عند حجز العمالة أو التواصل مع مكتب العمليات، ويشمل ذلك اسم المنشأة، اسم المسؤول، البريد الإلكتروني، أرقام الهواتف، الخدمات المطلوبة، وتفاصيل موقع العمل."
+    },
+    "sec2Title": { "en": "2. Use of Information", "ar": "٢. أوجه استخدام المعلومات" },
+    "sec2Text": {
+      "en": "Information provided is utilized solely to review workforce requirements, prepare commercial quotations, communicate operational updates, and fulfill regulatory obligations under UAE labour laws and MOHRE requirements.",
+      "ar": "تُستخدم البيانات المقدمة حصراً لمراجعة احتياجات العمالة، إعداد عروض الأسعار التجارية، التنسيق التشغيلي، والوفاء بالالتزامات النظامية لقوانين العمل بالدولة ومتطلبات وزارة الموارد البشرية والتوطين."
+    },
+    "sec3Title": { "en": "3. Data Protection & Confidentiality", "ar": "٣. حماية وسرية البيانات" },
+    "sec3Text": {
+      "en": "We implement appropriate technical and administrative safeguards to protect client and candidate data. We do not sell, rent, or distribute contact records to third-party commercial marketing platforms.",
+      "ar": "نطبق تدابير تقنية وإدارية محكمة لضمان سرية وأمان بيانات العملاء والعمال، ونلتزم بعدم بيع أو تأجير أو مشاركة أية بيانات مع منصات تسويقية خارجية."
+    },
+    "sec4Title": { "en": "4. Inquiries & Data Rights", "ar": "٤. حقوق البيانات والتواصل" },
+    "sec4Text": {
+      "en": "To update or request the removal of your contact information, please email our compliance desk at inquiries@shababdeira.ae.",
+      "ar": "لتحديث بيانات الاتصال الخاصة بكم أو طلب حذفها، يرجى التواصل مع مكتب الامتثال عبر البريد الإلكتروني: inquiries@shababdeira.ae."
+    }
+  },
+  "termsPage": {
+    "eyebrow": { "en": "Commercial Terms", "ar": "الشروط والأحكام التعاقدية" },
+    "title": { "en": "Terms of Engagement", "ar": "شروط وأحكام التعامل" },
+    "desc": {
+      "en": "Commercial conditions governing website use, requirement submissions, and initial supply quotations in the UAE.",
+      "ar": "الضوابط والشروط التجارية المنظمة لاستخدام الموقع الإلكتروني، تقديم الطلبات، وعروض الأسعار في دولة الإمارات."
+    },
+    "sec1Title": { "en": "1. Operational Scope", "ar": "١. النطاق التشغيلي" },
+    "sec1Text": {
+      "en": "Shabab Deira Shipping & Cargo Services is a UAE manpower and workforce services company based in Deira, Dubai, providing services inside the UAE only. Submissions through this website represent inquiries for workforce availability and quotation; they do not constitute a binding supply agreement until a formal agreement is executed between both parties.",
+      "ar": "شباب ديرة لخدمات الشحن والبضائع شركة إماراتية لخدمات العمالة والقوى العاملة مقرها ديرة، دبي، وتقدم خدماتها داخل الإمارات فقط. تمثل الطلبات المرسلة عبر هذا الموقع استفسارات لطلب عروض الأسعار وجاهزية التوريد، ولا تعتبر عقداً ملزماً إلا بعد توقيع اتفاقية رسمية بين الطرفين."
+    },
+    "sec2Title": { "en": "2. Quotations & Rate Validity", "ar": "٢. عروض الأسعار وسريانها" },
+    "sec2Text": {
+      "en": "Standard quotations provided by our operations desk remain valid for thirty (30) days from issuance unless otherwise specified in writing. Rate schedules reflect service category, worker numbers, shift durations, and site requirements.",
+      "ar": "تسري عروض الأسعار الصادرة من مكتب العمليات لمدة ثلاثين (30) يوماً من تاريخ إصدارها ما لم يُنص على خلاف ذلك كتابةً. وتُحدد الأسعار وفقاً لفئة الخدمة وعدد العمال وساعات العمل واشتراطات الموقع."
+    },
+    "sec3Title": { "en": "3. Regulatory Compliance", "ar": "٣. الامتثال لقوانين العمل الإماراتية" },
+    "sec3Text": {
+      "en": "All workforce engagements are conducted in strict compliance with UAE Federal Decree-Law No. 33 of 2021 regarding the Regulation of Labour Relations and all associated ministerial decrees. Shabab Deira maintains responsibility for visa sponsorship, medical insurance, and WPS salary disbursement for its employed workers.",
+      "ar": "تخضع كافة تعاقدات التوريد لأحكام المرسوم بقانون اتحادي رقم 33 لسنة 2021 بشأن تنظيم علاقات العمل والقرارات الوزارية المنفذة له. وتتحمل شباب ديرة المسؤولية عن كفالة الإقامات والتأمين الصحي وصرف الأجور عبر نظام حماية الأجور (WPS) لعمالها."
+    },
+    "sec4Title": { "en": "4. Site Safety Obligations", "ar": "٤. التزامات السلامة المهنية بالموقع" },
+    "sec4Text": {
+      "en": "Clients are responsible for providing a safe working environment, conducting necessary site inductions, and complying with UAE occupational safety standards.",
+      "ar": "يلتزم العميل بتوفير بيئة عمل آمنة ومطابقة لمعايير السلامة المهنية في دولة الإمارات، وإجراء التدريب التعريفي بالموقع قبل بدء العمل."
+    }
+  }
+}

@@ -1,0 +1,3416 @@
+/**
+ * Shabab Deira - Internationalization & Dynamic Data Hydration Engine
+ * Supports bilingual switching (English / Arabic), full RTL layout,
+ * and JSON-driven dynamic component rendering with offline/file:// fallback.
+ */
+
+(function (window) {
+  'use strict';
+
+  var currentLang = localStorage.getItem('shabab_lang') || 'en';
+  var siteData = null;
+
+  // Complete embedded baseline fallback to ensure flawless instant execution under file:// or offline environments
+var fallbackData = {
+    "company": {
+      "name": {
+        "en": "Shabab Deira",
+        "ar": "شباب ديرة"
+      },
+      "tagline": {
+        "en": "Your Workforce Partner",
+        "ar": "شريكك في القوى العاملة"
+      },
+      "fullName": {
+        "en": "Shabab Deira Shipping & Cargo Services",
+        "ar": "شباب ديرة لخدمات الشحن والبضائع"
+      },
+      "phone": "+971 4 234 5678",
+      "phoneTel": "+97142345678",
+      "whatsapp": "+971 50 123 4567",
+      "whatsappNum": "971500000000",
+      "email": "inquiries@shababdeira.ae",
+      "address": {
+        "en": "Al Ittihad Road, Deira, Dubai, UAE",
+        "ar": "شارع الاتحاد، ديرة، دبي، الإمارات العربية المتحدة"
+      },
+      "locationShort": {
+        "en": "Deira, Dubai, UAE",
+        "ar": "ديرة، دبي، الإمارات"
+      },
+      "hours": {
+        "en": "Mon – Sat: 8 AM – 7 PM",
+        "ar": "الاثنين – السبت: ٨ صباحاً – ٧ مساءً"
+      },
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai",
+      "siteUrl": "https://shababdeira.ae",
+      "founded": "2012",
+      "founder": {
+        "en": "Zubair Khan",
+        "ar": "زبير خان"
+      },
+      "copyright": {
+        "en": "© 2026 Shabab Deira Shipping & Cargo Services. Registered in Dubai, UAE.",
+        "ar": "© 2026 شباب ديرة لخدمات الشحن والبضائع. مسجلة في دبي، الإمارات العربية المتحدة."
+      }
+    },
+    "nav": {
+      "home": {
+        "en": "Home",
+        "ar": "الرئيسية"
+      },
+      "about": {
+        "en": "About",
+        "ar": "من نحن"
+      },
+      "services": {
+        "en": "Services",
+        "ar": "خدماتنا"
+      },
+      "industries": {
+        "en": "Industries",
+        "ar": "القطاعات"
+      },
+      "whyUs": {
+        "en": "Why Us",
+        "ar": "لماذا نحن"
+      },
+      "team": {
+        "en": "Our Team",
+        "ar": "فريقنا"
+      },
+      "group": {
+        "en": "Our Group",
+        "ar": "مجموعتنا"
+      },
+      "faq": {
+        "en": "FAQ",
+        "ar": "الأسئلة الشائعة"
+      },
+      "contact": {
+        "en": "Contact",
+        "ar": "اتصل بنا"
+      },
+      "requestManpower": {
+        "en": "Book Manpower",
+        "ar": "احجز عمالة"
+      },
+      "getQuote": {
+        "en": "Get a Quote",
+        "ar": "طلب تسعيرة"
+      }
+    },
+    "common": {
+      "call": {
+        "en": "Call",
+        "ar": "اتصل"
+      },
+      "callUs": {
+        "en": "Call Us",
+        "ar": "اتصل بنا"
+      },
+      "whatsapp": {
+        "en": "WhatsApp",
+        "ar": "واتساب"
+      },
+      "whatsappUs": {
+        "en": "WhatsApp Us",
+        "ar": "راسلنا واتساب"
+      },
+      "submitBrief": {
+        "en": "Submit Requirement",
+        "ar": "أرسل طلبك"
+      },
+      "contactOperations": {
+        "en": "Contact Operations",
+        "ar": "تواصل مع العمليات"
+      },
+      "viewAllServices": {
+        "en": "View All 11 Services",
+        "ar": "عرض جميع الخدمات الإحدى عشرة"
+      },
+      "quickLinksHeading": {
+        "en": "Quick Links",
+        "ar": "روابط سريعة"
+      },
+      "exploreAllIndustries": {
+        "en": "Explore All Industries",
+        "ar": "استكشف جميع القطاعات"
+      },
+      "viewAllFaqs": {
+        "en": "View All FAQs",
+        "ar": "عرض جميع الأسئلة"
+      },
+      "privacy": {
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "terms": {
+        "en": "Terms",
+        "ar": "الشروط والأحكام"
+      },
+      "navigationHeading": {
+        "en": "Navigation",
+        "ar": "التنقل"
+      },
+      "servicesHeading": {
+        "en": "Our Services",
+        "ar": "خدماتنا"
+      },
+      "contactHeading": {
+        "en": "Contact",
+        "ar": "بيانات التواصل"
+      },
+      "bookManpower": {
+        "en": "Book Manpower",
+        "ar": "احجز عمالة"
+      },
+      "getQuote": {
+        "en": "Get a Free Quote",
+        "ar": "احصل على عرض سعر مجاني"
+      },
+      "learnMore": {
+        "en": "Learn More",
+        "ar": "اعرف المزيد"
+      },
+      "meetTheTeam": {
+        "en": "Meet the Team",
+        "ar": "تعرّف على الفريق"
+      },
+      "exploreGroup": {
+        "en": "Explore the Group",
+        "ar": "استكشف المجموعة"
+      },
+      "whatsIncluded": {
+        "en": "What's included",
+        "ar": "ما تشمله الخدمة"
+      },
+      "footerDesc": {
+        "en": "Manpower and workforce services across the UAE — from packing and loading to cleaning, catering, drivers, and general helpers. Serving businesses in Dubai and all emirates since 2012.",
+        "ar": "خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات — من التغليف والتحميل إلى النظافة والكاترينج والسائقين والعمالة العامة. نخدم المنشآت في دبي وجميع الإمارات منذ عام 2012."
+      },
+      "ctaBandTitle": {
+        "en": "Ready to book manpower?",
+        "ar": "هل أنت جاهز لحجز العمالة؟"
+      },
+      "ctaBandDesc": {
+        "en": "Tell us what you need — service, number of workers, location, and dates — and our team in Deira will respond with availability and a clear quotation.",
+        "ar": "أخبرنا باحتياجك — الخدمة وعدد العمال والموقع والتواريخ — وسيرد فريقنا في ديرة بالتأكيد على التوفر وعرض سعر واضح."
+      },
+      "needWorkersSpecific": {
+        "en": "Need workers for your business?",
+        "ar": "هل تحتاج عمالة لمنشأتك؟"
+      },
+      "needWorkersDesc": {
+        "en": "Describe your requirement and we will confirm availability, rates, and start dates.",
+        "ar": "صف احتياجك وسنؤكد لك التوفر والأسعار وتواريخ البدء."
+      },
+      "returnHome": {
+        "en": "Return Home",
+        "ar": "العودة للرئيسية"
+      }
+    },
+    "home": {
+      "eyebrow": {
+        "en": "Manpower Supply — Dubai, UAE",
+        "ar": "توريد العمالة — دبي، الإمارات"
+      },
+      "heroTitle": {
+        "en": "Workforce you can rely on, compliant from day one",
+        "ar": "قوى عاملة يعتمد عليها، متوافقة نظامياً من اليوم الأول"
+      },
+      "heroDesc": {
+        "en": "We provide trusted, skilled and flexible manpower solutions for businesses across the UAE. From industrial to corporate sectors — we help you build high-performing teams, fast.",
+        "ar": "نقدم حلول قوى عاملة موثوقة وماهرة ومرنة للشركات في جميع أنحاء الإمارات. من القطاعات الصناعية إلى المؤسسية — نساعدك على بناء فرق عمل عالية الأداء بسرعة."
+      },
+      "trust1": {
+        "en": "MOHRE & WPS Compliant",
+        "ar": "مطابقة لوزارة الموارد البشرية وحماية الأجور"
+      },
+      "trust2": {
+        "en": "Trade-Tested Workers",
+        "ar": "عمالة مختبرة ومؤهلة"
+      },
+      "trust3": {
+        "en": "Dubai-Based Operations",
+        "ar": "عمليات مركزية في دبي"
+      },
+      "heroEyebrow": {
+        "en": "SKILLED PEOPLE. STRONGER BUSINESSES.",
+        "ar": "كوادر ماهرة. أعمال أقوى."
+      },
+      "heroChip1": {
+        "en": "10+ Years Experience",
+        "ar": "خبرة لأكثر من 10 سنوات"
+      },
+      "heroChip2": {
+        "en": "UAE Wide Coverage",
+        "ar": "تغطية في كافة الإمارات"
+      },
+      "heroChip3": {
+        "en": "Ready to Deploy",
+        "ar": "جاهزية فورية للتشغيل"
+      },
+      "trustedBadge": {
+        "en": "Trusted Workforce Across UAE",
+        "ar": "قوى عاملة موثوقة في كافة الإمارات"
+      },
+      "stat1Value": {
+        "en": "2012",
+        "ar": "2012"
+      },
+      "stat1Label": {
+        "en": "Established in Dubai",
+        "ar": "تأسست في دبي"
+      },
+      "stat2Value": {
+        "en": "11",
+        "ar": "11"
+      },
+      "stat2Label": {
+        "en": "Core Service Categories",
+        "ar": "خدمات أساسية"
+      },
+      "stat3Value": {
+        "en": "5",
+        "ar": "5"
+      },
+      "stat3Label": {
+        "en": "Companies Under One Group",
+        "ar": "شركات تحت مجموعة واحدة"
+      },
+      "stat4Label": {
+        "en": "MOHRE & WPS Compliant",
+        "ar": "مطابقة لوزارة الموارد البشرية وحماية الأجور"
+      },
+      "cred1": {
+        "en": "Established 2012 in Deira, Dubai",
+        "ar": "تأسست عام 2012 في ديرة، دبي"
+      },
+      "cred2": {
+        "en": "MOHRE-registered operations",
+        "ar": "عمليات مسجلة لدى وزارة الموارد البشرية"
+      },
+      "cred3": {
+        "en": "WPS salary protection",
+        "ar": "حماية الأجور عبر نظام حماية الأجور"
+      },
+      "cred4": {
+        "en": "Services across the UAE",
+        "ar": "خدمات في جميع أنحاء الإمارات"
+      },
+      "servicesEyebrow": {
+        "en": "Our Services",
+        "ar": "خدماتنا"
+      },
+      "servicesTitle": {
+        "en": "Manpower services for every operation",
+        "ar": "خدمات عمالة لكل عمليات منشأتك"
+      },
+      "servicesDesc": {
+        "en": "Eleven workforce services, delivered inside the UAE — one point of contact for every stage of your operation.",
+        "ar": "إحدى عشرة خدمة عمالية داخل الإمارات — جهة اتصال واحدة تغطي كل مراحل عملك."
+      },
+      "industriesEyebrow": {
+        "en": "Industries We Serve",
+        "ar": "القطاعات التي نخدمها"
+      },
+      "industriesTitle": {
+        "en": "Workforce behind the sectors that keep the UAE moving",
+        "ar": "قوى عاملة خلف القطاعات التي تبقي الإمارات في حركة دائمة"
+      },
+      "industriesDesc": {
+        "en": "From warehouses and ports to factories, hotels, and event venues — our teams support the operations behind daily life across the Emirates.",
+        "ar": "من المستودعات والموانئ إلى المصانع والفنادق وأماكن الفعاليات — تدعم فرقنا العمليات التي تقف خلف الحياة اليومية في الإمارات."
+      },
+      "partnersEyebrow": {
+        "en": "Our Partners",
+        "ar": "شركاؤنا"
+      },
+      "partnersTitle": {
+        "en": "Businesses we work with",
+        "ar": "منشآت نعمل معها"
+      },
+      "partnersDesc": {
+        "en": "We support a growing network of clients and partners across logistics, retail, manufacturing, and events in the UAE.",
+        "ar": "ندعم شبكة متنامية من العملاء والشركاء في قطاعات اللوجستيات والتجزئة والصناعة والفعاليات بالإمارات."
+      },
+      "groupEyebrow": {
+        "en": "Our Group",
+        "ar": "مجموعتنا"
+      },
+      "groupTitle": {
+        "en": "One group, complete coverage",
+        "ar": "مجموعة واحدة، تغطية متكاملة"
+      },
+      "groupDesc": {
+        "en": "Shabab Deira is part of a group of five specialised companies serving cargo handling, packaging, technical services, and workforce supply across the UAE.",
+        "ar": "شباب ديرة جزء من مجموعة تضم خمس شركات متخصصة تخدم مناولة البضائع والتغليف والخدمات الفنية وتوريد العمالة في جميع أنحاء الإمارات."
+      },
+      "processEyebrow": {
+        "en": "How It Works",
+        "ar": "كيف نعمل"
+      },
+      "processTitle": {
+        "en": "Booking manpower in four steps",
+        "ar": "احجز العمالة في أربع خطوات"
+      },
+      "processDesc": {
+        "en": "A simple, transparent process — from your first call to a team on the ground.",
+        "ar": "عملية بسيطة وواضحة — من أول اتصال إلى فريق جاهز في الموقع."
+      },
+      "whyEyebrow": {
+        "en": "Why Shabab Deira",
+        "ar": "لماذا شباب ديرة"
+      },
+      "whyTitle": {
+        "en": "A workforce partner you can rely on",
+        "ar": "شريك عمالة يمكنك الاعتماد عليه"
+      },
+      "whyDesc": {
+        "en": "Businesses across the UAE work with us because the basics are never in question.",
+        "ar": "تعمل معنا المنشآت في مختلف الإمارات لأن الأساسيات لدينا محل ثقة دائماً."
+      },
+      "why1Title": {
+        "en": "Experience since 2012",
+        "ar": "خبرة منذ عام 2012"
+      },
+      "why1Desc": {
+        "en": "More than a decade of supplying workers to businesses across Dubai and the UAE — the same team, the same standards.",
+        "ar": "أكثر من عقد من توريد العمالة للمنشآت في دبي والإمارات — الفريق نفسه والمعايير نفسها."
+      },
+      "why2Title": {
+        "en": "Workers you can rely on",
+        "ar": "عمالة يمكن الاعتماد عليها"
+      },
+      "why2Desc": {
+        "en": "Every worker is screened and documented, paid on time through WPS, and supported end to end on our side.",
+        "ar": "كل عامل مدقق وموثق، ويُصرف راتبه في موعده عبر نظام حماية الأجور، مع دعم متكامل من جهتنا."
+      },
+      "why3Title": {
+        "en": "One group, complete coverage",
+        "ar": "مجموعة واحدة، تغطية كاملة"
+      },
+      "why3Desc": {
+        "en": "Five group companies cover cargo handling, packaging, technical services, and manpower — one point of contact for all of it.",
+        "ar": "خمس شركات في المجموعة تغطي مناولة البضائع والتغليف والخدمات الفنية والعمالة — وجهة اتصال واحدة للجميع."
+      },
+      "servicesCardTitle": {
+        "en": "Skilled People For A Stronger Tomorrow",
+        "ar": "كوادر ماهرة لغدٍ أقوى وأكثر استدامة"
+      },
+      "whyChooseTitle": {
+        "en": "Businesses work with us because we deliver more",
+        "ar": "الشركات تختارنا لأننا نقدّم أكثر دائماً"
+      },
+      "whyQuote": {
+        "en": "“Their team is professional, reliable and always ready to support our operations.”",
+        "ar": "“فريقهم محترف وموثوق ومستعد دائماً لدعم كافة عملياتنا التشغيلية.”"
+      },
+      "whyAuthor": {
+        "en": "Operations Manager, Logistics Company, Dubai",
+        "ar": "مدير العمليات، شركة لوجستية، دبي"
+      },
+      "whyCard1Title": {
+        "en": "Skilled & Trained Staff",
+        "ar": "كوادر مدربة ومؤهلة"
+      },
+      "whyCard1Desc": {
+        "en": "Well-prepared for your industry and work environment.",
+        "ar": "مستعدون تماماً لبيئة عملك ومتطلبات قطاعك."
+      },
+      "whyCard2Title": {
+        "en": "Flexible Hiring Solutions",
+        "ar": "حلول توظيف مرنة"
+      },
+      "whyCard2Desc": {
+        "en": "Temporary, permanent or project-based staffing.",
+        "ar": "عمالة مؤقتة أو دائمة أو حسب مدة المشروع."
+      },
+      "whyCard3Title": {
+        "en": "Compliant & Verified",
+        "ar": "مطابقة وتوثيق قانوني كامل"
+      },
+      "whyCard3Desc": {
+        "en": "As per UAE labor laws and proper documentation.",
+        "ar": "وفق قوانين العمل الإماراتية والتوثيق الرسمي التام."
+      },
+      "whyCard4Title": {
+        "en": "Dedicated Support",
+        "ar": "دعم متواصل ومخصص"
+      },
+      "whyCard4Desc": {
+        "en": "We stay with you, before, during and after deployment.",
+        "ar": "نبقى إلى جانبك قبل التشغيل وخلاله وبعده."
+      },
+      "processCardBadge": {
+        "en": "Fast, Reliable, Professional.",
+        "ar": "سرعة، موثوقية، واحترافية."
+      },
+      "processCardTitle": {
+        "en": "Long - Term Partnership",
+        "ar": "شراكة طويلة الأمد"
+      },
+      "processCardDesc": {
+        "en": "We grow together with your business.",
+        "ar": "نكبر ونتطور جنباً إلى جنب مع أعمالك."
+      },
+      "testimonialsEyebrow": {
+        "en": "TESTIMONIALS",
+        "ar": "آراء العملاء"
+      },
+      "testimonialsTitle": {
+        "en": "What our clients say",
+        "ar": "ماذا يقول عملاؤنا عنا"
+      },
+      "testimonialsDesc": {
+        "en": "We build long-term relationships with our clients. Here's what they have to say about working with us.",
+        "ar": "نبني علاقات طويلة الأمد مع شركائنا. إليك ما يقولونه عن تجربتهم معنا."
+      },
+      "t1Quote": {
+        "en": "Shabab Manpower has been a reliable partner for our logistics operations. The staff are well-trained and always professional.",
+        "ar": "كانت شباب ديرة شريكاً موثوقاً لعملياتنا اللوجستية. الكوادر مدربة وتعمل باحترافية عالية دائماً."
+      },
+      "t1Author": {
+        "en": "Operations Manager",
+        "ar": "مدير العمليات"
+      },
+      "t1Company": {
+        "en": "Logistics Company, Dubai",
+        "ar": "شركة لوجستية، دبي"
+      },
+      "t2Quote": {
+        "en": "We've used their services for both warehouse and cleaning staff. The team is responsive, efficient and easy to work with.",
+        "ar": "استعنا بخدماتهم لعمال المستودعات والنظافة. الفريق سريع الاستجابة وعالي الكفاءة."
+      },
+      "t2Author": {
+        "en": "Facility Manager",
+        "ar": "مدير المرافق"
+      },
+      "t2Company": {
+        "en": "UAE",
+        "ar": "الإمارات"
+      },
+      "t3Quote": {
+        "en": "Great support and quick deployment. They understand our needs and deliver exactly what we require.",
+        "ar": "دعم استثنائي وسرعة في نشر الكوادر. يفهمون احتياجاتنا بدقة وينفذون المطلوب على أكمل وجه."
+      },
+      "t3Author": {
+        "en": "HR Manager",
+        "ar": "مدير الموارد البشرية"
+      },
+      "t3Company": {
+        "en": "Retail Company, Abu Dhabi",
+        "ar": "شركة تجزئة، أبوظبي"
+      },
+      "ctaBadge": {
+        "en": "Your Workforce Partner in UAE",
+        "ar": "شريكك العمالي الموثوق في الإمارات"
+      },
+      "faqEyebrow": {
+        "en": "FAQ",
+        "ar": "الأسئلة الشائعة"
+      },
+      "faqTitle": {
+        "en": "Answers to common questions",
+        "ar": "إجابات على الأسئلة الشائعة"
+      },
+      "faqPreview1Q": {
+        "en": "What services does Shabab Deira provide?",
+        "ar": "ما الخدمات التي تقدمها شباب ديرة؟"
+      },
+      "faqPreview1A": {
+        "en": "Eleven workforce categories — packing, loading, delivery, cleaning, catering, events, machine operation, driving, port work, and general labour.",
+        "ar": "إحدى عشرة فئة من خدمات القوى العاملة — التغليف والتحميل والتوصيل والتنظيف والتموين والفعاليات وتشغيل المعدات والقيادة وأعمال الموانئ والعمالة العامة."
+      },
+      "faqPreview2Q": {
+        "en": "Where are your services available?",
+        "ar": "أين تتوفر خدماتكم؟"
+      },
+      "faqPreview2A": {
+        "en": "Inside the UAE only — across Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+        "ar": "داخل الإمارات فقط — في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+      }
+    },
+    "services": [
+      {
+        "id": "packing-repacking",
+        "icon": "package",
+        "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Worker packing boxes in a warehouse",
+          "ar": "عامل يغلف الصناديق داخل مستودع"
+        },
+        "title": {
+          "en": "Packing & Repacking",
+          "ar": "التغليف وإعادة التغليف"
+        },
+        "desc": {
+          "en": "Trained packing teams for cartons, pallets, fragile goods, and export-ready repacking — carefully handled, correctly labelled.",
+          "ar": "فرق تغليف مدربة للكراتين والمنصات والبضائع القابلة للكسر وإعادة التغليف الجاهز للتصدير — مناولة بعناية وترميز صحيح."
+        },
+        "roles": [
+          {
+            "en": "Packers",
+            "ar": "عمال تغليف"
+          },
+          {
+            "en": "Labeling & Sorting",
+            "ar": "الترميز والفرز"
+          },
+          {
+            "en": "Repacking & Consolidation",
+            "ar": "إعادة التغليف والتجميع"
+          }
+        ]
+      },
+      {
+        "id": "loading-unloading",
+        "icon": "forklift",
+        "image": "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Loading crew moving cargo boxes onto a truck",
+          "ar": "طاقم تحميل ينقل صناديق البضائع إلى شاحنة"
+        },
+        "title": {
+          "en": "Loading & Unloading",
+          "ar": "التحميل والتنزيل"
+        },
+        "desc": {
+          "en": "Loading and unloading crews for containers, trucks, and warehouses — fast, careful, and led by experienced supervisors.",
+          "ar": "فرق تحميل وتنزيل للحاويات والشاحنات والمستودعات — بسرعة وعناية وبإشراف مشرفين ذوي خبرة."
+        },
+        "roles": [
+          {
+            "en": "Container Loading",
+            "ar": "تحميل الحاويات"
+          },
+          {
+            "en": "Cargo Handling",
+            "ar": "مناولة البضائع"
+          },
+          {
+            "en": "Warehouse Crews",
+            "ar": "طواقم المستودعات"
+          }
+        ]
+      },
+      {
+        "id": "delivery-services",
+        "icon": "truck",
+        "image": "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Courier delivering parcels",
+          "ar": "مندوب توصيل يسلم الطرود"
+        },
+        "title": {
+          "en": "Delivery Services",
+          "ar": "خدمات التوصيل"
+        },
+        "desc": {
+          "en": "Delivery staff and last-mile support for parcels, goods, and scheduled distribution runs across the Emirates.",
+          "ar": "موظفو توصيل ودعم للميل الأخير للطرود والبضائع وجولات التوزيع المجدولة في جميع الإمارات."
+        },
+        "roles": [
+          {
+            "en": "Delivery Staff",
+            "ar": "موظفو التوصيل"
+          },
+          {
+            "en": "Route Support",
+            "ar": "دعم خطوط السير"
+          },
+          {
+            "en": "Parcel Handling",
+            "ar": "مناولة الطرود"
+          }
+        ]
+      },
+      {
+        "id": "cleaning-services",
+        "icon": "sparkles",
+        "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Professional cleaner at work in a commercial building",
+          "ar": "عامل نظافة محترف داخل مبنى تجاري"
+        },
+        "title": {
+          "en": "Cleaning Services",
+          "ar": "خدمات النظافة"
+        },
+        "desc": {
+          "en": "Professional cleaning staff for offices, warehouses, retail spaces, and events — on regular schedules or one-time assignments.",
+          "ar": "عمالة نظافة احترافية للمكاتب والمستودعات والمنشآت التجارية والفعاليات — بجداول منتظمة أو لمرة واحدة."
+        },
+        "roles": [
+          {
+            "en": "Office & Commercial",
+            "ar": "المكاتب والمنشآت"
+          },
+          {
+            "en": "Warehouse Cleaning",
+            "ar": "تنظيف المستودعات"
+          },
+          {
+            "en": "Event Cleaning",
+            "ar": "تنظيف الفعاليات"
+          }
+        ]
+      },
+      {
+        "id": "factory-helpers",
+        "icon": "factory",
+        "image": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Helpers working on an industrial production line",
+          "ar": "مساعدون يعملون على خط إنتاج صناعي"
+        },
+        "title": {
+          "en": "Factory Helpers",
+          "ar": "مساعدو المصانع"
+        },
+        "desc": {
+          "en": "Factory helpers for production lines, packing stations, and material movement — steady support that keeps production running.",
+          "ar": "مساعدون للمصانع لخطوط الإنتاج ومحطات التغليف ونقل المواد — دعم مستمر يحافظ على انتظام الإنتاج."
+        },
+        "roles": [
+          {
+            "en": "Production Support",
+            "ar": "دعم الإنتاج"
+          },
+          {
+            "en": "Material Handling",
+            "ar": "مناولة المواد"
+          },
+          {
+            "en": "Line Packing",
+            "ar": "تغليف الخطوط"
+          }
+        ]
+      },
+      {
+        "id": "catering-services",
+        "icon": "chef-hat",
+        "image": "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Chef preparing food in a professional kitchen",
+          "ar": "طاهٍ يحضّر الطعام في مطبخ احترافي"
+        },
+        "title": {
+          "en": "Catering Services",
+          "ar": "خدمات الكاترينج والإعاشة"
+        },
+        "desc": {
+          "en": "Catering staff — cooks, kitchen helpers, and service crews — for events, camps, and corporate functions.",
+          "ar": "طاقم كاترينج — طهاة ومساعدو مطبخ وطواقم تقديم — للفعاليات والمخيمات والمناسبات الرسمية."
+        },
+        "roles": [
+          {
+            "en": "Cooks & Kitchen Helpers",
+            "ar": "طهاة ومساعدو مطبخ"
+          },
+          {
+            "en": "Service Crews",
+            "ar": "طواقم التقديم"
+          },
+          {
+            "en": "Camp Catering",
+            "ar": "إعاشة المخيمات"
+          }
+        ]
+      },
+      {
+        "id": "event-management",
+        "icon": "calendar-days",
+        "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Event setup crew preparing a conference venue",
+          "ar": "طاقم تجهيز يستعد لفعالية في قاعة مؤتمرات"
+        },
+        "title": {
+          "en": "Event Management",
+          "ar": "إدارة الفعاليات والمناسبات"
+        },
+        "desc": {
+          "en": "Event staff and setup crews for exhibitions, conferences, weddings, and corporate events across the UAE.",
+          "ar": "طاقم فعاليات وفرق تجهيز للمعارض والمؤتمرات والأعراس والمناسبات في جميع أنحاء الإمارات."
+        },
+        "roles": [
+          {
+            "en": "Event Setup",
+            "ar": "تجهيز الفعاليات"
+          },
+          {
+            "en": "Event Staff",
+            "ar": "طاقم الفعاليات"
+          },
+          {
+            "en": "On-Site Support",
+            "ar": "الدعم الميداني"
+          }
+        ]
+      },
+      {
+        "id": "machine-operators",
+        "icon": "cog",
+        "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Machine operator working with industrial equipment",
+          "ar": "مشغل ماكينات يعمل على معدات صناعية"
+        },
+        "title": {
+          "en": "Machine Operators",
+          "ar": "مشغلو الماكينات والمعدات"
+        },
+        "desc": {
+          "en": "Licensed machine operators for warehouse and industrial equipment — forklifts, pallet trucks, and production machinery.",
+          "ar": "مشغلو ماكينات مرخصون لمعدات المستودعات والصناعة — الرافعات الشوكية ومنصات النقل وماكينات الإنتاج."
+        },
+        "roles": [
+          {
+            "en": "Forklift Operators",
+            "ar": "مشغلو الرافعات الشوكية"
+          },
+          {
+            "en": "Pallet Trucks",
+            "ar": "منصات النقل"
+          },
+          {
+            "en": "Production Machines",
+            "ar": "ماكينات الإنتاج"
+          }
+        ]
+      },
+      {
+        "id": "drivers-vehicle-services",
+        "icon": "bus",
+        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Transport vehicles on a Dubai road",
+          "ar": "مركبات نقل على أحد طرق دبي"
+        },
+        "title": {
+          "en": "Drivers / Vehicle Services (Pick & Drop)",
+          "ar": "خدمات السائقين والنقل (توصيل وتنقلات)"
+        },
+        "desc": {
+          "en": "Drivers and pick & drop services for staff, goods, and daily transport runs — reliable schedules, familiar routes.",
+          "ar": "سائقون وخدمات توصيل وتنقلات للموظفين والبضائع والرحلات اليومية — جداول موثوقة ومسارات مألوفة."
+        },
+        "roles": [
+          {
+            "en": "Staff Pick & Drop",
+            "ar": "توصيل الموظفين"
+          },
+          {
+            "en": "Goods Transport",
+            "ar": "نقل البضائع"
+          },
+          {
+            "en": "Scheduled Runs",
+            "ar": "رحلات مجدولة"
+          }
+        ]
+      },
+      {
+        "id": "sea-port-helpers",
+        "icon": "ship",
+        "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Container cranes at a sea port terminal",
+          "ar": "رافعات الحاويات في محطة ميناء بحري"
+        },
+        "title": {
+          "en": "Sea Port Helpers",
+          "ar": "مساعدو الموانئ البحرية"
+        },
+        "desc": {
+          "en": "Port helpers for loading, lashing, sorting, and moving cargo at UAE sea ports and terminal yards.",
+          "ar": "مساعدو موانئ للتحميل والتثبيت والفرز ونقل البضائع في الموانئ البحرية وساحات المحطات بالإمارات."
+        },
+        "roles": [
+          {
+            "en": "Cargo Handling",
+            "ar": "مناولة البضائع"
+          },
+          {
+            "en": "Lashing & Securing",
+            "ar": "التثبيت والربط"
+          },
+          {
+            "en": "Yard Support",
+            "ar": "دعم الساحات"
+          }
+        ]
+      },
+      {
+        "id": "general-helpers",
+        "icon": "hand-helping",
+        "image": "https://images.unsplash.com/photo-1591382386627-349b692688ff?auto=format&fit=crop&w=800&q=80",
+        "alt": {
+          "en": "Warehouse team working together",
+          "ar": "فريق عمل داخل مستودع"
+        },
+        "title": {
+          "en": "General Helpers",
+          "ar": "العمالة العامة والمساعدون"
+        },
+        "desc": {
+          "en": "General helpers for warehouses, stores, events, and day-to-day operations — flexible workers for whatever the day needs.",
+          "ar": "عمالة عامة للمستودعات والمتاجر والفعاليات والعمليات اليومية — عمال مرنون لكل ما يتطلبه اليوم."
+        },
+        "roles": [
+          {
+            "en": "Warehouse Helpers",
+            "ar": "مساعدو المستودعات"
+          },
+          {
+            "en": "Store Support",
+            "ar": "دعم المتاجر"
+          },
+          {
+            "en": "General Support",
+            "ar": "الدعم العام"
+          }
+        ]
+      }
+    ],
+    "serviceDetails": [
+      {
+        "id": "packing-repacking",
+        "intro": {
+          "en": "Proper packing protects goods in transit and keeps operations moving. Our packing and repacking teams work in warehouses, distribution centres, and client premises across the UAE — handling cartons, pallets, shrink wrap, and export-standard repacking with care and consistency.",
+          "ar": "التغليف الجيد يحمي البضائع أثناء النقل ويحافظ على انتظام العمليات. تعمل فرق التغليف وإعادة التغليف لدينا في المستودعات ومراكز التوزيع ومقرات العملاء في جميع أنحاء الإمارات — التعامل مع الكراتين والمنصات والتغليف الحراري وإعادة التغليف وفق معايير التصدير بعناية وثبات."
+        },
+        "includes": [
+          {
+            "en": "Carton and box packing",
+            "ar": "تغليف الكراتين والصناديق"
+          },
+          {
+            "en": "Pallet building and shrink wrapping",
+            "ar": "تجهيز المنصات والتغليف الحراري"
+          },
+          {
+            "en": "Fragile-goods handling",
+            "ar": "مناولة البضائع القابلة للكسر"
+          },
+          {
+            "en": "Repacking and consolidation",
+            "ar": "إعادة التغليف وتجميع الشحنات"
+          },
+          {
+            "en": "Labelling and sorting",
+            "ar": "الترميز والفرز"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "loading-unloading",
+        "intro": {
+          "en": "Container and truck loading is physical, skilled work that rewards experience. Our crews load and unload containers, trucks, and warehouse bays across the UAE — maximising space, protecting cargo, and keeping turnaround times short.",
+          "ar": "تحميل الحاويات والشاحنات عمل بدني ومهني تتطلبه الخبرة. تقوم طواقمنا بتحميل وتنزيل الحاويات والشاحنات ومواقع المستودعات في جميع أنحاء الإمارات — مع استغلال أمثل للمساحة وحماية البضائع واختصار زمن المناولة."
+        },
+        "includes": [
+          {
+            "en": "Container loading and unloading",
+            "ar": "تحميل الحاويات وتنزيلها"
+          },
+          {
+            "en": "Truck and van loading",
+            "ar": "تحميل الشاحنات والباصات الصغيرة"
+          },
+          {
+            "en": "Warehouse bay loading",
+            "ar": "تحميل مواقع المستودعات"
+          },
+          {
+            "en": "Cargo stacking and securing",
+            "ar": "رصف البضائع وتثبيتها"
+          },
+          {
+            "en": "Supervised crews of any size",
+            "ar": "طواقم بإشراف وبأي عدد"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "delivery-services",
+        "intro": {
+          "en": "Last-mile delivery runs on dependable staff. We supply delivery personnel and support crews for parcels, goods, and scheduled distribution runs — for logistics companies, retailers, and businesses delivering across the Emirates.",
+          "ar": "التوصيل للميل الأخير يعتمد على كوادر موثوقة. نوفر موظفي توصيل وطواقم مساندة للطرود والبضائع وجولات التوزيع المجدولة — لشركات اللوجستيات وتجار التجزئة والمنشآت التي توصل في جميع الإمارات."
+        },
+        "includes": [
+          {
+            "en": "Delivery staff and drivers' assistants",
+            "ar": "موظفو التوصيل ومساعدو السائقين"
+          },
+          {
+            "en": "Parcel sorting and dispatch support",
+            "ar": "دعم فرز الطرود وإرسالها"
+          },
+          {
+            "en": "Scheduled daily distribution runs",
+            "ar": "جولات توزيع يومية مجدولة"
+          },
+          {
+            "en": "Peak-season delivery reinforcement",
+            "ar": "تعزيز طواقم التوصيل في مواسم الذروة"
+          },
+          {
+            "en": "Proof-of-delivery handling",
+            "ar": "معالجة إثباتات التسليم"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "cleaning-services",
+        "intro": {
+          "en": "A clean site is a professional site. Our cleaning staff cover offices, warehouses, retail spaces, and event venues — on regular schedules or one-time deep cleans, before or after your operating hours.",
+          "ar": "الموقع النظيف موقع احترافي. تغطي عمالة النظافة لدينا المكاتب والمستودعات والمنشآت التجارية وأماكن الفعاليات — بجداول منتظمة أو تنظيف عميق لمرة واحدة، قبل ساعات العمل أو بعدها."
+        },
+        "includes": [
+          {
+            "en": "Office and commercial cleaning",
+            "ar": "تنظيف المكاتب والمنشآت التجارية"
+          },
+          {
+            "en": "Warehouse and storage cleaning",
+            "ar": "تنظيف المستودعات ومناطق التخزين"
+          },
+          {
+            "en": "Retail and showroom cleaning",
+            "ar": "تنظيف المتاجر وصالات العرض"
+          },
+          {
+            "en": "Pre- and post-event cleaning",
+            "ar": "التنظيف قبل الفعاليات وبعدها"
+          },
+          {
+            "en": "Deep cleaning assignments",
+            "ar": "مهمات التنظيف العميق"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "factory-helpers",
+        "intro": {
+          "en": "Production lines don't pause. Our factory helpers support manufacturing and processing plants across the UAE — feeding lines, moving materials, packing output, and keeping stations clear and safe.",
+          "ar": "خطوط الإنتاج لا تتوقف. يدعم مساعدو المصانع لدينا مصانع التصنيع والتجهيز في جميع أنحاء الإمارات — بتغذية الخطوط ونقل المواد وتغليف المنتجات وإبقاء مواقع العمل منظمة وآمنة."
+        },
+        "includes": [
+          {
+            "en": "Production line support",
+            "ar": "دعم خطوط الإنتاج"
+          },
+          {
+            "en": "Raw material movement",
+            "ar": "نقل المواد الخام"
+          },
+          {
+            "en": "Packing station staffing",
+            "ar": "تجهيز محطات التغليف بالكوادر"
+          },
+          {
+            "en": "Housekeeping around lines",
+            "ar": "تنظيم ونظافة محيط الخطوط"
+          },
+          {
+            "en": "Shift coverage, day and night",
+            "ar": "تغطية الورديات صباحاً ومساءً"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "catering-services",
+        "intro": {
+          "en": "Good catering depends on a good kitchen team. We supply cooks, kitchen helpers, and service crews for events, labour camps, and corporate functions — experienced hands who keep service smooth and hygienic.",
+          "ar": "الكاترينج الناجح يعتمد على فريق مطبخ جيد. نوفر طهاة ومساعدي مطبخ وطواقم تقديم للفعاليات والمخيمات والمناسبات الرسمية — أيادٍ خبيرة تحافظ على سلاسة الخدمة ونظافتها."
+        },
+        "includes": [
+          {
+            "en": "Cooks and kitchen helpers",
+            "ar": "طهاة ومساعدو مطبخ"
+          },
+          {
+            "en": "Buffet and table service crews",
+            "ar": "طواقم خدمة البوفيهات والطاولات"
+          },
+          {
+            "en": "Event catering support",
+            "ar": "دعم كاترينج الفعاليات"
+          },
+          {
+            "en": "Camp and accommodation catering",
+            "ar": "إعاشة المخيمات وأماكن الإقامة"
+          },
+          {
+            "en": "Setup and clearing teams",
+            "ar": "فرق التجهيز والتنظيف بعد التقديم"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "event-management",
+        "intro": {
+          "en": "Events run on people. We provide setup crews, event staff, and on-site support for exhibitions, conferences, weddings, and corporate functions across the UAE — briefed, uniformed where required, and supervised.",
+          "ar": "نجاح الفعاليات يقوم على الأشخاص. نوفر فرق تجهيز وطاقم فعاليات ودعماً ميدانياً للمعارض والمؤتمرات والأعراس والمناسبات في جميع أنحاء الإمارات — بعد تدريبهم وتزويدهم بالزي المطلوب عند الحاجة وبإشراف مستمر."
+        },
+        "includes": [
+          {
+            "en": "Venue setup and teardown",
+            "ar": "تجهيز أماكن الفعاليات وفكّها"
+          },
+          {
+            "en": "Registration and guest support",
+            "ar": "دعم التسجيل واستقبال الضيوف"
+          },
+          {
+            "en": "Runner and logistics staff",
+            "ar": "طاقم مهام ميدانية ولوجستية"
+          },
+          {
+            "en": "Stage and exhibition support",
+            "ar": "دعم المسرح والمعارض"
+          },
+          {
+            "en": "Crowd and queue management",
+            "ar": "إدارة الحشود والطوابير"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "machine-operators",
+        "intro": {
+          "en": "The right operator protects both equipment and output. We supply licensed machine operators for forklifts, pallet trucks, and production machinery — verified licences, real experience.",
+          "ar": "المشغل المناسب يحمي المعدات والإنتاج معاً. نوفر مشغلي ماكينات مرخصين للرافعات الشوكية ومنصات النقل وماكينات الإنتاج — برخص موثقة وخبرة حقيقية."
+        },
+        "includes": [
+          {
+            "en": "Forklift operators",
+            "ar": "مشغلو الرافعات الشوكية"
+          },
+          {
+            "en": "Pallet truck operators",
+            "ar": "مشغلو منصات النقل"
+          },
+          {
+            "en": "Production machine operators",
+            "ar": "مشغلو ماكينات الإنتاج"
+          },
+          {
+            "en": "Equipment-trained helpers",
+            "ar": "مساعدون مدربون على المعدات"
+          },
+          {
+            "en": "Verified licence checks",
+            "ar": "التحقق من الرخص التشغيلية"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "drivers-vehicle-services",
+        "intro": {
+          "en": "Staff and goods move on schedule or not at all. Our drivers and pick & drop crews run daily staff transport, goods movement, and scheduled routes across the Emirates — with drivers who know the roads and keep to the clock.",
+          "ar": "الموظفون والبضائع يتحركون في الموعد أو لا يتحركون أبداً. يشغّل سائقونا وطواقم التوصيل لدينا النقل اليومي للموظفين وتحريك البضائع والمسارات المجدولة في جميع الإمارات — بسائقين يعرفون الطرق ويلتزمون بالوقت."
+        },
+        "includes": [
+          {
+            "en": "Staff pick & drop services",
+            "ar": "خدمات توصيل الموظفين ذهاباً وإياباً"
+          },
+          {
+            "en": "Light vehicle drivers",
+            "ar": "سائقو المركبات الخفيفة"
+          },
+          {
+            "en": "Goods and cargo transport runs",
+            "ar": "رحلات نقل البضائع والشحنات"
+          },
+          {
+            "en": "Scheduled daily routes",
+            "ar": "مسارات يومية مجدولة"
+          },
+          {
+            "en": "Event and shuttle transport",
+            "ar": "نقل الفعاليات والرحلات المكوكية"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      },
+      {
+        "id": "sea-port-helpers",
+        "intro": {
+          "en": "Port work demands discipline and stamina. Our sea port helpers support cargo operations at UAE ports and terminal yards — loading, lashing, sorting, and moving goods under tight schedules.",
+          "ar": "العمل في الموانئ يتطلب انضباطاً وقدرة على التحمل. يدعم مساعدو الموانئ البحرية لدينا عمليات البضائع في موانئ الإمارات وساحات المحطات — بالتحميل والتثبيت والفرز ونقل البضائع ضمن جداول زمنية دقيقة."
+        },
+        "includes": [
+          {
+            "en": "Container and cargo handling",
+            "ar": "مناولة الحاويات والبضائع"
+          },
+          {
+            "en": "Lashing, unlashing, and securing",
+            "ar": "التثبيت والفك والربط"
+          },
+          {
+            "en": "Cargo sorting and stacking",
+            "ar": "فرز البضائع ورصفها"
+          },
+          {
+            "en": "Yard and warehouse support",
+            "ar": "دعم الساحات والمستودعات"
+          },
+          {
+            "en": "Shift-based port crews",
+            "ar": "طواقم موانئ بنظام الورديات"
+          }
+        ],
+        "availability": {
+          "en": "Available at UAE sea ports and terminal yards, with crews based in Dubai and Sharjah.",
+          "ar": "متوفرة في الموانئ البحرية وساحات المحطات بالإمارات، بطواقم مقرها دبي والشارقة."
+        }
+      },
+      {
+        "id": "general-helpers",
+        "intro": {
+          "en": "Every operation needs dependable extra hands. Our general helpers support warehouses, stores, events, and day-to-day operations across the UAE — flexible workers who take direction and get the job done.",
+          "ar": "كل عملية تحتاج إلى أيادٍ إضافية موثوقة. يدعم مساعدونا العامون المستودعات والمتاجر والفعاليات والعمليات اليومية في جميع أنحاء الإمارات — عمال مرنون يتقبلون التوجيه وينجزون العمل."
+        },
+        "includes": [
+          {
+            "en": "Warehouse helper duties",
+            "ar": "مهام مساعدي المستودعات"
+          },
+          {
+            "en": "Store and stockroom support",
+            "ar": "دعم المتاجر ومخازن العرض"
+          },
+          {
+            "en": "Event and venue assistance",
+            "ar": "المساعدة في الفعاليات وأماكنها"
+          },
+          {
+            "en": "Moving and shifting support",
+            "ar": "دعم النقل والتحريك"
+          },
+          {
+            "en": "General day-labour assignments",
+            "ar": "مهمات العمل اليومي العام"
+          }
+        ],
+        "availability": {
+          "en": "Available in Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "متوفرة في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      }
+    ],
+    "industriesPage": {
+      "eyebrow": {
+        "en": "Industries We Serve",
+        "ar": "القطاعات التي نخدمها"
+      },
+      "title": {
+        "en": "Workforce for the sectors that keep the UAE moving",
+        "ar": "قوى عاملة للقطاعات التي تبقي الإمارات في حركة دائمة"
+      },
+      "desc": {
+        "en": "From warehouses and ports to factories, hotels, and event venues — we supply teams tailored to the pace and standards of each sector.",
+        "ar": "من المستودعات والموانئ إلى المصانع والفنادق وأماكن الفعاليات — نوفر فرقاً ملائمة لإيقاع كل قطاط ومعاييره."
+      }
+    },
+    "industries": [
+      {
+        "id": "logistics-warehousing",
+        "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Logistics & Warehousing",
+          "ar": "اللوجستيات والمستودعات"
+        },
+        "desc": {
+          "en": "Packers, loaders, forklift operators, and warehouse helpers for distribution centres and logistics hubs across the UAE.",
+          "ar": "عمال تغليف وتحميل ومشغلو رافعات شوكية ومساعدو مستودعات لمراكز التوزيع والمراكز اللوجستية في الإمارات."
+        },
+        "tags": [
+          {
+            "en": "Warehousing",
+            "ar": "المستودعات"
+          },
+          {
+            "en": "Distribution",
+            "ar": "التوزيع"
+          },
+          {
+            "en": "Fulfilment",
+            "ar": "تنفيذ الطلبات"
+          }
+        ]
+      },
+      {
+        "id": "shipping-cargo",
+        "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Shipping & Cargo",
+          "ar": "الشحن والبضائع"
+        },
+        "desc": {
+          "en": "Container loading crews, port helpers, and cargo handling teams for shipping lines, freight forwarders, and port operators.",
+          "ar": "طواقم تحميل الحاويات ومساعدو الموانئ وفرق مناولة البضائع لخطوط الملاحة ووكلاء الشحن ومشغلي الموانئ."
+        },
+        "tags": [
+          {
+            "en": "Containers",
+            "ar": "الحاويات"
+          },
+          {
+            "en": "Ports",
+            "ar": "الموانئ"
+          },
+          {
+            "en": "Freight",
+            "ar": "الشحن"
+          }
+        ]
+      },
+      {
+        "id": "retail-ecommerce",
+        "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Retail & E-Commerce",
+          "ar": "التجزئة والتجارة الإلكترونية"
+        },
+        "desc": {
+          "en": "Store support staff, pickers, packers, and delivery crews for retail chains and online sellers across the Emirates.",
+          "ar": "طاقم دعم المتاجر وجامعو الطلبات وعمال التغليف وطواقم التوصيل لسلاسل التجزئة والمتاجر الإلكترونية في الإمارات."
+        },
+        "tags": [
+          {
+            "en": "Stores",
+            "ar": "المتاجر"
+          },
+          {
+            "en": "Pick & Pack",
+            "ar": "الجمع والتغليف"
+          },
+          {
+            "en": "Delivery",
+            "ar": "التوصيل"
+          }
+        ]
+      },
+      {
+        "id": "manufacturing-factories",
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Manufacturing & Factories",
+          "ar": "التصنيع والمصانع"
+        },
+        "desc": {
+          "en": "Factory helpers, machine operators, and line-packing staff for production and processing plants.",
+          "ar": "مساعدو المصانع ومشغلو الماكينات وعمال تغليف الخطوط لمصانع الإنتاج والتجهيز."
+        },
+        "tags": [
+          {
+            "en": "Production",
+            "ar": "الإنتاج"
+          },
+          {
+            "en": "Processing",
+            "ar": "التجهيز"
+          },
+          {
+            "en": "Packing Lines",
+            "ar": "خطوط التغليف"
+          }
+        ]
+      },
+      {
+        "id": "events-hospitality",
+        "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Events & Hospitality",
+          "ar": "الفعاليات والضيافة"
+        },
+        "desc": {
+          "en": "Event setup crews, catering staff, and cleaning teams for venues, hotels, and event organisers.",
+          "ar": "فرق تجهيز الفعاليات وطاقم الكاترينج وفرق النظافة للأماكن والفنادق ومنظمي الفعاليات."
+        },
+        "tags": [
+          {
+            "en": "Venues",
+            "ar": "أماكن الفعاليات"
+          },
+          {
+            "en": "Catering",
+            "ar": "الكاترينج"
+          },
+          {
+            "en": "Hotels",
+            "ar": "الفنادق"
+          }
+        ]
+      },
+      {
+        "id": "commercial-facilities",
+        "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+        "title": {
+          "en": "Commercial & Facilities",
+          "ar": "المنشآت التجارية والمرافق"
+        },
+        "desc": {
+          "en": "Cleaning staff, general helpers, and pick & drop drivers for offices, towers, and facility operators.",
+          "ar": "عمالة النظافة والمساعدون العامون وسائقو التوصيل للمكاتب والأبراج ومشغلي المرافق."
+        },
+        "tags": [
+          {
+            "en": "Offices",
+            "ar": "المكاتب"
+          },
+          {
+            "en": "Cleaning",
+            "ar": "النظافة"
+          },
+          {
+            "en": "Transport",
+            "ar": "النقل"
+          }
+        ]
+      }
+    ],
+    "tradesTable": [
+      {
+        "role": {
+          "en": "Packing & Repacking Staff",
+          "ar": "عمال التغليف وإعادة التغليف"
+        },
+        "cat": {
+          "en": "Packing",
+          "ar": "التغليف"
+        },
+        "qual": {
+          "en": "Warehouse experienced",
+          "ar": "خبرة في المستودعات"
+        }
+      },
+      {
+        "role": {
+          "en": "Loading & Unloading Crews",
+          "ar": "طواقم التحميل والتنزيل"
+        },
+        "cat": {
+          "en": "Cargo Handling",
+          "ar": "مناولة البضائع"
+        },
+        "qual": {
+          "en": "Physically fit, supervised",
+          "ar": "لياقة بدنية وإشراف"
+        }
+      },
+      {
+        "role": {
+          "en": "Delivery Staff",
+          "ar": "موظفو التوصيل"
+        },
+        "cat": {
+          "en": "Delivery",
+          "ar": "التوصيل"
+        },
+        "qual": {
+          "en": "Local route knowledge",
+          "ar": "معرفة بالمسارات المحلية"
+        }
+      },
+      {
+        "role": {
+          "en": "Cleaning Staff",
+          "ar": "عمالة النظافة"
+        },
+        "cat": {
+          "en": "Cleaning",
+          "ar": "النظافة"
+        },
+        "qual": {
+          "en": "Trained, equipment-ready",
+          "ar": "مدربة وجاهزة بالمعدات"
+        }
+      },
+      {
+        "role": {
+          "en": "Factory Helpers",
+          "ar": "مساعدو المصانع"
+        },
+        "cat": {
+          "en": "Manufacturing",
+          "ar": "التصنيع"
+        },
+        "qual": {
+          "en": "Shift-flexible",
+          "ar": "مرونة في الورديات"
+        }
+      },
+      {
+        "role": {
+          "en": "Catering Staff",
+          "ar": "طاقم الكاترينج"
+        },
+        "cat": {
+          "en": "Catering",
+          "ar": "الكاترينج"
+        },
+        "qual": {
+          "en": "Kitchen experienced",
+          "ar": "خبرة في المطابخ"
+        }
+      },
+      {
+        "role": {
+          "en": "Event Staff & Setup Crews",
+          "ar": "طاقم الفعاليات والتجهيز"
+        },
+        "cat": {
+          "en": "Events",
+          "ar": "الفعاليات"
+        },
+        "qual": {
+          "en": "Briefed per event",
+          "ar": "توجيه حسب كل فعالية"
+        }
+      },
+      {
+        "role": {
+          "en": "Machine Operators",
+          "ar": "مشغلو الماكينات"
+        },
+        "cat": {
+          "en": "Operations",
+          "ar": "التشغيل"
+        },
+        "qual": {
+          "en": "Verified licences",
+          "ar": "رخص موثقة"
+        }
+      },
+      {
+        "role": {
+          "en": "Drivers (Pick & Drop)",
+          "ar": "السائقون (توصيل وتنقلات)"
+        },
+        "cat": {
+          "en": "Transport",
+          "ar": "النقل"
+        },
+        "qual": {
+          "en": "Valid UAE licence",
+          "ar": "رخصة إماراتية سارية"
+        }
+      },
+      {
+        "role": {
+          "en": "Sea Port Helpers",
+          "ar": "مساعدو الموانئ البحرية"
+        },
+        "cat": {
+          "en": "Ports",
+          "ar": "الموانئ"
+        },
+        "qual": {
+          "en": "Port-experienced",
+          "ar": "خبرة في الموانئ"
+        }
+      },
+      {
+        "role": {
+          "en": "General Helpers",
+          "ar": "العمالة العامة والمساعدون"
+        },
+        "cat": {
+          "en": "General Support",
+          "ar": "الدعم العام"
+        },
+        "qual": {
+          "en": "Flexible, directed",
+          "ar": "مرنة وقابلة للتوجيه"
+        }
+      }
+    ],
+    "process": [
+      {
+        "step": "01",
+        "title": {
+          "en": "Tell us what you need",
+          "ar": "أخبرنا باحتياجك"
+        },
+        "desc": {
+          "en": "Service, number of workers, location, and dates — by phone, WhatsApp, or the booking form.",
+          "ar": "الخدمة وعدد العمال والموقع والتواريخ — عبر الهاتف أو واتساب أو نموذج الحجز."
+        }
+      },
+      {
+        "step": "02",
+        "title": {
+          "en": "Receive a clear quotation",
+          "ar": "استلم عرض سعر واضحاً"
+        },
+        "desc": {
+          "en": "We confirm availability, rates, and start dates — in writing, with no hidden terms.",
+          "ar": "نؤكد التوفر والأسعار وتواريخ البدء — كتابياً ودون شروط خفية."
+        }
+      },
+      {
+        "step": "03",
+        "title": {
+          "en": "We prepare your team",
+          "ar": "نجهز فريقك"
+        },
+        "desc": {
+          "en": "Workers are selected, briefed on your site and tasks, and documented before deployment.",
+          "ar": "يتم اختيار العمال وتعريفهم بموقعك ومهامهم واستكمال أوراقهم قبل التوجه."
+        }
+      },
+      {
+        "step": "04",
+        "title": {
+          "en": "Deployment & support",
+          "ar": "التشغيل والدعم"
+        },
+        "desc": {
+          "en": "Your team arrives on schedule, with ongoing supervision and a direct line to our operations desk.",
+          "ar": "يصل فريقك في الموعد المحدد، مع إشراف مستمر وخط اتصال مباشر بمكتب العمليات."
+        }
+      }
+    ],
+    "faqs": [
+      {
+        "q": {
+          "en": "What services does Shabab Deira provide?",
+          "ar": "ما الخدمات التي تقدمها شباب ديرة؟"
+        },
+        "a": {
+          "en": "We provide manpower and workforce services across the UAE: packing and repacking, loading and unloading, delivery services, cleaning services, factory helpers, catering services, event management, machine operators, drivers and vehicle services (pick & drop), sea port helpers, and general helpers.",
+          "ar": "نقدم خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات: التغليف وإعادة التغليف، التحميل والتنزيل، خدمات التوصيل، خدمات النظافة، مساعدو المصانع، خدمات الكاترينج، إدارة الفعاليات، مشغلو الماكينات، خدمات السائقين والنقل (توصيل وتنقلات)، مساعدو الموانئ البحرية، والعمالة العامة والمساعدون."
+        }
+      },
+      {
+        "q": {
+          "en": "Where are your services available?",
+          "ar": "أين تتوفر خدماتكم؟"
+        },
+        "a": {
+          "en": "Our services are available inside the UAE only — covering Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates. We do not provide services outside the UAE.",
+          "ar": "خدماتنا متوفرة داخل الإمارات فقط — وتغطي دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية. لا نقدم خدمات خارج الدولة."
+        }
+      },
+      {
+        "q": {
+          "en": "What types of manpower do you supply?",
+          "ar": "ما أنواع العمالة التي توفرها الشركة؟"
+        },
+        "a": {
+          "en": "We supply skilled, semi-skilled, and unskilled manpower — including packers, loading crews, cleaners, factory helpers, catering staff, event staff, machine operators, drivers, port helpers, and general helpers.",
+          "ar": "نوفر عمالة ماهرة وشبه ماهرة وغير ماهرة — تشمل عمال التغليف وطواقم التحميل والنظافة ومساعدي المصانع وطاقم الكاترينج والفعاليات ومشغلي الماكينات والسائقين ومساعدي الموانئ والعمالة العامة."
+        }
+      },
+      {
+        "q": {
+          "en": "Do you provide accommodation for workers?",
+          "ar": "هل توفرون السكن للعمال؟"
+        },
+        "a": {
+          "en": "Only accommodation and relocation support are provided where applicable. What applies to your engagement is confirmed in writing with your quotation.",
+          "ar": "يتم توفير السكن ودعم التنقل حيث ينطبق ذلك فقط. ويتم تأكيد ما ينطبق على تعاقدك كتابياً مع عرض السعر."
+        }
+      },
+      {
+        "q": {
+          "en": "How can I contact you?",
+          "ar": "كيف يمكنني التواصل معكم؟"
+        },
+        "a": {
+          "en": "By phone, WhatsApp, email, or the booking form on this website. Our operations desk in Deira, Dubai responds during working hours, Monday to Saturday, 8 AM to 7 PM.",
+          "ar": "عبر الهاتف أو واتساب أو البريد الإلكتروني أو نموذج الحجز في هذا الموقع. مكتب العمليات لدينا في ديرة، دبي يرد خلال ساعات العمل من الاثنين إلى السبت، من 8 صباحاً إلى 7 مساءً."
+        }
+      },
+      {
+        "q": {
+          "en": "How do I book manpower?",
+          "ar": "كيف أحجز العمالة؟"
+        },
+        "a": {
+          "en": "Use the Book Manpower form, or contact us directly by phone or WhatsApp. Share the service you need, number of workers, location, and dates — we respond with availability and a quotation.",
+          "ar": "استخدم نموذج احجز عمالة، أو تواصل معنا مباشرة عبر الهاتف أو واتساب. شاركنا الخدمة المطلوبة وعدد العمال والموقع والتواريخ — وسنرد بالتأكيد على التوفر وعرض السعر."
+        }
+      },
+      {
+        "q": {
+          "en": "Can I request workers for a short-term assignment?",
+          "ar": "هل يمكنني طلب عمالة لمهمة قصيرة الأجل؟"
+        },
+        "a": {
+          "en": "Yes. We supply workers for daily, weekly, monthly, and long-term engagements. Short-term availability depends on the service and location — tell us your dates and we will confirm.",
+          "ar": "نعم. نوفر عمالة لتعاقدات يومية وأسبوعية وشهرية وطويلة الأجل. يعتمد توفر القِصر الأجل على الخدمة والموقع — أخبرنا بالتواريخ وسنؤكد لك."
+        }
+      },
+      {
+        "q": {
+          "en": "Can I request multiple workers at once?",
+          "ar": "هل يمكنني طلب عدة عمال في الوقت نفسه؟"
+        },
+        "a": {
+          "en": "Yes. We deploy individuals, small teams, and large crews — from a single helper to supervised teams of dozens, depending on your requirement.",
+          "ar": "نعم. نوفر أفراداً وفرقاً صغيرة وطواقم كبيرة — من مساعد واحد إلى فرق مُشرفة تضم عشرات العمال حسب احتياجك."
+        }
+      },
+      {
+        "q": {
+          "en": "Do you provide delivery and driver services?",
+          "ar": "هل تقدمون خدمات التوصيل والسائقين؟"
+        },
+        "a": {
+          "en": "Yes. We supply delivery staff and drivers for pick & drop, staff transport, and goods movement — with drivers holding valid UAE licences.",
+          "ar": "نعم. نوفر موظفي توصيل وسائقين لخدمات التوصيل والتتنقلات ونقل الموظفين وتحريك البضائع — بسائقين يحملون رخصاً إماراتية سارية."
+        }
+      },
+      {
+        "q": {
+          "en": "Can you supply workers for packing and loading?",
+          "ar": "هل يمكنكم توفير عمال للتغليف والتحميل؟"
+        },
+        "a": {
+          "en": "Yes — packing, repacking, loading, and unloading are among our core services. Our crews work with containers, trucks, and warehouse bays across the UAE.",
+          "ar": "نعم — التغليف وإعادة التغليف والتحميل والتنزيل من خدماتنا الأساسية. تعمل طواقمنا مع الحاويات والشاحنات ومواقع المستودعات في جميع أنحاء الإمارات."
+        }
+      },
+      {
+        "q": {
+          "en": "Can I hire cleaners or general helpers?",
+          "ar": "هل يمكنني تعيين عمال نظافة أو مساعدين عامين؟"
+        },
+        "a": {
+          "en": "Yes. Cleaning staff and general helpers are available for offices, warehouses, stores, events, and daily operations — on regular schedules or one-time assignments.",
+          "ar": "نعم. عمالة النظافة والمساعدون العامون متاحون للمكاتب والمستودعات والمتاجر والفعاليات والعمليات اليومية — بجداول منتظمة أو لمرة واحدة."
+        }
+      },
+      {
+        "q": {
+          "en": "Are your workers legally compliant?",
+          "ar": "هل عمالتكم متوافقة مع القوانين؟"
+        },
+        "a": {
+          "en": "Yes. All workers are documented, medically fit, and paid on time through the Wage Protection System (WPS), in line with UAE labour law and MOHRE requirements.",
+          "ar": "نعم. جميع العمال موثقون ولا يمرون بفحوصات طبية لائقة، وتُصرف أجورهم في مواعيدها عبر نظام حماية الأجور (WPS) بما يتوافق مع قانون العمل الإماراتي ومتطلبات وزارة الموارد البشرية."
+        }
+      },
+      {
+        "q": {
+          "en": "How quickly can workers be deployed?",
+          "ar": "كم يستغرق توفير العمال؟"
+        },
+        "a": {
+          "en": "It depends on the service, number of workers, and location. Many requirements can be met within days — contact our operations desk with your dates and we will confirm realistically.",
+          "ar": "يعتمد ذلك على الخدمة وعدد العمال والموقع. يمكن تلبية العديد من الطلبات خلال أيام — تواصل مع مكتب العمليات بتواريخك وسنؤكد لك بواقعية."
+        }
+      },
+      {
+        "q": {
+          "en": "What if a worker is not suitable?",
+          "ar": "ماذا لو لم يكن العامل مناسباً؟"
+        },
+        "a": {
+          "en": "Tell us. If a deployed worker does not meet the agreed requirement, we work with you to arrange a suitable replacement as quickly as possible.",
+          "ar": "أخبرنا. إذا لم يستوفِ العامل المتطلبات المتفق عليها، نتعاون معك لترتيب بديل مناسب في أسرع وقت ممكن."
+        }
+      }
+    ],
+    "partners": [
+      {
+        "name": {
+          "en": "Partner Name 01",
+          "ar": "اسم الشريك 01"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 02",
+          "ar": "اسم الشريك 02"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 03",
+          "ar": "اسم الشريك 03"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 04",
+          "ar": "اسم الشريك 04"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 05",
+          "ar": "اسم الشريك 05"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 06",
+          "ar": "اسم الشريك 06"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 07",
+          "ar": "اسم الشريك 07"
+        }
+      },
+      {
+        "name": {
+          "en": "Partner Name 08",
+          "ar": "اسم الشريك 08"
+        }
+      }
+    ],
+    "aboutPage": {
+      "eyebrow": {
+        "en": "About the Company",
+        "ar": "عن الشركة"
+      },
+      "title": {
+        "en": "Serving the UAE's workforce needs since 2012",
+        "ar": "نخدم احتياجات القوى العاملة في الإمارات منذ 2012"
+      },
+      "desc": {
+        "en": "Shabab Deira is a UAE-based manpower, labour, logistics, and workforce services company — reliable workers and support services for businesses across the Emirates.",
+        "ar": "شباب ديرة شركة إماراتية لخدمات العمالة والقوى العاملة واللوجستيات — عمالة موثوقة وخدمات مساندة للمنشآت في جميع أنحاء الإمارات."
+      },
+      "storyTitle": {
+        "en": "From Deira, for the whole UAE",
+        "ar": "من ديرة، إلى كل الإمارات"
+      },
+      "storyP1": {
+        "en": "Shabab Deira was founded in 2012 by Zubair Khan in Deira, Dubai — steps from the creek, the port, and the trading heart of the city. The company began by serving the businesses around it: cargo handlers, traders, and shopkeepers who needed dependable hands.",
+        "ar": "تأسست شباب ديرة عام 2012 على يد زبير خان في ديرة، دبي — على خطوات من الخور والميناء وقلب المدينة التجاري. بدأت الشركة بخدمة المنشآت من حولها: مناولي البضائع والتجار وأصحاب المتاجر الذين احتاجوا أيادي عاملة موثوقة."
+      },
+      "storyP2": {
+        "en": "Fourteen years on, that same principle guides a much wider operation. Today Shabab Deira supplies workforce services across all seven emirates — packing, loading, delivery, cleaning, catering, events, machine operation, driving, port work, and general support — to logistics, retail, manufacturing, events, and facilities clients.",
+        "ar": "وبعد أربعة عشر عاماً، ما زال المبدأ نفسه يقود عملاً أوسع بكثير. اليوم تزوّد شباب ديرة خدمات القوى العاملة في الإمارات السبع — تغليفاً وتحميلاً وتوصيلاً ونظافة وكاترينج وفعاليات وتشغيل ماكينات وقيادة وأعمال موانئ ودعماً عاماً — لعملاء اللوجستيات والتجزئة والصناعة والفعاليات والمرافق."
+      },
+      "storyP3": {
+        "en": "The company is part of a group of five specialised UAE companies, each focused on one part of the cargo and workforce chain. Clients deal with one point of contact — and draw on the capabilities of the whole group.",
+        "ar": "الشركة جزء من مجموعة تضم خمس شركات إماراتية متخصصة، كل منها متخصصة في جزء من سلسلة البضائع والقوى العاملة. يتعامل العملاء مع جهة اتصال واحدة — ويستفيدون من قدرات المجموعة كاملة."
+      },
+      "statsTitle": {
+        "en": "Shabab Deira at a glance",
+        "ar": "شباب ديرة في لمحة"
+      },
+      "stat1Value": {
+        "en": "2012",
+        "ar": "2012"
+      },
+      "stat1Label": {
+        "en": "Founded in Deira, Dubai",
+        "ar": "تأسست في ديرة، دبي"
+      },
+      "stat2Value": {
+        "en": "Zubair Khan",
+        "ar": "زبير خان"
+      },
+      "stat2Label": {
+        "en": "Founder",
+        "ar": "المؤسس"
+      },
+      "stat3Value": {
+        "en": "All 7",
+        "ar": "السبع كلها"
+      },
+      "stat3Label": {
+        "en": "Emirates covered",
+        "ar": "إمارات نغطيها"
+      },
+      "stat4Value": {
+        "en": "11",
+        "ar": "11"
+      },
+      "stat4Label": {
+        "en": "Service categories",
+        "ar": "فئة خدمة"
+      },
+      "approachEyebrow": {
+        "en": "Our Approach",
+        "ar": "منهجنا"
+      },
+      "approachTitle": {
+        "en": "How we operate",
+        "ar": "كيف نعمل"
+      },
+      "approach1Title": {
+        "en": "Worker screening",
+        "ar": "دقة العمالة"
+      },
+      "approach1Desc": {
+        "en": "Every candidate is verified for experience, valid documentation, and medical fitness before joining any assignment.",
+        "ar": "يتم التحقق من خبرة كل مرشح وأوراقه الرسمية ولياقته الطبية قبل إسناد أي مهمة إليه."
+      },
+      "approach2Title": {
+        "en": "Legal compliance",
+        "ar": "الامتثال القانوني"
+      },
+      "approach2Desc": {
+        "en": "Workers are employed under valid UAE residency, medically insured, and paid on time through the Wage Protection System (WPS).",
+        "ar": "يعمل العمال بإقامات إماراتية سارية وتأمين صحي، وتُصرف أجورهم في مواعيدها عبر نظام حماية الأجور (WPS)."
+      },
+      "approach3Title": {
+        "en": "Operational support",
+        "ar": "الدعم التشغيلي"
+      },
+      "approach3Desc": {
+        "en": "A direct line to our operations desk in Deira — supervision, replacements, and answers when you need them.",
+        "ar": "خط اتصال مباشر بمكتب العمليات في ديرة — إشراف واستبدالات وإجابات عند الحاجة."
+      },
+      "valuesEyebrow": {
+        "en": "What We Stand For",
+        "ar": "قيمنا"
+      },
+      "valuesTitle": {
+        "en": "Principles that guide our operations",
+        "ar": "مبادئ توجه عملنا"
+      },
+      "val1Title": {
+        "en": "Honesty in scope",
+        "ar": "الصدق في النطاق"
+      },
+      "val1Desc": {
+        "en": "We supply only the services we can genuinely deliver. If a requirement falls outside what we do, we say so clearly.",
+        "ar": "نقدم فقط الخدمات التي نستطيع تنفيذها فعلاً. وإذا خرج الطلب عن نطاق عملنا، نقول ذلك بوضوح."
+      },
+      "val2Title": {
+        "en": "Worker welfare",
+        "ar": "رعاية العمال"
+      },
+      "val2Desc": {
+        "en": "Fair wages, paid on time, and proper treatment. Compliance is not just regulatory — it is how we keep a reliable workforce.",
+        "ar": "أجور عادلة تُصرف في موعدها ومعاملة لائقة. الامتثال ليس التزاماً نظامياً فحسب — بل أسلوبنا للحفاظ على عمالة موثوقة."
+      },
+      "val3Title": {
+        "en": "Responsive operations",
+        "ar": "استجابة سريعة"
+      },
+      "val3Desc": {
+        "en": "When you contact us, you speak to someone who can act — our operations team in Deira handles requirements directly.",
+        "ar": "عندما تتواصل معنا، تتحدث مع شخص قادر على اتخاذ القرار — فريق العمليات في ديرة يدير الطلبات مباشرة."
+      },
+      "val4Title": {
+        "en": "Long-term reliability",
+        "ar": "موثوقية طويلة الأمد"
+      },
+      "val4Desc": {
+        "en": "We aim to be a trusted regular supplier, not a one-time vendor. Consistent quality builds that relationship.",
+        "ar": "نطمح أن نكون مورداً موثوقاً ودائماً، لا بائعاً لمرة واحدة. فالجودة الثابتة هي ما يبني هذه العلاقة."
+      },
+      "groupSectionTitle": {
+        "en": "Part of a wider group",
+        "ar": "جزء من مجموعة أوسع"
+      },
+      "groupSectionDesc": {
+        "en": "Shabab Deira is one of five specialised companies in the group — covering container loading, cargo packaging, contract labour, technical services, and shipping. Learn more on Our Group.",
+        "ar": "شباب ديرة إحدى خمس شركات متخصصة في المجموعة — تغطي تحميل الحاويات وتغليف البضائع والعمالة التعاقدية والخدمات الفنية والشحن. تعرف على المزيد في صفحة مجموعتنا."
+      }
+    },
+    "teamPage": {
+      "eyebrow": {
+        "en": "Our Team",
+        "ar": "فريقنا"
+      },
+      "title": {
+        "en": "The people behind Shabab Deira",
+        "ar": "الفريق الذي يقف خلف شباب ديرة"
+      },
+      "desc": {
+        "en": "A lean, hands-on team based in Deira — the people who answer your call, prepare your quotation, and make sure your workers arrive as agreed.",
+        "ar": "فريق عملي مقره ديرة — من يرد على اتصالك ويعد عرض سعرك ويتأكد من وصول عمالك كما هو متفق عليه."
+      }
+    },
+    "staff": [
+      {
+        "id": "zubair-khan",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Zubair Khan",
+          "ar": "زبير خان"
+        },
+        "title": {
+          "en": "Founder & Managing Director",
+          "ar": "المؤسس والعضو المنتدب"
+        },
+        "bio": {
+          "en": "Founded Shabab Deira in Deira in 2012. Still personally involved in key client relationships and the daily direction of the company.",
+          "ar": "أسس شباب ديرة في ديرة عام 2012. ولا يزال يتابع شخصياً العلاقات الرئيسية مع العملاء والتوجيه اليومي للشركة."
+        }
+      },
+      {
+        "id": "member-02",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Team Member 02",
+          "ar": "عضو الفريق 02"
+        },
+        "title": {
+          "en": "Operations Manager",
+          "ar": "مدير العمليات"
+        },
+        "bio": {
+          "en": "Sample profile — oversees crew deployment and site coordination. Replace with the real team member's details.",
+          "ar": "ملف تجريبي — يشرف على توزيع الطواقم والتنسيق الميداني. استبدله ببيانات عضو الفريق الفعلي."
+        }
+      },
+      {
+        "id": "member-03",
+        "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Team Member 03",
+          "ar": "عضو الفريق 03"
+        },
+        "title": {
+          "en": "HR & Workforce Coordinator",
+          "ar": "منسقة الموارد البشرية والعمالة"
+        },
+        "bio": {
+          "en": "Sample profile — manages worker recruitment, documentation, and welfare. Replace with the real team member's details.",
+          "ar": "ملف تجريبي — تدير استقطاب العمال وأوراقهم ورعايتهم. استبدلها ببيانات عضو الفريق الفعلي."
+        }
+      },
+      {
+        "id": "member-04",
+        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Team Member 04",
+          "ar": "عضو الفريق 04"
+        },
+        "title": {
+          "en": "Client Relations Executive",
+          "ar": "مسؤولة علاقات العملاء"
+        },
+        "bio": {
+          "en": "Sample profile — first point of contact for new enquiries and quotations. Replace with the real team member's details.",
+          "ar": "ملف تجريبي — نقطة الاتصال الأولى للاستفسارات الجديدة وعروض الأسعار. استبدلها ببيانات عضو الفريق الفعلي."
+        }
+      },
+      {
+        "id": "member-05",
+        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Team Member 05",
+          "ar": "عضو الفريق 05"
+        },
+        "title": {
+          "en": "Logistics Coordinator",
+          "ar": "منسق اللوجستيات"
+        },
+        "bio": {
+          "en": "Sample profile — coordinates transport, delivery runs, and site logistics. Replace with the real team member's details.",
+          "ar": "ملف تجريبي — ينسق النقل وجولات التوصيل ولوجستيات المواقع. استبدله ببيانات عضو الفريق الفعلي."
+        }
+      },
+      {
+        "id": "member-06",
+        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+        "name": {
+          "en": "Team Member 06",
+          "ar": "عضو الفريق 06"
+        },
+        "title": {
+          "en": "Accounts & Administration",
+          "ar": "الحسابات والإدارة"
+        },
+        "bio": {
+          "en": "Sample profile — handles invoicing, WPS payroll, and administration. Replace with the real team member's details.",
+          "ar": "ملف تجريبي — يتولى الفواتير وكشوف الأجور عبر نظام حماية الأجور والإدارة. استبدله ببيانات عضو الفريق الفعلي."
+        }
+      }
+    ],
+    "groupPage": {
+      "eyebrow": {
+        "en": "Our Group",
+        "ar": "مجموعتنا"
+      },
+      "title": {
+        "en": "Five companies, one standard of service",
+        "ar": "خمس شركات، ومعيار واحد للخدمة"
+      },
+      "desc": {
+        "en": "Shabab Deira is part of a group of specialised UAE companies covering container loading, cargo packaging, contract labour, technical services, and shipping — one point of contact for the whole chain.",
+        "ar": "شباب ديرة جزء من مجموعة شركات إماراتية متخصصة تغطي تحميل الحاويات وتغليف البضائع والعمالة التعاقدية والخدمات الفنية والشحن — وجهة اتصال واحدة للسلسلة كاملة."
+      },
+      "ctaTitle": {
+        "en": "Need one of these services?",
+        "ar": "هل تحتاج إحدى هذه الخدمات؟"
+      },
+      "ctaDesc": {
+        "en": "Contact Shabab Deira and we will route your requirement to the right company in the group.",
+        "ar": "تواصل مع شباب ديرة وسنوجه طلبك إلى الشركة المناسبة في المجموعة."
+      }
+    },
+    "groupCompanies": [
+      {
+        "id": "shabab-deira-shipping-cargo",
+        "page": "group-shipping-cargo.html",
+        "shortName": {
+          "en": "Shabab Deira Shipping & Cargo Services",
+          "ar": "شباب ديرة لخدمات الشحن والبضائع"
+        },
+        "tagline": {
+          "en": "The founding company — shipping and cargo services from Deira since 2012",
+          "ar": "الشركة المؤسِّسة — خدمات الشحن والبضائع من ديرة منذ 2012"
+        },
+        "cardDesc": {
+          "en": "The founding company of the group, providing shipping and cargo services from Deira since 2012 — and the home of our manpower services.",
+          "ar": "الشركة المؤسِّسة للمجموعة، تقدم خدمات الشحن والبضائع من ديرة منذ 2012 — ومنها تنطلق خدمات العمالة لدينا."
+        },
+        "image": "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
+        "content": {
+          "h1": {
+            "en": "Shabab Deira Shipping & Cargo Services",
+            "ar": "شباب ديرة لخدمات الشحن والبضائع"
+          },
+          "intro": {
+            "en": "Founded in Deira in 2012 by Zubair Khan, Shabab Deira Shipping & Cargo Services is where the group began — serving the traders, cargo handlers, and shipping businesses around Dubai Creek. Today it anchors the group's shipping and cargo operations and is the home of Shabab Deira's manpower services.",
+            "ar": "تأسست في ديرة عام 2012 على يد زبير خان، ومنها بدأت المجموعة — لخدمة التجار ومناولي البضائع وشركات الشحن حول خور دبي. واليوم تشكل قلب عمليات الشحن والبضائع للمجموعة، وهي مقر خدمات العمالة في شباب ديرة."
+          },
+          "aboutTitle": {
+            "en": "About the company",
+            "ar": "عن الشركة"
+          },
+          "aboutP": {
+            "en": "Working from Al Ittihad Road in Deira — minutes from Port Rashid and Dubai Creek — the company supports cargo movement for trading and logistics clients across the UAE, and coordinates the group's workforce operations from the same desk.",
+            "ar": "من شارع الاتحاد في ديرة — على دقائق من ميناء راشد وخور دبي — تدعم الشركة تحريك البضائع لعملاء التجارة واللوجستيات في الإمارات، وتنسق عمليات القوى العاملة للمجموعة من المكتب نفسه."
+          },
+          "servicesTitle": {
+            "en": "What the company provides",
+            "ar": "ما تقدمه الشركة"
+          },
+          "services": [
+            {
+              "en": "Shipping and cargo coordination",
+              "ar": "التنسيق الشحني والبضائع"
+            },
+            {
+              "en": "Manpower supply across all 11 service categories",
+              "ar": "توريد العمالة في فئات الخدمة الإحدى عشرة"
+            },
+            {
+              "en": "Packing, loading, and delivery workforce",
+              "ar": "عمالة التغليف والتحميل والتوصيل"
+            },
+            {
+              "en": "Client coordination for the whole group",
+              "ar": "التنسيق مع العملاء لكامل المجموعة"
+            }
+          ],
+          "coverageTitle": {
+            "en": "Coverage",
+            "ar": "التغطية"
+          },
+          "coverageP": {
+            "en": "Based in Deira, Dubai — serving clients across all seven emirates, inside the UAE only.",
+            "ar": "مقرها ديرة، دبي — وتخدم العملاء في الإمارات السبع، داخل الإمارات فقط."
+          }
+        }
+      },
+      {
+        "id": "shabab-deira-container-loading",
+        "page": "group-container-loading.html",
+        "shortName": {
+          "en": "Shabab Deira Container Loading & Unloading Services LLC",
+          "ar": "شباب ديرة لخدمات تحميل وتنزيل الحاويات ذ.م.م"
+        },
+        "tagline": {
+          "en": "Specialist container loading and unloading crews",
+          "ar": "طواقم متخصصة في تحميل الحاويات وتنزيلها"
+        },
+        "cardDesc": {
+          "en": "Dedicated container loading and unloading crews for shipping lines, freight forwarders, and warehouses across the UAE.",
+          "ar": "طواقم مخصصة لتحميل الحاويات وتنزيلها لخطوط الملاحة ووكلاء الشحن والمستودعات في الإمارات."
+        },
+        "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+        "content": {
+          "h1": {
+            "en": "Shabab Deira Container Loading & Unloading Services LLC",
+            "ar": "شباب ديرة لخدمات تحميل وتنزيل الحاويات ذ.م.م"
+          },
+          "intro": {
+            "en": "A container is only as good as the crew that fills it. This company exists for one job: loading and unloading containers — quickly, safely, and with cargo arriving as it left. Crews are supervised, experienced in mixed and fragile loads, and available across the UAE.",
+            "ar": "قيمة الحاوية من قيمة الطاقم الذي يعبئها. هذه الشركة قائمة على مهمة واحدة: تحميل الحاويات وتنزيلها — بسرعة وأمان ووصول البضائع كما خرجت. طواقمها مُشرفة وذات خبرة في الأحمال المختلفة والقابلة للكسر، ومتاحة في جميع أنحاء الإمارات."
+          },
+          "aboutTitle": {
+            "en": "About the company",
+            "ar": "عن الشركة"
+          },
+          "aboutP": {
+            "en": "Formed to meet the container handling needs of the group's shipping clients, the company serves ports, freight yards, and warehouse facilities — from single-container jobs to scheduled daily loading operations.",
+            "ar": "تأسست لتلبية احتياجات مناولة الحاويات لعملاء المجموعة في قطاع الشحن، وتخدم الموانئ وساحات الشحن ومنشآت المستودعات — من مهام حاوية واحدة إلى عمليات تحميل يومية مجدولة."
+          },
+          "servicesTitle": {
+            "en": "What the company provides",
+            "ar": "ما تقدمه الشركة"
+          },
+          "services": [
+            {
+              "en": "Container loading and unloading crews",
+              "ar": "طواقم تحميل الحاويات وتنزيلها"
+            },
+            {
+              "en": "Container stuffing and destuffing",
+              "ar": "تعبئة الحاويات وتفريغها"
+            },
+            {
+              "en": "Cargo securing and lashing",
+              "ar": "تثبيت البضائع وربطها"
+            },
+            {
+              "en": "Scheduled daily loading operations",
+              "ar": "عمليات تحميل يومية مجدولة"
+            }
+          ],
+          "coverageTitle": {
+            "en": "Coverage",
+            "ar": "التغطية"
+          },
+          "coverageP": {
+            "en": "Crews available at ports and facilities across Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+            "ar": "طواقم متاحة في الموانئ والمنشآت في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+          }
+        }
+      },
+      {
+        "id": "fun-al-wasal-cargo-packaging",
+        "page": "group-cargo-packaging.html",
+        "shortName": {
+          "en": "Fun-al-Wasal Cargo Packaging Services LLC",
+          "ar": "فن الوصل لخدمات تغليف البضائع ذ.م.م"
+        },
+        "tagline": {
+          "en": "Professional cargo packaging and export-ready packing",
+          "ar": "تغليف بضائع احترافي جاهز للتصدير"
+        },
+        "cardDesc": {
+          "en": "Export-standard cargo packaging — cartons, pallets, shrink wrap, and protective packing for goods in transit.",
+          "ar": "تغليف بضائع وفق معايير التصدير — كراتين ومنصات وتغليف حراري وتغليف واقٍ للبضائع أثناء النقل."
+        },
+        "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+        "content": {
+          "h1": {
+            "en": "Fun-al-Wasal Cargo Packaging Services LLC",
+            "ar": "فن الوصل لخدمات تغليف البضائع ذ.م.م"
+          },
+          "intro": {
+            "en": "Goods that survive the journey start with packaging that is done properly. Fun-al-Wasal specialises in cargo packaging — from single cartons to full palletised shipments — so that products leave the UAE the way they were packed: intact, labelled, and ready for the next hand.",
+            "ar": "البضائع التي تنجو من الرحلة تبدأ بتغليف يُنفذ بإتقان. تتخصص فن الوصل في تغليف البضائع — من كرتونة واحدة إلى شحنات كاملة على منصات — لتخرج المنتجات من الإمارات كما غُلفت: سليمة ومرمزة وجاهزة للنقلة التالية."
+          },
+          "aboutTitle": {
+            "en": "About the company",
+            "ar": "عن الشركة"
+          },
+          "aboutP": {
+            "en": "The company serves exporters, traders, and e-commerce sellers who need their goods packed to survive long transit chains. Teams work on client premises or in packaging facilities, to client specifications.",
+            "ar": "تخدم الشركة المُصدِّرين والتجار وأصحاب المتاجر الإلكترونية الذين يحتاجون تغليف بضائعهم بما يقاوم سلاسل النقل الطويلة. تعمل الفرق في مقار العملاء أو في مرافق التغليف وفق مواصفاتهم."
+          },
+          "servicesTitle": {
+            "en": "What the company provides",
+            "ar": "ما تقدمه الشركة"
+          },
+          "services": [
+            {
+              "en": "Export-standard packaging",
+              "ar": "تغليف وفق معايير التصدير"
+            },
+            {
+              "en": "Carton, pallet, and shrink-wrap packing",
+              "ar": "تغليف الكراتين والمنصات والتغليف الحراري"
+            },
+            {
+              "en": "Protective packing for fragile goods",
+              "ar": "تغليف واقٍ للبضائع القابلة للكسر"
+            },
+            {
+              "en": "Labelling, sorting, and consolidation",
+              "ar": "الترميز والفرز والتجميع"
+            }
+          ],
+          "coverageTitle": {
+            "en": "Coverage",
+            "ar": "التغطية"
+          },
+          "coverageP": {
+            "en": "Packaging teams available across Dubai and the Northern Emirates; larger projects coordinated UAE-wide.",
+            "ar": "فرق التغليف متاحة في دبي والإمارات الشمالية؛ وتُنسق المشاريع الأكبر في جميع الإمارات."
+          }
+        }
+      },
+      {
+        "id": "supply-labour-container-loading",
+        "page": "group-supply-labour.html",
+        "shortName": {
+          "en": "Supply Labour Container Loading & Unloading Services LLC",
+          "ar": "سبلاي لابور لخدمات تحميل وتنزيل الحاويات ذ.م.م"
+        },
+        "tagline": {
+          "en": "Contract container loading labour, by the shift or by the project",
+          "ar": "عمالة تعاقدية لتحميل الحاويات، بالوردية أو بالمشروع"
+        },
+        "cardDesc": {
+          "en": "Contract labour company supplying container loading and unloading teams on shift or project basis.",
+          "ar": "شركة عمالة تعاقدية توفر فرق تحميل وتنزيل الحاويات بالوردية أو بالمشروع."
+        },
+        "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+        "content": {
+          "h1": {
+            "en": "Supply Labour Container Loading & Unloading Services LLC",
+            "ar": "سبلاي لابور لخدمات تحميل وتنزيل الحاويات ذ.م.م"
+          },
+          "intro": {
+            "en": "Some operations need labour on tap — extra hands for a shift, a season, or a single project. This company supplies contract container loading and unloading teams on exactly those terms: by the shift, by the week, or for the length of a project.",
+            "ar": "بعض العمليات تحتاج عمالة عند الطلب — أيادي إضافية لوردية أو موسم أو مشروع واحد. توفر هذه الشركة فرق تحميل وتنزيل الحاويات التعاقدية بهذه الشروط تحديداً: بالوردية أو بالأسبوع أو لمدة المشروع."
+          },
+          "aboutTitle": {
+            "en": "About the company",
+            "ar": "عن الشركة"
+          },
+          "aboutP": {
+            "en": "The company exists for clients whose container volumes change — peaks, seasonal rushes, and project surges. Instead of carrying permanent crews, clients draw on supervised teams that scale up and down with the workload.",
+            "ar": "توجد هذه الشركة لعملاء تتغير أحجام حاوياتهم — في الذروات والمواسم والمشاريع المتزايدة. وبدلاً من تحمل طواقم دائمة، يستفيد العملاء من فرق مُشرفة تتوسع وتتقلص مع حجم العمل."
+          },
+          "servicesTitle": {
+            "en": "What the company provides",
+            "ar": "ما تقدمه الشركة"
+          },
+          "services": [
+            {
+              "en": "Contract container loading crews",
+              "ar": "طواقم تحميل حاويات تعاقدية"
+            },
+            {
+              "en": "Shift-based unloading teams",
+              "ar": "فرق تنزيل بنظام الورديات"
+            },
+            {
+              "en": "Seasonal and peak-volume support",
+              "ar": "دعم المواسم وفترات الذروة"
+            },
+            {
+              "en": "Project-length engagements",
+              "ar": "تعاقدات بمدة المشروع"
+            }
+          ],
+          "coverageTitle": {
+            "en": "Coverage",
+            "ar": "التغطية"
+          },
+          "coverageP": {
+            "en": "Contract teams deployed across the UAE, with fastest mobilisation in Dubai and Sharjah.",
+            "ar": "فرق تعاقدية تُنشر في جميع أنحاء الإمارات، مع أسرع تعبئة في دبي والشارقة."
+          }
+        }
+      },
+      {
+        "id": "multan-mount-technical-services",
+        "page": "group-multan-mount-technical.html",
+        "shortName": {
+          "en": "Multan Mount Technical Services LLC",
+          "ar": "ملتان ماونت للخدمات الفنية ذ.م.م"
+        },
+        "tagline": {
+          "en": "Technical services and equipment support",
+          "ar": "خدمات فنية ودعم المعدات"
+        },
+        "cardDesc": {
+          "en": "Technical services company supporting equipment, machinery, and facility operations for the group's clients.",
+          "ar": "شركة خدمات فنية تدعم المعدات والماكينات وعمليات المرافق لعملاء المجموعة."
+        },
+        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+        "content": {
+          "h1": {
+            "en": "Multan Mount Technical Services LLC",
+            "ar": "ملتان ماونت للخدمات الفنية ذ.م.م"
+          },
+          "intro": {
+            "en": "Machines, equipment, and facilities need technical hands they can trust. Multan Mount provides technical services and equipment support for the group's clients — keeping operations running, maintained, and safe.",
+            "ar": "الماكينات والمعدات والمرافق تحتاج أيادي فنية موثوقة. توفر ملتان ماونت الخدمات الفنية ودعم المعدات لعملاء المجموعة — للحفاظ على استمرار العمليات وصيانتها وسلامتها."
+          },
+          "aboutTitle": {
+            "en": "About the company",
+            "ar": "عن الشركة"
+          },
+          "aboutP": {
+            "en": "The company rounds out the group's offering: where other companies supply the workforce, Multan Mount supplies the technical capability — working alongside client teams on equipment and facility needs.",
+            "ar": "تكمل هذه الشركة عرض المجموعة: حيث تورد الشركات الأخرى القوى العاملة، توفر ملتان ماونت القدرة الفنية — بالعمل جنباً إلى جنب مع فرق العملاء في احتياجات المعدات والمرافق."
+          },
+          "servicesTitle": {
+            "en": "What the company provides",
+            "ar": "ما تقدمه الشركة"
+          },
+          "services": [
+            {
+              "en": "Technical services and equipment support",
+              "ar": "خدمات فنية ودعم المعدات"
+            },
+            {
+              "en": "Machinery and equipment assistance",
+              "ar": "مساعدة في الماكينات والمعدات"
+            },
+            {
+              "en": "Facility operations support",
+              "ar": "دعم تشغيل المرافق"
+            },
+            {
+              "en": "Coordination with group workforce teams",
+              "ar": "التنسيق مع فرق العمالة في المجموعة"
+            }
+          ],
+          "coverageTitle": {
+            "en": "Coverage",
+            "ar": "التغطية"
+          },
+          "coverageP": {
+            "en": "Technical teams available across Dubai and the wider UAE, inside the UAE only.",
+            "ar": "فرق فنية متاحة في دبي وبقية أنحاء الإمارات، داخل الدولة فقط."
+          }
+        }
+      }
+    ],
+    "servicesPage": {
+      "eyebrow": {
+        "en": "Our Services",
+        "ar": "خدماتنا"
+      },
+      "title": {
+        "en": "Manpower and workforce services across the UAE",
+        "ar": "خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات"
+      },
+      "desc": {
+        "en": "Eleven services, one point of contact — all delivered inside the UAE, by workers who are screened, documented, and paid on time through WPS.",
+        "ar": "إحدى عشرة خدمة ووجهة اتصال واحدة — كلها داخل الإمارات، بعمالة مدققة وموثقة تُصرف أجورها في موعدها عبر نظام حماية الأجور."
+      },
+      "detailIntro": {
+        "en": "What's included",
+        "ar": "ما تشمله الخدمة"
+      },
+      "detailAvailability": {
+        "en": "Availability",
+        "ar": "التوفر"
+      },
+      "summaryTitle": {
+        "en": "Services at a glance",
+        "ar": "خدماتنا في لمحة"
+      },
+      "summaryDesc": {
+        "en": "A quick view of our service categories and the workers we supply in each.",
+        "ar": "نظرة سريعة على فئات الخدمات والعمالة التي نوفرها في كل منها."
+      },
+      "colService": {
+        "en": "Service",
+        "ar": "الخدمة"
+      },
+      "colCategory": {
+        "en": "Category",
+        "ar": "الفئة"
+      },
+      "colWorkers": {
+        "en": "Workers Supplied",
+        "ar": "العمالة الموفرة"
+      }
+    },
+    "requestManpowerPage": {
+      "eyebrow": {
+        "en": "Book Manpower",
+        "ar": "احجز عمالة"
+      },
+      "title": {
+        "en": "Book manpower for your business",
+        "ar": "احجز العمالة لمنشأتك"
+      },
+      "desc": {
+        "en": "Tell us the service, number of workers, location, and dates — our operations desk responds with availability and a clear quotation.",
+        "ar": "أخبرنا بالخدمة وعدد العمال والموقع والتواريخ — وسيرد مكتب العمليات بالتأكيد على التوفر وعرض سعر واضح."
+      },
+      "formHeading": {
+        "en": "Workforce Requirement",
+        "ar": "تفاصيل طلب العمالة"
+      },
+      "requiredNotice": {
+        "en": "Fields marked * are required.",
+        "ar": "الحقول المميزة بعلامة * إلزامية."
+      },
+      "companyLabel": {
+        "en": "Company Name *",
+        "ar": "اسم المنشأة *"
+      },
+      "companyPlaceholder": {
+        "en": "e.g. Your Company Name LLC",
+        "ar": "مثال: اسم شركتك ذ.م.م"
+      },
+      "companyError": {
+        "en": "Please enter your company name.",
+        "ar": "يرجى إدخال اسم المنشأة."
+      },
+      "contactLabel": {
+        "en": "Contact Person *",
+        "ar": "اسم المسؤول *"
+      },
+      "contactPlaceholder": {
+        "en": "Full name",
+        "ar": "الاسم الكامل"
+      },
+      "contactError": {
+        "en": "Please enter a contact name.",
+        "ar": "يرجى إدخال اسم المسؤول."
+      },
+      "emailPhoneLabel": {
+        "en": "Email or Phone *",
+        "ar": "البريد الإلكتروني أو الهاتف *"
+      },
+      "emailPhonePlaceholder": {
+        "en": "you@company.com or +971 5X XXX XXXX",
+        "ar": "you@company.com أو +971 5X XXX XXXX"
+      },
+      "emailPhoneError": {
+        "en": "Please enter an email address or phone number.",
+        "ar": "يرجى إدخال البريد الإلكتروني أو رقم الهاتف."
+      },
+      "whatsappLabel": {
+        "en": "WhatsApp Number (optional)",
+        "ar": "رقم واتساب (اختياري)"
+      },
+      "whatsappPlaceholder": {
+        "en": "+971 5X XXX XXXX",
+        "ar": "+971 5X XXX XXXX"
+      },
+      "tradeLabel": {
+        "en": "Service Required *",
+        "ar": "الخدمة المطلوبة *"
+      },
+      "tradeSelectPlaceholder": {
+        "en": "Select a service",
+        "ar": "اختر الخدمة"
+      },
+      "tradeError": {
+        "en": "Please select a service.",
+        "ar": "يرجى اختيار الخدمة."
+      },
+      "workersLabel": {
+        "en": "Number of Workers",
+        "ar": "عدد العمال"
+      },
+      "workersOption1": {
+        "en": "1 – 5 workers",
+        "ar": "من 1 إلى 5 عمال"
+      },
+      "workersOption2": {
+        "en": "6 – 15 workers",
+        "ar": "من 6 إلى 15 عاملاً"
+      },
+      "workersOption3": {
+        "en": "16 – 30 workers",
+        "ar": "من 16 إلى 30 عاملاً"
+      },
+      "workersOption4": {
+        "en": "31 – 50 workers",
+        "ar": "من 31 إلى 50 عاملاً"
+      },
+      "workersOption5": {
+        "en": "50+ workers",
+        "ar": "أكثر من 50 عاملاً"
+      },
+      "locationLabel": {
+        "en": "Work Location *",
+        "ar": "موقع العمل *"
+      },
+      "locationSelectPlaceholder": {
+        "en": "Select emirate / area",
+        "ar": "اختر الإمارة أو المنطقة"
+      },
+      "locationOptDubai": {
+        "en": "Dubai",
+        "ar": "دبي"
+      },
+      "locationOptSharjah": {
+        "en": "Sharjah & Ajman",
+        "ar": "الشارقة وعجمان"
+      },
+      "locationOptAbuDhabi": {
+        "en": "Abu Dhabi & Al Ain",
+        "ar": "أبوظبي والعين"
+      },
+      "locationOptNorthern": {
+        "en": "RAK & Northern Emirates",
+        "ar": "رأس الخيمة والإمارات الشمالية"
+      },
+      "locationError": {
+        "en": "Please select a work location.",
+        "ar": "يرجى اختيار موقع العمل."
+      },
+      "durationLabel": {
+        "en": "Duration",
+        "ar": "مدة التعاقد"
+      },
+      "durationOpt1": {
+        "en": "One day / one-time",
+        "ar": "يوم واحد / لمرة واحدة"
+      },
+      "durationOpt2": {
+        "en": "Up to 1 week",
+        "ar": "حتى أسبوع"
+      },
+      "durationOpt3": {
+        "en": "1 week – 1 month",
+        "ar": "من أسبوع إلى شهر"
+      },
+      "durationOpt4": {
+        "en": "Long term",
+        "ar": "طويل الأمد"
+      },
+      "scopeLabel": {
+        "en": "Work Scope & Site Details",
+        "ar": "نطاق العمل وتفاصيل الموقع"
+      },
+      "scopePlaceholder": {
+        "en": "e.g. 4 packing staff for our warehouse in Al Quoz, Monday to Friday, 8 AM to 5 PM, starting next month.",
+        "ar": "مثال: 4 عمال تغليف لمستودعنا في القوز، من الاثنين إلى الجمعة، من 8 صباحاً إلى 5 مساءً، بداية من الشهر القادم."
+      },
+      "scopeError": {
+        "en": "Please describe the work scope.",
+        "ar": "يرجى وصف نطاق العمل."
+      },
+      "consentText": {
+        "en": "I agree to be contacted about my requirement.",
+        "ar": "أوافق على أن يتم التواصل معي بشأن طلبي."
+      },
+      "submitBtn": {
+        "en": "Submit Requirement",
+        "ar": "أرسل الطلب"
+      },
+      "directEyebrow": {
+        "en": "Prefer to Talk?",
+        "ar": "تفضل التواصل المباشر؟"
+      },
+      "directTitle": {
+        "en": "Reach our operations desk directly",
+        "ar": "تواصل مع مكتب العمليات مباشرة"
+      },
+      "directDesc": {
+        "en": "Call or WhatsApp us with your requirement — service, workers, location, and dates — and we will confirm availability.",
+        "ar": "اتصل بنا أو راسلنا واتساب بطلبك — الخدمة وعدد العمال والموقع والتواريخ — وسنؤكد التوفر."
+      },
+      "nextEyebrow": {
+        "en": "What Happens Next",
+        "ar": "الخطوات التالية"
+      },
+      "nextTitle": {
+        "en": "After you submit",
+        "ar": "بعد إرسال الطلب"
+      },
+      "step1Num": "01",
+      "step1Title": {
+        "en": "We review your requirement",
+        "ar": "نراجع طلبك"
+      },
+      "step1Desc": {
+        "en": "Our operations desk checks availability for your service, dates, and location.",
+        "ar": "يتحقق مكتب العمليات من توفر الخدمة والتواريخ والموقع."
+      },
+      "step2Num": "02",
+      "step2Title": {
+        "en": "You receive a quotation",
+        "ar": "تستلم عرض السعر"
+      },
+      "step2Desc": {
+        "en": "Rates, terms, and start dates — confirmed in writing.",
+        "ar": "الأسعار والشروط وتواريخ البدء — تأكيداً كتابياً."
+      },
+      "step3Num": "03",
+      "step3Title": {
+        "en": "Your team is deployed",
+        "ar": "نشر فريقك"
+      },
+      "step3Desc": {
+        "en": "Workers arrive briefed and on schedule, with ongoing support from our team.",
+        "ar": "يصل العمال بعد توجيههم وفي الموعد، مع دعم مستمر من فريقنا."
+      }
+    },
+    "faqPage": {
+      "eyebrow": {
+        "en": "Support & Clarifications",
+        "ar": "الدعم والإيضاحات"
+      },
+      "title": {
+        "en": "Frequently Asked Questions",
+        "ar": "الأسئلة الشائعة"
+      },
+      "desc": {
+        "en": "Clear answers on our services, coverage, booking process, worker compliance, and commercial terms — in Dubai and across the UAE.",
+        "ar": "إجابات واضحة حول خدماتنا ونطاق التغطية وآلية الحجز والامتثال والشروط التعاقدية — في دبي وجميع أنحاء الإمارات."
+      },
+      "searchPlaceholder": {
+        "en": "Search questions (e.g. accommodation, drivers, short-term)...",
+        "ar": "ابحث في الأسئلة (مثال: السكن، السائقون، قصير الأجل)..."
+      },
+      "stillQuestions": {
+        "en": "Have a specific question not answered here?",
+        "ar": "هل لديك استفسار محدد لم تجد إجابته هنا؟"
+      },
+      "stillQuestionsDesc": {
+        "en": "Speak directly with our operations desk in Deira or send your requirement.",
+        "ar": "تواصل مباشرة مع مكتب العمليات في ديرة أو أرسل تفاصيل طلبك."
+      }
+    },
+    "pageTitles": {
+      "home": {
+        "en": "Shabab Deira — Manpower Supply & Labour Supply in Dubai, UAE",
+        "ar": "شباب ديرة — توريد العمالة والقوى العاملة في دبي، الإمارات"
+      },
+      "about": {
+        "en": "About Us — Manpower Company in Dubai Since 2012 | Shabab Deira",
+        "ar": "من نحن — شركة عمالة في دبي منذ 2012 | شباب ديرة"
+      },
+      "services": {
+        "en": "Manpower Supply Services in Dubai & UAE — Packing, Loading, Cleaning & More | Shabab Deira",
+        "ar": "خدمات توريد العمالة في دبي والإمارات — تغليف وتحميل ونظافة والمزيد | شباب ديرة"
+      },
+      "industries": {
+        "en": "Industries Served — Logistics, Retail, Manufacturing & Events | Shabab Deira",
+        "ar": "القطاعات التي نخدمها — اللوجستيات والتجزئة والصناعة والفعاليات | شباب ديرة"
+      },
+      "team": {
+        "en": "Our Team — Shabab Deira Manpower, Dubai",
+        "ar": "فريقنا — شباب ديرة للعمالة، دبي"
+      },
+      "group": {
+        "en": "Our Group — Five Companies, One Standard | Shabab Deira",
+        "ar": "مجموعتنا — خمس شركات ومعيار واحد | شباب ديرة"
+      },
+      "groupShipping": {
+        "en": "Shabab Deira Shipping & Cargo Services — Since 2012, Deira Dubai",
+        "ar": "شباب ديرة لخدمات الشحن والبضائع — منذ 2012، ديرة دبي"
+      },
+      "groupContainerLoading": {
+        "en": "Container Loading & Unloading Services in UAE | Shabab Deira Group",
+        "ar": "خدمات تحميل وتنزيل الحاويات في الإمارات | مجموعة شباب ديرة"
+      },
+      "groupCargoPackaging": {
+        "en": "Cargo Packaging Services in UAE | Fun-al-Wasal, Shabab Deira Group",
+        "ar": "خدمات تغليف البضائع في الإمارات | فن الوصل، مجموعة شباب ديرة"
+      },
+      "groupSupplyLabour": {
+        "en": "Contract Container Loading Labour in UAE | Supply Labour, Shabab Deira Group",
+        "ar": "عمالة تحميل الحاويات التعاقدية في الإمارات | سبلاي لابور، مجموعة شباب ديرة"
+      },
+      "groupMultanMount": {
+        "en": "Technical Services in UAE | Multan Mount, Shabab Deira Group",
+        "ar": "الخدمات الفنية في الإمارات | ملتان ماونت، مجموعة شباب ديرة"
+      },
+      "requestManpower": {
+        "en": "Book Manpower — Workforce Request | Shabab Deira Dubai",
+        "ar": "احجز عمالة — طلب القوى العاملة | شباب ديرة دبي"
+      },
+      "faq": {
+        "en": "FAQs — Manpower Supply in Dubai & UAE | Shabab Deira",
+        "ar": "الأسئلة الشائعة — توريد العمالة في دبي والإمارات | شباب ديرة"
+      },
+      "contact": {
+        "en": "Contact Us — Manpower Supply Dubai, Deira | Shabab Deira",
+        "ar": "اتصل بنا — توريد العمالة في ديرة، دبي | شباب ديرة"
+      },
+      "privacy": {
+        "en": "Privacy Policy — Shabab Deira",
+        "ar": "سياسة الخصوصية — شباب ديرة"
+      },
+      "terms": {
+        "en": "Terms — Shabab Deira",
+        "ar": "الشروط والأحكام — شباب ديرة"
+      }
+    },
+    "contactPage": {
+      "eyebrow": {
+        "en": "Get in Touch",
+        "ar": "تواصل معنا"
+      },
+      "title": {
+        "en": "Contact Shabab Deira Operations",
+        "ar": "التواصل مع مكتب عمليات شباب ديرة"
+      },
+      "desc": {
+        "en": "Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, email — or use the booking form.",
+        "ar": "تواصل مباشر مع فريق العمليات في ديرة، دبي عبر الهاتف أو واتساب أو البريد الإلكتروني — أو من خلال نموذج الحجز."
+      },
+      "locationCardTitle": {
+        "en": "Our Office",
+        "ar": "مقرنا"
+      },
+      "phoneCardTitle": {
+        "en": "Direct Phone",
+        "ar": "الاتصال الهاتفي المباشر"
+      },
+      "whatsappCardTitle": {
+        "en": "WhatsApp Operations",
+        "ar": "واتساب العمليات"
+      },
+      "emailCardTitle": {
+        "en": "Email Inquiries",
+        "ar": "المراسلات الإلكترونية"
+      },
+      "hoursCardTitle": {
+        "en": "Working Hours",
+        "ar": "ساعات العمل"
+      },
+      "formTitle": {
+        "en": "Send a General Inquiry",
+        "ar": "إرسال استفسار عام"
+      },
+      "formDesc": {
+        "en": "To book workers, please use the Book Manpower form. For all general inquiries, reach us below.",
+        "ar": "لحجز العمالة يرجى استخدام نموذج احجز عمالة. ولكل الاستفسارات العامة تواصل معنا عبر النموذج التالي."
+      },
+      "nameLabel": {
+        "en": "Your Full Name",
+        "ar": "الاسم الكامل"
+      },
+      "namePlaceholder": {
+        "en": "Full name",
+        "ar": "الاسم الكامل"
+      },
+      "emailLabel": {
+        "en": "Email Address",
+        "ar": "البريد الإلكتروني"
+      },
+      "emailPlaceholder": {
+        "en": "name@company.ae",
+        "ar": "name@company.ae"
+      },
+      "phoneLabel": {
+        "en": "Phone Number",
+        "ar": "رقم الهاتف"
+      },
+      "phonePlaceholder": {
+        "en": "+971 50 ...",
+        "ar": "‎+971 50 ..."
+      },
+      "subjectLabel": {
+        "en": "Subject / Nature of Inquiry",
+        "ar": "الموضوع / طبيعة الاستفسار"
+      },
+      "subjectPlaceholder": {
+        "en": "e.g. Long-term workforce partnership",
+        "ar": "مثال: شراكة عمالة طويلة الأمد"
+      },
+      "messageLabel": {
+        "en": "Message",
+        "ar": "نص الرسالة"
+      },
+      "messagePlaceholder": {
+        "en": "Write your message here...",
+        "ar": "اكتب تفاصيل استفسارك هنا..."
+      },
+      "sendBtn": {
+        "en": "Send Message",
+        "ar": "إرسال الرسالة"
+      },
+      "mapTitle": {
+        "en": "Central Location in Deira",
+        "ar": "موقع استراتيجي في قلب ديرة"
+      },
+      "mapDesc": {
+        "en": "Easily accessible from Al Ittihad Road, minutes from Dubai Creek and Port Rashid — with rapid connectivity across the Emirates.",
+        "ar": "موقع يسهل الوصول إليه من شارع الاتحاد، على دقائق من خور دبي وميناء راشد — مع اتصال سريع بجميع أنحاء الإمارات."
+      },
+      "tenderSubtext": {
+        "en": "Tender documents & inquiries",
+        "ar": "المناقصات والاستفسارات المؤسسية"
+      },
+      "nameError": {
+        "en": "Please enter your name.",
+        "ar": "يرجى إدخال اسمك."
+      },
+      "companyError": {
+        "en": "Please enter your company name.",
+        "ar": "يرجى إدخال اسم المنشأة."
+      },
+      "emailError": {
+        "en": "Please enter a valid email address.",
+        "ar": "يرجى إدخال بريد إلكتروني صحيح."
+      },
+      "phoneError": {
+        "en": "Please enter a valid phone number.",
+        "ar": "يرجى إدخال رقم هاتف صحيح."
+      },
+      "messageError": {
+        "en": "Please enter your message.",
+        "ar": "يرجى كتابة رسالتك."
+      }
+    },
+    "privacyPage": {
+      "eyebrow": {
+        "en": "Legal & Privacy",
+        "ar": "الخصوصية والبيانات"
+      },
+      "title": {
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "desc": {
+        "en": "How Shabab Deira collects, uses, and protects business and personal data in accordance with UAE Personal Data Protection Law (Federal Decree-Law No. 45/2021).",
+        "ar": "كيفية جمع واستخدام وحماية البيانات الشخصية وبيانات الشركات وفقاً للمرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية في دولة الإمارات."
+      },
+      "sec1Title": {
+        "en": "1. Information Collected",
+        "ar": "١. البيانات والمعلومات التي نجمعها"
+      },
+      "sec1Text": {
+        "en": "Shabab Deira Shipping & Cargo Services collects information submitted voluntarily by business representatives when booking manpower or contacting our operations desk. This includes company name, contact person, email address, phone numbers, service requirements, and site location details.",
+        "ar": "تجمع شباب ديرة لخدمات الشحن والبضائع المعلومات المقدمة طواعية من ممثلي المنشآت عند حجز العمالة أو التواصل مع مكتب العمليات، ويشمل ذلك اسم المنشأة، اسم المسؤول، البريد الإلكتروني، أرقام الهواتف، الخدمات المطلوبة، وتفاصيل موقع العمل."
+      },
+      "sec2Title": {
+        "en": "2. Use of Information",
+        "ar": "٢. أوجه استخدام المعلومات"
+      },
+      "sec2Text": {
+        "en": "Information provided is utilized solely to review workforce requirements, prepare commercial quotations, communicate operational updates, and fulfill regulatory obligations under UAE labour laws and MOHRE requirements.",
+        "ar": "تُستخدم البيانات المقدمة حصراً لمراجعة احتياجات العمالة، إعداد عروض الأسعار التجارية، التنسيق التشغيلي، والوفاء بالالتزامات النظامية لقوانين العمل بالدولة ومتطلبات وزارة الموارد البشرية والتوطين."
+      },
+      "sec3Title": {
+        "en": "3. Data Protection & Confidentiality",
+        "ar": "٣. حماية وسرية البيانات"
+      },
+      "sec3Text": {
+        "en": "We implement appropriate technical and administrative safeguards to protect client and candidate data. We do not sell, rent, or distribute contact records to third-party commercial marketing platforms.",
+        "ar": "نطبق تدابير تقنية وإدارية محكمة لضمان سرية وأمان بيانات العملاء والعمال، ونلتزم بعدم بيع أو تأجير أو مشاركة أية بيانات مع منصات تسويقية خارجية."
+      },
+      "sec4Title": {
+        "en": "4. Inquiries & Data Rights",
+        "ar": "٤. حقوق البيانات والتواصل"
+      },
+      "sec4Text": {
+        "en": "To update or request the removal of your contact information, please email our compliance desk at inquiries@shababdeira.ae.",
+        "ar": "لتحديث بيانات الاتصال الخاصة بكم أو طلب حذفها، يرجى التواصل مع مكتب الامتثال عبر البريد الإلكتروني: inquiries@shababdeira.ae."
+      }
+    },
+    "termsPage": {
+      "eyebrow": {
+        "en": "Commercial Terms",
+        "ar": "الشروط والأحكام التعاقدية"
+      },
+      "title": {
+        "en": "Terms of Engagement",
+        "ar": "شروط وأحكام التعامل"
+      },
+      "desc": {
+        "en": "Commercial conditions governing website use, requirement submissions, and initial supply quotations in the UAE.",
+        "ar": "الضوابط والشروط التجارية المنظمة لاستخدام الموقع الإلكتروني، تقديم الطلبات، وعروض الأسعار في دولة الإمارات."
+      },
+      "sec1Title": {
+        "en": "1. Operational Scope",
+        "ar": "١. النطاق التشغيلي"
+      },
+      "sec1Text": {
+        "en": "Shabab Deira Shipping & Cargo Services is a UAE manpower and workforce services company based in Deira, Dubai, providing services inside the UAE only. Submissions through this website represent inquiries for workforce availability and quotation; they do not constitute a binding supply agreement until a formal agreement is executed between both parties.",
+        "ar": "شباب ديرة لخدمات الشحن والبضائع شركة إماراتية لخدمات العمالة والقوى العاملة مقرها ديرة، دبي، وتقدم خدماتها داخل الإمارات فقط. تمثل الطلبات المرسلة عبر هذا الموقع استفسارات لطلب عروض الأسعار وجاهزية التوريد، ولا تعتبر عقداً ملزماً إلا بعد توقيع اتفاقية رسمية بين الطرفين."
+      },
+      "sec2Title": {
+        "en": "2. Quotations & Rate Validity",
+        "ar": "٢. عروض الأسعار وسريانها"
+      },
+      "sec2Text": {
+        "en": "Standard quotations provided by our operations desk remain valid for thirty (30) days from issuance unless otherwise specified in writing. Rate schedules reflect service category, worker numbers, shift durations, and site requirements.",
+        "ar": "تسري عروض الأسعار الصادرة من مكتب العمليات لمدة ثلاثين (30) يوماً من تاريخ إصدارها ما لم يُنص على خلاف ذلك كتابةً. وتُحدد الأسعار وفقاً لفئة الخدمة وعدد العمال وساعات العمل واشتراطات الموقع."
+      },
+      "sec3Title": {
+        "en": "3. Regulatory Compliance",
+        "ar": "٣. الامتثال لقوانين العمل الإماراتية"
+      },
+      "sec3Text": {
+        "en": "All workforce engagements are conducted in strict compliance with UAE Federal Decree-Law No. 33 of 2021 regarding the Regulation of Labour Relations and all associated ministerial decrees. Shabab Deira maintains responsibility for visa sponsorship, medical insurance, and WPS salary disbursement for its employed workers.",
+        "ar": "تخضع كافة تعاقدات التوريد لأحكام المرسوم بقانون اتحادي رقم 33 لسنة 2021 بشأن تنظيم علاقات العمل والقرارات الوزارية المنفذة له. وتتحمل شباب ديرة المسؤولية عن كفالة الإقامات والتأمين الصحي وصرف الأجور عبر نظام حماية الأجور (WPS) لعمالها."
+      },
+      "sec4Title": {
+        "en": "4. Site Safety Obligations",
+        "ar": "٤. التزامات السلامة المهنية بالموقع"
+      },
+      "sec4Text": {
+        "en": "Clients are responsible for providing a safe working environment, conducting necessary site inductions, and complying with UAE occupational safety standards.",
+        "ar": "يلتزم العميل بتوفير بيئة عمل آمنة ومطابقة لمعايير السلامة المهنية في دولة الإمارات، وإجراء التدريب التعريفي بالموقع قبل بدء العمل."
+      }
+    }
+  };
+
+  function getPropByPath(obj, path) {
+    if (!obj || !path) return '';
+    var parts = path.split('.');
+    var curr = obj;
+    for (var i = 0; i < parts.length; i++) {
+      if (curr[parts[i]] === undefined) return '';
+      curr = curr[parts[i]];
+    }
+    if (typeof curr === 'object' && curr !== null) {
+      if (curr[currentLang]) return curr[currentLang];
+      if (curr.en) return curr.en;
+    }
+    return curr;
+  }
+
+  function resolveValue(val) {
+    if (typeof val === 'object' && val !== null) {
+      return val[currentLang] || val.en || '';
+    }
+    return val || '';
+  }
+
+  // Load site-content.json
+  function loadData(callback) {
+    fetch('data/site-content.json')
+      .then(function (res) {
+        if (!res.ok) throw new Error('Network response not ok');
+        return res.json();
+      })
+      .then(function (data) {
+        siteData = data;
+        if (callback) callback();
+      })
+      .catch(function (err) {
+        siteData = fallbackData;
+        if (callback) callback();
+      });
+  }
+
+  // Hydrate DOM with active language data
+  function applyLanguage(lang) {
+    currentLang = lang || currentLang;
+    localStorage.setItem('shabab_lang', currentLang);
+
+    var isRTL = currentLang === 'ar';
+    document.documentElement.lang = currentLang;
+    document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+
+    if (!siteData) siteData = fallbackData;
+
+    // Update Language Switcher Button Labels
+    document.querySelectorAll('.lang-switch').forEach(function (btn) {
+      btn.textContent = isRTL ? 'English' : 'عربي';
+      btn.setAttribute('aria-label', isRTL ? 'Switch to English' : 'التحويل إلى العربية');
+    });
+
+    // 1. Text translations [data-i18n="path.to.key"]
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n');
+      var val = getPropByPath(siteData, key);
+      if (val) {
+        if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+          el.placeholder = val;
+        } else if (el.tagName === 'OPTION') {
+          el.textContent = val;
+        } else {
+          el.textContent = val;
+        }
+      }
+    });
+
+    // 2. Placeholder translations [data-i18n-placeholder]
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-placeholder');
+      var val = getPropByPath(siteData, key);
+      if (val) {
+        el.placeholder = val;
+      }
+    });
+
+    // 3. Company Contact Data Bindings [data-bind]
+    document.querySelectorAll('[data-bind="company.phone"]').forEach(function (el) {
+      el.textContent = siteData.company.phone;
+      if (el.tagName === 'A') el.href = 'tel:' + siteData.company.phoneTel;
+    });
+
+    document.querySelectorAll('[data-bind="company.email"]').forEach(function (el) {
+      el.textContent = siteData.company.email;
+      if (el.tagName === 'A') el.href = 'mailto:' + siteData.company.email;
+    });
+
+    document.querySelectorAll('[data-bind="company.address"]').forEach(function (el) {
+      el.textContent = resolveValue(siteData.company.address);
+    });
+
+    document.querySelectorAll('[data-bind="company.locationShort"]').forEach(function (el) {
+      el.textContent = resolveValue(siteData.company.locationShort);
+    });
+
+    document.querySelectorAll('[data-bind="company.hours"]').forEach(function (el) {
+      el.textContent = resolveValue(siteData.company.hours);
+    });
+
+    document.querySelectorAll('[data-bind="company.whatsapp"]').forEach(function (el) {
+      if (el.tagName === 'A') {
+        el.href = 'https://wa.me/' + siteData.company.whatsappNum;
+      }
+    });
+
+    document.querySelectorAll('[data-bind="company.mapsUrl"]').forEach(function (el) {
+      if (el.tagName === 'A' && siteData.company.mapsUrl) {
+        el.href = siteData.company.mapsUrl;
+        el.target = '_blank';
+        el.rel = 'noopener';
+      }
+    });
+
+    // 3b. SEO URLs — canonical + og:url built from the single siteUrl setting
+    if (siteData.company && siteData.company.siteUrl) {
+      var base = siteData.company.siteUrl.replace(/\/+$/, '');
+      var file = location.pathname.split('/').pop() || 'index.html';
+      var pageUrl = (file === 'index.html' || file === '') ? base + '/' : base + '/' + file;
+
+      var canonical = document.querySelector('link[rel="canonical"]');
+      if (canonical) canonical.setAttribute('href', pageUrl);
+
+      var ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', pageUrl);
+    }
+
+    // 4. Dynamic Component Renderers
+    renderServicesGrid();
+    renderServicesInteractive();
+    renderIndustriesGrid();
+    renderTradesTable();
+    renderProcessSteps();
+    renderFaqList();
+    renderPartners();
+    renderStaff();
+    renderGroup();
+    renderGroupTeaser();
+    renderServicesDetail();
+
+    // Reinitialize Lucide Icons after DOM updates
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
+
+    // Dispatch global event
+    var event = new CustomEvent('shabab:langChanged', { detail: { lang: currentLang, isRTL: isRTL } });
+    window.dispatchEvent(event);
+  }
+
+  // Renderer: Services Interactive List (Homepage)
+  function renderServicesInteractive() {
+    var container = document.querySelector('[data-render="services-interactive-list"]');
+    if (!container || !siteData.services) return;
+
+    // Homepage teaser: first 6 of 11 — full list lives on services.html
+    var limit = parseInt(container.getAttribute('data-limit') || '6', 10);
+
+    var html = '';
+    siteData.services.slice(0, limit).forEach(function (svc, idx) {
+      var num = String(idx + 1).padStart(2, '0');
+      var activeClass = idx === 0 ? ' active' : '';
+      var icon = svc.icon || 'circle';
+      html += '<li class="services__row' + activeClass + '" data-image="' + svc.image + '" role="button" tabindex="0">' +
+        '<span class="services__number">' + num + '</span>' +
+        '<div>' +
+        '<span class="services__row-icon"><i data-lucide="' + icon + '"></i></span>' +
+        '<h3>' + resolveValue(svc.title) + '</h3>' +
+        '<p>' + resolveValue(svc.desc) + '</p>' +
+        '<div class="services__row-image"><img src="' + svc.image + '" alt="' + resolveValue(svc.alt || svc.title) + '" loading="lazy"></div>' +
+        '</div>' +
+        '</li>';
+    });
+
+    container.innerHTML = html;
+
+    var panel = document.getElementById('servicesPreviewImg');
+    if (panel && siteData.services[0]) {
+      panel.src = siteData.services[0].image;
+    }
+  }
+
+  // Renderer: Services Grid
+  function renderServicesGrid() {
+    var container = document.querySelector('[data-render="services-grid"]');
+    if (!container || !siteData.services) return;
+
+    var html = '';
+    siteData.services.forEach(function (svc) {
+      var rolesHtml = '';
+      if (svc.roles && svc.roles.length) {
+        svc.roles.forEach(function (r) {
+          rolesHtml += '<span class="tag">' + resolveValue(r) + '</span> ';
+        });
+      }
+
+      html += '<div class="card svc-card">' +
+        '<div class="svc-card__icon"><i data-lucide="' + (svc.icon || 'zap') + '"></i></div>' +
+        '<h3>' + resolveValue(svc.title) + '</h3>' +
+        '<p>' + resolveValue(svc.desc) + '</p>' +
+        '<div class="svc-card__roles">' + rolesHtml + '</div>' +
+        '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Industries Grid
+  function renderIndustriesGrid() {
+    var container = document.querySelector('[data-render="industries-grid"]');
+    if (!container || !siteData.industries) return;
+
+    // Homepage variant: data-notags drops the tag chips (one line of description is enough there)
+    var showTags = !container.hasAttribute('data-notags');
+
+    var html = '';
+    siteData.industries.forEach(function (ind) {
+      var tagsHtml = '';
+      if (showTags && ind.tags && ind.tags.length) {
+        ind.tags.forEach(function (t) {
+          tagsHtml += '<span class="tag">' + resolveValue(t) + '</span> ';
+        });
+      }
+
+      html += '<div class="ind-card">' +
+        '<img src="' + ind.image + '" alt="' + resolveValue(ind.title) + '" loading="lazy">' +
+        '<div class="ind-card__body">' +
+        '<h3>' + resolveValue(ind.title) + '</h3>' +
+        '<p>' + resolveValue(ind.desc) + '</p>' +
+        (showTags ? '<div class="ind-card__tags">' + tagsHtml + '</div>' : '') +
+        '</div></div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Group Teaser Strip (homepage — 5 names, one line, no cards)
+  function renderGroupTeaser() {
+    var container = document.querySelector('[data-render="group-teaser"]');
+    if (!container || !siteData.groupCompanies) return;
+
+    var html = '';
+    siteData.groupCompanies.forEach(function (c, idx) {
+      if (idx > 0) html += '<span class="group-strip__sep" aria-hidden="true">·</span>';
+      html += '<a href="' + c.page + '" class="group-strip__name">' + resolveValue(c.shortName) + '</a>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Trades Matrix Table
+  function renderTradesTable() {
+    var tbody = document.querySelector('[data-render="trades-tbody"]');
+    if (!tbody || !siteData.tradesTable) return;
+
+    var html = '';
+    siteData.tradesTable.forEach(function (row) {
+      html += '<tr>' +
+        '<td><strong>' + resolveValue(row.role) + '</strong></td>' +
+        '<td>' + resolveValue(row.cat) + '</td>' +
+        '<td>' + resolveValue(row.qual) + '</td>' +
+        '</tr>';
+    });
+
+    tbody.innerHTML = html;
+  }
+
+  // Renderer: Process Steps
+  function renderProcessSteps() {
+    var container = document.querySelector('[data-render="process-steps"]');
+    if (!container || !siteData.process) return;
+
+    var html = '';
+    siteData.process.forEach(function (p) {
+      html += '<div class="step">' +
+        '<div class="step__number">' + p.step + '</div>' +
+        '<h3>' + resolveValue(p.title) + '</h3>' +
+        '<p>' + resolveValue(p.desc) + '</p>' +
+        '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: FAQ List
+  function renderFaqList() {
+    var container = document.querySelector('[data-render="faq-list"]');
+    if (!container || !siteData.faqs) return;
+
+    var html = '';
+    siteData.faqs.forEach(function (faq, idx) {
+      var activeClass = idx === 0 ? ' active' : '';
+      var number = String(idx + 1).length < 2 ? '0' + (idx + 1) : String(idx + 1);
+      html += '<div class="faq-item' + activeClass + '">' +
+        '<span class="faq-number">' + number + '</span>' +
+        '<button class="faq-question" type="button">' +
+        '<span>' + resolveValue(faq.q) + '</span>' +
+        '<div class="faq-toggle"><i data-lucide="chevron-down"></i></div>' +
+        '</button>' +
+        '<div class="faq-answer">' + resolveValue(faq.a) + '</div>' +
+        '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Partners Marquee (row 1 RTL/right-to-left, row 2 LTR/left-to-right)
+  function renderPartners() {
+    if (!siteData.partners) return;
+
+    // Each row shows the full list twice so the CSS marquee loop is seamless.
+    var items = siteData.partners.map(function (p) {
+      return '<div class="partner-item"><i data-lucide="building-2"></i><span>' + resolveValue(p.name) + '</span></div>';
+    }).join('');
+
+    var row1 = document.querySelector('[data-render="partners-row-1"]');
+    if (row1) row1.innerHTML = items + items;
+
+    var row2 = document.querySelector('[data-render="partners-row-2"]');
+    if (row2) row2.innerHTML = items + items;
+  }
+
+  // Renderer: Staff Grid (Our Team page)
+  function renderStaff() {
+    var container = document.querySelector('[data-render="staff-grid"]');
+    if (!container || !siteData.staff) return;
+
+    var html = '';
+    siteData.staff.forEach(function (m) {
+      html += '<div class="staff-card">' +
+        '<div class="staff-card__photo"><img src="' + m.photo + '" alt="' + resolveValue(m.name) + '" loading="lazy"></div>' +
+        '<div class="staff-card__body">' +
+        '<h3>' + resolveValue(m.name) + '</h3>' +
+        '<p class="staff-card__title">' + resolveValue(m.title) + '</p>' +
+        '<p class="staff-card__bio">' + resolveValue(m.bio) + '</p>' +
+        '</div></div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Group Companies Grid (Our Group page + home preview)
+  function renderGroup() {
+    var container = document.querySelector('[data-render="group-grid"]');
+    if (!container || !siteData.groupCompanies) return;
+
+    var html = '';
+    siteData.groupCompanies.forEach(function (c, idx) {
+      var number = String(idx + 1).length < 2 ? '0' + (idx + 1) : String(idx + 1);
+      html += '<a href="' + c.page + '" class="group-row">' +
+        '<span class="group-row__number">' + number + '</span>' +
+        '<span class="group-row__body">' +
+        '<span class="group-row__name">' + resolveValue(c.shortName) + '</span>' +
+        '<span class="group-row__tagline">' + resolveValue(c.tagline) + '</span>' +
+        '<span class="group-row__desc">' + resolveValue(c.cardDesc) + '</span>' +
+        '</span>' +
+        '<span class="group-row__link"><span data-i18n="common.learnMore">Learn More</span> <i data-lucide="arrow-right"></i></span>' +
+        '</a>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Renderer: Services Detail (services.html — 11 sections with images)
+  function renderServicesDetail() {
+    var container = document.querySelector('[data-render="services-detail"]');
+    if (!container || !siteData.services || !siteData.serviceDetails) return;
+
+    var html = '';
+    siteData.services.forEach(function (svc, idx) {
+      var detail = siteData.serviceDetails[idx];
+      if (!detail) return;
+
+      var includesHtml = '';
+      if (detail.includes && detail.includes.length) {
+        detail.includes.forEach(function (inc) {
+          includesHtml += '<li><i data-lucide="check"></i><span>' + resolveValue(inc) + '</span></li>';
+        });
+      }
+
+      html += '<section class="section svc-detail' + (idx % 2 === 1 ? ' svc-detail--alt' : '') + '" id="' + svc.id + '">' +
+        '<div class="container">' +
+        '<div class="svc-detail__inner">' +
+        '<div class="svc-detail__media">' +
+        '<img src="' + svc.image + '" alt="' + resolveValue(svc.alt) + '" loading="lazy">' +
+        '<div class="svc-detail__badge">' + String(idx + 1).padStart(2, '0') + '</div>' +
+        '</div>' +
+        '<div class="svc-detail__content">' +
+        '<div class="svc-detail__icon"><i data-lucide="' + (svc.icon || 'zap') + '"></i></div>' +
+        '<h2>' + resolveValue(svc.title) + '</h2>' +
+        '<p class="svc-detail__desc">' + resolveValue(svc.desc) + '</p>' +
+        '<p>' + resolveValue(detail.intro) + '</p>' +
+        '<h3 class="svc-detail__sub" data-i18n="servicesPage.detailIntro">What\'s included</h3>' +
+        '<ul class="svc-detail__list">' + includesHtml + '</ul>' +
+        '<p class="svc-detail__avail"><i data-lucide="map-pin"></i> ' + resolveValue(detail.availability) + '</p>' +
+        '<a href="request-manpower.html" class="btn btn--primary btn--sm" data-i18n="common.bookManpower">Book Manpower</a>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</section>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  // Toggle Language Function
+  function toggleLanguage() {
+    var nextLang = currentLang === 'ar' ? 'en' : 'ar';
+    applyLanguage(nextLang);
+  }
+
+  // Initialize
+  document.addEventListener('DOMContentLoaded', function () {
+    loadData(function () {
+      applyLanguage(currentLang);
+    });
+
+    // Wire up all language switchers
+    document.addEventListener('click', function (e) {
+      if (e.target && (e.target.classList.contains('lang-switch') || e.target.closest('.lang-switch'))) {
+        e.preventDefault();
+        toggleLanguage();
+      }
+    });
+  });
+
+  // Expose global API
+  window.ShababI18n = {
+    setLanguage: applyLanguage,
+    toggleLanguage: toggleLanguage,
+    getCurrentLanguage: function () { return currentLang; },
+    getData: function () { return siteData; }
+  };
+
+})(window);

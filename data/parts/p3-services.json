@@ -1,0 +1,213 @@
+{
+  "services": [
+    {
+      "id": "packing-repacking",
+      "icon": "package",
+      "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Worker packing boxes in a warehouse",
+        "ar": "عامل يغلف الصناديق داخل مستودع"
+      },
+      "title": { "en": "Packing & Repacking", "ar": "التغليف وإعادة التغليف" },
+      "desc": {
+        "en": "Trained packing teams for cartons, pallets, fragile goods, and export-ready repacking — carefully handled, correctly labelled.",
+        "ar": "فرق تغليف مدربة للكراتين والمنصات والبضائع القابلة للكسر وإعادة التغليف الجاهز للتصدير — مناولة بعناية وترميز صحيح."
+      },
+      "roles": [
+        { "en": "Packers", "ar": "عمال تغليف" },
+        { "en": "Labeling & Sorting", "ar": "الترميز والفرز" },
+        { "en": "Repacking & Consolidation", "ar": "إعادة التغليف والتجميع" }
+      ]
+    },
+    {
+      "id": "loading-unloading",
+      "icon": "forklift",
+      "image": "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Loading crew moving cargo boxes onto a truck",
+        "ar": "طاقم تحميل ينقل صناديق البضائع إلى شاحنة"
+      },
+      "title": { "en": "Loading & Unloading", "ar": "التحميل والتنزيل" },
+      "desc": {
+        "en": "Loading and unloading crews for containers, trucks, and warehouses — fast, careful, and led by experienced supervisors.",
+        "ar": "فرق تحميل وتنزيل للحاويات والشاحنات والمستودعات — بسرعة وعناية وبإشراف مشرفين ذوي خبرة."
+      },
+      "roles": [
+        { "en": "Container Loading", "ar": "تحميل الحاويات" },
+        { "en": "Cargo Handling", "ar": "مناولة البضائع" },
+        { "en": "Warehouse Crews", "ar": "طواقم المستودعات" }
+      ]
+    },
+    {
+      "id": "delivery-services",
+      "icon": "truck",
+      "image": "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Courier delivering parcels",
+        "ar": "مندوب توصيل يسلم الطرود"
+      },
+      "title": { "en": "Delivery Services", "ar": "خدمات التوصيل" },
+      "desc": {
+        "en": "Delivery staff and last-mile support for parcels, goods, and scheduled distribution runs across the Emirates.",
+        "ar": "موظفو توصيل ودعم للميل الأخير للطرود والبضائع وجولات التوزيع المجدولة في جميع الإمارات."
+      },
+      "roles": [
+        { "en": "Delivery Staff", "ar": "موظفو التوصيل" },
+        { "en": "Route Support", "ar": "دعم خطوط السير" },
+        { "en": "Parcel Handling", "ar": "مناولة الطرود" }
+      ]
+    },
+    {
+      "id": "cleaning-services",
+      "icon": "sparkles",
+      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Professional cleaner at work in a commercial building",
+        "ar": "عامل نظافة محترف داخل مبنى تجاري"
+      },
+      "title": { "en": "Cleaning Services", "ar": "خدمات النظافة" },
+      "desc": {
+        "en": "Professional cleaning staff for offices, warehouses, retail spaces, and events — on regular schedules or one-time assignments.",
+        "ar": "عمالة نظافة احترافية للمكاتب والمستودعات والمنشآت التجارية والفعاليات — بجداول منتظمة أو لمرة واحدة."
+      },
+      "roles": [
+        { "en": "Office & Commercial", "ar": "المكاتب والمنشآت" },
+        { "en": "Warehouse Cleaning", "ar": "تنظيف المستودعات" },
+        { "en": "Event Cleaning", "ar": "تنظيف الفعاليات" }
+      ]
+    },
+    {
+      "id": "factory-helpers",
+      "icon": "factory",
+      "image": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Helpers working on an industrial production line",
+        "ar": "مساعدون يعملون على خط إنتاج صناعي"
+      },
+      "title": { "en": "Factory Helpers", "ar": "مساعدو المصانع" },
+      "desc": {
+        "en": "Factory helpers for production lines, packing stations, and material movement — steady support that keeps production running.",
+        "ar": "مساعدون للمصانع لخطوط الإنتاج ومحطات التغليف ونقل المواد — دعم مستمر يحافظ على انتظام الإنتاج."
+      },
+      "roles": [
+        { "en": "Production Support", "ar": "دعم الإنتاج" },
+        { "en": "Material Handling", "ar": "مناولة المواد" },
+        { "en": "Line Packing", "ar": "تغليف الخطوط" }
+      ]
+    },
+    {
+      "id": "catering-services",
+      "icon": "chef-hat",
+      "image": "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Chef preparing food in a professional kitchen",
+        "ar": "طاهٍ يحضّر الطعام في مطبخ احترافي"
+      },
+      "title": { "en": "Catering Services", "ar": "خدمات الكاترينج والإعاشة" },
+      "desc": {
+        "en": "Catering staff — cooks, kitchen helpers, and service crews — for events, camps, and corporate functions.",
+        "ar": "طاقم كاترينج — طهاة ومساعدو مطبخ وطواقم تقديم — للفعاليات والمخيمات والمناسبات الرسمية."
+      },
+      "roles": [
+        { "en": "Cooks & Kitchen Helpers", "ar": "طهاة ومساعدو مطبخ" },
+        { "en": "Service Crews", "ar": "طواقم التقديم" },
+        { "en": "Camp Catering", "ar": "إعاشة المخيمات" }
+      ]
+    },
+    {
+      "id": "event-management",
+      "icon": "calendar-days",
+      "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Event setup crew preparing a conference venue",
+        "ar": "طاقم تجهيز يستعد لفعالية في قاعة مؤتمرات"
+      },
+      "title": { "en": "Event Management", "ar": "إدارة الفعاليات والمناسبات" },
+      "desc": {
+        "en": "Event staff and setup crews for exhibitions, conferences, weddings, and corporate events across the UAE.",
+        "ar": "طاقم فعاليات وفرق تجهيز للمعارض والمؤتمرات والأعراس والمناسبات في جميع أنحاء الإمارات."
+      },
+      "roles": [
+        { "en": "Event Setup", "ar": "تجهيز الفعاليات" },
+        { "en": "Event Staff", "ar": "طاقم الفعاليات" },
+        { "en": "On-Site Support", "ar": "الدعم الميداني" }
+      ]
+    },
+    {
+      "id": "machine-operators",
+      "icon": "cog",
+      "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Machine operator working with industrial equipment",
+        "ar": "مشغل ماكينات يعمل على معدات صناعية"
+      },
+      "title": { "en": "Machine Operators", "ar": "مشغلو الماكينات والمعدات" },
+      "desc": {
+        "en": "Licensed machine operators for warehouse and industrial equipment — forklifts, pallet trucks, and production machinery.",
+        "ar": "مشغلو ماكينات مرخصون لمعدات المستودعات والصناعة — الرافعات الشوكية ومنصات النقل وماكينات الإنتاج."
+      },
+      "roles": [
+        { "en": "Forklift Operators", "ar": "مشغلو الرافعات الشوكية" },
+        { "en": "Pallet Trucks", "ar": "منصات النقل" },
+        { "en": "Production Machines", "ar": "ماكينات الإنتاج" }
+      ]
+    },
+    {
+      "id": "drivers-vehicle-services",
+      "icon": "bus",
+      "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Transport vehicles on a Dubai road",
+        "ar": "مركبات نقل على أحد طرق دبي"
+      },
+      "title": { "en": "Drivers / Vehicle Services (Pick & Drop)", "ar": "خدمات السائقين والنقل (توصيل وتنقلات)" },
+      "desc": {
+        "en": "Drivers and pick & drop services for staff, goods, and daily transport runs — reliable schedules, familiar routes.",
+        "ar": "سائقون وخدمات توصيل وتنقلات للموظفين والبضائع والرحلات اليومية — جداول موثوقة ومسارات مألوفة."
+      },
+      "roles": [
+        { "en": "Staff Pick & Drop", "ar": "توصيل الموظفين" },
+        { "en": "Goods Transport", "ar": "نقل البضائع" },
+        { "en": "Scheduled Runs", "ar": "رحلات مجدولة" }
+      ]
+    },
+    {
+      "id": "sea-port-helpers",
+      "icon": "ship",
+      "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Container cranes at a sea port terminal",
+        "ar": "رافعات الحاويات في محطة ميناء بحري"
+      },
+      "title": { "en": "Sea Port Helpers", "ar": "مساعدو الموانئ البحرية" },
+      "desc": {
+        "en": "Port helpers for loading, lashing, sorting, and moving cargo at UAE sea ports and terminal yards.",
+        "ar": "مساعدو موانئ للتحميل والتثبيت والفرز ونقل البضائع في الموانئ البحرية وساحات المحطات بالإمارات."
+      },
+      "roles": [
+        { "en": "Cargo Handling", "ar": "مناولة البضائع" },
+        { "en": "Lashing & Securing", "ar": "التثبيت والربط" },
+        { "en": "Yard Support", "ar": "دعم الساحات" }
+      ]
+    },
+    {
+      "id": "general-helpers",
+      "icon": "hand-helping",
+      "image": "https://images.unsplash.com/photo-1591382386627-349b692688ff?auto=format&fit=crop&w=800&q=80",
+      "alt": {
+        "en": "Warehouse team working together",
+        "ar": "فريق عمل داخل مستودع"
+      },
+      "title": { "en": "General Helpers", "ar": "العمالة العامة والمساعدون" },
+      "desc": {
+        "en": "General helpers for warehouses, stores, events, and day-to-day operations — flexible workers for whatever the day needs.",
+        "ar": "عمالة عامة للمستودعات والمتاجر والفعاليات والعمليات اليومية — عمال مرنون لكل ما يتطلبه اليوم."
+      },
+      "roles": [
+        { "en": "Warehouse Helpers", "ar": "مساعدو المستودعات" },
+        { "en": "Store Support", "ar": "دعم المتاجر" },
+        { "en": "General Support", "ar": "الدعم العام" }
+      ]
+    }
+  ]
+}

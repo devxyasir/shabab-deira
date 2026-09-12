@@ -1,0 +1,77 @@
+{
+  "company": {
+    "name": { "en": "Shabab Deira", "ar": "شباب ديرة" },
+    "tagline": { "en": "Manpower & Labour Supply", "ar": "توريد العمالة والقوى العاملة" },
+    "fullName": { "en": "Shabab Deira Shipping & Cargo Services", "ar": "شباب ديرة لخدمات الشحن والبضائع" },
+    "phone": "+971 4 234 5678",
+    "phoneTel": "+97142345678",
+    "whatsapp": "+971 50 123 4567",
+    "whatsappNum": "971500000000",
+    "email": "inquiries@shababdeira.ae",
+    "address": { "en": "Al Ittihad Road, Deira, Dubai, UAE", "ar": "شارع الاتحاد، ديرة، دبي، الإمارات العربية المتحدة" },
+    "locationShort": { "en": "Deira, Dubai, UAE", "ar": "ديرة، دبي، الإمارات" },
+    "hours": { "en": "Mon – Sat: 8 AM – 7 PM", "ar": "الاثنين – السبت: ٨ صباحاً – ٧ مساءً" },
+    "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai",
+    "siteUrl": "https://shababdeira.ae",
+    "founded": "2012",
+    "founder": { "en": "Zubair Khan", "ar": "زبير خان" },
+    "copyright": {
+      "en": "© 2026 Shabab Deira Shipping & Cargo Services. Registered in Dubai, UAE.",
+      "ar": "© 2026 شباب ديرة لخدمات الشحن والبضائع. مسجلة في دبي، الإمارات العربية المتحدة."
+    }
+  },
+  "nav": {
+    "home": { "en": "Home", "ar": "الرئيسية" },
+    "about": { "en": "About", "ar": "من نحن" },
+    "services": { "en": "Services", "ar": "خدماتنا" },
+    "industries": { "en": "Industries", "ar": "القطاعات" },
+    "team": { "en": "Our Team", "ar": "فريقنا" },
+    "group": { "en": "Our Group", "ar": "مجموعتنا" },
+    "faq": { "en": "FAQ", "ar": "الأسئلة الشائعة" },
+    "contact": { "en": "Contact", "ar": "اتصل بنا" },
+    "requestManpower": { "en": "Book Manpower", "ar": "احجز عمالة" }
+  },
+  "common": {
+    "call": { "en": "Call", "ar": "اتصل" },
+    "callUs": { "en": "Call Us", "ar": "اتصل بنا" },
+    "whatsapp": { "en": "WhatsApp", "ar": "واتساب" },
+    "whatsappUs": { "en": "WhatsApp Us", "ar": "راسلنا واتساب" },
+    "submitBrief": { "en": "Submit Requirement", "ar": "أرسل طلبك" },
+    "contactOperations": { "en": "Contact Operations", "ar": "تواصل مع العمليات" },
+    "viewAllServices": { "en": "View All Services", "ar": "عرض جميع الخدمات" },
+    "exploreAllIndustries": { "en": "Explore All Industries", "ar": "استكشف جميع القطاعات" },
+    "viewAllFaqs": { "en": "View All FAQs", "ar": "عرض جميع الأسئلة" },
+    "privacy": { "en": "Privacy Policy", "ar": "سياسة الخصوصية" },
+    "terms": { "en": "Terms", "ar": "الشروط والأحكام" },
+    "navigationHeading": { "en": "Navigation", "ar": "التنقل" },
+    "servicesHeading": { "en": "Our Services", "ar": "خدماتنا" },
+    "contactHeading": { "en": "Contact", "ar": "بيانات التواصل" },
+    "bookManpower": { "en": "Book Manpower", "ar": "احجز عمالة" },
+    "getQuote": { "en": "Get a Free Quote", "ar": "احصل على عرض سعر مجاني" },
+    "learnMore": { "en": "Learn More", "ar": "اعرف المزيد" },
+    "meetTheTeam": { "en": "Meet the Team", "ar": "تعرّف على الفريق" },
+    "exploreGroup": { "en": "Explore the Group", "ar": "استكشف المجموعة" },
+    "whatsIncluded": { "en": "What's included", "ar": "ما تشمله الخدمة" },
+    "footerDesc": {
+      "en": "Manpower and workforce services across the UAE — from packing and loading to cleaning, catering, drivers, and general helpers. Serving businesses in Dubai and all emirates since 2012.",
+      "ar": "خدمات العمالة والقوى العاملة في جميع أنحاء الإمارات — من التغليف والتحميل إلى النظافة والكاترينج والسائقين والعمالة العامة. نخدم المنشآت في دبي وجميع الإمارات منذ عام 2012."
+    },
+    "ctaBandTitle": {
+      "en": "Ready to book manpower?",
+      "ar": "هل أنت جاهز لحجز العمالة؟"
+    },
+    "ctaBandDesc": {
+      "en": "Tell us what you need — service, number of workers, location, and dates — and our team in Deira will respond with availability and a clear quotation.",
+      "ar": "أخبرنا باحتياجك — الخدمة وعدد العمال والموقع والتواريخ — وسيرد فريقنا في ديرة بالتأكيد على التوفر وعرض سعر واضح."
+    },
+    "needWorkersSpecific": {
+      "en": "Need workers for your business?",
+      "ar": "هل تحتاج عمالة لمنشأتك؟"
+    },
+    "needWorkersDesc": {
+      "en": "Describe your requirement and we will confirm availability, rates, and start dates.",
+      "ar": "صف احتياجك وسنؤكد لك التوفر والأسعار وتواريخ البدء."
+    },
+    "returnHome": { "en": "Return Home", "ar": "العودة للرئيسية" }
+  }
+}

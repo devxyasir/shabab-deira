@@ -1,0 +1,179 @@
+{
+  "groupCompanies": [
+    {
+      "id": "shabab-deira-shipping-cargo",
+      "page": "group-shipping-cargo.html",
+      "shortName": { "en": "Shabab Deira Shipping & Cargo Services", "ar": "شباب ديرة لخدمات الشحن والبضائع" },
+      "tagline": { "en": "The founding company — shipping and cargo services from Deira since 2012", "ar": "الشركة المؤسِّسة — خدمات الشحن والبضائع من ديرة منذ 2012" },
+      "cardDesc": {
+        "en": "The founding company of the group, providing shipping and cargo services from Deira since 2012 — and the home of our manpower services.",
+        "ar": "الشركة المؤسِّسة للمجموعة، تقدم خدمات الشحن والبضائع من ديرة منذ 2012 — ومنها تنطلق خدمات العمالة لدينا."
+      },
+      "image": "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
+      "content": {
+        "h1": { "en": "Shabab Deira Shipping & Cargo Services", "ar": "شباب ديرة لخدمات الشحن والبضائع" },
+        "intro": {
+          "en": "Founded in Deira in 2012 by Zubair Khan, Shabab Deira Shipping & Cargo Services is where the group began — serving the traders, cargo handlers, and shipping businesses around Dubai Creek. Today it anchors the group's shipping and cargo operations and is the home of Shabab Deira's manpower services.",
+          "ar": "تأسست في ديرة عام 2012 على يد زبير خان، ومنها بدأت المجموعة — لخدمة التجار ومناولي البضائع وشركات الشحن حول خور دبي. واليوم تشكل قلب عمليات الشحن والبضائع للمجموعة، وهي مقر خدمات العمالة في شباب ديرة."
+        },
+        "aboutTitle": { "en": "About the company", "ar": "عن الشركة" },
+        "aboutP": {
+          "en": "Working from Al Ittihad Road in Deira — minutes from Port Rashid and Dubai Creek — the company supports cargo movement for trading and logistics clients across the UAE, and coordinates the group's workforce operations from the same desk.",
+          "ar": "من شارع الاتحاد في ديرة — على دقائق من ميناء راشد وخور دبي — تدعم الشركة تحريك البضائع لعملاء التجارة واللوجستيات في الإمارات، وتنسق عمليات القوى العاملة للمجموعة من المكتب نفسه."
+        },
+        "servicesTitle": { "en": "What the company provides", "ar": "ما تقدمه الشركة" },
+        "services": [
+          { "en": "Shipping and cargo coordination", "ar": "التنسيق الشحني والبضائع" },
+          { "en": "Manpower supply across all 11 service categories", "ar": "توريد العمالة في فئات الخدمة الإحدى عشرة" },
+          { "en": "Packing, loading, and delivery workforce", "ar": "عمالة التغليف والتحميل والتوصيل" },
+          { "en": "Client coordination for the whole group", "ar": "التنسيق مع العملاء لكامل المجموعة" }
+        ],
+        "coverageTitle": { "en": "Coverage", "ar": "التغطية" },
+        "coverageP": {
+          "en": "Based in Deira, Dubai — serving clients across all seven emirates, inside the UAE only.",
+          "ar": "مقرها ديرة، دبي — وتخدم العملاء في الإمارات السبع، داخل الإمارات فقط."
+        }
+      }
+    },
+    {
+      "id": "shabab-deira-container-loading",
+      "page": "group-container-loading.html",
+      "shortName": { "en": "Shabab Deira Container Loading & Unloading Services LLC", "ar": "شباب ديرة لخدمات تحميل وتنزيل الحاويات ذ.م.م" },
+      "tagline": { "en": "Specialist container loading and unloading crews", "ar": "طواقم متخصصة في تحميل الحاويات وتنزيلها" },
+      "cardDesc": {
+        "en": "Dedicated container loading and unloading crews for shipping lines, freight forwarders, and warehouses across the UAE.",
+        "ar": "طواقم مخصصة لتحميل الحاويات وتنزيلها لخطوط الملاحة ووكلاء الشحن والمستودعات في الإمارات."
+      },
+      "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+      "content": {
+        "h1": { "en": "Shabab Deira Container Loading & Unloading Services LLC", "ar": "شباب ديرة لخدمات تحميل وتنزيل الحاويات ذ.م.م" },
+        "intro": {
+          "en": "A container is only as good as the crew that fills it. This company exists for one job: loading and unloading containers — quickly, safely, and with cargo arriving as it left. Crews are supervised, experienced in mixed and fragile loads, and available across the UAE.",
+          "ar": "قيمة الحاوية من قيمة الطاقم الذي يعبئها. هذه الشركة قائمة على مهمة واحدة: تحميل الحاويات وتنزيلها — بسرعة وأمان ووصول البضائع كما خرجت. طواقمها مُشرفة وذات خبرة في الأحمال المختلفة والقابلة للكسر، ومتاحة في جميع أنحاء الإمارات."
+        },
+        "aboutTitle": { "en": "About the company", "ar": "عن الشركة" },
+        "aboutP": {
+          "en": "Formed to meet the container handling needs of the group's shipping clients, the company serves ports, freight yards, and warehouse facilities — from single-container jobs to scheduled daily loading operations.",
+          "ar": "تأسست لتلبية احتياجات مناولة الحاويات لعملاء المجموعة في قطاع الشحن، وتخدم الموانئ وساحات الشحن ومنشآت المستودعات — من مهام حاوية واحدة إلى عمليات تحميل يومية مجدولة."
+        },
+        "servicesTitle": { "en": "What the company provides", "ar": "ما تقدمه الشركة" },
+        "services": [
+          { "en": "Container loading and unloading crews", "ar": "طواقم تحميل الحاويات وتنزيلها" },
+          { "en": "Container stuffing and destuffing", "ar": "تعبئة الحاويات وتفريغها" },
+          { "en": "Cargo securing and lashing", "ar": "تثبيت البضائع وربطها" },
+          { "en": "Scheduled daily loading operations", "ar": "عمليات تحميل يومية مجدولة" }
+        ],
+        "coverageTitle": { "en": "Coverage", "ar": "التغطية" },
+        "coverageP": {
+          "en": "Crews available at ports and facilities across Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
+          "ar": "طواقم متاحة في الموانئ والمنشآت في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
+        }
+      }
+    },
+    {
+      "id": "fun-al-wasal-cargo-packaging",
+      "page": "group-cargo-packaging.html",
+      "shortName": { "en": "Fun-al-Wasal Cargo Packaging Services LLC", "ar": "فن الوصل لخدمات تغليف البضائع ذ.م.م" },
+      "tagline": { "en": "Professional cargo packaging and export-ready packing", "ar": "تغليف بضائع احترافي جاهز للتصدير" },
+      "cardDesc": {
+        "en": "Export-standard cargo packaging — cartons, pallets, shrink wrap, and protective packing for goods in transit.",
+        "ar": "تغليف بضائع وفق معايير التصدير — كراتين ومنصات وتغليف حراري وتغليف واقٍ للبضائع أثناء النقل."
+      },
+      "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+      "content": {
+        "h1": { "en": "Fun-al-Wasal Cargo Packaging Services LLC", "ar": "فن الوصل لخدمات تغليف البضائع ذ.م.م" },
+        "intro": {
+          "en": "Goods that survive the journey start with packaging that is done properly. Fun-al-Wasal specialises in cargo packaging — from single cartons to full palletised shipments — so that products leave the UAE the way they were packed: intact, labelled, and ready for the next hand.",
+          "ar": "البضائع التي تنجو من الرحلة تبدأ بتغليف يُنفذ بإتقان. تتخصص فن الوصل في تغليف البضائع — من كرتونة واحدة إلى شحنات كاملة على منصات — لتخرج المنتجات من الإمارات كما غُلفت: سليمة ومرمزة وجاهزة للنقلة التالية."
+        },
+        "aboutTitle": { "en": "About the company", "ar": "عن الشركة" },
+        "aboutP": {
+          "en": "The company serves exporters, traders, and e-commerce sellers who need their goods packed to survive long transit chains. Teams work on client premises or in packaging facilities, to client specifications.",
+          "ar": "تخدم الشركة المُصدِّرين والتجار وأصحاب المتاجر الإلكترونية الذين يحتاجون تغليف بضائعهم بما يقاوم سلاسل النقل الطويلة. تعمل الفرق في مقار العملاء أو في مرافق التغليف وفق مواصفاتهم."
+        },
+        "servicesTitle": { "en": "What the company provides", "ar": "ما تقدمه الشركة" },
+        "services": [
+          { "en": "Export-standard packaging", "ar": "تغليف وفق معايير التصدير" },
+          { "en": "Carton, pallet, and shrink-wrap packing", "ar": "تغليف الكراتين والمنصات والتغليف الحراري" },
+          { "en": "Protective packing for fragile goods", "ar": "تغليف واقٍ للبضائع القابلة للكسر" },
+          { "en": "Labelling, sorting, and consolidation", "ar": "الترميز والفرز والتجميع" }
+        ],
+        "coverageTitle": { "en": "Coverage", "ar": "التغطية" },
+        "coverageP": {
+          "en": "Packaging teams available across Dubai and the Northern Emirates; larger projects coordinated UAE-wide.",
+          "ar": "فرق التغليف متاحة في دبي والإمارات الشمالية؛ وتُنسق المشاريع الأكبر في جميع الإمارات."
+        }
+      }
+    },
+    {
+      "id": "supply-labour-container-loading",
+      "page": "group-supply-labour.html",
+      "shortName": { "en": "Supply Labour Container Loading & Unloading Services LLC", "ar": "سبلاي لابور لخدمات تحميل وتنزيل الحاويات ذ.م.م" },
+      "tagline": { "en": "Contract container loading labour, by the shift or by the project", "ar": "عمالة تعاقدية لتحميل الحاويات، بالوردية أو بالمشروع" },
+      "cardDesc": {
+        "en": "Contract labour company supplying container loading and unloading teams on shift or project basis.",
+        "ar": "شركة عمالة تعاقدية توفر فرق تحميل وتنزيل الحاويات بالوردية أو بالمشروع."
+      },
+      "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+      "content": {
+        "h1": { "en": "Supply Labour Container Loading & Unloading Services LLC", "ar": "سبلاي لابور لخدمات تحميل وتنزيل الحاويات ذ.م.م" },
+        "intro": {
+          "en": "Some operations need labour on tap — extra hands for a shift, a season, or a single project. This company supplies contract container loading and unloading teams on exactly those terms: by the shift, by the week, or for the length of a project.",
+          "ar": "بعض العمليات تحتاج عمالة عند الطلب — أيادي إضافية لوردية أو موسم أو مشروع واحد. توفر هذه الشركة فرق تحميل وتنزيل الحاويات التعاقدية بهذه الشروط تحديداً: بالوردية أو بالأسبوع أو لمدة المشروع."
+        },
+        "aboutTitle": { "en": "About the company", "ar": "عن الشركة" },
+        "aboutP": {
+          "en": "The company exists for clients whose container volumes change — peaks, seasonal rushes, and project surges. Instead of carrying permanent crews, clients draw on supervised teams that scale up and down with the workload.",
+          "ar": "توجد هذه الشركة لعملاء تتغير أحجام حاوياتهم — في الذروات والمواسم والمشاريع المتزايدة. وبدلاً من تحمل طواقم دائمة، يستفيد العملاء من فرق مُشرفة تتوسع وتتقلص مع حجم العمل."
+        },
+        "servicesTitle": { "en": "What the company provides", "ar": "ما تقدمه الشركة" },
+        "services": [
+          { "en": "Contract container loading crews", "ar": "طواقم تحميل حاويات تعاقدية" },
+          { "en": "Shift-based unloading teams", "ar": "فرق تنزيل بنظام الورديات" },
+          { "en": "Seasonal and peak-volume support", "ar": "دعم المواسم وفترات الذروة" },
+          { "en": "Project-length engagements", "ar": "تعاقدات بمدة المشروع" }
+        ],
+        "coverageTitle": { "en": "Coverage", "ar": "التغطية" },
+        "coverageP": {
+          "en": "Contract teams deployed across the UAE, with fastest mobilisation in Dubai and Sharjah.",
+          "ar": "فرق تعاقدية تُنشر في جميع أنحاء الإمارات، مع أسرع تعبئة في دبي والشارقة."
+        }
+      }
+    },
+    {
+      "id": "multan-mount-technical-services",
+      "page": "group-multan-mount-technical.html",
+      "shortName": { "en": "Multan Mount Technical Services LLC", "ar": "ملتان ماونت للخدمات الفنية ذ.م.م" },
+      "tagline": { "en": "Technical services and equipment support", "ar": "خدمات فنية ودعم المعدات" },
+      "cardDesc": {
+        "en": "Technical services company supporting equipment, machinery, and facility operations for the group's clients.",
+        "ar": "شركة خدمات فنية تدعم المعدات والماكينات وعمليات المرافق لعملاء المجموعة."
+      },
+      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+      "content": {
+        "h1": { "en": "Multan Mount Technical Services LLC", "ar": "ملتان ماونت للخدمات الفنية ذ.م.م" },
+        "intro": {
+          "en": "Machines, equipment, and facilities need technical hands they can trust. Multan Mount provides technical services and equipment support for the group's clients — keeping operations running, maintained, and safe.",
+          "ar": "الماكينات والمعدات والمرافق تحتاج أيادي فنية موثوقة. توفر ملتان ماونت الخدمات الفنية ودعم المعدات لعملاء المجموعة — للحفاظ على استمرار العمليات وصيانتها وسلامتها."
+        },
+        "aboutTitle": { "en": "About the company", "ar": "عن الشركة" },
+        "aboutP": {
+          "en": "The company rounds out the group's offering: where other companies supply the workforce, Multan Mount supplies the technical capability — working alongside client teams on equipment and facility needs.",
+          "ar": "تكمل هذه الشركة عرض المجموعة: حيث تورد الشركات الأخرى القوى العاملة، توفر ملتان ماونت القدرة الفنية — بالعمل جنباً إلى جنب مع فرق العملاء في احتياجات المعدات والمرافق."
+        },
+        "servicesTitle": { "en": "What the company provides", "ar": "ما تقدمه الشركة" },
+        "services": [
+          { "en": "Technical services and equipment support", "ar": "خدمات فنية ودعم المعدات" },
+          { "en": "Machinery and equipment assistance", "ar": "مساعدة في الماكينات والمعدات" },
+          { "en": "Facility operations support", "ar": "دعم تشغيل المرافق" },
+          { "en": "Coordination with group workforce teams", "ar": "التنسيق مع فرق العمالة في المجموعة" }
+        ],
+        "coverageTitle": { "en": "Coverage", "ar": "التغطية" },
+        "coverageP": {
+          "en": "Technical teams available across Dubai and the wider UAE, inside the UAE only.",
+          "ar": "فرق فنية متاحة في دبي وبقية أنحاء الإمارات، داخل الدولة فقط."
+        }
+      }
+    }
+  ]
+}

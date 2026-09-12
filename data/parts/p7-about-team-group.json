@@ -1,0 +1,159 @@
+{
+  "aboutPage": {
+    "eyebrow": { "en": "About the Company", "ar": "عن الشركة" },
+    "title": { "en": "Serving the UAE's workforce needs since 2012", "ar": "نخدم احتياجات القوى العاملة في الإمارات منذ 2012" },
+    "desc": {
+      "en": "Shabab Deira is a UAE-based manpower, labour, logistics, and workforce services company — reliable workers and support services for businesses across the Emirates.",
+      "ar": "شباب ديرة شركة إماراتية لخدمات العمالة والقوى العاملة واللوجستيات — عمالة موثوقة وخدمات مساندة للمنشآت في جميع أنحاء الإمارات."
+    },
+    "storyTitle": { "en": "From Deira, for the whole UAE", "ar": "من ديرة، إلى كل الإمارات" },
+    "storyP1": {
+      "en": "Shabab Deira was founded in 2012 by Zubair Khan in Deira, Dubai — steps from the creek, the port, and the trading heart of the city. The company began by serving the businesses around it: cargo handlers, traders, and shopkeepers who needed dependable hands.",
+      "ar": "تأسست شباب ديرة عام 2012 على يد زبير خان في ديرة، دبي — على خطوات من الخور والميناء وقلب المدينة التجاري. بدأت الشركة بخدمة المنشآت من حولها: مناولي البضائع والتجار وأصحاب المتاجر الذين احتاجوا أيادي عاملة موثوقة."
+    },
+    "storyP2": {
+      "en": "Fourteen years on, that same principle guides a much wider operation. Today Shabab Deira supplies workforce services across all seven emirates — packing, loading, delivery, cleaning, catering, events, machine operation, driving, port work, and general support — to logistics, retail, manufacturing, events, and facilities clients.",
+      "ar": "وبعد أربعة عشر عاماً، ما زال المبدأ نفسه يقود عملاً أوسع بكثير. اليوم تزوّد شباب ديرة خدمات القوى العاملة في الإمارات السبع — تغليفاً وتحميلاً وتوصيلاً ونظافة وكاترينج وفعاليات وتشغيل ماكينات وقيادة وأعمال موانئ ودعماً عاماً — لعملاء اللوجستيات والتجزئة والصناعة والفعاليات والمرافق."
+    },
+    "storyP3": {
+      "en": "The company is part of a group of five specialised UAE companies, each focused on one part of the cargo and workforce chain. Clients deal with one point of contact — and draw on the capabilities of the whole group.",
+      "ar": "الشركة جزء من مجموعة تضم خمس شركات إماراتية متخصصة، كل منها متخصصة في جزء من سلسلة البضائع والقوى العاملة. يتعامل العملاء مع جهة اتصال واحدة — ويستفيدون من قدرات المجموعة كاملة."
+    },
+    "statsTitle": { "en": "Shabab Deira at a glance", "ar": "شباب ديرة في لمحة" },
+    "stat1Value": { "en": "2012", "ar": "2012" },
+    "stat1Label": { "en": "Founded in Deira, Dubai", "ar": "تأسست في ديرة، دبي" },
+    "stat2Value": { "en": "Zubair Khan", "ar": "زبير خان" },
+    "stat2Label": { "en": "Founder", "ar": "المؤسس" },
+    "stat3Value": { "en": "All 7", "ar": "السبع كلها" },
+    "stat3Label": { "en": "Emirates covered", "ar": "إمارات نغطيها" },
+    "stat4Value": { "en": "11", "ar": "11" },
+    "stat4Label": { "en": "Service categories", "ar": "فئة خدمة" },
+    "approachEyebrow": { "en": "Our Approach", "ar": "منهجنا" },
+    "approachTitle": { "en": "How we operate", "ar": "كيف نعمل" },
+    "approach1Title": { "en": "Worker screening", "ar": "دقة العمالة" },
+    "approach1Desc": {
+      "en": "Every candidate is verified for experience, valid documentation, and medical fitness before joining any assignment.",
+      "ar": "يتم التحقق من خبرة كل مرشح وأوراقه الرسمية ولياقته الطبية قبل إسناد أي مهمة إليه."
+    },
+    "approach2Title": { "en": "Legal compliance", "ar": "الامتثال القانوني" },
+    "approach2Desc": {
+      "en": "Workers are employed under valid UAE residency, medically insured, and paid on time through the Wage Protection System (WPS).",
+      "ar": "يعمل العمال بإقامات إماراتية سارية وتأمين صحي، وتُصرف أجورهم في مواعيدها عبر نظام حماية الأجور (WPS)."
+    },
+    "approach3Title": { "en": "Operational support", "ar": "الدعم التشغيلي" },
+    "approach3Desc": {
+      "en": "A direct line to our operations desk in Deira — supervision, replacements, and answers when you need them.",
+      "ar": "خط اتصال مباشر بمكتب العمليات في ديرة — إشراف واستبدالات وإجابات عند الحاجة."
+    },
+    "valuesEyebrow": { "en": "What We Stand For", "ar": "قيمنا" },
+    "valuesTitle": { "en": "Principles that guide our operations", "ar": "مبادئ توجه عملنا" },
+    "val1Title": { "en": "Honesty in scope", "ar": "الصدق في النطاق" },
+    "val1Desc": {
+      "en": "We supply only the services we can genuinely deliver. If a requirement falls outside what we do, we say so clearly.",
+      "ar": "نقدم فقط الخدمات التي نستطيع تنفيذها فعلاً. وإذا خرج الطلب عن نطاق عملنا، نقول ذلك بوضوح."
+    },
+    "val2Title": { "en": "Worker welfare", "ar": "رعاية العمال" },
+    "val2Desc": {
+      "en": "Fair wages, paid on time, and proper treatment. Compliance is not just regulatory — it is how we keep a reliable workforce.",
+      "ar": "أجور عادلة تُصرف في موعدها ومعاملة لائقة. الامتثال ليس التزاماً نظامياً فحسب — بل أسلوبنا للحفاظ على عمالة موثوقة."
+    },
+    "val3Title": { "en": "Responsive operations", "ar": "استجابة سريعة" },
+    "val3Desc": {
+      "en": "When you contact us, you speak to someone who can act — our operations team in Deira handles requirements directly.",
+      "ar": "عندما تتواصل معنا، تتحدث مع شخص قادر على اتخاذ القرار — فريق العمليات في ديرة يدير الطلبات مباشرة."
+    },
+    "val4Title": { "en": "Long-term reliability", "ar": "موثوقية طويلة الأمد" },
+    "val4Desc": {
+      "en": "We aim to be a trusted regular supplier, not a one-time vendor. Consistent quality builds that relationship.",
+      "ar": "نطمح أن نكون مورداً موثوقاً ودائماً، لا بائعاً لمرة واحدة. فالجودة الثابتة هي ما يبني هذه العلاقة."
+    },
+    "groupSectionTitle": { "en": "Part of a wider group", "ar": "جزء من مجموعة أوسع" },
+    "groupSectionDesc": {
+      "en": "Shabab Deira is one of five specialised companies in the group — covering container loading, cargo packaging, contract labour, technical services, and shipping. Learn more on Our Group.",
+      "ar": "شباب ديرة إحدى خمس شركات متخصصة في المجموعة — تغطي تحميل الحاويات وتغليف البضائع والعمالة التعاقدية والخدمات الفنية والشحن. تعرف على المزيد في صفحة مجموعتنا."
+    }
+  },
+  "teamPage": {
+    "eyebrow": { "en": "Our Team", "ar": "فريقنا" },
+    "title": { "en": "The people behind Shabab Deira", "ar": "الفريق الذي يقف خلف شباب ديرة" },
+    "desc": {
+      "en": "A lean, hands-on team based in Deira — the people who answer your call, prepare your quotation, and make sure your workers arrive as agreed.",
+      "ar": "فريق عملي مقره ديرة — من يرد على اتصالك ويعد عرض سعرك ويتأكد من وصول عمالك كما هو متفق عليه."
+    }
+  },
+  "staff": [
+    {
+      "id": "zubair-khan",
+      "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Zubair Khan", "ar": "زبير خان" },
+      "title": { "en": "Founder & Managing Director", "ar": "المؤسس والعضو المنتدب" },
+      "bio": {
+        "en": "Founded Shabab Deira in Deira in 2012. Still personally involved in key client relationships and the daily direction of the company.",
+        "ar": "أسس شباب ديرة في ديرة عام 2012. ولا يزال يتابع شخصياً العلاقات الرئيسية مع العملاء والتوجيه اليومي للشركة."
+      }
+    },
+    {
+      "id": "member-02",
+      "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Team Member 02", "ar": "عضو الفريق 02" },
+      "title": { "en": "Operations Manager", "ar": "مدير العمليات" },
+      "bio": {
+        "en": "Sample profile — oversees crew deployment and site coordination. Replace with the real team member's details.",
+        "ar": "ملف تجريبي — يشرف على توزيع الطواقم والتنسيق الميداني. استبدله ببيانات عضو الفريق الفعلي."
+      }
+    },
+    {
+      "id": "member-03",
+      "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Team Member 03", "ar": "عضو الفريق 03" },
+      "title": { "en": "HR & Workforce Coordinator", "ar": "منسقة الموارد البشرية والعمالة" },
+      "bio": {
+        "en": "Sample profile — manages worker recruitment, documentation, and welfare. Replace with the real team member's details.",
+        "ar": "ملف تجريبي — تدير استقطاب العمال وأوراقهم ورعايتهم. استبدلها ببيانات عضو الفريق الفعلي."
+      }
+    },
+    {
+      "id": "member-04",
+      "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Team Member 04", "ar": "عضو الفريق 04" },
+      "title": { "en": "Client Relations Executive", "ar": "مسؤولة علاقات العملاء" },
+      "bio": {
+        "en": "Sample profile — first point of contact for new enquiries and quotations. Replace with the real team member's details.",
+        "ar": "ملف تجريبي — نقطة الاتصال الأولى للاستفسارات الجديدة وعروض الأسعار. استبدلها ببيانات عضو الفريق الفعلي."
+      }
+    },
+    {
+      "id": "member-05",
+      "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Team Member 05", "ar": "عضو الفريق 05" },
+      "title": { "en": "Logistics Coordinator", "ar": "منسق اللوجستيات" },
+      "bio": {
+        "en": "Sample profile — coordinates transport, delivery runs, and site logistics. Replace with the real team member's details.",
+        "ar": "ملف تجريبي — ينسق النقل وجولات التوصيل ولوجستيات المواقع. استبدله ببيانات عضو الفريق الفعلي."
+      }
+    },
+    {
+      "id": "member-06",
+      "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+      "name": { "en": "Team Member 06", "ar": "عضو الفريق 06" },
+      "title": { "en": "Accounts & Administration", "ar": "الحسابات والإدارة" },
+      "bio": {
+        "en": "Sample profile — handles invoicing, WPS payroll, and administration. Replace with the real team member's details.",
+        "ar": "ملف تجريبي — يتولى الفواتير وكشوف الأجور عبر نظام حماية الأجور والإدارة. استبدله ببيانات عضو الفريق الفعلي."
+      }
+    }
+  ],
+  "groupPage": {
+    "eyebrow": { "en": "Our Group", "ar": "مجموعتنا" },
+    "title": { "en": "Five companies, one standard of service", "ar": "خمس شركات، ومعيار واحد للخدمة" },
+    "desc": {
+      "en": "Shabab Deira is part of a group of specialised UAE companies covering container loading, cargo packaging, contract labour, technical services, and shipping — one point of contact for the whole chain.",
+      "ar": "شباب ديرة جزء من مجموعة شركات إماراتية متخصصة تغطي تحميل الحاويات وتغليف البضائع والعمالة التعاقدية والخدمات الفنية والشحن — وجهة اتصال واحدة للسلسلة كاملة."
+    },
+    "ctaTitle": { "en": "Need one of these services?", "ar": "هل تحتاج إحدى هذه الخدمات؟" },
+    "ctaDesc": {
+      "en": "Contact Shabab Deira and we will route your requirement to the right company in the group.",
+      "ar": "تواصل مع شباب ديرة وسنوجه طلبك إلى الشركة المناسبة في المجموعة."
+    }
+  }
+}

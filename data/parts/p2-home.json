@@ -1,0 +1,70 @@
+{
+  "home": {
+    "eyebrow": { "en": "Manpower & Labour Supply — UAE", "ar": "توريد العمالة والقوى العاملة — الإمارات" },
+    "heroTitle": { "en": "Reliable workforce solutions across the UAE", "ar": "حلول قوى عاملة موثوقة في جميع أنحاء الإمارات" },
+    "heroDesc": {
+      "en": "Since 2012, Shabab Deira has supplied businesses across the UAE with dependable workers — packing, loading, delivery, cleaning, catering, events, machine operation, driving, and general support.",
+      "ar": "منذ عام 2012، تزوّد شباب ديرة المنشآت في جميع أنحاء الإمارات بعمالة موثوقة — للتغليف والتحميل والتوصيل والنظافة والكاترينج والفعاليات وتشغيل الماكينات والقيادة والأعمال المساندة."
+    },
+    "trust1": { "en": "Established 2012", "ar": "تأسست عام 2012" },
+    "trust2": { "en": "Screened Workers", "ar": "عمالة مدققة" },
+    "trust3": { "en": "UAE-Wide Coverage", "ar": "تغطية جميع الإمارات" },
+    "cred1": { "en": "Established 2012 in Deira, Dubai", "ar": "تأسست عام 2012 في ديرة، دبي" },
+    "cred2": { "en": "MOHRE-registered operations", "ar": "عمليات مسجلة لدى وزارة الموارد البشرية" },
+    "cred3": { "en": "WPS salary protection", "ar": "حماية الأجور عبر نظام حماية الأجور" },
+    "cred4": { "en": "Services across the UAE", "ar": "خدمات في جميع أنحاء الإمارات" },
+    "servicesEyebrow": { "en": "Our Services", "ar": "خدماتنا" },
+    "servicesTitle": { "en": "Manpower services for every operation", "ar": "خدمات عمالة لكل عمليات منشأتك" },
+    "servicesDesc": {
+      "en": "Eleven workforce services, delivered inside the UAE — one point of contact for every stage of your operation.",
+      "ar": "إحدى عشرة خدمة عمالية داخل الإمارات — جهة اتصال واحدة تغطي كل مراحل عملك."
+    },
+    "industriesEyebrow": { "en": "Industries We Serve", "ar": "القطاعات التي نخدمها" },
+    "industriesTitle": { "en": "Workforce behind the sectors that keep the UAE moving", "ar": "قوى عاملة خلف القطاعات التي تبقي الإمارات في حركة دائمة" },
+    "industriesDesc": {
+      "en": "From warehouses and ports to factories, hotels, and event venues — our teams support the operations behind daily life across the Emirates.",
+      "ar": "من المستودعات والموانئ إلى المصانع والفنادق وأماكن الفعاليات — تدعم فرقنا العمليات التي تقف خلف الحياة اليومية في الإمارات."
+    },
+    "partnersEyebrow": { "en": "Our Partners", "ar": "شركاؤنا" },
+    "partnersTitle": { "en": "Businesses we work with", "ar": "منشآت نعمل معها" },
+    "partnersDesc": {
+      "en": "We support a growing network of clients and partners across logistics, retail, manufacturing, and events in the UAE.",
+      "ar": "ندعم شبكة متنامية من العملاء والشركاء في قطاعات اللوجستيات والتجزئة والصناعة والفعاليات بالإمارات."
+    },
+    "groupEyebrow": { "en": "Our Group", "ar": "مجموعتنا" },
+    "groupTitle": { "en": "One group, complete coverage", "ar": "مجموعة واحدة، تغطية متكاملة" },
+    "groupDesc": {
+      "en": "Shabab Deira is part of a group of five specialised companies serving cargo handling, packaging, technical services, and workforce supply across the UAE.",
+      "ar": "شباب ديرة جزء من مجموعة تضم خمس شركات متخصصة تخدم مناولة البضائع والتغليف والخدمات الفنية وتوريد العمالة في جميع أنحاء الإمارات."
+    },
+    "processEyebrow": { "en": "How It Works", "ar": "كيف نعمل" },
+    "processTitle": { "en": "Booking manpower in four steps", "ar": "احجز العمالة في أربع خطوات" },
+    "processDesc": {
+      "en": "A simple, transparent process — from your first call to a team on the ground.",
+      "ar": "عملية بسيطة وواضحة — من أول اتصال إلى فريق جاهز في الموقع."
+    },
+    "whyEyebrow": { "en": "Why Shabab Deira", "ar": "لماذا شباب ديرة" },
+    "whyTitle": { "en": "A workforce partner you can rely on", "ar": "شريك عمالة يمكنك الاعتماد عليه" },
+    "whyDesc": {
+      "en": "Businesses across the UAE work with us because the basics are never in question.",
+      "ar": "تعمل معنا المنشآت في مختلف الإمارات لأن الأساسيات لدينا محل ثقة دائماً."
+    },
+    "why1Title": { "en": "Experience since 2012", "ar": "خبرة منذ عام 2012" },
+    "why1Desc": {
+      "en": "More than a decade of supplying workers to businesses across Dubai and the UAE — the same team, the same standards.",
+      "ar": "أكثر من عقد من توريد العمالة للمنشآت في دبي والإمارات — الفريق نفسه والمعايير نفسها."
+    },
+    "why2Title": { "en": "Workers you can rely on", "ar": "عمالة يمكن الاعتماد عليها" },
+    "why2Desc": {
+      "en": "Every worker is screened and documented, paid on time through WPS, and supported end to end on our side.",
+      "ar": "كل عامل مدقق وموثق، ويُصرف راتبه في موعده عبر نظام حماية الأجور، مع دعم متكامل من جهتنا."
+    },
+    "why3Title": { "en": "One group, complete coverage", "ar": "مجموعة واحدة، تغطية كاملة" },
+    "why3Desc": {
+      "en": "Five group companies cover cargo handling, packaging, technical services, and manpower — one point of contact for all of it.",
+      "ar": "خمس شركات في المجموعة تغطي مناولة البضائع والتغليف والخدمات الفنية والعمالة — وجهة اتصال واحدة للجميع."
+    },
+    "faqEyebrow": { "en": "FAQ", "ar": "الأسئلة الشائعة" },
+    "faqTitle": { "en": "Answers to common questions", "ar": "إجابات على الأسئلة الشائعة" }
+  }
+}

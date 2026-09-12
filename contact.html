@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.addEventListener('error',function(e){if(e.target&&e.target.tagName==='IMG'){e.target.classList.add('img-failed');}},true);</script>
+  <title data-i18n="pageTitles.contact">Contact Shabab Deira — Manpower Operations, Deira Dubai</title>
+  <meta name="description" content="Contact our operations desk in Deira, Dubai — by phone, WhatsApp, or email. For manpower availability, quotations, and general inquiries across the UAE.">
+  <link rel="canonical" href="contact.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact Shabab Deira — Manpower Operations, Deira Dubai">
+  <meta property="og:description" content="Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, or email.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__group">
+        <a class="top-bar__item" data-bind="company.mapsUrl" href="https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><i data-lucide="map-pin"></i><span data-bind="company.locationShort">Deira, Dubai, UAE</span></a>
+        <div class="top-bar__item"><i data-lucide="clock"></i><span data-bind="company.hours">Mon – Sat: 8 AM – 7 PM</span></div>
+      </div>
+      <div class="top-bar__group">
+        <div class="top-bar__item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:inherit;" data-bind="company.phone">+971 4 234 5678</a></div>
+        <div class="top-bar__item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" style="color:inherit;" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Shabab Deira Homepage">
+        <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+        <div class="logo__text">
+          <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+          <span class="logo__sub" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav">
+          <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="services.html" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="industries.html" class="nav__link" data-i18n="nav.industries">Industries</a></li>
+          <li><a href="staff.html" class="nav__link" data-i18n="nav.team">Our Team</a></li>
+          <li><a href="group.html" class="nav__link" data-i18n="nav.group">Our Group</a></li>
+          <li><a href="faq.html" class="nav__link" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="contact.html" class="nav__link active" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+        <a href="tel:+97142345678" class="header__phone" data-bind="company.phone"><i data-lucide="phone"></i><span>+971 4 234 5678</span></a>
+        <a href="request-manpower.html" class="btn btn--primary btn--sm" data-i18n="nav.requestManpower">Book Manpower</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Open menu"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="drawer__head">
+        <div class="logo">
+          <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+          <div class="logo__text">
+            <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+            <span class="logo__sub" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+          </div>
+        </div>
+        <button class="drawer__close" id="drawerClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+      </div>
+      <div class="drawer__links">
+        <a href="index.html"><span data-i18n="nav.home">Home</span><i data-lucide="chevron-right"></i></a>
+        <a href="about.html"><span data-i18n="nav.about">About</span><i data-lucide="chevron-right"></i></a>
+        <a href="services.html"><span data-i18n="nav.services">Services</span><i data-lucide="chevron-right"></i></a>
+        <a href="industries.html"><span data-i18n="nav.industries">Industries</span><i data-lucide="chevron-right"></i></a>
+        <a href="staff.html"><span data-i18n="nav.team">Our Team</span><i data-lucide="chevron-right"></i></a>
+        <a href="group.html"><span data-i18n="nav.group">Our Group</span><i data-lucide="chevron-right"></i></a>
+        <a href="faq.html"><span data-i18n="nav.faq">FAQ</span><i data-lucide="chevron-right"></i></a>
+        <a href="contact.html" class="active"><span data-i18n="nav.contact">Contact</span><i data-lucide="chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="drawer__footer">
+      <button class="lang-switch" style="width:100%; justify-content:center; padding:12px;">عربي</button>
+      <a href="request-manpower.html" class="btn btn--primary btn--lg" data-i18n="nav.requestManpower">Book Manpower</a>
+      <a href="https://wa.me/971500000000" class="btn btn--whatsapp" target="_blank" rel="noopener" data-bind="company.whatsapp">
+        <i data-lucide="message-circle"></i> <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="section section--warm" style="padding: 72px 0 60px;">
+      <div class="container">
+        <p class="eyebrow" data-i18n="contactPage.eyebrow">Get in Touch</p>
+        <h1 data-i18n="contactPage.title">Contact Shabab Deira Operations</h1>
+        <p class="lead" style="max-width: 680px;" data-i18n="contactPage.desc">
+          Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, email — or use the booking form.
+        </p>
+      </div>
+    </section>
+
+    <!-- CONTACT MATRIX & FORM -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="grid grid--2" style="gap: 56px; align-items: start;">
+
+          <!-- Left: Direct Channels -->
+          <div>
+            <h2 style="font-size: 1.5rem; margin-bottom: 24px;" data-i18n="common.contactHeading">Our Channels</h2>
+
+            <div style="display: flex; flex-direction: column; gap: 18px; margin-bottom: 32px;">
+
+              <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(192,138,46,0.1); color: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="phone"></i>
+                </div>
+                <div>
+                  <span style="display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.05em;" data-i18n="contactPage.phoneCardTitle">Phone</span>
+                  <a href="tel:+97142345678" style="font-size: 1.15rem; font-weight: 600; color: var(--color-text);" data-bind="company.phone">+971 4 234 5678</a>
+                  <span style="display: block; font-size: 0.8rem; color: var(--color-text-muted);" data-bind="company.hours">Mon – Sat: 8:00 AM – 7:00 PM</span>
+                </div>
+              </div>
+
+              <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(37, 211, 102, 0.12); color: #25D366; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="message-circle"></i>
+                </div>
+                <div>
+                  <span style="display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.05em;" data-i18n="contactPage.whatsappCardTitle">WhatsApp Desk</span>
+                  <a href="https://wa.me/971500000000" style="font-size: 1.15rem; font-weight: 600; color: #20BA5A;" target="_blank" rel="noopener" data-bind="company.whatsapp">+971 50 123 4567</a>
+                  <span style="display: block; font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="common.whatsappUs">Direct messaging & brief exchange</span>
+                </div>
+              </div>
+
+              <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(192,138,46,0.1); color: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="mail"></i>
+                </div>
+                <div>
+                  <span style="display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.05em;" data-i18n="contactPage.emailCardTitle">Email</span>
+                  <a href="mailto:inquiries@shababdeira.ae" style="font-size: 1.1rem; font-weight: 600; color: var(--color-text);" data-bind="company.email">inquiries@shababdeira.ae</a>
+                  <span style="display: block; font-size: 0.8rem; color: var(--color-text-muted);" data-i18n="contactPage.tenderSubtext">Tender documents & inquiries</span>
+                </div>
+              </div>
+
+              <div class="card" style="padding: 24px; display: flex; align-items: center; gap: 16px;">
+                <div style="width: 44px; height: 44px; border-radius: var(--radius-sm); background: rgba(192,138,46,0.1); color: var(--color-accent); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                  <i data-lucide="map-pin"></i>
+                </div>
+                <div>
+                  <span style="display: block; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); letter-spacing: 0.05em;" data-i18n="contactPage.locationCardTitle">Office Location</span>
+                  <span style="font-size: 1rem; font-weight: 600; color: var(--color-text); display: block;" data-bind="company.address">Al Ittihad Road, Deira, Dubai, UAE</span>
+                  <span style="display: block; font-size: 0.8rem; color: var(--color-text-muted);" data-bind="company.locationShort">Deira, Dubai, UAE</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Location Visual -->
+            <div style="border-radius: var(--radius-lg); overflow: hidden; position: relative;">
+              <img src="https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=800&q=80" alt="Deira, Dubai" loading="lazy" style="width: 100%; height: 260px; object-fit: cover;">
+              <div style="position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(43, 46, 38, 0.85) 100%); display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 18px;">
+                <span style="color: #FFFFFF; font-size: 0.95rem; font-weight: 600;" data-i18n="contactPage.mapTitle">Central Location in Deira</span>
+                <span style="color: rgba(255,255,255,0.85); font-size: 0.82rem;" data-i18n="contactPage.mapDesc">Easily accessible from Al Ittihad Road, minutes from Dubai Creek and Port Rashid — with rapid connectivity across the Emirates.</span>
+              </div>
+            </div>
+            <a class="btn btn--outline" data-bind="company.mapsUrl" href="https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai" target="_blank" rel="noopener" style="margin-top: 16px; width: 100%; justify-content: center;">
+              <i data-lucide="map-pin"></i> <span data-i18n="contactPage.mapTitle">Central Location in Deira</span>
+            </a>
+          </div>
+
+          <!-- Right: Message Form -->
+          <div class="form-card">
+            <h2 style="font-size: 1.5rem; margin-bottom: 8px;" data-i18n="contactPage.formTitle">Send a General Inquiry</h2>
+            <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 24px;" data-i18n="contactPage.formDesc">
+              To book workers, please use the Book Manpower form. For all general inquiries, reach us below.
+            </p>
+
+            <form data-validate="true" id="contactForm">
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label class="form-label" for="cName"><span data-i18n="contactPage.nameLabel">Your Full Name</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="cName" placeholder="Full name" data-i18n-placeholder="contactPage.namePlaceholder" required>
+                  <span class="field-error-msg" data-i18n="contactPage.nameError">Please enter your name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cCompany"><span data-i18n="requestManpowerPage.companyLabel">Company Name</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="cCompany" placeholder="e.g. Your Company Name LLC" data-i18n-placeholder="requestManpowerPage.companyPlaceholder" required>
+                  <span class="field-error-msg" data-i18n="contactPage.companyError">Please enter your company name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cEmail"><span data-i18n="contactPage.emailLabel">Email Address</span> <span class="req">*</span></label>
+                  <input type="email" class="form-input" id="cEmail" placeholder="name@company.ae" data-i18n-placeholder="contactPage.emailPlaceholder" required>
+                  <span class="field-error-msg" data-i18n="contactPage.emailError">Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="cPhone"><span data-i18n="contactPage.phoneLabel">Phone Number</span> <span class="req">*</span></label>
+                  <input type="tel" class="form-input" id="cPhone" placeholder="+971 50 ..." data-i18n-placeholder="contactPage.phonePlaceholder" required>
+                  <span class="field-error-msg" data-i18n="contactPage.phoneError">Please enter a valid phone number.</span>
+                </div>
+
+                <div class="form-group form-grid--full">
+                  <label class="form-label" for="cSubject"><span data-i18n="contactPage.subjectLabel">Subject / Nature of Inquiry</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="cSubject" placeholder="e.g. Long-term workforce partnership" data-i18n-placeholder="contactPage.subjectPlaceholder" required>
+                </div>
+
+                <div class="form-group form-grid--full">
+                  <label class="form-label" for="cMsg"><span data-i18n="contactPage.messageLabel">Message</span> <span class="req">*</span></label>
+                  <textarea class="form-textarea" id="cMsg" placeholder="Write your message here..." data-i18n-placeholder="contactPage.messagePlaceholder" required></textarea>
+                  <span class="field-error-msg" data-i18n="contactPage.messageError">Please enter your message.</span>
+                </div>
+
+                <div class="form-group form-grid--full">
+                  <label class="checkbox-label">
+                    <input type="checkbox" required checked>
+                    <span data-i18n="requestManpowerPage.consentText">I consent to Shabab Deira contacting me in response to this inquiry.</span>
+                  </label>
+                </div>
+
+              </div>
+
+              <div style="margin-top: 24px;">
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+                  <span data-i18n="contactPage.sendBtn">Send Message</span>
+                  <i data-lucide="send"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="logo">
+            <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+            <div class="logo__text">
+              <span class="logo__name" style="color:#fff;" data-i18n="company.name">Shabab Deira</span>
+              <span class="logo__sub" style="color:rgba(247,242,234,0.7);" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+            </div>
+          </div>
+          <p data-i18n="common.footerDesc">Manpower and workforce services across the UAE — from packing and loading to cleaning, catering, drivers, and general helpers. Serving businesses in Dubai and all emirates since 2012.</p>
+        </div>
+
+        <div>
+          <h4 class="footer__heading" data-i18n="common.navigationHeading">Navigation</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="industries.html" data-i18n="nav.industries">Industries</a></li>
+            <li><a href="staff.html" data-i18n="nav.team">Our Team</a></li>
+            <li><a href="group.html" data-i18n="nav.group">Our Group</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__heading" data-i18n="common.contactHeading">Contact</h4>
+          <div class="footer__contact">
+            <div class="footer__contact-item"><i data-lucide="map-pin"></i><span data-bind="company.address">Al Ittihad Road, Deira, Dubai, UAE</span></div>
+            <div class="footer__contact-item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:#fff;font-weight:600;" data-bind="company.phone">+971 4 234 5678</a></div>
+            <div class="footer__contact-item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <div data-i18n="company.copyright">&copy; 2026 Shabab Deira Shipping & Cargo Services. Registered in Dubai, UAE.</div>
+          <div class="footer__legal">
+            <a href="privacy-policy.html" data-i18n="common.privacy">Privacy Policy</a>
+            <a href="terms.html" data-i18n="common.terms">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bar">
+    <div class="mobile-bar__inner">
+      <a href="tel:+97142345678" class="mobile-bar__btn mobile-bar__btn--call" data-bind="company.phone"><i data-lucide="phone"></i><span data-i18n="common.call">Call</span></a>
+      <a href="https://wa.me/971500000000" class="mobile-bar__btn mobile-bar__btn--wa" target="_blank" rel="noopener" data-bind="company.whatsapp"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
+      <a href="request-manpower.html" class="mobile-bar__btn mobile-bar__btn--req"><i data-lucide="clipboard-list"></i><span data-i18n="nav.requestManpower">Book</span></a>
+    </div>
+  </div>
+
+  <!-- Floating Contact Buttons (Call & WhatsApp) -->
+  <div class="floating-contact">
+    <a href="https://wa.me/971500000000" class="floating-btn floating-btn--wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-bind="company.whatsapp">
+      <i data-lucide="message-circle"></i>
+      <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+    </a>
+    <a href="tel:+97142345678" class="floating-btn floating-btn--call" aria-label="Call Shabab Deira" data-bind="company.phone">
+      <i data-lucide="phone"></i>
+      <span data-bind="company.phone">+971 4 234 5678</span>
+    </a>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

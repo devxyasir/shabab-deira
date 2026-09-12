@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.addEventListener('error',function(e){if(e.target&&e.target.tagName==='IMG'){e.target.classList.add('img-failed');}},true);</script>
+  <title data-i18n="pageTitles.about">About Us — Manpower Company in Dubai Since 2012 | Shabab Deira</title>
+  <meta name="description" content="Shabab Deira is a UAE manpower, labour, logistics, and workforce services company founded in 2012 by Zubair Khan in Deira, Dubai — serving businesses across all seven emirates.">
+  <link rel="canonical" href="about.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="About Shabab Deira — Manpower Company in Dubai Since 2012">
+  <meta property="og:description" content="Founded in 2012 by Zubair Khan in Deira, Dubai — workforce services across all seven emirates of the UAE.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__group">
+        <a class="top-bar__item" data-bind="company.mapsUrl" href="https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><i data-lucide="map-pin"></i><span data-bind="company.locationShort">Deira, Dubai, UAE</span></a>
+        <div class="top-bar__item"><i data-lucide="clock"></i><span data-bind="company.hours">Mon – Sat: 8 AM – 7 PM</span></div>
+      </div>
+      <div class="top-bar__group">
+        <div class="top-bar__item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:inherit;" data-bind="company.phone">+971 4 234 5678</a></div>
+        <div class="top-bar__item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" style="color:inherit;" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Shabab Deira Homepage">
+        <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+        <div class="logo__text">
+          <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+          <span class="logo__sub" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav">
+          <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" class="nav__link active" data-i18n="nav.about">About</a></li>
+          <li><a href="services.html" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="industries.html" class="nav__link" data-i18n="nav.industries">Industries</a></li>
+          <li><a href="staff.html" class="nav__link" data-i18n="nav.team">Our Team</a></li>
+          <li><a href="group.html" class="nav__link" data-i18n="nav.group">Our Group</a></li>
+          <li><a href="faq.html" class="nav__link" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+        <a href="tel:+97142345678" class="header__phone" data-bind="company.phone">
+          <i data-lucide="phone"></i>
+          <span>+971 4 234 5678</span>
+        </a>
+        <a href="request-manpower.html" class="btn btn--primary btn--sm" data-i18n="nav.requestManpower">Book Manpower</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Open menu"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="drawer__head">
+        <div class="logo">
+          <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+          <div class="logo__text">
+            <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+            <span class="logo__sub" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+          </div>
+        </div>
+        <button class="drawer__close" id="drawerClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+      </div>
+      <div class="drawer__links">
+        <a href="index.html"><span data-i18n="nav.home">Home</span><i data-lucide="chevron-right"></i></a>
+        <a href="about.html" class="active"><span data-i18n="nav.about">About</span><i data-lucide="chevron-right"></i></a>
+        <a href="services.html"><span data-i18n="nav.services">Services</span><i data-lucide="chevron-right"></i></a>
+        <a href="industries.html"><span data-i18n="nav.industries">Industries</span><i data-lucide="chevron-right"></i></a>
+        <a href="staff.html"><span data-i18n="nav.team">Our Team</span><i data-lucide="chevron-right"></i></a>
+        <a href="group.html"><span data-i18n="nav.group">Our Group</span><i data-lucide="chevron-right"></i></a>
+        <a href="faq.html"><span data-i18n="nav.faq">FAQ</span><i data-lucide="chevron-right"></i></a>
+        <a href="contact.html"><span data-i18n="nav.contact">Contact</span><i data-lucide="chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="drawer__footer">
+      <button class="lang-switch" style="width:100%; justify-content:center; padding:12px;">عربي</button>
+      <a href="request-manpower.html" class="btn btn--primary btn--lg" data-i18n="nav.requestManpower">Book Manpower</a>
+      <a href="https://wa.me/971500000000" class="btn btn--whatsapp" target="_blank" rel="noopener" data-bind="company.whatsapp">
+        <i data-lucide="message-circle"></i> <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="section section--warm" style="padding: 72px 0 60px;">
+      <div class="container">
+        <p class="eyebrow" data-i18n="aboutPage.eyebrow">About the Company</p>
+        <h1 data-i18n="aboutPage.title">Serving the UAE's workforce needs since 2012</h1>
+        <p class="lead" style="max-width: 640px;" data-i18n="aboutPage.desc">Shabab Deira is a UAE-based manpower, labour, logistics, and workforce services company — reliable workers and support services for businesses across the Emirates.</p>
+      </div>
+    </section>
+
+    <!-- COMPANY STORY -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="grid grid--2 reveal" style="gap: 56px; align-items: center;">
+          <div>
+            <h2 data-i18n="aboutPage.storyTitle">From Deira, for the whole UAE</h2>
+            <p data-i18n="aboutPage.storyP1">Shabab Deira was founded in 2012 by Zubair Khan in Deira, Dubai — steps from the creek, the port, and the trading heart of the city. The company began by serving the businesses around it: cargo handlers, traders, and shopkeepers who needed dependable hands.</p>
+            <p data-i18n="aboutPage.storyP2">Fourteen years on, that same principle guides a much wider operation. Today Shabab Deira supplies workforce services across all seven emirates — packing, loading, delivery, cleaning, catering, events, machine operation, driving, port work, and general support — to logistics, retail, manufacturing, events, and facilities clients.</p>
+            <p data-i18n="aboutPage.storyP3">The company is part of a group of five specialised UAE companies, each focused on one part of the cargo and workforce chain. Clients deal with one point of contact — and draw on the capabilities of the whole group.</p>
+          </div>
+          <div style="border-radius: var(--radius-lg); overflow: hidden;">
+            <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80" alt="Shabab Deira team meeting at the operations office in Deira, Dubai" loading="lazy" style="width: 100%; height: 400px; object-fit: cover;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="section section--warm">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 data-i18n="aboutPage.statsTitle">Shabab Deira at a glance</h2>
+        </div>
+        <div class="stats-band reveal">
+          <div class="stat-card">
+            <div class="stat-card__value" data-i18n="aboutPage.stat1Value">2012</div>
+            <div class="stat-card__label" data-i18n="aboutPage.stat1Label">Founded in Deira, Dubai</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value" data-i18n="aboutPage.stat2Value">Zubair Khan</div>
+            <div class="stat-card__label" data-i18n="aboutPage.stat2Label">Founder</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value" data-i18n="aboutPage.stat3Value">All 7</div>
+            <div class="stat-card__label" data-i18n="aboutPage.stat3Label">Emirates covered</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-card__value" data-i18n="aboutPage.stat4Value">11</div>
+            <div class="stat-card__label" data-i18n="aboutPage.stat4Label">Service categories</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPERATING APPROACH -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <p class="eyebrow" data-i18n="aboutPage.approachEyebrow">Our Approach</p>
+          <h2 data-i18n="aboutPage.approachTitle">How we operate</h2>
+        </div>
+
+        <div class="grid grid--3 reveal">
+          <div class="card">
+            <h3 data-i18n="aboutPage.approach1Title">Worker screening</h3>
+            <p data-i18n="aboutPage.approach1Desc">Every candidate is verified for experience, valid documentation, and medical fitness before joining any assignment.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="aboutPage.approach2Title">Legal compliance</h3>
+            <p data-i18n="aboutPage.approach2Desc">Workers are employed under valid UAE residency, medically insured, and paid on time through the Wage Protection System (WPS).</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="aboutPage.approach3Title">Operational support</h3>
+            <p data-i18n="aboutPage.approach3Desc">A direct line to our operations desk in Deira — supervision, replacements, and answers when you need them.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VALUES -->
+    <section class="section section--warm">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <p class="eyebrow" data-i18n="aboutPage.valuesEyebrow">What We Stand For</p>
+          <h2 data-i18n="aboutPage.valuesTitle">Principles that guide our operations</h2>
+        </div>
+
+        <div class="grid grid--2 reveal" style="max-width: 900px; margin: 0 auto;">
+          <div class="card">
+            <h3 data-i18n="aboutPage.val1Title">Honesty in scope</h3>
+            <p data-i18n="aboutPage.val1Desc">We supply only the services we can genuinely deliver. If a requirement falls outside what we do, we say so clearly.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="aboutPage.val2Title">Worker welfare</h3>
+            <p data-i18n="aboutPage.val2Desc">Fair wages, paid on time, and proper treatment. Compliance is not just regulatory — it is how we keep a reliable workforce.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="aboutPage.val3Title">Responsive operations</h3>
+            <p data-i18n="aboutPage.val3Desc">When you contact us, you speak to someone who can act — our operations team in Deira handles requirements directly.</p>
+          </div>
+          <div class="card">
+            <h3 data-i18n="aboutPage.val4Title">Long-term reliability</h3>
+            <p data-i18n="aboutPage.val4Desc">We aim to be a trusted regular supplier, not a one-time vendor. Consistent quality builds that relationship.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GROUP SECTION -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-header text-center reveal">
+          <h2 data-i18n="aboutPage.groupSectionTitle">Part of a wider group</h2>
+          <p class="lead" style="max-width: 720px;" data-i18n="aboutPage.groupSectionDesc">Shabab Deira is one of five specialised companies in the group — covering container loading, cargo packaging, contract labour, technical services, and shipping. Learn more on Our Group.</p>
+          <div class="text-center" style="margin-top: 28px;">
+            <a href="group.html" class="btn btn--dark">
+              <span data-i18n="common.exploreGroup">Explore the Group</span> <i data-lucide="arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band">
+      <div class="container">
+        <h2 data-i18n="common.ctaBandTitle">Ready to book manpower?</h2>
+        <p class="lead" data-i18n="common.ctaBandDesc">Tell us what you need — service, number of workers, location, and dates — and our team in Deira will respond with availability and a clear quotation.</p>
+        <div class="cta-band__actions">
+          <a href="request-manpower.html" class="btn btn--primary btn--lg">
+            <span data-i18n="nav.requestManpower">Book Manpower</span> <i data-lucide="arrow-right"></i>
+          </a>
+          <a href="contact.html" class="btn btn--outline-light btn--lg" data-i18n="common.getQuote">
+            Get a Free Quote
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="logo">
+            <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+            <div class="logo__text">
+              <span class="logo__name" style="color:#fff;" data-i18n="company.name">Shabab Deira</span>
+              <span class="logo__sub" style="color:rgba(247,242,234,0.7);" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+            </div>
+          </div>
+          <p data-i18n="common.footerDesc">Manpower and workforce services across the UAE — from packing and loading to cleaning, catering, drivers, and general helpers. Serving businesses in Dubai and all emirates since 2012.</p>
+        </div>
+        <div>
+          <h4 class="footer__heading" data-i18n="common.navigationHeading">Navigation</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="industries.html" data-i18n="nav.industries">Industries</a></li>
+            <li><a href="staff.html" data-i18n="nav.team">Our Team</a></li>
+            <li><a href="group.html" data-i18n="nav.group">Our Group</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer__heading" data-i18n="common.contactHeading">Contact</h4>
+          <div class="footer__contact">
+            <div class="footer__contact-item"><i data-lucide="map-pin"></i><span data-bind="company.address">Al Ittihad Road, Deira, Dubai, UAE</span></div>
+            <div class="footer__contact-item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:#fff;font-weight:600;" data-bind="company.phone">+971 4 234 5678</a></div>
+            <div class="footer__contact-item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <div data-i18n="company.copyright">&copy; 2026 Shabab Deira Shipping & Cargo Services. Registered in Dubai, UAE.</div>
+          <div class="footer__legal">
+            <a href="privacy-policy.html" data-i18n="common.privacy">Privacy Policy</a>
+            <a href="terms.html" data-i18n="common.terms">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bar">
+    <div class="mobile-bar__inner">
+      <a href="tel:+97142345678" class="mobile-bar__btn mobile-bar__btn--call" data-bind="company.phone"><i data-lucide="phone"></i><span data-i18n="common.call">Call</span></a>
+      <a href="https://wa.me/971500000000" class="mobile-bar__btn mobile-bar__btn--wa" target="_blank" rel="noopener" data-bind="company.whatsapp"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
+      <a href="request-manpower.html" class="mobile-bar__btn mobile-bar__btn--req"><i data-lucide="clipboard-list"></i><span data-i18n="nav.requestManpower">Book</span></a>
+    </div>
+  </div>
+
+  <!-- Floating Contact Buttons (Call & WhatsApp) -->
+  <div class="floating-contact">
+    <a href="https://wa.me/971500000000" class="floating-btn floating-btn--wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-bind="company.whatsapp">
+      <i data-lucide="message-circle"></i>
+      <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+    </a>
+    <a href="tel:+97142345678" class="floating-btn floating-btn--call" aria-label="Call Shabab Deira" data-bind="company.phone">
+      <i data-lucide="phone"></i>
+      <span data-bind="company.phone">+971 4 234 5678</span>
+    </a>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

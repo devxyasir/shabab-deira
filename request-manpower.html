@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>document.addEventListener('error',function(e){if(e.target&&e.target.tagName==='IMG'){e.target.classList.add('img-failed');}},true);</script>
+  <title data-i18n="pageTitles.requestManpower">Book Manpower — Shabab Deira Dubai</title>
+  <meta name="description" content="Tell us the service, number of workers, location, and dates — our operations desk responds with availability and a clear quotation. Serving all emirates of the UAE.">
+  <link rel="canonical" href="request-manpower.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Book Manpower — Shabab Deira Dubai">
+  <meta property="og:description" content="Submit your manpower requirement — service, workers, location, and dates — and get a clear quotation from our UAE operations desk.">
+  <meta name="twitter:card" content="summary">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800;9..144,900&family=IBM+Plex+Sans:wght@400;500;600&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/lucide.min.js"></script>
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div class="container top-bar__inner">
+      <div class="top-bar__group">
+        <a class="top-bar__item" data-bind="company.mapsUrl" href="https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai" target="_blank" rel="noopener" style="color:inherit;text-decoration:none;"><i data-lucide="map-pin"></i><span data-bind="company.locationShort">Deira, Dubai, UAE</span></a>
+        <div class="top-bar__item"><i data-lucide="clock"></i><span data-bind="company.hours">Mon – Sat: 8 AM – 7 PM</span></div>
+      </div>
+      <div class="top-bar__group">
+        <div class="top-bar__item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:inherit;" data-bind="company.phone">+971 4 234 5678</a></div>
+        <div class="top-bar__item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" style="color:inherit;" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="index.html" class="logo" aria-label="Shabab Deira Homepage">
+        <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+        <div class="logo__text">
+          <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+          <span class="logo__sub" data-i18n="company.tagline">Manpower & Labour Supply</span>
+        </div>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav">
+          <li><a href="index.html" class="nav__link" data-i18n="nav.home">Home</a></li>
+          <li><a href="about.html" class="nav__link" data-i18n="nav.about">About</a></li>
+          <li><a href="services.html" class="nav__link" data-i18n="nav.services">Services</a></li>
+          <li><a href="industries.html" class="nav__link" data-i18n="nav.industries">Industries</a></li>
+          <li><a href="staff.html" class="nav__link" data-i18n="nav.team">Our Team</a></li>
+          <li><a href="group.html" class="nav__link" data-i18n="nav.group">Our Group</a></li>
+          <li><a href="faq.html" class="nav__link" data-i18n="nav.faq">FAQ</a></li>
+          <li><a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </nav>
+
+      <div class="header__actions">
+        <button class="lang-switch" aria-label="Toggle language">عربي</button>
+        <a href="tel:+97142345678" class="header__phone" data-bind="company.phone">
+          <i data-lucide="phone"></i>
+          <span>+971 4 234 5678</span>
+        </a>
+        <a href="request-manpower.html" class="btn btn--primary btn--sm" data-i18n="nav.requestManpower">Book Manpower</a>
+        <button class="mobile-toggle" id="mobileNavToggle" aria-label="Open menu"><i data-lucide="menu"></i></button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer">
+    <div>
+      <div class="drawer__head">
+        <div class="logo">
+          <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+          <div class="logo__text">
+            <span class="logo__name" data-i18n="company.name">Shabab Deira</span>
+            <span class="logo__sub" data-i18n="company.tagline">Manpower &amp; Labour Supply</span>
+          </div>
+        </div>
+        <button class="drawer__close" id="drawerClose" aria-label="Close menu"><i data-lucide="x"></i></button>
+      </div>
+      <div class="drawer__links">
+        <a href="index.html"><span data-i18n="nav.home">Home</span><i data-lucide="chevron-right"></i></a>
+        <a href="about.html"><span data-i18n="nav.about">About</span><i data-lucide="chevron-right"></i></a>
+        <a href="services.html"><span data-i18n="nav.services">Services</span><i data-lucide="chevron-right"></i></a>
+        <a href="industries.html"><span data-i18n="nav.industries">Industries</span><i data-lucide="chevron-right"></i></a>
+        <a href="staff.html"><span data-i18n="nav.team">Our Team</span><i data-lucide="chevron-right"></i></a>
+        <a href="group.html"><span data-i18n="nav.group">Our Group</span><i data-lucide="chevron-right"></i></a>
+        <a href="faq.html"><span data-i18n="nav.faq">FAQ</span><i data-lucide="chevron-right"></i></a>
+        <a href="contact.html"><span data-i18n="nav.contact">Contact</span><i data-lucide="chevron-right"></i></a>
+      </div>
+    </div>
+    <div class="drawer__footer">
+      <button class="lang-switch" style="width:100%; justify-content:center; padding:12px;">عربي</button>
+      <a href="request-manpower.html" class="btn btn--primary btn--lg" data-i18n="nav.requestManpower">Book Manpower</a>
+      <a href="https://wa.me/971500000000" class="btn btn--whatsapp" target="_blank" rel="noopener" data-bind="company.whatsapp">
+        <i data-lucide="message-circle"></i> <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- PAGE HEADER -->
+    <section class="section section--warm" style="padding: 72px 0 60px;">
+      <div class="container">
+        <p class="eyebrow" data-i18n="requestManpowerPage.eyebrow">Book Manpower</p>
+        <h1 data-i18n="requestManpowerPage.title">Book manpower for your business</h1>
+        <p class="lead" style="max-width: 680px;" data-i18n="requestManpowerPage.desc">
+          Tell us the service, number of workers, location, and dates — our operations desk responds with availability and a clear quotation.
+        </p>
+      </div>
+    </section>
+
+    <!-- INTAKE SECTION -->
+    <section class="section section--white">
+      <div class="container">
+        <div class="grid grid--2" style="gap: 56px; align-items: start;">
+
+          <!-- Requirement Form -->
+          <div class="form-card">
+            <h2 style="font-size: 1.5rem; margin-bottom: 8px;" data-i18n="requestManpowerPage.formHeading">Workforce Requirement</h2>
+            <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 28px;" data-i18n="requestManpowerPage.requiredNotice">
+              Fields marked * are required.
+            </p>
+
+            <form data-validate="true" id="mpForm">
+              <div class="form-grid">
+
+                <div class="form-group">
+                  <label class="form-label" for="companyName"><span data-i18n="requestManpowerPage.companyLabel">Company Name</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="companyName" name="company" placeholder="e.g. Your Company Name LLC" data-i18n-placeholder="requestManpowerPage.companyPlaceholder" required>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.companyError">Please enter your company name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contactPerson"><span data-i18n="requestManpowerPage.contactLabel">Contact Person</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="contactPerson" name="contact" placeholder="Full name" data-i18n-placeholder="requestManpowerPage.contactPlaceholder" required>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.contactError">Please enter a contact name.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="workEmail"><span data-i18n="requestManpowerPage.emailPhoneLabel">Work Email or Phone</span> <span class="req">*</span></label>
+                  <input type="text" class="form-input" id="workEmail" name="email_or_phone" placeholder="name@company.ae or +971 50..." data-i18n-placeholder="requestManpowerPage.emailPhonePlaceholder" required>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.emailPhoneError">Please provide an email or phone number.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="whatsappNumber" data-i18n="requestManpowerPage.whatsappLabel">WhatsApp Number (Optional)</label>
+                  <input type="tel" class="form-input" id="whatsappNumber" name="whatsapp" placeholder="+971 50 000 0000" data-i18n-placeholder="requestManpowerPage.whatsappPlaceholder">
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="tradeNeeded"><span data-i18n="requestManpowerPage.tradeLabel">Service Required</span> <span class="req">*</span></label>
+                  <select class="form-select" id="tradeNeeded" name="trade" required>
+                    <option value="" disabled selected data-i18n="requestManpowerPage.tradeSelectPlaceholder">Select a service</option>
+                    <option value="Packing & Repacking" data-i18n="services.0.title">Packing & Repacking</option>
+                    <option value="Loading & Unloading" data-i18n="services.1.title">Loading & Unloading</option>
+                    <option value="Delivery Services" data-i18n="services.2.title">Delivery Services</option>
+                    <option value="Cleaning Services" data-i18n="services.3.title">Cleaning Services</option>
+                    <option value="Factory Helpers" data-i18n="services.4.title">Factory Helpers</option>
+                    <option value="Catering Services" data-i18n="services.5.title">Catering Services</option>
+                    <option value="Event Management" data-i18n="services.6.title">Event Management</option>
+                    <option value="Machine Operators" data-i18n="services.7.title">Machine Operators</option>
+                    <option value="Drivers / Vehicle Services (Pick & Drop)" data-i18n="services.8.title">Drivers / Vehicle Services (Pick & Drop)</option>
+                    <option value="Sea Port Helpers" data-i18n="services.9.title">Sea Port Helpers</option>
+                    <option value="General Helpers" data-i18n="services.10.title">General Helpers</option>
+                  </select>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.tradeError">Please select a service.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="workerCount" data-i18n="requestManpowerPage.workersLabel">Number of Workers</label>
+                  <select class="form-select" id="workerCount" name="workers">
+                    <option value="1 to 5 workers" data-i18n="requestManpowerPage.workersOption1">1 – 5 workers</option>
+                    <option value="6 to 15 workers" selected data-i18n="requestManpowerPage.workersOption2">6 – 15 workers</option>
+                    <option value="16 to 30 workers" data-i18n="requestManpowerPage.workersOption3">16 – 30 workers</option>
+                    <option value="31 to 50 workers" data-i18n="requestManpowerPage.workersOption4">31 – 50 workers</option>
+                    <option value="50+ workers" data-i18n="requestManpowerPage.workersOption5">50+ workers</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="siteLocation"><span data-i18n="requestManpowerPage.locationLabel">Work Location</span> <span class="req">*</span></label>
+                  <select class="form-select" id="siteLocation" name="location" required>
+                    <option value="Dubai" selected data-i18n="requestManpowerPage.locationOptDubai">Dubai</option>
+                    <option value="Sharjah & Ajman" data-i18n="requestManpowerPage.locationOptSharjah">Sharjah & Ajman</option>
+                    <option value="Abu Dhabi & Al Ain" data-i18n="requestManpowerPage.locationOptAbuDhabi">Abu Dhabi & Al Ain</option>
+                    <option value="RAK & Northern Emirates" data-i18n="requestManpowerPage.locationOptNorthern">RAK & Northern Emirates</option>
+                  </select>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.locationError">Please select a work location.</span>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="durationEstimate" data-i18n="requestManpowerPage.durationLabel">Duration</label>
+                  <select class="form-select" id="durationEstimate" name="duration">
+                    <option value="One day / one-time" data-i18n="requestManpowerPage.durationOpt1">One day / one-time</option>
+                    <option value="Up to 1 week" selected data-i18n="requestManpowerPage.durationOpt2">Up to 1 week</option>
+                    <option value="1 week to 1 month" data-i18n="requestManpowerPage.durationOpt3">1 week – 1 month</option>
+                    <option value="Long term" data-i18n="requestManpowerPage.durationOpt4">Long term</option>
+                  </select>
+                </div>
+
+                <div class="form-group form-grid--full">
+                  <label class="form-label" for="projectNotes"><span data-i18n="requestManpowerPage.scopeLabel">Work Scope & Site Details</span> <span class="req">*</span></label>
+                  <textarea class="form-textarea" id="projectNotes" name="message" placeholder="e.g. 4 packing staff for our warehouse in Al Quoz, Monday to Friday, 8 AM to 5 PM, starting next month." data-i18n-placeholder="requestManpowerPage.scopePlaceholder" required></textarea>
+                  <span class="field-error-msg" data-i18n="requestManpowerPage.scopeError">Please describe the work scope.</span>
+                </div>
+
+                <div class="form-group form-grid--full">
+                  <label class="checkbox-label">
+                    <input type="checkbox" required checked>
+                    <span data-i18n="requestManpowerPage.consentText">I agree to be contacted about my requirement.</span>
+                  </label>
+                </div>
+
+              </div>
+
+              <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 12px;">
+                <button type="submit" class="btn btn--primary btn--lg" style="width: 100%;">
+                  <span data-i18n="requestManpowerPage.submitBtn">Submit Requirement</span>
+                  <i data-lucide="send"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <!-- Direct Operations Sidebar -->
+          <div>
+            <div class="card" style="margin-bottom: 24px;">
+              <p class="eyebrow" data-i18n="requestManpowerPage.directEyebrow">Prefer to Talk?</p>
+              <h3 style="margin-bottom: 12px;" data-i18n="requestManpowerPage.directTitle">Reach our operations desk directly</h3>
+              <p style="color: var(--color-text-muted); font-size: 0.92rem; margin-bottom: 20px;" data-i18n="requestManpowerPage.directDesc">
+                Call or WhatsApp us with your requirement — service, workers, location, and dates — and we will confirm availability.
+              </p>
+
+              <div style="display: flex; flex-direction: column; gap: 14px;">
+                <a href="tel:+97142345678" class="btn btn--dark" style="justify-content: flex-start;" data-bind="company.phone">
+                  <i data-lucide="phone"></i>
+                  <span>+971 4 234 5678</span>
+                </a>
+                <a href="https://wa.me/971500000000" class="btn btn--whatsapp" style="justify-content: flex-start;" target="_blank" rel="noopener" data-bind="company.whatsapp">
+                  <i data-lucide="message-circle"></i>
+                  <span data-i18n="common.whatsappUs">WhatsApp Operations Desk</span>
+                </a>
+                <a href="mailto:inquiries@shababdeira.ae" class="btn btn--outline" style="justify-content: flex-start;" data-bind="company.email">
+                  <i data-lucide="mail"></i>
+                  <span>inquiries@shababdeira.ae</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- What Happens Next -->
+            <div class="card">
+              <p class="eyebrow" data-i18n="requestManpowerPage.nextEyebrow">What Happens Next</p>
+              <h3 style="margin-bottom: 16px;" data-i18n="requestManpowerPage.nextTitle">After you submit</h3>
+              <div style="display: flex; flex-direction: column; gap: 16px;">
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                  <span style="font-family: var(--font-display, 'Fraunces', serif); color: var(--color-accent); font-size: 1.2rem; line-height: 1;" data-i18n="requestManpowerPage.step1Num">01</span>
+                  <p style="font-size: 0.88rem; margin: 0; color: var(--color-text-muted);"><strong style="color: var(--color-text);" data-i18n="requestManpowerPage.step1Title">We review your requirement:</strong> <span data-i18n="requestManpowerPage.step1Desc">Our operations desk checks availability for your service, dates, and location.</span></p>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                  <span style="font-family: var(--font-display, 'Fraunces', serif); color: var(--color-accent); font-size: 1.2rem; line-height: 1;" data-i18n="requestManpowerPage.step2Num">02</span>
+                  <p style="font-size: 0.88rem; margin: 0; color: var(--color-text-muted);"><strong style="color: var(--color-text);" data-i18n="requestManpowerPage.step2Title">You receive a quotation:</strong> <span data-i18n="requestManpowerPage.step2Desc">Rates, terms, and start dates — confirmed in writing.</span></p>
+                </div>
+                <div style="display: flex; gap: 12px; align-items: flex-start;">
+                  <span style="font-family: var(--font-display, 'Fraunces', serif); color: var(--color-accent); font-size: 1.2rem; line-height: 1;" data-i18n="requestManpowerPage.step3Num">03</span>
+                  <p style="font-size: 0.88rem; margin: 0; color: var(--color-text-muted);"><strong style="color: var(--color-text);" data-i18n="requestManpowerPage.step3Title">Your team is deployed:</strong> <span data-i18n="requestManpowerPage.step3Desc">Workers arrive briefed and on schedule, with ongoing support from our team.</span></p>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="logo">
+            <div class="logo__mark"><svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect width="40" height="40" rx="9" fill="#A8461F"/><rect x="9" y="23" width="5" height="9" rx="1.5" fill="#F7F2EA"/><rect x="17.5" y="16" width="5" height="16" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="23" rx="1.5" fill="#F7F2EA"/><rect x="26" y="9" width="5" height="5" rx="1.5" fill="#C08A2E"/></svg></div>
+            <div class="logo__text">
+              <span class="logo__name" style="color:#fff;" data-i18n="company.name">Shabab Deira</span>
+              <span class="logo__sub" style="color:rgba(247,242,234,0.7);" data-i18n="company.tagline">Manpower & Labour Supply</span>
+            </div>
+          </div>
+          <p data-i18n="common.footerDesc">Manpower and workforce services across the UAE — from packing and loading to cleaning, catering, drivers, and general helpers. Serving businesses in Dubai and all emirates since 2012.</p>
+        </div>
+
+        <div>
+          <h4 class="footer__heading" data-i18n="common.navigationHeading">Navigation</h4>
+          <ul class="footer__links">
+            <li><a href="index.html" data-i18n="nav.home">Home</a></li>
+            <li><a href="about.html" data-i18n="nav.about">About</a></li>
+            <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+            <li><a href="industries.html" data-i18n="nav.industries">Industries</a></li>
+            <li><a href="staff.html" data-i18n="nav.team">Our Team</a></li>
+            <li><a href="group.html" data-i18n="nav.group">Our Group</a></li>
+            <li><a href="faq.html" data-i18n="nav.faq">FAQ</a></li>
+            <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer__heading" data-i18n="common.contactHeading">Contact</h4>
+          <div class="footer__contact">
+            <div class="footer__contact-item"><i data-lucide="map-pin"></i><span data-bind="company.address">Al Ittihad Road, Deira, Dubai, UAE</span></div>
+            <div class="footer__contact-item"><i data-lucide="phone"></i><a href="tel:+97142345678" style="color:#fff;font-weight:600;" data-bind="company.phone">+971 4 234 5678</a></div>
+            <div class="footer__contact-item"><i data-lucide="mail"></i><a href="mailto:inquiries@shababdeira.ae" data-bind="company.email">inquiries@shababdeira.ae</a></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__bottom-inner">
+          <div data-i18n="company.copyright">&copy; 2026 Shabab Deira Shipping & Cargo Services. Registered in Dubai, UAE.</div>
+          <div class="footer__legal">
+            <a href="privacy-policy.html" data-i18n="common.privacy">Privacy Policy</a>
+            <a href="terms.html" data-i18n="common.terms">Terms</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Mobile Bottom Bar -->
+  <div class="mobile-bar">
+    <div class="mobile-bar__inner">
+      <a href="tel:+97142345678" class="mobile-bar__btn mobile-bar__btn--call" data-bind="company.phone"><i data-lucide="phone"></i><span data-i18n="common.call">Call</span></a>
+      <a href="https://wa.me/971500000000" class="mobile-bar__btn mobile-bar__btn--wa" target="_blank" rel="noopener" data-bind="company.whatsapp"><i data-lucide="message-circle"></i><span>WhatsApp</span></a>
+      <a href="request-manpower.html" class="mobile-bar__btn mobile-bar__btn--req"><i data-lucide="clipboard-list"></i><span data-i18n="nav.requestManpower">Book</span></a>
+    </div>
+  </div>
+
+  <!-- Floating Contact Buttons (Call & WhatsApp) -->
+  <div class="floating-contact">
+    <a href="https://wa.me/971500000000" class="floating-btn floating-btn--wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp" data-bind="company.whatsapp">
+      <i data-lucide="message-circle"></i>
+      <span data-i18n="common.whatsappUs">WhatsApp Us</span>
+    </a>
+    <a href="tel:+97142345678" class="floating-btn floating-btn--call" aria-label="Call Shabab Deira" data-bind="company.phone">
+      <i data-lucide="phone"></i>
+      <span data-bind="company.phone">+971 4 234 5678</span>
+    </a>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
