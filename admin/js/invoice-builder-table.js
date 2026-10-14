@@ -136,11 +136,35 @@
     return { subtotal: subtotal, vat: vatAmt, grandTotal: grandTotal };
   };
 
+  /* Numbers only: digits + one decimal point. Applied to number, currency
+     and total cells so letters can never be typed or pasted into money and
+     quantity fields. Time/badge/text columns are exempt. */
+  B.sanitizeNum = function (el) {
+    var t = el.textContent;
+    var c = t.replace(/[^0-9.]/g, '');
+    var p = c.split('.');
+    if (p.length > 2) c = p[0] + '.' + p.slice(1).join('');
+    if (c !== t) {
+      el.textContent = c;
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      r.collapse(false);
+      var s = getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    }
+    return c;
+  };
+
   B.initTableControls = function () {
     var canvas = $('docCanvas');
     if (canvas) {
       canvas.addEventListener('input', function (e) {
-        if (e.target && e.target.classList && e.target.classList.contains('cell-val')) B.recalculate();
+        if (e.target && e.target.classList && e.target.classList.contains('cell-val')) {
+          var dt = e.target.dataset.type;
+          if (dt === 'number' || dt === 'currency' || dt === 'total') B.sanitizeNum(e.target);
+          B.recalculate();
+        }
       });
       canvas.addEventListener('click', function (e) {
         var delBtn = e.target.closest ? e.target.closest('.row-del-btn') : null;

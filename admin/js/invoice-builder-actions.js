@@ -234,6 +234,29 @@
 
     if ($('btnPrintA4')) $('btnPrintA4').addEventListener('click', function () { window.print(); });
 
+    /* One page only: before printing, shrink the canvas just enough to fit
+       a single A4 portrait sheet — never spill onto page two, no matter how
+       many rows were added. Restored right after printing. */
+    B.fitOnePage = function () {
+      var canvas = $('docCanvas');
+      if (!canvas) return;
+      canvas.dataset.prevTransform = canvas.style.transform || '';
+      canvas.style.transform = 'none';
+      var prevMin = canvas.style.minHeight;
+      canvas.style.minHeight = '0';
+      var h = canvas.scrollHeight || canvas.offsetHeight;
+      canvas.style.minHeight = prevMin;
+      canvas.style.zoom = (h > 985) ? (985 / h).toFixed(4) : '';
+    };
+    B.restoreAfterPrint = function () {
+      var canvas = $('docCanvas');
+      if (!canvas) return;
+      canvas.style.zoom = '';
+      canvas.style.transform = canvas.dataset.prevTransform || '';
+    };
+    window.addEventListener('beforeprint', B.fitOnePage);
+    window.addEventListener('afterprint', B.restoreAfterPrint);
+
     if ($('btnExportPng')) $('btnExportPng').addEventListener('click', function () {
       if (!window.html2canvas) { B.showToast('Print library not ready', true); return; }
       B.showToast('Preparing PNG…');

@@ -413,6 +413,14 @@ table.doc-table .cell-val {
   line-height: calc(var(--row-h) - 2px); white-space: nowrap; overflow: hidden;
   text-overflow: ellipsis; box-sizing: border-box;
 }
+/* Text columns (names, descriptions, trades) wrap to show full content —
+   never truncate a person's name with an ellipsis. Numeric columns keep
+   their single-line tabular figures. */
+table.doc-table .cell-val[data-type="text"] {
+  white-space: normal; overflow: visible; text-overflow: clip;
+  overflow-wrap: break-word; height: auto;
+  min-height: calc(var(--row-h) - 2px); line-height: 1.35; padding: 2px 0;
+}
 table.doc-table td.td-del-btn { width: 22px; padding: 0; text-align: center; }
 .row-del-btn {
   display: none; background: #FEE2E2; color: #DC2626; border: none; border-radius: 50%;
@@ -422,10 +430,10 @@ table.doc-table td.td-del-btn { width: 22px; padding: 0; text-align: center; }
 table.doc-table tbody tr:hover .row-del-btn { display: block; }
 .add-row-bar { display: flex; align-items: center; justify-content: flex-end; gap: 8px; padding: 6px 0; }
 .add-row-btn {
-  background: #F1F5F9; border: 1px dashed #CBD5E1; border-radius: 6px;
-  padding: 5px 12px; font-size: 11.5px; font-weight: 700; color: #475569; cursor: pointer;
+  background: #FFFFFF; border: 1px dashed #C4CFDB; border-radius: 4px;
+  padding: 5px 12px; font-size: 11.5px; font-weight: 700; color: #0F3763; cursor: pointer;
 }
-.add-row-btn:hover { background: #E2E8F0; color: #0F172A; }
+.add-row-btn:hover { background: #F2F6FB; border-color: #0F3763; }
 .doc-calc-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 16px; margin-top: 10px; }
 .doc-notes-box {
   background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px;
@@ -662,7 +670,7 @@ table.doc-table tbody tr:hover .row-del-btn { display: block; }
   gap: 6px;
 }
 .strip-field {
-  border: 1px solid #CBD5E1;
+  border: 1px solid #DCE3EB;
   border-radius: 3px;
   padding: 5px 9px;
   background: #FFFFFF;

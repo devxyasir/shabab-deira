@@ -63,7 +63,7 @@ include __DIR__ . '/header.php';
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Cairo:wght@600;700;800&family=Source+Sans+3:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500;600&family=Caveat:wght@700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/invoice-builder.css?v=3.1">
+<link rel="stylesheet" href="css/invoice-builder.css?v=3.2">
 
 <div class="ib-wrap">
   <?php include __DIR__ . '/invoice-builder-partials/chooser.php'; ?>
@@ -85,10 +85,10 @@ include __DIR__ . '/header.php';
   window.BUILDER_SYSTEM_TEMPLATES = <?php echo json_encode($systemTemplates); ?>;
   window.BUILDER_INITIAL_KEY = <?php echo json_encode($initialKey); ?>;
 </script>
-<script src="js/invoice-builder-core.js?v=3.1"></script>
-<script src="js/invoice-builder-table.js?v=3.1"></script>
-<script src="js/invoice-builder-library.js?v=3.1"></script>
-<script src="js/invoice-builder-chooser.js?v=3.1"></script>
-<script src="js/invoice-builder-actions.js?v=3.1"></script>
+<script src="js/invoice-builder-core.js?v=3.2"></script>
+<script src="js/invoice-builder-table.js?v=3.2"></script>
+<script src="js/invoice-builder-library.js?v=3.2"></script>
+<script src="js/invoice-builder-chooser.js?v=3.2"></script>
+<script src="js/invoice-builder-actions.js?v=3.2"></script>
 
 <?php include __DIR__ . '/footer.php'; ?>

@@ -130,6 +130,11 @@ Why these shapes (design rationale per family):
 - Every template is portrait A4 (794×1123). No template may use landscape —
   wide register tables fit via `table-layout: fixed` with ellipsis (already
   in the table CSS), which is how real offices keep registers on portrait A4.
+- One page only: `B.fitOnePage` (beforeprint) shrinks the canvas just enough
+  to fit a single printed A4 sheet and `B.restoreAfterPrint` (afterprint)
+  restores the screen view. Never a second page, however many rows are added.
+- Default data is trimmed to fit one page at 100% (e.g. cash register ships
+  with 6 rows). Do not pad defaults back up.
 - The landscape machinery (`.doc--landscape`, named `@page`, orientation
   branch in export) is retained in code but currently unassigned. Do not
   assign it without owner approval.
@@ -163,6 +168,14 @@ Why these shapes (design rationale per family):
   (`B.BRAND_PRIMARY` / `B.BRAND_ACCENT`); per-template theme colours are
   ignored at render so documents never clash. Credit-note red comes only
   from the tone class.
+- Text table cells (`data-type="text"`: names, descriptions, trades) wrap to
+  show full content — never truncate a person's name with an ellipsis.
+  Numeric/currency/total cells stay single-line.
+- Numeric cells accept digits + one decimal point only (`B.sanitizeNum` in
+  the builder; same rule for the Rate/Total columns of the tax workspace).
+  Time/duration cells (`in`, `out`, totals like `152:00`) are exempt because
+  a colon is valid input there. Totals math uses parsed numbers and is
+  unchanged.
 
 ## 7. Copy rules — no fluff
 
