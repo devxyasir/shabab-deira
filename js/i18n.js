@@ -18,32 +18,36 @@ var fallbackData = {
         "ar": "شباب ديرة"
       },
       "tagline": {
-        "en": "Your Workforce Partner",
-        "ar": "شريكك في القوى العاملة"
+        "en": "Manpower & Labour Supply",
+        "ar": "توريد العمالة والقوى العاملة"
       },
       "fullName": {
         "en": "Shabab Deira Shipping & Cargo Services",
         "ar": "شباب ديرة لخدمات الشحن والبضائع"
       },
-      "phone": "+971 4 234 5678",
-      "phoneTel": "+97142345678",
-      "whatsapp": "+971 50 123 4567",
-      "whatsappNum": "971500000000",
-      "email": "inquiries@shababdeira.ae",
+      "phone": "+971 56 135 9305",
+      "phoneTel": "+971561359305",
+      "phoneSecondary": "+971 52 809 0786",
+      "phoneSecondaryTel": "+971528090786",
+      "whatsapp": "+971 56 135 9305",
+      "whatsappNum": "971561359305",
+      "whatsappSecondary": "+971 52 809 0786",
+      "whatsappSecondaryNum": "971528090786",
+      "email": "info@shababdeira.com",
       "address": {
-        "en": "Al Ittihad Road, Deira, Dubai, UAE",
-        "ar": "شارع الاتحاد، ديرة، دبي، الإمارات العربية المتحدة"
+        "en": "Office No. M33, Mezzanine Floor, Alphamed Building, Abu Hail Road, Hor Al Anz East, Dubai, UAE",
+        "ar": "مكتب رقم M33، طابق الميزانين، مبنى ألفاميد، طريق أبو هيل، هور العنز شرق، دبي، الإمارات العربية المتحدة"
       },
       "locationShort": {
-        "en": "Deira, Dubai, UAE",
-        "ar": "ديرة، دبي، الإمارات"
+        "en": "Hor Al Anz East, Dubai, UAE",
+        "ar": "هور العنز شرق، دبي، الإمارات"
       },
       "hours": {
         "en": "Mon – Sat: 8 AM – 7 PM",
         "ar": "الاثنين – السبت: ٨ صباحاً – ٧ مساءً"
       },
-      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Shabab+Deira+Shipping+%26+Cargo+Services+Al+Ittihad+Road+Deira+Dubai",
-      "siteUrl": "https://shababdeira.ae",
+      "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Office+M33+Alphamed+Building+Abu+Hail+Road+Hor+Al+Anz+East+Dubai+UAE",
+      "siteUrl": "https://shababdeira.com",
       "founded": "2012",
       "founder": {
         "en": "Zubair Khan",
@@ -71,10 +75,6 @@ var fallbackData = {
         "en": "Industries",
         "ar": "القطاعات"
       },
-      "whyUs": {
-        "en": "Why Us",
-        "ar": "لماذا نحن"
-      },
       "team": {
         "en": "Our Team",
         "ar": "فريقنا"
@@ -94,10 +94,6 @@ var fallbackData = {
       "requestManpower": {
         "en": "Book Manpower",
         "ar": "احجز عمالة"
-      },
-      "getQuote": {
-        "en": "Get a Quote",
-        "ar": "طلب تسعيرة"
       }
     },
     "common": {
@@ -126,12 +122,8 @@ var fallbackData = {
         "ar": "تواصل مع العمليات"
       },
       "viewAllServices": {
-        "en": "View All 11 Services",
-        "ar": "عرض جميع الخدمات الإحدى عشرة"
-      },
-      "quickLinksHeading": {
-        "en": "Quick Links",
-        "ar": "روابط سريعة"
+        "en": "View All Services",
+        "ar": "عرض جميع الخدمات"
       },
       "exploreAllIndustries": {
         "en": "Explore All Industries",
@@ -210,78 +202,240 @@ var fallbackData = {
         "ar": "العودة للرئيسية"
       }
     },
+    "contactPage": {
+      "eyebrow": {
+        "en": "Get in Touch",
+        "ar": "تواصل معنا"
+      },
+      "title": {
+        "en": "Contact Shabab Deira Operations",
+        "ar": "التواصل مع مكتب عمليات شباب ديرة"
+      },
+      "desc": {
+        "en": "Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, email — or use the booking form.",
+        "ar": "تواصل مباشر مع فريق العمليات في ديرة، دبي عبر الهاتف أو واتساب أو البريد الإلكتروني — أو من خلال نموذج الحجز."
+      },
+      "locationCardTitle": {
+        "en": "Our Office",
+        "ar": "مقرنا"
+      },
+      "phoneCardTitle": {
+        "en": "Direct Phone",
+        "ar": "الاتصال الهاتفي المباشر"
+      },
+      "whatsappCardTitle": {
+        "en": "WhatsApp Operations",
+        "ar": "واتساب العمليات"
+      },
+      "emailCardTitle": {
+        "en": "Email Inquiries",
+        "ar": "المراسلات الإلكترونية"
+      },
+      "hoursCardTitle": {
+        "en": "Working Hours",
+        "ar": "ساعات العمل"
+      },
+      "formTitle": {
+        "en": "Send a General Inquiry",
+        "ar": "إرسال استفسار عام"
+      },
+      "formDesc": {
+        "en": "To book workers, please use the Book Manpower form. For all general inquiries, reach us below.",
+        "ar": "لحجز العمالة يرجى استخدام نموذج احجز عمالة. ولكل الاستفسارات العامة تواصل معنا عبر النموذج التالي."
+      },
+      "nameLabel": {
+        "en": "Your Full Name",
+        "ar": "الاسم الكامل"
+      },
+      "namePlaceholder": {
+        "en": "Full name",
+        "ar": "الاسم الكامل"
+      },
+      "emailLabel": {
+        "en": "Email Address",
+        "ar": "البريد الإلكتروني"
+      },
+      "emailPlaceholder": {
+        "en": "name@company.ae",
+        "ar": "name@company.ae"
+      },
+      "phoneLabel": {
+        "en": "Phone Number",
+        "ar": "رقم الهاتف"
+      },
+      "phonePlaceholder": {
+        "en": "+971 50 ...",
+        "ar": "‎+971 50 ..."
+      },
+      "subjectLabel": {
+        "en": "Subject / Nature of Inquiry",
+        "ar": "الموضوع / طبيعة الاستفسار"
+      },
+      "subjectPlaceholder": {
+        "en": "e.g. Long-term workforce partnership",
+        "ar": "مثال: شراكة عمالة طويلة الأمد"
+      },
+      "messageLabel": {
+        "en": "Message",
+        "ar": "نص الرسالة"
+      },
+      "messagePlaceholder": {
+        "en": "Write your message here...",
+        "ar": "اكتب تفاصيل استفسارك هنا..."
+      },
+      "sendBtn": {
+        "en": "Send Message",
+        "ar": "إرسال الرسالة"
+      },
+      "mapTitle": {
+        "en": "Central Location in Hor Al Anz East, Deira",
+        "ar": "موقع متميز في هور العنز شرق، ديرة"
+      },
+      "mapDesc": {
+        "en": "Located in Alphamed Building on Abu Hail Road, minutes from Dubai Creek and Port Rashid — with rapid connectivity across the Emirates.",
+        "ar": "يقع في مبنى ألفاميد على طريق أبو هيل، على بعد دقائق من خور دبي وميناء راشد — مع اتصال سريع بجميع أنحاء الإمارات."
+      },
+      "tenderSubtext": {
+        "en": "Tender documents & inquiries",
+        "ar": "المناقصات والاستفسارات المؤسسية"
+      },
+      "nameError": {
+        "en": "Please enter your name.",
+        "ar": "يرجى إدخال اسمك."
+      },
+      "companyError": {
+        "en": "Please enter your company name.",
+        "ar": "يرجى إدخال اسم المنشأة."
+      },
+      "emailError": {
+        "en": "Please enter a valid email address.",
+        "ar": "يرجى إدخال بريد إلكتروني صحيح."
+      },
+      "phoneError": {
+        "en": "Please enter a valid phone number.",
+        "ar": "يرجى إدخال رقم هاتف صحيح."
+      },
+      "messageError": {
+        "en": "Please enter your message.",
+        "ar": "يرجى كتابة رسالتك."
+      }
+    },
+    "privacyPage": {
+      "eyebrow": {
+        "en": "Legal & Privacy",
+        "ar": "الخصوصية والبيانات"
+      },
+      "title": {
+        "en": "Privacy Policy",
+        "ar": "سياسة الخصوصية"
+      },
+      "desc": {
+        "en": "How Shabab Deira collects, uses, and protects business and personal data in accordance with UAE Personal Data Protection Law (Federal Decree-Law No. 45/2021).",
+        "ar": "كيفية جمع واستخدام وحماية البيانات الشخصية وبيانات الشركات وفقاً للمرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية في دولة الإمارات."
+      },
+      "sec1Title": {
+        "en": "1. Information Collected",
+        "ar": "١. البيانات والمعلومات التي نجمعها"
+      },
+      "sec1Text": {
+        "en": "Shabab Deira Shipping & Cargo Services collects information submitted voluntarily by business representatives when booking manpower or contacting our operations desk. This includes company name, contact person, email address, phone numbers, service requirements, and site location details.",
+        "ar": "تجمع شباب ديرة لخدمات الشحن والبضائع المعلومات المقدمة طواعية من ممثلي المنشآت عند حجز العمالة أو التواصل مع مكتب العمليات، ويشمل ذلك اسم المنشأة، اسم المسؤول، البريد الإلكتروني، أرقام الهواتف، الخدمات المطلوبة، وتفاصيل موقع العمل."
+      },
+      "sec2Title": {
+        "en": "2. Use of Information",
+        "ar": "٢. أوجه استخدام المعلومات"
+      },
+      "sec2Text": {
+        "en": "Information provided is utilized solely to review workforce requirements, prepare commercial quotations, communicate operational updates, and fulfill regulatory obligations under UAE labour laws and MOHRE requirements.",
+        "ar": "تُستخدم البيانات المقدمة حصراً لمراجعة احتياجات العمالة، إعداد عروض الأسعار التجارية، التنسيق التشغيلي، والوفاء بالالتزامات النظامية لقوانين العمل بالدولة ومتطلبات وزارة الموارد البشرية والتوطين."
+      },
+      "sec3Title": {
+        "en": "3. Data Protection & Confidentiality",
+        "ar": "٣. حماية وسرية البيانات"
+      },
+      "sec3Text": {
+        "en": "We implement appropriate technical and administrative safeguards to protect client and candidate data. We do not sell, rent, or distribute contact records to third-party commercial marketing platforms.",
+        "ar": "نطبق تدابير تقنية وإدارية محكمة لضمان سرية وأمان بيانات العملاء والعمال، ونلتزم بعدم بيع أو تأجير أو مشاركة أية بيانات مع منصات تسويقية خارجية."
+      },
+      "sec4Title": {
+        "en": "4. Inquiries & Data Rights",
+        "ar": "٤. حقوق البيانات والتواصل"
+      },
+      "sec4Text": {
+        "en": "To update or request the removal of your contact information, please email our compliance desk at info@shababdeira.com.",
+        "ar": "لتحديث بيانات الاتصال الخاصة بكم أو طلب حذفها، يرجى التواصل مع مكتب الامتثال عبر البريد الإلكتروني: info@shababdeira.com."
+      }
+    },
+    "termsPage": {
+      "eyebrow": {
+        "en": "Commercial Terms",
+        "ar": "الشروط والأحكام التعاقدية"
+      },
+      "title": {
+        "en": "Terms of Engagement",
+        "ar": "شروط وأحكام التعامل"
+      },
+      "desc": {
+        "en": "Commercial conditions governing website use, requirement submissions, and initial supply quotations in the UAE.",
+        "ar": "الضوابط والشروط التجارية المنظمة لاستخدام الموقع الإلكتروني، تقديم الطلبات، وعروض الأسعار في دولة الإمارات."
+      },
+      "sec1Title": {
+        "en": "1. Operational Scope",
+        "ar": "١. النطاق التشغيلي"
+      },
+      "sec1Text": {
+        "en": "Shabab Deira Shipping & Cargo Services is a UAE manpower and workforce services company based in Deira, Dubai, providing services inside the UAE only. Submissions through this website represent inquiries for workforce availability and quotation; they do not constitute a binding supply agreement until a formal agreement is executed between both parties.",
+        "ar": "شباب ديرة لخدمات الشحن والبضائع شركة إماراتية لخدمات العمالة والقوى العاملة مقرها ديرة، دبي، وتقدم خدماتها داخل الإمارات فقط. تمثل الطلبات المرسلة عبر هذا الموقع استفسارات لطلب عروض الأسعار وجاهزية التوريد، ولا تعتبر عقداً ملزماً إلا بعد توقيع اتفاقية رسمية بين الطرفين."
+      },
+      "sec2Title": {
+        "en": "2. Quotations & Rate Validity",
+        "ar": "٢. عروض الأسعار وسريانها"
+      },
+      "sec2Text": {
+        "en": "Standard quotations provided by our operations desk remain valid for thirty (30) days from issuance unless otherwise specified in writing. Rate schedules reflect service category, worker numbers, shift durations, and site requirements.",
+        "ar": "تسري عروض الأسعار الصادرة من مكتب العمليات لمدة ثلاثين (30) يوماً من تاريخ إصدارها ما لم يُنص على خلاف ذلك كتابةً. وتُحدد الأسعار وفقاً لفئة الخدمة وعدد العمال وساعات العمل واشتراطات الموقع."
+      },
+      "sec3Title": {
+        "en": "3. Regulatory Compliance",
+        "ar": "٣. الامتثال لقوانين العمل الإماراتية"
+      },
+      "sec3Text": {
+        "en": "All workforce engagements are conducted in strict compliance with UAE Federal Decree-Law No. 33 of 2021 regarding the Regulation of Labour Relations and all associated ministerial decrees. Shabab Deira maintains responsibility for visa sponsorship, medical insurance, and WPS salary disbursement for its employed workers.",
+        "ar": "تخضع كافة تعاقدات التوريد لأحكام المرسوم بقانون اتحادي رقم 33 لسنة 2021 بشأن تنظيم علاقات العمل والقرارات الوزارية المنفذة له. وتتحمل شباب ديرة المسؤولية عن كفالة الإقامات والتأمين الصحي وصرف الأجور عبر نظام حماية الأجور (WPS) لعمالها."
+      },
+      "sec4Title": {
+        "en": "4. Site Safety Obligations",
+        "ar": "٤. التزامات السلامة المهنية بالموقع"
+      },
+      "sec4Text": {
+        "en": "Clients are responsible for providing a safe working environment, conducting necessary site inductions, and complying with UAE occupational safety standards.",
+        "ar": "يلتزم العميل بتوفير بيئة عمل آمنة ومطابقة لمعايير السلامة المهنية في دولة الإمارات، وإجراء التدريب التعريفي بالموقع قبل بدء العمل."
+      }
+    },
     "home": {
       "eyebrow": {
-        "en": "Manpower Supply — Dubai, UAE",
-        "ar": "توريد العمالة — دبي، الإمارات"
+        "en": "Manpower & Labour Supply — UAE",
+        "ar": "توريد العمالة والقوى العاملة — الإمارات"
       },
       "heroTitle": {
-        "en": "Workforce you can rely on, compliant from day one",
-        "ar": "قوى عاملة يعتمد عليها، متوافقة نظامياً من اليوم الأول"
+        "en": "Leading Manpower Supply Company in Dubai & Across the UAE",
+        "ar": "شركة رائدة في توريد العمالة في دبي وجميع أنحاء الإمارات"
       },
       "heroDesc": {
-        "en": "We provide trusted, skilled and flexible manpower solutions for businesses across the UAE. From industrial to corporate sectors — we help you build high-performing teams, fast.",
-        "ar": "نقدم حلول قوى عاملة موثوقة وماهرة ومرنة للشركات في جميع أنحاء الإمارات. من القطاعات الصناعية إلى المؤسسية — نساعدك على بناء فرق عمل عالية الأداء بسرعة."
+        "en": "Since 2012, Shabab Deira has supplied businesses across the UAE with dependable workers — packing, loading, delivery, cleaning, catering, events, machine operation, driving, and general support.",
+        "ar": "منذ عام 2012، تزوّد شباب ديرة المنشآت في جميع أنحاء الإمارات بعمالة موثوقة — للتغليف والتحميل والتوصيل والنظافة والكاترينج والفعاليات وتشغيل الماكينات والقيادة والأعمال المساندة."
       },
       "trust1": {
-        "en": "MOHRE & WPS Compliant",
-        "ar": "مطابقة لوزارة الموارد البشرية وحماية الأجور"
+        "en": "Established 2012",
+        "ar": "تأسست عام 2012"
       },
       "trust2": {
-        "en": "Trade-Tested Workers",
-        "ar": "عمالة مختبرة ومؤهلة"
+        "en": "Screened Workers",
+        "ar": "عمالة مدققة"
       },
       "trust3": {
-        "en": "Dubai-Based Operations",
-        "ar": "عمليات مركزية في دبي"
-      },
-      "heroEyebrow": {
-        "en": "SKILLED PEOPLE. STRONGER BUSINESSES.",
-        "ar": "كوادر ماهرة. أعمال أقوى."
-      },
-      "heroChip1": {
-        "en": "10+ Years Experience",
-        "ar": "خبرة لأكثر من 10 سنوات"
-      },
-      "heroChip2": {
-        "en": "UAE Wide Coverage",
-        "ar": "تغطية في كافة الإمارات"
-      },
-      "heroChip3": {
-        "en": "Ready to Deploy",
-        "ar": "جاهزية فورية للتشغيل"
-      },
-      "trustedBadge": {
-        "en": "Trusted Workforce Across UAE",
-        "ar": "قوى عاملة موثوقة في كافة الإمارات"
-      },
-      "stat1Value": {
-        "en": "2012",
-        "ar": "2012"
-      },
-      "stat1Label": {
-        "en": "Established in Dubai",
-        "ar": "تأسست في دبي"
-      },
-      "stat2Value": {
-        "en": "11",
-        "ar": "11"
-      },
-      "stat2Label": {
-        "en": "Core Service Categories",
-        "ar": "خدمات أساسية"
-      },
-      "stat3Value": {
-        "en": "5",
-        "ar": "5"
-      },
-      "stat3Label": {
-        "en": "Companies Under One Group",
-        "ar": "شركات تحت مجموعة واحدة"
-      },
-      "stat4Label": {
-        "en": "MOHRE & WPS Compliant",
-        "ar": "مطابقة لوزارة الموارد البشرية وحماية الأجور"
+        "en": "UAE-Wide Coverage",
+        "ar": "تغطية جميع الإمارات"
       },
       "cred1": {
         "en": "Established 2012 in Deira, Dubai",
@@ -395,118 +549,6 @@ var fallbackData = {
         "en": "Five group companies cover cargo handling, packaging, technical services, and manpower — one point of contact for all of it.",
         "ar": "خمس شركات في المجموعة تغطي مناولة البضائع والتغليف والخدمات الفنية والعمالة — وجهة اتصال واحدة للجميع."
       },
-      "servicesCardTitle": {
-        "en": "Skilled People For A Stronger Tomorrow",
-        "ar": "كوادر ماهرة لغدٍ أقوى وأكثر استدامة"
-      },
-      "whyChooseTitle": {
-        "en": "Businesses work with us because we deliver more",
-        "ar": "الشركات تختارنا لأننا نقدّم أكثر دائماً"
-      },
-      "whyQuote": {
-        "en": "“Their team is professional, reliable and always ready to support our operations.”",
-        "ar": "“فريقهم محترف وموثوق ومستعد دائماً لدعم كافة عملياتنا التشغيلية.”"
-      },
-      "whyAuthor": {
-        "en": "Operations Manager, Logistics Company, Dubai",
-        "ar": "مدير العمليات، شركة لوجستية، دبي"
-      },
-      "whyCard1Title": {
-        "en": "Skilled & Trained Staff",
-        "ar": "كوادر مدربة ومؤهلة"
-      },
-      "whyCard1Desc": {
-        "en": "Well-prepared for your industry and work environment.",
-        "ar": "مستعدون تماماً لبيئة عملك ومتطلبات قطاعك."
-      },
-      "whyCard2Title": {
-        "en": "Flexible Hiring Solutions",
-        "ar": "حلول توظيف مرنة"
-      },
-      "whyCard2Desc": {
-        "en": "Temporary, permanent or project-based staffing.",
-        "ar": "عمالة مؤقتة أو دائمة أو حسب مدة المشروع."
-      },
-      "whyCard3Title": {
-        "en": "Compliant & Verified",
-        "ar": "مطابقة وتوثيق قانوني كامل"
-      },
-      "whyCard3Desc": {
-        "en": "As per UAE labor laws and proper documentation.",
-        "ar": "وفق قوانين العمل الإماراتية والتوثيق الرسمي التام."
-      },
-      "whyCard4Title": {
-        "en": "Dedicated Support",
-        "ar": "دعم متواصل ومخصص"
-      },
-      "whyCard4Desc": {
-        "en": "We stay with you, before, during and after deployment.",
-        "ar": "نبقى إلى جانبك قبل التشغيل وخلاله وبعده."
-      },
-      "processCardBadge": {
-        "en": "Fast, Reliable, Professional.",
-        "ar": "سرعة، موثوقية، واحترافية."
-      },
-      "processCardTitle": {
-        "en": "Long - Term Partnership",
-        "ar": "شراكة طويلة الأمد"
-      },
-      "processCardDesc": {
-        "en": "We grow together with your business.",
-        "ar": "نكبر ونتطور جنباً إلى جنب مع أعمالك."
-      },
-      "testimonialsEyebrow": {
-        "en": "TESTIMONIALS",
-        "ar": "آراء العملاء"
-      },
-      "testimonialsTitle": {
-        "en": "What our clients say",
-        "ar": "ماذا يقول عملاؤنا عنا"
-      },
-      "testimonialsDesc": {
-        "en": "We build long-term relationships with our clients. Here's what they have to say about working with us.",
-        "ar": "نبني علاقات طويلة الأمد مع شركائنا. إليك ما يقولونه عن تجربتهم معنا."
-      },
-      "t1Quote": {
-        "en": "Shabab Manpower has been a reliable partner for our logistics operations. The staff are well-trained and always professional.",
-        "ar": "كانت شباب ديرة شريكاً موثوقاً لعملياتنا اللوجستية. الكوادر مدربة وتعمل باحترافية عالية دائماً."
-      },
-      "t1Author": {
-        "en": "Operations Manager",
-        "ar": "مدير العمليات"
-      },
-      "t1Company": {
-        "en": "Logistics Company, Dubai",
-        "ar": "شركة لوجستية، دبي"
-      },
-      "t2Quote": {
-        "en": "We've used their services for both warehouse and cleaning staff. The team is responsive, efficient and easy to work with.",
-        "ar": "استعنا بخدماتهم لعمال المستودعات والنظافة. الفريق سريع الاستجابة وعالي الكفاءة."
-      },
-      "t2Author": {
-        "en": "Facility Manager",
-        "ar": "مدير المرافق"
-      },
-      "t2Company": {
-        "en": "UAE",
-        "ar": "الإمارات"
-      },
-      "t3Quote": {
-        "en": "Great support and quick deployment. They understand our needs and deliver exactly what we require.",
-        "ar": "دعم استثنائي وسرعة في نشر الكوادر. يفهمون احتياجاتنا بدقة وينفذون المطلوب على أكمل وجه."
-      },
-      "t3Author": {
-        "en": "HR Manager",
-        "ar": "مدير الموارد البشرية"
-      },
-      "t3Company": {
-        "en": "Retail Company, Abu Dhabi",
-        "ar": "شركة تجزئة، أبوظبي"
-      },
-      "ctaBadge": {
-        "en": "Your Workforce Partner in UAE",
-        "ar": "شريكك العمالي الموثوق في الإمارات"
-      },
       "faqEyebrow": {
         "en": "FAQ",
         "ar": "الأسئلة الشائعة"
@@ -514,32 +556,16 @@ var fallbackData = {
       "faqTitle": {
         "en": "Answers to common questions",
         "ar": "إجابات على الأسئلة الشائعة"
-      },
-      "faqPreview1Q": {
-        "en": "What services does Shabab Deira provide?",
-        "ar": "ما الخدمات التي تقدمها شباب ديرة؟"
-      },
-      "faqPreview1A": {
-        "en": "Eleven workforce categories — packing, loading, delivery, cleaning, catering, events, machine operation, driving, port work, and general labour.",
-        "ar": "إحدى عشرة فئة من خدمات القوى العاملة — التغليف والتحميل والتوصيل والتنظيف والتموين والفعاليات وتشغيل المعدات والقيادة وأعمال الموانئ والعمالة العامة."
-      },
-      "faqPreview2Q": {
-        "en": "Where are your services available?",
-        "ar": "أين تتوفر خدماتكم؟"
-      },
-      "faqPreview2A": {
-        "en": "Inside the UAE only — across Dubai, Sharjah, Ajman, Abu Dhabi, and the Northern Emirates.",
-        "ar": "داخل الإمارات فقط — في دبي والشارقة وعجمان وأبوظبي والإمارات الشمالية."
       }
     },
     "services": [
       {
         "id": "packing-repacking",
         "icon": "package",
-        "image": "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15665769-800.jpg",
         "alt": {
-          "en": "Worker packing boxes in a warehouse",
-          "ar": "عامل يغلف الصناديق داخل مستودع"
+          "en": "Industrial cargo packing, carton labeling and export palletizing workforce in Dubai UAE",
+          "ar": "عمالة تغليف وترميز الكراتين وتجهيز المنصات الخشبية للتصدير في مستودعات دبي والإمارات"
         },
         "title": {
           "en": "Packing & Repacking",
@@ -567,10 +593,10 @@ var fallbackData = {
       {
         "id": "loading-unloading",
         "icon": "forklift",
-        "image": "https://images.unsplash.com/photo-1615461066841-6116e61058f4?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-16154610-800.jpg",
         "alt": {
-          "en": "Loading crew moving cargo boxes onto a truck",
-          "ar": "طاقم تحميل ينقل صناديق البضائع إلى شاحنة"
+          "en": "Container destuffing, truck loading and warehouse cargo handling labour crew in Dubai UAE",
+          "ar": "طواقم تحميل وتفريغ الحاويات والشاحنات ومناولة البضائع في مستودعات دبي والإمارات"
         },
         "title": {
           "en": "Loading & Unloading",
@@ -598,10 +624,10 @@ var fallbackData = {
       {
         "id": "delivery-services",
         "icon": "truck",
-        "image": "https://images.unsplash.com/photo-1583195764036-6dc248ac07d9?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15831957-800.jpg",
         "alt": {
-          "en": "Courier delivering parcels",
-          "ar": "مندوب توصيل يسلم الطرود"
+          "en": "Commercial fleet delivery drivers and last-mile parcel logistics support staff in UAE",
+          "ar": "سائقو توصيل ودعم لوجستي وتوزيع الطرود للميل الأخير في دولة الإمارات"
         },
         "title": {
           "en": "Delivery Services",
@@ -629,10 +655,10 @@ var fallbackData = {
       {
         "id": "cleaning-services",
         "icon": "sparkles",
-        "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15815787-800.jpg",
         "alt": {
-          "en": "Professional cleaner at work in a commercial building",
-          "ar": "عامل نظافة محترف داخل مبنى تجاري"
+          "en": "Commercial facility cleaning staff and industrial warehouse maintenance crew in Dubai UAE",
+          "ar": "عمالة نظافة المنشآت التجارية والمستودعات والمكاتب الصناعية في دبي"
         },
         "title": {
           "en": "Cleaning Services",
@@ -660,10 +686,10 @@ var fallbackData = {
       {
         "id": "factory-helpers",
         "icon": "factory",
-        "image": "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15650436-800.jpg",
         "alt": {
-          "en": "Helpers working on an industrial production line",
-          "ar": "مساعدون يعملون على خط إنتاج صناعي"
+          "en": "Industrial factory helpers and manufacturing production line workers in UAE industrial zones",
+          "ar": "مساعدو مصانع وخطوط إنتاج للمنشآت الصناعية ومناطق التصنيع في الإمارات"
         },
         "title": {
           "en": "Factory Helpers",
@@ -691,10 +717,10 @@ var fallbackData = {
       {
         "id": "catering-services",
         "icon": "chef-hat",
-        "image": "https://images.unsplash.com/photo-1555244162-803834f70033?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15552441-800.jpg",
         "alt": {
-          "en": "Chef preparing food in a professional kitchen",
-          "ar": "طاهٍ يحضّر الطعام في مطبخ احترافي"
+          "en": "Corporate catering staff, kitchen helpers, and event food hospitality crew in Dubai UAE",
+          "ar": "طواقم كاترينج وإعاشة ومساعدو مطابخ للمناسبات والشركات في دبي"
         },
         "title": {
           "en": "Catering Services",
@@ -722,10 +748,10 @@ var fallbackData = {
       {
         "id": "event-management",
         "icon": "calendar-days",
-        "image": "https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15405754-800.jpg",
         "alt": {
-          "en": "Event setup crew preparing a conference venue",
-          "ar": "طاقم تجهيز يستعد لفعالية في قاعة مؤتمرات"
+          "en": "Exhibition setup crew and event logistics support manpower in Dubai UAE",
+          "ar": "طواقم تنظيم وتجهيز الفعاليات والمعارض واللوجستيات الميدانية في دبي والإمارات"
         },
         "title": {
           "en": "Event Management",
@@ -753,10 +779,10 @@ var fallbackData = {
       {
         "id": "machine-operators",
         "icon": "cog",
-        "image": "https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15810921-800.jpg",
         "alt": {
-          "en": "Machine operator working with industrial equipment",
-          "ar": "مشغل ماكينات يعمل على معدات صناعية"
+          "en": "Licensed forklift operators and certified industrial machinery operators in UAE",
+          "ar": "مشغلو رافعات شوكية وماكينات صناعية مرخصون ومعتمدون في الإمارات"
         },
         "title": {
           "en": "Machine Operators",
@@ -784,10 +810,10 @@ var fallbackData = {
       {
         "id": "drivers-vehicle-services",
         "icon": "bus",
-        "image": "https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15446203-800.jpg",
         "alt": {
-          "en": "Transport vehicles on a Dubai road",
-          "ar": "مركبات نقل على أحد طرق دبي"
+          "en": "Corporate staff pick and drop drivers and commercial vehicle transport fleet in Dubai UAE",
+          "ar": "سائقو نقل وتوصيل الموظفين وخدمات أسطول النقل التجاري في دبي والإمارات"
         },
         "title": {
           "en": "Drivers / Vehicle Services (Pick & Drop)",
@@ -815,10 +841,10 @@ var fallbackData = {
       {
         "id": "sea-port-helpers",
         "icon": "ship",
-        "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-14944125-800.jpg",
         "alt": {
-          "en": "Container cranes at a sea port terminal",
-          "ar": "رافعات الحاويات في محطة ميناء بحري"
+          "en": "Sea port cargo handling helpers and marine container lashing crew in UAE ports",
+          "ar": "مساعدو موانئ بحرية ومناولة شحنات وتثبيت الحاويات في موانئ الإمارات"
         },
         "title": {
           "en": "Sea Port Helpers",
@@ -846,10 +872,10 @@ var fallbackData = {
       {
         "id": "general-helpers",
         "icon": "hand-helping",
-        "image": "https://images.unsplash.com/photo-1591382386627-349b692688ff?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15913823-800.jpg",
         "alt": {
-          "en": "Warehouse team working together",
-          "ar": "فريق عمل داخل مستودع"
+          "en": "On-demand general helpers and versatile warehouse labour supply workforce in Dubai UAE",
+          "ar": "عمالة عامة ومساعدو مستودعات عند الطلب لجميع القطاعات التشغيلية في دبي والإمارات"
         },
         "title": {
           "en": "General Helpers",
@@ -1257,7 +1283,7 @@ var fallbackData = {
     "industries": [
       {
         "id": "logistics-warehousing",
-        "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15865281-800.jpg",
         "title": {
           "en": "Logistics & Warehousing",
           "ar": "اللوجستيات والمستودعات"
@@ -1283,7 +1309,7 @@ var fallbackData = {
       },
       {
         "id": "shipping-cargo",
-        "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15785754-800.jpg",
         "title": {
           "en": "Shipping & Cargo",
           "ar": "الشحن والبضائع"
@@ -1309,7 +1335,7 @@ var fallbackData = {
       },
       {
         "id": "retail-ecommerce",
-        "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-16015988-800.jpg",
         "title": {
           "en": "Retail & E-Commerce",
           "ar": "التجزئة والتجارة الإلكترونية"
@@ -1335,7 +1361,7 @@ var fallbackData = {
       },
       {
         "id": "manufacturing-factories",
-        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15810912-800.jpg",
         "title": {
           "en": "Manufacturing & Factories",
           "ar": "التصنيع والمصانع"
@@ -1361,7 +1387,7 @@ var fallbackData = {
       },
       {
         "id": "events-hospitality",
-        "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-14142350-800.jpg",
         "title": {
           "en": "Events & Hospitality",
           "ar": "الفعاليات والضيافة"
@@ -1387,7 +1413,7 @@ var fallbackData = {
       },
       {
         "id": "commercial-facilities",
-        "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15815787-800.jpg",
         "title": {
           "en": "Commercial & Facilities",
           "ar": "المنشآت التجارية والمرافق"
@@ -1969,7 +1995,7 @@ var fallbackData = {
     "staff": [
       {
         "id": "zubair-khan",
-        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
+        "photo": "assets/images/team/zubair-khan.jpg",
         "name": {
           "en": "Zubair Khan",
           "ar": "زبير خان"
@@ -1979,88 +2005,184 @@ var fallbackData = {
           "ar": "المؤسس والعضو المنتدب"
         },
         "bio": {
-          "en": "Founded Shabab Deira in Deira in 2012. Still personally involved in key client relationships and the daily direction of the company.",
-          "ar": "أسس شباب ديرة في ديرة عام 2012. ولا يزال يتابع شخصياً العلاقات الرئيسية مع العملاء والتوجيه اليومي للشركة."
+          "en": "Leadership, strategy & company management",
+          "ar": "القيادة الاستراتيجية والتوجيه العام للشركة"
+        },
+        "badge": {
+          "en": "Leadership",
+          "ar": "القيادة التنفيذية"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       },
       {
-        "id": "member-02",
-        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80",
+        "id": "m-riaz-aslam",
+        "photo": "assets/images/team/m-riaz-aslam.jpg",
         "name": {
-          "en": "Team Member 02",
-          "ar": "عضو الفريق 02"
+          "en": "Muhammad Riaz",
+          "ar": "محمد رياض"
         },
         "title": {
-          "en": "Operations Manager",
-          "ar": "مدير العمليات"
+          "en": "General Operations Manager",
+          "ar": "المدير العام للعمليات"
         },
         "bio": {
-          "en": "Sample profile — oversees crew deployment and site coordination. Replace with the real team member's details.",
-          "ar": "ملف تجريبي — يشرف على توزيع الطواقم والتنسيق الميداني. استبدله ببيانات عضو الفريق الفعلي."
+          "en": "Operations, manpower & transport management",
+          "ar": "إدارة العمليات الميدانية والعمالة وحركة النقل"
+        },
+        "badge": {
+          "en": "Operations",
+          "ar": "إدارة العمليات"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       },
       {
-        "id": "member-03",
-        "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80",
+        "id": "jitesh-kunwar",
+        "photo": "assets/images/team/jitesh-kunwar.jpg",
         "name": {
-          "en": "Team Member 03",
-          "ar": "عضو الفريق 03"
+          "en": "Jitesh Kunwar",
+          "ar": "جيتيش كونوار"
         },
         "title": {
-          "en": "HR & Workforce Coordinator",
-          "ar": "منسقة الموارد البشرية والعمالة"
+          "en": "Finance & Accounts Manager",
+          "ar": "مدير الشؤون المالية والحسابات"
         },
         "bio": {
-          "en": "Sample profile — manages worker recruitment, documentation, and welfare. Replace with the real team member's details.",
-          "ar": "ملف تجريبي — تدير استقطاب العمال وأوراقهم ورعايتهم. استبدلها ببيانات عضو الفريق الفعلي."
+          "en": "Finance & accounting operations",
+          "ar": "العمليات المالية والتقارير المحاسبية"
+        },
+        "badge": {
+          "en": "Finance",
+          "ar": "الشؤون المالية"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       },
       {
-        "id": "member-04",
-        "photo": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=600&q=80",
+        "id": "m-nasir",
+        "photo": "assets/images/team/m-nasir.jpg",
         "name": {
-          "en": "Team Member 04",
-          "ar": "عضو الفريق 04"
+          "en": "Muhammad Nasir",
+          "ar": "محمد ناصر"
         },
         "title": {
-          "en": "Client Relations Executive",
-          "ar": "مسؤولة علاقات العملاء"
+          "en": "Public Relations Officer (PRO)",
+          "ar": "مسؤول العلاقات العامة (PRO)"
         },
         "bio": {
-          "en": "Sample profile — first point of contact for new enquiries and quotations. Replace with the real team member's details.",
-          "ar": "ملف تجريبي — نقطة الاتصال الأولى للاستفسارات الجديدة وعروض الأسعار. استبدلها ببيانات عضو الفريق الفعلي."
+          "en": "Government relations & documentation",
+          "ar": "العلاقات الحكومية وتوثيق المعاملات والتنسيق"
+        },
+        "badge": {
+          "en": "Public Relations",
+          "ar": "العلاقات العامة"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       },
       {
-        "id": "member-05",
-        "photo": "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80",
+        "id": "rustam-khan",
+        "photo": "assets/images/team/rustam-khan.jpg",
         "name": {
-          "en": "Team Member 05",
-          "ar": "عضو الفريق 05"
+          "en": "Rustam Khan",
+          "ar": "رستم خان"
         },
         "title": {
-          "en": "Logistics Coordinator",
-          "ar": "منسق اللوجستيات"
+          "en": "Head of Driver Operations",
+          "ar": "رئيس عمليات السائقين والأسطول"
         },
         "bio": {
-          "en": "Sample profile — coordinates transport, delivery runs, and site logistics. Replace with the real team member's details.",
-          "ar": "ملف تجريبي — ينسق النقل وجولات التوصيل ولوجستيات المواقع. استبدله ببيانات عضو الفريق الفعلي."
+          "en": "Driver & transportation coordination",
+          "ar": "تنسيق حركة السائقين والنقل واللوجستيات"
+        },
+        "badge": {
+          "en": "Fleet Operations",
+          "ar": "عمليات الأسطول"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       },
       {
-        "id": "member-06",
-        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=600&q=80",
+        "id": "uzair-khan",
+        "photo": "assets/images/team/uzair-khan.jpg",
         "name": {
-          "en": "Team Member 06",
-          "ar": "عضو الفريق 06"
+          "en": "Uzair Khan",
+          "ar": "عزير خان"
         },
         "title": {
-          "en": "Accounts & Administration",
-          "ar": "الحسابات والإدارة"
+          "en": "Labour Site Incharge",
+          "ar": "مسؤول الموقع الميداني للعمالة"
         },
         "bio": {
-          "en": "Sample profile — handles invoicing, WPS payroll, and administration. Replace with the real team member's details.",
-          "ar": "ملف تجريبي — يتولى الفواتير وكشوف الأجور عبر نظام حماية الأجور والإدارة. استبدله ببيانات عضو الفريق الفعلي."
+          "en": "On-site labour coordination & supervision",
+          "ar": "التنسيق والإشراف الميداني على فرق العمل في المواقع"
+        },
+        "badge": {
+          "en": "Site Operations",
+          "ar": "العمليات الميدانية"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
+        }
+      },
+      {
+        "id": "moosa-chand",
+        "photo": "assets/images/team/moosa-chand.jpg",
+        "name": {
+          "en": "Moosa Maan",
+          "ar": "موسى مان"
+        },
+        "title": {
+          "en": "Bookkeeper & Petty Cash Administrator",
+          "ar": "محاسب ومسؤول العهد النقدية"
+        },
+        "bio": {
+          "en": "Bookkeeping & petty cash management",
+          "ar": "مسك الدفاتر المحاسبية وإدارة العهد النقدية"
+        },
+        "badge": {
+          "en": "Accounts",
+          "ar": "الحسابات والعهد"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
+        }
+      },
+      {
+        "id": "fathima-thaha",
+        "photo": "assets/images/team/fathima-thaha.jpg",
+        "name": {
+          "en": "Fathima Thaha",
+          "ar": "فاطمة طه"
+        },
+        "title": {
+          "en": "Front Desk Receptionist",
+          "ar": "موظفة الاستقبال والدعم الإداري"
+        },
+        "bio": {
+          "en": "Reception & administrative support",
+          "ar": "الاستقبال وخدمة العملاء والدعم الإداري"
+        },
+        "badge": {
+          "en": "Administration",
+          "ar": "الاستقبال والدعم"
+        },
+        "location": {
+          "en": "Hor Al Anz East, Dubai, UAE",
+          "ar": "هور العنز شرق، دبي، الإمارات"
         }
       }
     ],
@@ -2102,7 +2224,7 @@ var fallbackData = {
           "en": "The founding company of the group, providing shipping and cargo services from Deira since 2012 — and the home of our manpower services.",
           "ar": "الشركة المؤسِّسة للمجموعة، تقدم خدمات الشحن والبضائع من ديرة منذ 2012 — ومنها تنطلق خدمات العمالة لدينا."
         },
-        "image": "https://images.unsplash.com/photo-1519003722824-194d4455a60c?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15190037-800.jpg",
         "content": {
           "h1": {
             "en": "Shabab Deira Shipping & Cargo Services",
@@ -2117,8 +2239,8 @@ var fallbackData = {
             "ar": "عن الشركة"
           },
           "aboutP": {
-            "en": "Working from Al Ittihad Road in Deira — minutes from Port Rashid and Dubai Creek — the company supports cargo movement for trading and logistics clients across the UAE, and coordinates the group's workforce operations from the same desk.",
-            "ar": "من شارع الاتحاد في ديرة — على دقائق من ميناء راشد وخور دبي — تدعم الشركة تحريك البضائع لعملاء التجارة واللوجستيات في الإمارات، وتنسق عمليات القوى العاملة للمجموعة من المكتب نفسه."
+            "en": "Working from Alphamed Building on Abu Hail Road in Hor Al Anz East, Deira — minutes from Port Rashid and Dubai Creek — the company supports cargo movement for trading and logistics clients across the UAE, and coordinates the group's workforce operations from the same desk.",
+            "ar": "من مبنى ألفاميد على طريق أبو هيل في هور العنز شرق، ديرة — على دقائق من ميناء راشد وخور دبي — تدعم الشركة تحريك البضائع لعملاء التجارة واللوجستيات في الإمارات، وتنسق عمليات القوى العاملة للمجموعة من المكتب نفسه."
           },
           "servicesTitle": {
             "en": "What the company provides",
@@ -2167,7 +2289,7 @@ var fallbackData = {
           "en": "Dedicated container loading and unloading crews for shipping lines, freight forwarders, and warehouses across the UAE.",
           "ar": "طواقم مخصصة لتحميل الحاويات وتنزيلها لخطوط الملاحة ووكلاء الشحن والمستودعات في الإمارات."
         },
-        "image": "https://images.unsplash.com/photo-1494412574643-ff11b0a5c1c3?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-14944125-800.jpg",
         "content": {
           "h1": {
             "en": "Shabab Deira Container Loading & Unloading Services LLC",
@@ -2232,7 +2354,7 @@ var fallbackData = {
           "en": "Export-standard cargo packaging — cartons, pallets, shrink wrap, and protective packing for goods in transit.",
           "ar": "تغليف بضائع وفق معايير التصدير — كراتين ومنصات وتغليف حراري وتغليف واقٍ للبضائع أثناء النقل."
         },
-        "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-16015988-800.jpg",
         "content": {
           "h1": {
             "en": "Fun-al-Wasal Cargo Packaging Services LLC",
@@ -2297,7 +2419,7 @@ var fallbackData = {
           "en": "Contract labour company supplying container loading and unloading teams on shift or project basis.",
           "ar": "شركة عمالة تعاقدية توفر فرق تحميل وتنزيل الحاويات بالوردية أو بالمشروع."
         },
-        "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15785754-800.jpg",
         "content": {
           "h1": {
             "en": "Supply Labour Container Loading & Unloading Services LLC",
@@ -2362,7 +2484,7 @@ var fallbackData = {
           "en": "Technical services company supporting equipment, machinery, and facility operations for the group's clients.",
           "ar": "شركة خدمات فنية تدعم المعدات والماكينات وعمليات المرافق لعملاء المجموعة."
         },
-        "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+        "image": "assets/images/u/ux-15810912-800.jpg",
         "content": {
           "h1": {
             "en": "Multan Mount Technical Services LLC",
@@ -2700,278 +2822,134 @@ var fallbackData = {
     },
     "pageTitles": {
       "home": {
-        "en": "Shabab Deira — Manpower Supply & Labour Supply in Dubai, UAE",
-        "ar": "شباب ديرة — توريد العمالة والقوى العاملة في دبي، الإمارات"
+        "en": "Shabab Deira | Manpower Supply and Labour Supply Dubai",
+        "ar": "شباب ديرة | توريد العمالة والقوى العاملة في دبي والإمارات"
       },
       "about": {
-        "en": "About Us — Manpower Company in Dubai Since 2012 | Shabab Deira",
-        "ar": "من نحن — شركة عمالة في دبي منذ 2012 | شباب ديرة"
+        "en": "About Us | Shabab Deira Manpower and Labour Supply Dubai",
+        "ar": "من نحن — شركة شباب ديرة لتوريد العمالة في الإمارات"
       },
       "services": {
-        "en": "Manpower Supply Services in Dubai & UAE — Packing, Loading, Cleaning & More | Shabab Deira",
-        "ar": "خدمات توريد العمالة في دبي والإمارات — تغليف وتحميل ونظافة والمزيد | شباب ديرة"
+        "en": "Manpower and Labour Supply Services Dubai | Shabab Deira",
+        "ar": "خدمات توريد العمالة في دبي والإمارات | شباب ديرة"
       },
       "industries": {
-        "en": "Industries Served — Logistics, Retail, Manufacturing & Events | Shabab Deira",
-        "ar": "القطاعات التي نخدمها — اللوجستيات والتجزئة والصناعة والفعاليات | شباب ديرة"
+        "en": "Industries We Serve | Manpower Supply Dubai and UAE",
+        "ar": "توريد العمالة حسب القطاعات في دبي والإمارات | شباب ديرة"
       },
       "team": {
-        "en": "Our Team — Shabab Deira Manpower, Dubai",
-        "ar": "فريقنا — شباب ديرة للعمالة، دبي"
+        "en": "Leadership and Operations Team | Shabab Deira Dubai",
+        "ar": "فريق الإدارة والعمليات — شباب ديرة دبي"
       },
       "group": {
-        "en": "Our Group — Five Companies, One Standard | Shabab Deira",
-        "ar": "مجموعتنا — خمس شركات ومعيار واحد | شباب ديرة"
+        "en": "Group Companies | Logistics and Workforce Supply UAE",
+        "ar": "مجموعتنا — 5 شركات متخصصة في العمالة واللوجستيات | شباب ديرة"
       },
       "groupShipping": {
-        "en": "Shabab Deira Shipping & Cargo Services — Since 2012, Deira Dubai",
-        "ar": "شباب ديرة لخدمات الشحن والبضائع — منذ 2012، ديرة دبي"
+        "en": "Shipping and Cargo Services Dubai | Shabab Deira",
+        "ar": "خدمات الشحن وتنسيق البضائع في دبي والإمارات | مجموعة شباب ديرة"
       },
       "groupContainerLoading": {
-        "en": "Container Loading & Unloading Services in UAE | Shabab Deira Group",
-        "ar": "خدمات تحميل وتنزيل الحاويات في الإمارات | مجموعة شباب ديرة"
+        "en": "Container Loading and Unloading Services Dubai | UAE",
+        "ar": "خدمات تحميل وتنزيل الحاويات في دبي والإمارات | شباب ديرة"
       },
       "groupCargoPackaging": {
-        "en": "Cargo Packaging Services in UAE | Fun-al-Wasal, Shabab Deira Group",
-        "ar": "خدمات تغليف البضائع في الإمارات | فن الوصل، مجموعة شباب ديرة"
+        "en": "Cargo Packaging and Palletizing Services Dubai | UAE",
+        "ar": "خدمات تغليف وتجهيز البضائع للتصدير في دبي | فن الوصل"
       },
       "groupSupplyLabour": {
-        "en": "Contract Container Loading Labour in UAE | Supply Labour, Shabab Deira Group",
-        "ar": "عمالة تحميل الحاويات التعاقدية في الإمارات | سبلاي لابور، مجموعة شباب ديرة"
+        "en": "Contract Labour and Manpower Supply Services | UAE",
+        "ar": "توريد العمالة التعاقدية وتحميل الحاويات بالإمارات | سبلاي لابور"
       },
       "groupMultanMount": {
-        "en": "Technical Services in UAE | Multan Mount, Shabab Deira Group",
-        "ar": "الخدمات الفنية في الإمارات | ملتان ماونت، مجموعة شباب ديرة"
+        "en": "Technical Services and Building Maintenance | Dubai",
+        "ar": "خدمات الصيانة الفنية والمقاولات في دبي | ملتان ماونت"
       },
       "requestManpower": {
-        "en": "Book Manpower — Workforce Request | Shabab Deira Dubai",
-        "ar": "احجز عمالة — طلب القوى العاملة | شباب ديرة دبي"
+        "en": "Request Manpower and Labour Supply Dubai | Shabab Deira",
+        "ar": "احجز عمالة في دبي والإمارات — طلب فوري للقوى العاملة | شباب ديرة"
       },
       "faq": {
-        "en": "FAQs — Manpower Supply in Dubai & UAE | Shabab Deira",
-        "ar": "الأسئلة الشائعة — توريد العمالة في دبي والإمارات | شباب ديرة"
+        "en": "Manpower Supply FAQ | Hiring Labour in Dubai and UAE",
+        "ar": "الأسئلة الشائعة حول توريد العمالة في دبي والإمارات | شباب ديرة"
       },
       "contact": {
-        "en": "Contact Us — Manpower Supply Dubai, Deira | Shabab Deira",
-        "ar": "اتصل بنا — توريد العمالة في ديرة، دبي | شباب ديرة"
+        "en": "Contact Shabab Deira | Manpower Supply Dubai and UAE",
+        "ar": "تواصل مع شركة توريد العمالة في دبي | شباب ديرة"
       },
       "privacy": {
-        "en": "Privacy Policy — Shabab Deira",
-        "ar": "سياسة الخصوصية — شباب ديرة"
+        "en": "Privacy Policy | Shabab Deira Manpower Supply UAE",
+        "ar": "سياسة الخصوصية | شباب ديرة للعمالة في الإمارات"
       },
       "terms": {
-        "en": "Terms — Shabab Deira",
-        "ar": "الشروط والأحكام — شباب ديرة"
+        "en": "Terms of Engagement | Shabab Deira Labour Supply UAE",
+        "ar": "الشروط والأحكام | شباب ديرة للعمالة في الإمارات"
       }
     },
-    "contactPage": {
-      "eyebrow": {
-        "en": "Get in Touch",
-        "ar": "تواصل معنا"
+    "pageDescriptions": {
+      "home": {
+        "en": "Shabab Deira is a licensed UAE manpower supply and labour supply company in Dubai since 2012. Providing skilled, semi-skilled, and general labour across all 7 emirates.",
+        "ar": "شركة شباب ديرة لتوريد العمالة في دبي والإمارات منذ 2012. نوفر عمالة ماهرة وعادية ومساعدي مستودعات ومصانع وخدمات لوجستية متوافقة مع نظام حماية الأجور WPS."
       },
-      "title": {
-        "en": "Contact Shabab Deira Operations",
-        "ar": "التواصل مع مكتب عمليات شباب ديرة"
+      "about": {
+        "en": "Founded in 2012 in Dubai by Zubair Khan, Shabab Deira delivers reliable, MOHRE and WPS-compliant manpower supply and labour solutions across all seven emirates.",
+        "ar": "تأسست عام 2012 في ديرة بدبي على يد زبير خان. تقدم شباب ديرة حلول قوى عاملة موثوقة ومتوافقة 100% مع وزارة الموارد البشرية ونظام حماية الأجور لكافة الإمارات."
       },
-      "desc": {
-        "en": "Direct access to our operations team in Deira, Dubai. Reach out by phone, WhatsApp, email — or use the booking form.",
-        "ar": "تواصل مباشر مع فريق العمليات في ديرة، دبي عبر الهاتف أو واتساب أو البريد الإلكتروني — أو من خلال نموذج الحجز."
+      "services": {
+        "en": "Explore licensed manpower supply and labour supply services in Dubai: warehouse loading, delivery drivers, cleaning, factory helpers, machine operators, and general labour.",
+        "ar": "استكشف 11 خدمة متخصصة لتوريد العمالة في الإمارات: تحميل وتنزيل الحاويات، سائقو التوصيل، النظافة التجارية، مساعدو المصانع، مشغلو المعدات والعمالة العامة."
       },
-      "locationCardTitle": {
-        "en": "Our Office",
-        "ar": "مقرنا"
+      "industries": {
+        "en": "Tailored workforce and labour supply for key UAE sectors: logistics and warehousing, shipping and ports, manufacturing, retail and e-commerce, hospitality, and corporate events.",
+        "ar": "حلول توريد قوى عاملة مخصصة لقطاعات الأعمال الرئيسية في الإمارات: المستودعات واللوجستيات، الموانئ والشحن، المصانع، التجزئة والتجارة الإلكترونية، والفعاليات."
       },
-      "phoneCardTitle": {
-        "en": "Direct Phone",
-        "ar": "الاتصال الهاتفي المباشر"
+      "team": {
+        "en": "Meet the experienced management team behind Shabab Deira in Dubai: leadership, operations managers, fleet coordinators, and client support specialists.",
+        "ar": "تعرف على فريق العمل والقيادة التنفيذية في شباب ديرة دبي — إدارة العمليات، الشؤون المالية، تنسيق الأسطول، والعلاقات العامة."
       },
-      "whatsappCardTitle": {
-        "en": "WhatsApp Operations",
-        "ar": "واتساب العمليات"
+      "group": {
+        "en": "Shabab Deira Group connects five specialized UAE companies covering container loading, cargo packaging, contract labour, technical maintenance, and shipping.",
+        "ar": "تضم مجموعة شباب ديرة 5 شركات إماراتية متخصصة في تحميل الحاويات، تغليف البضائع، العمالة التعاقدية، الخدمات الفنية والشحن التجاري."
       },
-      "emailCardTitle": {
-        "en": "Email Inquiries",
-        "ar": "المراسلات الإلكترونية"
+      "groupShipping": {
+        "en": "Shabab Deira Shipping and Cargo Services operates in Dubai near Port Rashid, handling cargo coordination, sea freight support, and logistics workforce.",
+        "ar": "خدمات الشحن وتنسيق البضائع من ديرة دبي قرب خور دبي وميناء راشد. دعم شحن بحري ومناولة بضائع وقوى عاملة لوجستية متخصصة."
       },
-      "hoursCardTitle": {
-        "en": "Working Hours",
-        "ar": "ساعات العمل"
+      "groupContainerLoading": {
+        "en": "Specialist container loading and unloading services in Dubai and across the UAE. Fast, supervised crews for 20ft/40ft containers, cross-docking, and warehouse bay stuffing.",
+        "ar": "طواقم متخصصة في تحميل وتنزيل الحاويات 20 و40 قدماً في دبي والإمارات. مناولة بضائع دقيقة وتفريغ سريع بإشراف ميداني احترافي."
       },
-      "formTitle": {
-        "en": "Send a General Inquiry",
-        "ar": "إرسال استفسار عام"
+      "groupCargoPackaging": {
+        "en": "Fun-al-Wasal Cargo Packaging Services LLC provides export packaging, wooden crating, shrink wrapping, and pallet consolidation in Dubai and across the UAE.",
+        "ar": "شركة فن الوصل لخدمات تغليف البضائع ذ.م.م تقدم خدمات التغليف الحراري، الصناديق الخشبية، وتجهيز المنصات للتصدير بأعلى المعايير."
       },
-      "formDesc": {
-        "en": "To book workers, please use the Book Manpower form. For all general inquiries, reach us below.",
-        "ar": "لحجز العمالة يرجى استخدام نموذج احجز عمالة. ولكل الاستفسارات العامة تواصل معنا عبر النموذج التالي."
+      "groupSupplyLabour": {
+        "en": "Supply Labour Container Loading and Unloading Services LLC provides contracted heavy-cargo handling labour, warehouse helpers, and on-demand manpower across the UAE.",
+        "ar": "شركة سبلاي لابور توفر عمالة تعاقدية متخصصة لتحميل الحاويات ومناولة الشحنات الثقيلة والمساعدين للمستودعات والمرافق اللوجستية."
       },
-      "nameLabel": {
-        "en": "Your Full Name",
-        "ar": "الاسم الكامل"
+      "groupMultanMount": {
+        "en": "Multan Mount Technical Services LLC offers commercial MEP maintenance, electrical, plumbing, HVAC, and facilities technical staffing across Dubai and the UAE.",
+        "ar": "شركة ملتان ماونت للخدمات الفنية تقدم أعمال الصيانة الكهروميكانيكية MEP والكهرباء والسباكة والتكييف وإدارة المرافق في دبي والإمارات."
       },
-      "namePlaceholder": {
-        "en": "Full name",
-        "ar": "الاسم الكامل"
+      "requestManpower": {
+        "en": "Request skilled, semi-skilled, and general labour in Dubai and across the UAE. Submit your workforce requirements for fast quotations and quick deployment.",
+        "ar": "احجز قوى عاملة ماهرة وعادية في دبي والإمارات. أرسل متطلبات مشروعك للحصول على عروض أسعار سريعة وتوفير فوري للعمالة المعتمدة."
       },
-      "emailLabel": {
-        "en": "Email Address",
-        "ar": "البريد الإلكتروني"
+      "faq": {
+        "en": "Find answers about UAE manpower supply, MOHRE and WPS compliance, temporary vs contract labour, deployment times, and worker categories in Dubai.",
+        "ar": "إجابات شاملة حول استقدام وتوريد العمالة في دبي، متطلبات نظام حماية الأجور WPS، سرعة توفير العمال، وتكلفة استئجار العمالة في الإمارات."
       },
-      "emailPlaceholder": {
-        "en": "name@company.ae",
-        "ar": "name@company.ae"
+      "contact": {
+        "en": "Contact Shabab Deira for rapid manpower supply in Dubai UAE. Visit Office M33 Alphamed Building Hor Al Anz East, call +971 56 135 9305, or email info@shababdeira.com.",
+        "ar": "تواصل مع شباب ديرة لطلب العمالة الفوري في دبي والإمارات. اتصل على 971561359305+ أو راسلنا عبر واتساب أو تفضل بزيارة مكتبنا في هور العنز شرق دبي."
       },
-      "phoneLabel": {
-        "en": "Phone Number",
-        "ar": "رقم الهاتف"
+      "privacy": {
+        "en": "Read the privacy policy of Shabab Deira Shipping and Cargo Services regarding data collection, client communications, and UAE privacy standards.",
+        "ar": "سياسة الخصوصية لشركة شباب ديرة لخدمات الشحن والبضائع — حماية البيانات والتواصل وفق القوانين والأنظمة المعمول بها في دولة الإمارات."
       },
-      "phonePlaceholder": {
-        "en": "+971 50 ...",
-        "ar": "‎+971 50 ..."
-      },
-      "subjectLabel": {
-        "en": "Subject / Nature of Inquiry",
-        "ar": "الموضوع / طبيعة الاستفسار"
-      },
-      "subjectPlaceholder": {
-        "en": "e.g. Long-term workforce partnership",
-        "ar": "مثال: شراكة عمالة طويلة الأمد"
-      },
-      "messageLabel": {
-        "en": "Message",
-        "ar": "نص الرسالة"
-      },
-      "messagePlaceholder": {
-        "en": "Write your message here...",
-        "ar": "اكتب تفاصيل استفسارك هنا..."
-      },
-      "sendBtn": {
-        "en": "Send Message",
-        "ar": "إرسال الرسالة"
-      },
-      "mapTitle": {
-        "en": "Central Location in Deira",
-        "ar": "موقع استراتيجي في قلب ديرة"
-      },
-      "mapDesc": {
-        "en": "Easily accessible from Al Ittihad Road, minutes from Dubai Creek and Port Rashid — with rapid connectivity across the Emirates.",
-        "ar": "موقع يسهل الوصول إليه من شارع الاتحاد، على دقائق من خور دبي وميناء راشد — مع اتصال سريع بجميع أنحاء الإمارات."
-      },
-      "tenderSubtext": {
-        "en": "Tender documents & inquiries",
-        "ar": "المناقصات والاستفسارات المؤسسية"
-      },
-      "nameError": {
-        "en": "Please enter your name.",
-        "ar": "يرجى إدخال اسمك."
-      },
-      "companyError": {
-        "en": "Please enter your company name.",
-        "ar": "يرجى إدخال اسم المنشأة."
-      },
-      "emailError": {
-        "en": "Please enter a valid email address.",
-        "ar": "يرجى إدخال بريد إلكتروني صحيح."
-      },
-      "phoneError": {
-        "en": "Please enter a valid phone number.",
-        "ar": "يرجى إدخال رقم هاتف صحيح."
-      },
-      "messageError": {
-        "en": "Please enter your message.",
-        "ar": "يرجى كتابة رسالتك."
-      }
-    },
-    "privacyPage": {
-      "eyebrow": {
-        "en": "Legal & Privacy",
-        "ar": "الخصوصية والبيانات"
-      },
-      "title": {
-        "en": "Privacy Policy",
-        "ar": "سياسة الخصوصية"
-      },
-      "desc": {
-        "en": "How Shabab Deira collects, uses, and protects business and personal data in accordance with UAE Personal Data Protection Law (Federal Decree-Law No. 45/2021).",
-        "ar": "كيفية جمع واستخدام وحماية البيانات الشخصية وبيانات الشركات وفقاً للمرسوم بقانون اتحادي رقم 45 لسنة 2021 بشأن حماية البيانات الشخصية في دولة الإمارات."
-      },
-      "sec1Title": {
-        "en": "1. Information Collected",
-        "ar": "١. البيانات والمعلومات التي نجمعها"
-      },
-      "sec1Text": {
-        "en": "Shabab Deira Shipping & Cargo Services collects information submitted voluntarily by business representatives when booking manpower or contacting our operations desk. This includes company name, contact person, email address, phone numbers, service requirements, and site location details.",
-        "ar": "تجمع شباب ديرة لخدمات الشحن والبضائع المعلومات المقدمة طواعية من ممثلي المنشآت عند حجز العمالة أو التواصل مع مكتب العمليات، ويشمل ذلك اسم المنشأة، اسم المسؤول، البريد الإلكتروني، أرقام الهواتف، الخدمات المطلوبة، وتفاصيل موقع العمل."
-      },
-      "sec2Title": {
-        "en": "2. Use of Information",
-        "ar": "٢. أوجه استخدام المعلومات"
-      },
-      "sec2Text": {
-        "en": "Information provided is utilized solely to review workforce requirements, prepare commercial quotations, communicate operational updates, and fulfill regulatory obligations under UAE labour laws and MOHRE requirements.",
-        "ar": "تُستخدم البيانات المقدمة حصراً لمراجعة احتياجات العمالة، إعداد عروض الأسعار التجارية، التنسيق التشغيلي، والوفاء بالالتزامات النظامية لقوانين العمل بالدولة ومتطلبات وزارة الموارد البشرية والتوطين."
-      },
-      "sec3Title": {
-        "en": "3. Data Protection & Confidentiality",
-        "ar": "٣. حماية وسرية البيانات"
-      },
-      "sec3Text": {
-        "en": "We implement appropriate technical and administrative safeguards to protect client and candidate data. We do not sell, rent, or distribute contact records to third-party commercial marketing platforms.",
-        "ar": "نطبق تدابير تقنية وإدارية محكمة لضمان سرية وأمان بيانات العملاء والعمال، ونلتزم بعدم بيع أو تأجير أو مشاركة أية بيانات مع منصات تسويقية خارجية."
-      },
-      "sec4Title": {
-        "en": "4. Inquiries & Data Rights",
-        "ar": "٤. حقوق البيانات والتواصل"
-      },
-      "sec4Text": {
-        "en": "To update or request the removal of your contact information, please email our compliance desk at inquiries@shababdeira.ae.",
-        "ar": "لتحديث بيانات الاتصال الخاصة بكم أو طلب حذفها، يرجى التواصل مع مكتب الامتثال عبر البريد الإلكتروني: inquiries@shababdeira.ae."
-      }
-    },
-    "termsPage": {
-      "eyebrow": {
-        "en": "Commercial Terms",
-        "ar": "الشروط والأحكام التعاقدية"
-      },
-      "title": {
-        "en": "Terms of Engagement",
-        "ar": "شروط وأحكام التعامل"
-      },
-      "desc": {
-        "en": "Commercial conditions governing website use, requirement submissions, and initial supply quotations in the UAE.",
-        "ar": "الضوابط والشروط التجارية المنظمة لاستخدام الموقع الإلكتروني، تقديم الطلبات، وعروض الأسعار في دولة الإمارات."
-      },
-      "sec1Title": {
-        "en": "1. Operational Scope",
-        "ar": "١. النطاق التشغيلي"
-      },
-      "sec1Text": {
-        "en": "Shabab Deira Shipping & Cargo Services is a UAE manpower and workforce services company based in Deira, Dubai, providing services inside the UAE only. Submissions through this website represent inquiries for workforce availability and quotation; they do not constitute a binding supply agreement until a formal agreement is executed between both parties.",
-        "ar": "شباب ديرة لخدمات الشحن والبضائع شركة إماراتية لخدمات العمالة والقوى العاملة مقرها ديرة، دبي، وتقدم خدماتها داخل الإمارات فقط. تمثل الطلبات المرسلة عبر هذا الموقع استفسارات لطلب عروض الأسعار وجاهزية التوريد، ولا تعتبر عقداً ملزماً إلا بعد توقيع اتفاقية رسمية بين الطرفين."
-      },
-      "sec2Title": {
-        "en": "2. Quotations & Rate Validity",
-        "ar": "٢. عروض الأسعار وسريانها"
-      },
-      "sec2Text": {
-        "en": "Standard quotations provided by our operations desk remain valid for thirty (30) days from issuance unless otherwise specified in writing. Rate schedules reflect service category, worker numbers, shift durations, and site requirements.",
-        "ar": "تسري عروض الأسعار الصادرة من مكتب العمليات لمدة ثلاثين (30) يوماً من تاريخ إصدارها ما لم يُنص على خلاف ذلك كتابةً. وتُحدد الأسعار وفقاً لفئة الخدمة وعدد العمال وساعات العمل واشتراطات الموقع."
-      },
-      "sec3Title": {
-        "en": "3. Regulatory Compliance",
-        "ar": "٣. الامتثال لقوانين العمل الإماراتية"
-      },
-      "sec3Text": {
-        "en": "All workforce engagements are conducted in strict compliance with UAE Federal Decree-Law No. 33 of 2021 regarding the Regulation of Labour Relations and all associated ministerial decrees. Shabab Deira maintains responsibility for visa sponsorship, medical insurance, and WPS salary disbursement for its employed workers.",
-        "ar": "تخضع كافة تعاقدات التوريد لأحكام المرسوم بقانون اتحادي رقم 33 لسنة 2021 بشأن تنظيم علاقات العمل والقرارات الوزارية المنفذة له. وتتحمل شباب ديرة المسؤولية عن كفالة الإقامات والتأمين الصحي وصرف الأجور عبر نظام حماية الأجور (WPS) لعمالها."
-      },
-      "sec4Title": {
-        "en": "4. Site Safety Obligations",
-        "ar": "٤. التزامات السلامة المهنية بالموقع"
-      },
-      "sec4Text": {
-        "en": "Clients are responsible for providing a safe working environment, conducting necessary site inductions, and complying with UAE occupational safety standards.",
-        "ar": "يلتزم العميل بتوفير بيئة عمل آمنة ومطابقة لمعايير السلامة المهنية في دولة الإمارات، وإجراء التدريب التعريفي بالموقع قبل بدء العمل."
+      "terms": {
+        "en": "Terms of engagement and workforce supply policies for Shabab Deira: contracts, safety guidelines, working hours, and billing in the UAE.",
+        "ar": "الشروط والأحكام واتفاقيات توريد القوى العاملة لدى شباب ديرة — ساعات العمل، معايير السلامة المهنية، وشروط التعاقد والفوترة."
       }
     }
   };
@@ -3023,6 +3001,12 @@ var fallbackData = {
     var isRTL = currentLang === 'ar';
     document.documentElement.lang = currentLang;
     document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+    document.documentElement.setAttribute('data-lang', currentLang);
+    if (document.body) {
+      document.body.setAttribute('data-lang', currentLang);
+      document.body.classList.toggle('lang-ar', isRTL);
+      document.body.classList.toggle('lang-en', !isRTL);
+    }
 
     if (!siteData) siteData = fallbackData;
 
@@ -3042,7 +3026,15 @@ var fallbackData = {
         } else if (el.tagName === 'OPTION') {
           el.textContent = val;
         } else {
-          el.textContent = val;
+          // If element directly contains an icon (i or svg) and no nested text span, preserve icon
+          var icon = el.querySelector('i, svg');
+          if (icon && el.children.length === 1 && !el.querySelector('[data-i18n]')) {
+            var iconClone = icon.cloneNode(true);
+            el.textContent = val + ' ';
+            el.appendChild(iconClone);
+          } else {
+            el.textContent = val;
+          }
         }
       }
     });
@@ -3058,13 +3050,25 @@ var fallbackData = {
 
     // 3. Company Contact Data Bindings [data-bind]
     document.querySelectorAll('[data-bind="company.phone"]').forEach(function (el) {
-      el.textContent = siteData.company.phone;
-      if (el.tagName === 'A') el.href = 'tel:' + siteData.company.phoneTel;
+      if (el.tagName === 'A') {
+        el.href = 'tel:' + siteData.company.phoneTel;
+        if (el.children.length === 0) {
+          el.textContent = siteData.company.phone;
+        }
+      } else {
+        el.textContent = siteData.company.phone;
+      }
     });
 
     document.querySelectorAll('[data-bind="company.email"]').forEach(function (el) {
-      el.textContent = siteData.company.email;
-      if (el.tagName === 'A') el.href = 'mailto:' + siteData.company.email;
+      if (el.tagName === 'A') {
+        el.href = 'mailto:' + siteData.company.email;
+        if (el.children.length === 0) {
+          el.textContent = siteData.company.email;
+        }
+      } else {
+        el.textContent = siteData.company.email;
+      }
     });
 
     document.querySelectorAll('[data-bind="company.address"]').forEach(function (el) {
@@ -3104,6 +3108,51 @@ var fallbackData = {
 
       var ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.setAttribute('content', pageUrl);
+    }
+
+    // 3c. Dynamic SEO Meta (Title, Description, Open Graph, Twitter Card)
+    var rawFile = (location.pathname.split('/').pop() || 'index.html').replace('.html', '').replace('.php', '');
+    var pageKey = (rawFile === '' || rawFile === 'index') ? 'home' : rawFile;
+    var keyMap = {
+      'services': 'services',
+      'about': 'about',
+      'contact': 'contact',
+      'industries': 'industries',
+      'staff': 'team',
+      'group': 'group',
+      'group-shipping-cargo': 'groupShipping',
+      'group-container-loading': 'groupContainerLoading',
+      'group-cargo-packaging': 'groupCargoPackaging',
+      'group-supply-labour': 'groupSupplyLabour',
+      'group-multan-mount-technical': 'groupMultanMount',
+      'request-manpower': 'requestManpower',
+      'faq': 'faq',
+      'privacy-policy': 'privacy',
+      'terms': 'terms'
+    };
+    var activeKey = keyMap[pageKey] || pageKey;
+
+    if (siteData.pageTitles && siteData.pageTitles[activeKey]) {
+      var resolvedTitle = resolveValue(siteData.pageTitles[activeKey]);
+      if (resolvedTitle) {
+        document.title = resolvedTitle;
+        var ogTitle = document.querySelector('meta[property="og:title"]');
+        if (ogTitle) ogTitle.setAttribute('content', resolvedTitle);
+        var twTitle = document.querySelector('meta[name="twitter:title"]');
+        if (twTitle) twTitle.setAttribute('content', resolvedTitle);
+      }
+    }
+
+    if (siteData.pageDescriptions && siteData.pageDescriptions[activeKey]) {
+      var resolvedDesc = resolveValue(siteData.pageDescriptions[activeKey]);
+      if (resolvedDesc) {
+        var metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', resolvedDesc);
+        var ogDesc = document.querySelector('meta[property="og:description"]');
+        if (ogDesc) ogDesc.setAttribute('content', resolvedDesc);
+        var twDesc = document.querySelector('meta[name="twitter:description"]');
+        if (twDesc) twDesc.setAttribute('content', resolvedDesc);
+      }
     }
 
     // 4. Dynamic Component Renderers
@@ -3234,12 +3283,14 @@ var fallbackData = {
     var tbody = document.querySelector('[data-render="trades-tbody"]');
     if (!tbody || !siteData.tradesTable) return;
 
+    var checkSvg = '<svg class="trade-check" viewBox="0 0 20 20" width="17" height="17" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+
     var html = '';
     siteData.tradesTable.forEach(function (row) {
       html += '<tr>' +
-        '<td><strong>' + resolveValue(row.role) + '</strong></td>' +
-        '<td>' + resolveValue(row.cat) + '</td>' +
-        '<td>' + resolveValue(row.qual) + '</td>' +
+        '<td class="trade-col-role"><div class="trade-role-wrap"><span class="trade-dot"></span><strong>' + resolveValue(row.role) + '</strong></div></td>' +
+        '<td class="trade-col-cat"><span class="trade-badge">' + resolveValue(row.cat) + '</span></td>' +
+        '<td class="trade-col-qual"><span class="trade-qual-tag">' + checkSvg + '<span>' + resolveValue(row.qual) + '</span></span></td>' +
         '</tr>';
     });
 
@@ -3304,20 +3355,33 @@ var fallbackData = {
   // Renderer: Staff Grid (Our Team page)
   function renderStaff() {
     var container = document.querySelector('[data-render="staff-grid"]');
-    if (!container || !siteData.staff) return;
+    if (!container || !siteData.staff || !siteData.staff.length) return;
 
+    var isAr = currentLang === 'ar';
     var html = '';
-    siteData.staff.forEach(function (m) {
+    siteData.staff.forEach(function (m, idx) {
+      var isLeader = idx === 0;
+      var badgeText = m.badge ? resolveValue(m.badge) : (isLeader ? (isAr ? 'القيادة التنفيذية' : 'Leadership') : (isAr ? 'فريق العمليات' : 'Operations'));
+      var locationText = m.location ? resolveValue(m.location) : (isAr ? 'هور العنز شرق، دبي، الإمارات' : 'Hor Al Anz East, Dubai, UAE');
       html += '<div class="staff-card">' +
-        '<div class="staff-card__photo"><img src="' + m.photo + '" alt="' + resolveValue(m.name) + '" loading="lazy"></div>' +
+        '<div class="staff-card__photo">' +
+        '<img src="' + m.photo + '" alt="' + resolveValue(m.name) + '" loading="lazy">' +
+        '<span class="staff-card__badge"><i data-lucide="shield-check"></i> ' + badgeText + '</span>' +
+        '</div>' +
         '<div class="staff-card__body">' +
         '<h3>' + resolveValue(m.name) + '</h3>' +
         '<p class="staff-card__title">' + resolveValue(m.title) + '</p>' +
         '<p class="staff-card__bio">' + resolveValue(m.bio) + '</p>' +
+        '<div class="staff-card__meta">' +
+        '<span class="staff-card__meta-item"><i data-lucide="map-pin"></i> ' + locationText + '</span>' +
+        '</div>' +
         '</div></div>';
     });
 
     container.innerHTML = html;
+    if (window.lucide && typeof lucide.createIcons === 'function') {
+      lucide.createIcons({ root: container });
+    }
   }
 
   // Renderer: Group Companies Grid (Our Group page + home preview)
@@ -3342,47 +3406,81 @@ var fallbackData = {
     container.innerHTML = html;
   }
 
-  // Renderer: Services Detail (services.html — 11 sections with images)
+  // Renderer: Services Grid Cards (services.html — 3-column modern cards)
   function renderServicesDetail() {
     var container = document.querySelector('[data-render="services-detail"]');
     if (!container || !siteData.services || !siteData.serviceDetails) return;
 
+    var viewDetailsText = (siteData.servicesPage && siteData.servicesPage.viewDetails) ? resolveValue(siteData.servicesPage.viewDetails) : 'View Details';
+    var bookServiceText = (siteData.servicesPage && siteData.servicesPage.bookService) ? resolveValue(siteData.servicesPage.bookService) : 'Book Service';
+
+    var checkSvg = '<svg viewBox="0 0 20 20" width="15" height="15" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>';
+
     var html = '';
     siteData.services.forEach(function (svc, idx) {
       var detail = siteData.serviceDetails[idx];
-      if (!detail) return;
+      var num = String(idx + 1).padStart(2, '0');
+      var category = svc.category || 'logistics';
+      var catTitle = svc.categoryTitle ? resolveValue(svc.categoryTitle) : 'Specialized';
 
-      var includesHtml = '';
-      if (detail.includes && detail.includes.length) {
-        detail.includes.forEach(function (inc) {
-          includesHtml += '<li><i data-lucide="check"></i><span>' + resolveValue(inc) + '</span></li>';
+      // Pick top 3 features
+      var featuresHtml = '';
+      if (detail && detail.includes && detail.includes.length) {
+        detail.includes.slice(0, 3).forEach(function (inc) {
+          featuresHtml += '<li class="service-card__feature-item">' + checkSvg + '<span>' + resolveValue(inc) + '</span></li>';
         });
       }
 
-      html += '<section class="section svc-detail' + (idx % 2 === 1 ? ' svc-detail--alt' : '') + '" id="' + svc.id + '">' +
-        '<div class="container">' +
-        '<div class="svc-detail__inner">' +
-        '<div class="svc-detail__media">' +
-        '<img src="' + svc.image + '" alt="' + resolveValue(svc.alt) + '" loading="lazy">' +
-        '<div class="svc-detail__badge">' + String(idx + 1).padStart(2, '0') + '</div>' +
+      html += '<article class="service-card" data-category="' + category + '" data-service-id="' + svc.id + '" data-service-idx="' + idx + '">' +
+        '<div class="service-card__media">' +
+          '<img class="service-card__img" src="' + svc.image + '" alt="' + resolveValue(svc.alt) + '" loading="lazy">' +
+          '<div class="service-card__overlay"></div>' +
+          '<span class="service-card__num-badge">' + num + '</span>' +
+          '<span class="service-card__cat-badge">' + catTitle + '</span>' +
+          '<div class="service-card__icon-floating"><i data-lucide="' + (svc.icon || 'zap') + '"></i></div>' +
         '</div>' +
-        '<div class="svc-detail__content">' +
-        '<div class="svc-detail__icon"><i data-lucide="' + (svc.icon || 'zap') + '"></i></div>' +
-        '<h2>' + resolveValue(svc.title) + '</h2>' +
-        '<p class="svc-detail__desc">' + resolveValue(svc.desc) + '</p>' +
-        '<p>' + resolveValue(detail.intro) + '</p>' +
-        '<h3 class="svc-detail__sub" data-i18n="servicesPage.detailIntro">What\'s included</h3>' +
-        '<ul class="svc-detail__list">' + includesHtml + '</ul>' +
-        '<p class="svc-detail__avail"><i data-lucide="map-pin"></i> ' + resolveValue(detail.availability) + '</p>' +
-        '<a href="request-manpower.html" class="btn btn--primary btn--sm" data-i18n="common.bookManpower">Book Manpower</a>' +
+        '<div class="service-card__body">' +
+          '<h3 class="service-card__title">' + resolveValue(svc.title) + '</h3>' +
+          '<p class="service-card__desc">' + resolveValue(svc.desc) + '</p>' +
+          '<ul class="service-card__features">' + featuresHtml + '</ul>' +
+          '<div class="service-card__footer">' +
+            '<button type="button" class="service-card__details-btn" data-open-drawer="' + idx + '" aria-label="' + viewDetailsText + ' - ' + resolveValue(svc.title) + '">' +
+              '<span>' + viewDetailsText + '</span> <i data-lucide="arrow-right"></i>' +
+            '</button>' +
+            '<a href="request-manpower.html?service=' + encodeURIComponent(svc.id) + '" class="btn btn--primary btn--pill service-card__book-btn">' +
+              bookServiceText +
+            '</a>' +
+          '</div>' +
         '</div>' +
-        '</div>' +
-        '</div>' +
-        '</section>';
+      '</article>';
     });
 
     container.innerHTML = html;
+    if (window.lucide && typeof window.lucide.createIcons === 'function') {
+      window.lucide.createIcons();
+    }
   }
+
+  // Global helper for opening slide-over drawer with active language data
+  window.getServiceData = function (idx) {
+    if (!siteData || !siteData.services || !siteData.services[idx]) return null;
+    var svc = siteData.services[idx];
+    var detail = siteData.serviceDetails ? siteData.serviceDetails[idx] : null;
+    return {
+      svc: svc,
+      detail: detail,
+      idx: idx,
+      num: String(idx + 1).padStart(2, '0'),
+      title: resolveValue(svc.title),
+      desc: resolveValue(svc.desc),
+      category: svc.category || 'logistics',
+      categoryTitle: svc.categoryTitle ? resolveValue(svc.categoryTitle) : '',
+      icon: svc.icon || 'zap',
+      image: svc.image,
+      intro: detail ? resolveValue(detail.intro) : '',
+      includes: detail && detail.includes ? detail.includes.map(function (inc) { return resolveValue(inc); }) : []
+    };
+  };
 
   // Toggle Language Function
   function toggleLanguage() {

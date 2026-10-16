@@ -10,7 +10,7 @@
   "industries": [
     {
       "id": "logistics-warehousing",
-      "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-15865281-800.jpg",
       "title": { "en": "Logistics & Warehousing", "ar": "اللوجستيات والمستودعات" },
       "desc": {
         "en": "Packers, loaders, forklift operators, and warehouse helpers for distribution centres and logistics hubs across the UAE.",
@@ -24,7 +24,7 @@
     },
     {
       "id": "shipping-cargo",
-      "image": "https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-15785754-800.jpg",
       "title": { "en": "Shipping & Cargo", "ar": "الشحن والبضائع" },
       "desc": {
         "en": "Container loading crews, port helpers, and cargo handling teams for shipping lines, freight forwarders, and port operators.",
@@ -38,7 +38,7 @@
     },
     {
       "id": "retail-ecommerce",
-      "image": "https://images.unsplash.com/photo-1601598851547-4302969d0614?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-16015988-800.jpg",
       "title": { "en": "Retail & E-Commerce", "ar": "التجزئة والتجارة الإلكترونية" },
       "desc": {
         "en": "Store support staff, pickers, packers, and delivery crews for retail chains and online sellers across the Emirates.",
@@ -52,7 +52,7 @@
     },
     {
       "id": "manufacturing-factories",
-      "image": "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-15810912-800.jpg",
       "title": { "en": "Manufacturing & Factories", "ar": "التصنيع والمصانع" },
       "desc": {
         "en": "Factory helpers, machine operators, and line-packing staff for production and processing plants.",
@@ -66,7 +66,7 @@
     },
     {
       "id": "events-hospitality",
-      "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-14142350-800.jpg",
       "title": { "en": "Events & Hospitality", "ar": "الفعاليات والضيافة" },
       "desc": {
         "en": "Event setup crews, catering staff, and cleaning teams for venues, hotels, and event organisers.",
@@ -80,7 +80,7 @@
     },
     {
       "id": "commercial-facilities",
-      "image": "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80",
+      "image": "assets/images/u/ux-15815787-800.jpg",
       "title": { "en": "Commercial & Facilities", "ar": "المنشآت التجارية والمرافق" },
       "desc": {
         "en": "Cleaning staff, general helpers, and pick & drop drivers for offices, towers, and facility operators.",
