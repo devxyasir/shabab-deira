@@ -543,6 +543,14 @@
     "faqTitle": {
       "en": "Answers to common questions",
       "ar": "إجابات على الأسئلة الشائعة"
+    },
+    "trustTitle": {
+      "en": "Why businesses trust Shabab Deira",
+      "ar": "لماذا تثق الشركات بشباب ديرة"
+    },
+    "skipLink": {
+      "en": "Skip to main content",
+      "ar": "تخطَّ إلى المحتوى الرئيسي"
     }
   },
   "services": [

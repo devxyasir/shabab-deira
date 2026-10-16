@@ -26,3 +26,10 @@
 @keyframes heroEyebrowPulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(1.4); } }
 @keyframes heroMohrePulse { 0%,100% { box-shadow: 0 0 0 0 rgba(5,150,105,0.4); } 50% { box-shadow: 0 0 0 6px rgba(5,150,105,0); } }
 @keyframes coverage-pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.3); opacity: 0.6; } 100% { transform: scale(1); opacity: 1; } }
+
+/* A11y: skip link, screen-reader headings, visible keyboard focus, 44px tap targets. */
+.visually-hidden{position:absolute !important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.skip-link{position:absolute;left:12px;top:-56px;z-index:300;background:#0F172A;color:#fff !important;padding:10px 16px;border-radius:6px;font-weight:700;font-size:.9rem;text-decoration:none;transition:top .15s ease}
+.skip-link:focus{top:12px;color:#fff !important}
+:focus-visible{outline:3px solid #0F3763;outline-offset:2px}
+.mobile-bar__btn{min-height:44px}
