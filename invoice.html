@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shabab Deira – Invoice</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Cairo:wght@400;700;900&family=Amiri:wght@400;700&family=Roboto+Slab:wght@400;700;900&family=Great+Vibes&family=Poppins:wght@400;600;700&family=Oswald:wght@400;600;700&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<style>
+:root{--ui:#1f2a44}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:#d9dce4;font-family:Arial,Helvetica,sans-serif;color:#222;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ---------- toolbar ---------- */
+#toolbar{position:sticky;top:0;z-index:50;background:#fff;border-bottom:1px solid #b9bfce;box-shadow:0 2px 8px rgba(0,0,0,.12);padding:8px 10px;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;font:13px Arial,sans-serif}
+#toolbar .grp{display:flex;align-items:center;gap:4px;padding-right:12px;border-right:1px solid #d5d9e4}
+#toolbar .grp:last-child{border-right:0}
+#toolbar button{height:30px;min-width:30px;padding:0 9px;border:1px solid #b9bfce;background:#f5f6fa;border-radius:5px;cursor:pointer;font:13px Arial,sans-serif;color:var(--ui)}
+#toolbar button:hover{background:#e6e9f4}
+#toolbar button.primary{background:#2b44bd;border-color:#2b44bd;color:#fff}
+#toolbar button.primary:hover{background:#22369a}
+#toolbar button.danger{color:#b3261e}
+#toolbar select,#toolbar input[type=number]{height:30px;border:1px solid #b9bfce;border-radius:5px;background:#fff;font:13px Arial,sans-serif;padding:0 6px}
+#toolbar select{max-width:150px}
+#toolbar input[type=number]{width:52px}
+#toolbar input[type=color]{width:30px;height:30px;padding:1px;border:1px solid #b9bfce;border-radius:5px;background:#fff;cursor:pointer}
+#toolbar label{display:flex;align-items:center;gap:4px;color:#44506e;white-space:nowrap}
+#toolbar .lbl{color:#6b7694;font-size:12px}
+#saved{color:#6b7694;font-size:12px;margin-left:auto}
+#toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#1f2a44;color:#fff;padding:8px 14px;border-radius:6px;font:13px Arial,sans-serif;opacity:0;pointer-events:none;transition:opacity .2s;z-index:99}
+#toast.on{opacity:1}
+
+/* ---------- sheet ---------- */
+.stage{padding:18px 10px 40px;display:flex;justify-content:center}
+.sheet{--blue:#2b44bd;--red:#e0472c;width:794px;min-height:1122px;display:flex;flex-direction:column;flex:none;background:#fffafc;padding:28px 26px 26px;box-shadow:0 4px 22px rgba(0,0,0,.25);color:var(--blue);font-family:Arial,Helvetica,sans-serif}
+.ed{outline:0;min-width:2px;cursor:text;word-break:break-word}
+.ed:hover{background:rgba(43,68,189,.06)}
+.ed:focus{background:rgba(255,214,0,.2);box-shadow:0 0 0 1.5px #f2a900}
+
+.hd{display:grid;grid-template-columns:1fr 100px 1fr;align-items:center;gap:6px;margin-bottom:8px}
+.brand{font-family:Anton,Impact,'Arial Narrow',sans-serif;font-size:46px;line-height:1.05;letter-spacing:.5px;text-transform:uppercase}
+.sub{font-size:17.5px;font-weight:700;line-height:1.2;margin-top:3px}
+.logo{width:92px;height:92px;margin:0 auto;color:var(--blue)}
+.logo svg,.logo img{width:100%;height:100%;object-fit:contain;display:block}
+.hd-right{direction:rtl;text-align:right}
+.ar1{font-family:Cairo,'Segoe UI',Tahoma,sans-serif;font-weight:900;font-size:34px;line-height:1.25}
+.ar2{font-family:Cairo,'Segoe UI',Tahoma,sans-serif;font-weight:700;font-size:20px;line-height:1.2}
+
+.band{background:var(--blue);color:#fff;border-radius:8px;padding:5px 12px;text-align:center;font-weight:700;font-size:13px;line-height:1.35;margin-bottom:12px;border:1px solid var(--blue)}
+
+.meta{display:grid;grid-template-columns:1fr 1fr 1fr;gap:34px;margin-bottom:12px}
+.box{border:1.6px solid var(--blue);border-radius:10px;height:54px;display:flex;align-items:center;padding:0 12px}
+.box.no{gap:8px}
+.script{font-family:'Great Vibes','Brush Script MT',cursive;font-size:36px;line-height:1}
+.red{color:var(--red);font-family:'Roboto Slab',Georgia,serif;font-size:30px;line-height:1}
+.box.inv{border:4px double var(--blue);flex-direction:column;justify-content:center;gap:0;padding:0 6px}
+.inv .a{font-family:Cairo,'Segoe UI',sans-serif;font-weight:700;font-size:19px;line-height:1.1}
+.inv .e{font-family:'Roboto Slab',Georgia,serif;font-weight:900;font-size:21px;letter-spacing:4px;line-height:1.1}
+.box.date{gap:4px;font-weight:700;font-size:14px}
+.leader{flex:1;border-bottom:1.5px dotted var(--blue);min-height:18px;align-self:flex-end;margin-bottom:6px}
+.arlbl{font-family:Cairo,'Segoe UI',sans-serif;font-weight:700;font-size:15px}
+
+.tablewrap{border:4px double var(--blue);display:flex;flex:1 1 auto;min-height:0}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+.sig{flex:none}
+col.w-sl{width:5.5%}col.w-name{width:19.5%}col.w-in,col.w-out,col.w-job{width:6%}col.w-total{width:7%}
+th{font-size:12.5px;font-weight:700;line-height:1.15;color:var(--blue);border-left:1.3px solid var(--blue);border-bottom:1.5px solid var(--blue);padding:6px 1px;text-align:center;vertical-align:middle}
+td{border-left:1.3px solid var(--blue);border-bottom:1.2px dotted rgba(43,68,189,.6);padding:0;height:30px;vertical-align:middle}
+th:first-child,td:first-child{border-left:0}
+th.mid,td.mid{border-left:2.4px solid var(--blue)}
+td .ed{display:block;min-height:29px;padding:4px 4px;font-size:13px;line-height:1.2;text-align:center;color:#17204f}
+td [data-col=name]{text-align:left}
+th .ed{display:block;padding:0 1px}
+tbody tr:last-child td{border-bottom:0}
+
+.totalrow{display:none;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;font-weight:700;font-size:14px}
+.totalrow .val{min-width:80px;border:1.5px solid var(--blue);border-radius:6px;padding:3px 8px;text-align:center}
+
+.sig{display:flex;justify-content:space-between;gap:40px;margin-top:34px;font-weight:700;font-size:13.5px}
+.sig .s{flex:1;display:flex;align-items:flex-end;gap:5px}
+.sig .leader{margin-bottom:4px}
+
+@media print{
+  @page{size:A4 portrait;margin:0}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  html,body{background:#fff!important;margin:0}
+  #toolbar,#toast{display:none!important}
+  .stage{padding:0;display:block}
+  .sheet{width:210mm;min-height:296mm;height:auto;padding:10mm 10mm 9mm;margin:0;box-shadow:none;background:#fff;zoom:1!important}
+  .ed:hover,.ed:focus{background:none!important;box-shadow:none!important}
+}
+</style>
+</head>
+<body>
+
+<div id="toolbar">
+  <div class="grp">
+    <select id="fontSel" title="Font family">
+      <option value="Arial" style="font-family:Arial">Arial</option>
+      <option value="Verdana" style="font-family:Verdana">Verdana</option>
+      <option value="Tahoma" style="font-family:Tahoma">Tahoma</option>
+      <option value="Trebuchet MS" style="font-family:'Trebuchet MS'">Trebuchet MS</option>
+      <option value="Times New Roman" style="font-family:'Times New Roman'">Times New Roman</option>
+      <option value="Georgia" style="font-family:Georgia">Georgia</option>
+      <option value="Courier New" style="font-family:'Courier New'">Courier New</option>
+      <option value="Anton" style="font-family:Anton">Anton</option>
+      <option value="Oswald" style="font-family:Oswald">Oswald</option>
+      <option value="Roboto Slab" style="font-family:'Roboto Slab'">Roboto Slab</option>
+      <option value="Poppins" style="font-family:Poppins">Poppins</option>
+      <option value="Montserrat" style="font-family:Montserrat">Montserrat</option>
+      <option value="Great Vibes" style="font-family:'Great Vibes'">Great Vibes</option>
+      <option value="Cairo" style="font-family:Cairo">Cairo (Arabic)</option>
+      <option value="Amiri" style="font-family:Amiri">Amiri (Arabic)</option>
+    </select>
+    <button data-act="sizeDown" title="Smaller">A−</button>
+    <input type="number" id="fontSize" min="6" max="120" value="13" title="Font size (px)">
+    <button data-act="sizeUp" title="Larger">A+</button>
+  </div>
+  <div class="grp">
+    <button data-act="bold" title="Bold (Ctrl+B)"><b>B</b></button>
+    <button data-act="italic" title="Italic (Ctrl+I)"><i>I</i></button>
+    <button data-act="underline" title="Underline (Ctrl+U)"><u>U</u></button>
+    <button data-act="strike" title="Strikethrough"><s>S</s></button>
+  </div>
+  <div class="grp">
+    <span class="lbl">Text</span><input type="color" id="colText" value="#2b44bd" title="Text colour">
+    <span class="lbl">Highlight</span><input type="color" id="colHi" value="#ffe600" title="Highlight colour">
+    <button data-act="noHi" title="Remove highlight">None</button>
+  </div>
+  <div class="grp">
+    <button data-act="left" title="Align left">&#8676;</button>
+    <button data-act="center" title="Centre">&#8596;</button>
+    <button data-act="right" title="Align right">&#8677;</button>
+    <button data-act="clear" title="Clear formatting of selection / field">Clear fmt</button>
+    <button data-act="undo" title="Undo">&#8630;</button>
+    <button data-act="redo" title="Redo">&#8631;</button>
+  </div>
+  <div class="grp">
+    <span class="lbl">Theme</span><input type="color" id="colAccent" value="#2b44bd" title="Theme colour (lines, header, band)">
+    <span class="lbl">No.</span><input type="color" id="colRed" value="#e0472c" title="Invoice number colour">
+  </div>
+  <div class="grp">
+    <button data-act="addRow">+ Row</button>
+    <button data-act="delRow">− Row</button>
+    <label><input type="checkbox" id="autoCalc" checked> Auto hours</label>
+    <label><input type="checkbox" id="showTotal"> Total line</label>
+  </div>
+  <div class="grp">
+    <button data-act="logo">Change logo</button>
+    <button data-act="logoReset">Reset logo</button>
+    <input type="file" id="logoFile" accept="image/*" hidden>
+  </div>
+  <div class="grp">
+    <button data-act="new" class="primary">New invoice</button>
+    <button data-act="png" class="primary">Save PNG</button>
+    <button data-act="jpg" class="primary">Save JPG</button>
+    <button data-act="print" class="primary">Print A4 / PDF</button>
+    <button data-act="reset" class="danger">Reset all</button>
+  </div>
+  <span id="saved"></span>
+</div>
+
+<main class="stage">
+<div class="sheet" id="sheet">
+
+  <div class="hd">
+    <div>
+      <div class="ed brand" contenteditable="true">Shabab Deira</div>
+      <div class="ed sub" contenteditable="true">Shipping &amp; Cargo Services LLC</div>
+    </div>
+    <div class="logo" id="logo"></div>
+    <div class="hd-right">
+      <div class="ed ar1" contenteditable="true">شباب ديرة لخدمات</div>
+      <div class="ed ar2" contenteditable="true">الملاحة والشحن ش.ذ.م.م</div>
+    </div>
+  </div>
+
+  <div class="band">
+    <div class="ed" contenteditable="true">Mob : +971 55 457 2414, +971 50 150 7188, P.O.Box: 91856, Naif, Deira, Dubai - U.A.E.</div>
+    <div class="ed" contenteditable="true">E-mail: sdsc78682@gmail.com</div>
+  </div>
+
+  <div class="meta">
+    <div class="box no">
+      <span class="ed script" contenteditable="true">No.</span>
+      <span class="ed red" id="invNo" contenteditable="true">0101</span>
+    </div>
+    <div class="box inv">
+      <div class="ed a" contenteditable="true">فــاتــورة</div>
+      <div class="ed e" contenteditable="true">INVOICE</div>
+    </div>
+    <div class="box date">
+      <span class="ed" contenteditable="true">DATE:</span>
+      <span class="ed leader" id="invDate" contenteditable="true"></span>
+      <span class="ed arlbl" contenteditable="true">التاريخ</span>
+    </div>
+  </div>
+
+  <div class="tablewrap"><table id="grid"></table></div>
+
+  <div class="totalrow" id="totalRow">
+    <span class="ed" contenteditable="true">TOTAL HRS:</span>
+    <span class="ed val" id="grandTotal" contenteditable="true"></span>
+  </div>
+
+  <div class="sig">
+    <div class="s">
+      <span class="ed" contenteditable="true">Receiver's Signature</span>
+      <span class="ed leader" id="sigL" contenteditable="true"></span>
+      <span class="ed arlbl" contenteditable="true">توقيع المستلم</span>
+    </div>
+    <div class="s">
+      <span class="ed" contenteditable="true">Signature</span>
+      <span class="ed leader" id="sigR" contenteditable="true"></span>
+      <span class="ed arlbl" contenteditable="true">التوقيع</span>
+    </div>
+  </div>
+
+</div>
+</main>
+<div id="toast"></div>
+
+<script>
+(function(){
+  var KEY='sd_invoice_v1';
+  var $=function(id){return document.getElementById(id)};
+  var sheet=$('sheet'), toolbar=$('toolbar');
+  var getGrid=function(){return sheet.querySelector('#grid')};
+  var COLS=[['sl','SI.No'],['name','LABOUR NAME'],['in','TIME<br>IN'],['out','TIME<br>OUT'],['job','JOB<br>No.'],['total','TOTAL<br>Hrs.']];
+  var DEFAULT_ROWS=19;
+  var LOGO_SVG='<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><g fill="none" stroke="currentColor"><circle cx="50" cy="50" r="46" stroke-width="4"/><circle cx="50" cy="50" r="40" stroke-width="1.5"/><ellipse cx="50" cy="50" rx="17" ry="40" stroke-width="1.5"/><ellipse cx="50" cy="50" rx="31" ry="40" stroke-width="1.5"/><path d="M50 10V90M14 28H86M14 72H86" stroke-width="1.5"/></g><rect x="10" y="39" width="80" height="22" rx="11" fill="currentColor"/><text x="50" y="55.5" text-anchor="middle" font-size="16" font-weight="700" font-style="italic" fill="#fff" font-family="Georgia,serif">SDSC</text></svg>';
+
+  /* ---------- table ---------- */
+  function cell(col,half,txt){
+    return '<td class="'+(half&&col==='sl'?'mid':'')+'"><div class="ed" contenteditable="true" data-col="'+col+'" data-half="'+half+'">'+(txt||'')+'</div></td>';
+  }
+  function rowHTML(i,n){
+    return '<tr>'+[0,1].map(function(h){return COLS.map(function(c){return cell(c[0],h,c[0]==='sl'?(h?n+i+1:i+1):'')}).join('')}).join('')+'</tr>';
+  }
+  function buildTable(n){
+    var cg='<colgroup>'+[0,1].map(function(){return COLS.map(function(c){return '<col class="w-'+c[0]+'">'}).join('')}).join('')+'</colgroup>';
+    var th='<thead><tr>'+[0,1].map(function(h){return COLS.map(function(c){return '<th class="'+(h&&c[0]==='sl'?'mid':'')+'"><div class="ed" contenteditable="true">'+c[1]+'</div></th>'}).join('')}).join('')+'</tr></thead>';
+    var b='<tbody>';for(var i=0;i<n;i++)b+=rowHTML(i,n);b+='</tbody>';
+    getGrid().innerHTML=cg+th+b;
+  }
+  function renumber(){
+    var rows=getGrid().tBodies[0].rows,n=rows.length;
+    Array.prototype.forEach.call(rows,function(tr,i){
+      tr.querySelector('[data-col=sl][data-half="0"]').textContent=i+1;
+      tr.querySelector('[data-col=sl][data-half="1"]').textContent=n+i+1;
+    });
+  }
+  function addRow(){
+    var tb=getGrid().tBodies[0];
+    if(tb.rows.length>=60){toast('Max 60 rows');return}
+    tb.insertAdjacentHTML('beforeend',rowHTML(tb.rows.length,tb.rows.length+1));
+    renumber();schedule();
+  }
+  function delRow(){
+    var tb=getGrid().tBodies[0];
+    if(tb.rows.length<=1)return;
+    tb.deleteRow(tb.rows.length-1);renumber();sumTotals();schedule();
+  }
+
+  /* ---------- time maths ---------- */
+  function parseT(s){
+    s=s.trim().toLowerCase().replace(/\s+/g,'');
+    var m=s.match(/^(\d{1,2})(?:[:.h](\d{2}))?(am|pm)?$/);if(!m)return null;
+    var h=+m[1],mi=m[2]?+m[2]:0;
+    if(m[3]==='pm'&&h<12)h+=12;if(m[3]==='am'&&h===12)h=0;
+    if(h>24||mi>59)return null;return h*60+mi;
+  }
+  function parseDur(s){
+    s=s.trim();var m=s.match(/^(\d+):(\d{2})$/);if(m)return +m[1]*60+ +m[2];
+    if(/^\d+(\.\d+)?$/.test(s))return Math.round(parseFloat(s)*60);return 0;
+  }
+  function fmt(m){var h=Math.floor(m/60),r=m%60;return r?h+':'+('0'+r).slice(-2):''+h}
+  function calcRow(ed){
+    if(!$('autoCalc').checked)return;
+    var tr=ed.closest('tr'),h=ed.dataset.half;
+    var q=function(c){return tr.querySelector('[data-col="'+c+'"][data-half="'+h+'"]')};
+    var tot=q('total');
+    if(tot.textContent.trim()&&!tot.dataset.auto)return;
+    var a=parseT(q('in').textContent),b=parseT(q('out').textContent);
+    if(a===null||b===null){if(tot.dataset.auto){tot.textContent='';delete tot.dataset.auto}return}
+    var d=b-a;if(d<0)d+=1440;
+    tot.textContent=fmt(d);tot.dataset.auto='1';
+  }
+  function sumTotals(){
+    if(!$('showTotal').checked)return;
+    var g=$('grandTotal');if(g.dataset.manual)return;
+    var m=0;getGrid().querySelectorAll('[data-col=total]').forEach(function(e){m+=parseDur(e.textContent)});
+    g.textContent=m?fmt(m):'';
+  }
+
+  /* ---------- editing events ---------- */
+  sheet.addEventListener('input',function(e){
+    var ed=e.target.closest&&e.target.closest('.ed');if(!ed)return;
+    var col=ed.dataset.col;
+    if(col==='total')delete ed.dataset.auto;
+    if(ed.id==='grandTotal')ed.dataset.manual='1';
+    if(col==='in'||col==='out')calcRow(ed);
+    if(col==='total'||col==='in'||col==='out')sumTotals();
+    schedule();
+  });
+  sheet.addEventListener('paste',function(e){
+    var ed=e.target.closest&&e.target.closest('.ed');if(!ed)return;
+    e.preventDefault();
+    var t=(e.clipboardData||window.clipboardData).getData('text/plain');
+    if(ed.closest('td'))t=t.replace(/\s*[\r\n]+\s*/g,' ');
+    document.execCommand('insertText',false,t);
+  });
+  function caretEnd(el){
+    var r=document.createRange();r.selectNodeContents(el);r.collapse(false);
+    var s=getSelection();s.removeAllRanges();s.addRange(r);
+  }
+  function moveV(ed,dir){
+    var td=ed.closest('td');if(!td)return false;
+    var tr=td.parentElement,idx=td.cellIndex;
+    var tgt=dir>0?tr.nextElementSibling:tr.previousElementSibling;
+    if(!tgt&&dir>0){addRow();tgt=tr.nextElementSibling}
+    if(!tgt)return true;
+    var n=tgt.cells[idx].querySelector('.ed');n.focus();caretEnd(n);return true;
+  }
+  sheet.addEventListener('keydown',function(e){
+    var ed=e.target.closest&&e.target.closest('.ed');if(!ed)return;
+    if(e.key==='Enter'){
+      e.preventDefault();
+      if(!e.shiftKey&&moveV(ed,1))return;
+      document.execCommand('insertLineBreak');
+    }else if((e.key==='ArrowDown'||e.key==='ArrowUp')&&!e.shiftKey&&!e.ctrlKey&&!e.altKey&&ed.closest('td')){
+      e.preventDefault();moveV(ed,e.key==='ArrowDown'?1:-1);
+    }
+  });
+
+  /* ---------- selection tracking ---------- */
+  var lastRange=null,lastEd=null;
+  function edOf(node){
+    if(!node)return null;node=node.nodeType===3?node.parentElement:node;
+    return node&&node.closest?node.closest('.ed[contenteditable]'):null;
+  }
+  document.addEventListener('selectionchange',function(){
+    var s=getSelection();if(!s.rangeCount)return;
+    var r=s.getRangeAt(0),ed=edOf(r.commonAncestorContainer);
+    if(ed&&sheet.contains(ed)){lastRange=r.cloneRange();lastEd=ed;
+      if(!toolbar.contains(document.activeElement))syncToolbar(ed,s)}
+  });
+  function syncToolbar(ed,s){
+    var el=edOf(s.anchorNode)||ed;
+    var cs=getComputedStyle(s.anchorNode&&s.anchorNode.nodeType===3?s.anchorNode.parentElement:el);
+    $('fontSize').value=Math.round(parseFloat(cs.fontSize));
+    var fam=cs.fontFamily.split(',')[0].replace(/["']/g,'').trim(),sel=$('fontSel');
+    sel.value=fam;if(sel.value!==fam)sel.selectedIndex=-1;
+  }
+  function restore(){
+    if(!lastEd)return false;
+    lastEd.focus({preventScroll:true});
+    if(lastRange){var s=getSelection();s.removeAllRanges();s.addRange(lastRange)}
+    return true;
+  }
+  function withSel(fn){
+    if(!restore()){toast('Click a field first');return}
+    var s=getSelection();fn(s.isCollapsed,lastEd);
+    var r=s.rangeCount?s.getRangeAt(0):null;if(r)lastRange=r.cloneRange();
+    schedule();
+  }
+  function css(){document.execCommand('styleWithCSS',false,true)}
+  function clearChildProp(ed,prop){ed.querySelectorAll('[style]').forEach(function(n){n.style[prop]=''})}
+
+  function setFamily(v){withSel(function(c,ed){
+    if(c){ed.style.fontFamily="'"+v+"'";clearChildProp(ed,'fontFamily')}
+    else{css();document.execCommand('fontName',false,v)}
+  })}
+  function setSize(px){px=Math.max(6,Math.min(120,Math.round(px)));$('fontSize').value=px;withSel(function(c,ed){
+    if(c){ed.style.fontSize=px+'px';clearChildProp(ed,'fontSize')}
+    else{
+      css();document.execCommand('fontSize',false,'7');
+      sheet.querySelectorAll('font[size="7"],span[style*="xxx-large"]').forEach(function(n){
+        if(n.tagName==='FONT'){var sp=document.createElement('span');sp.innerHTML=n.innerHTML;sp.style.fontSize=px+'px';n.replaceWith(sp)}
+        else n.style.fontSize=px+'px';
+      });
+    }
+  })}
+  function toggle(cmd,prop,on,off){withSel(function(c,ed){
+    if(c){
+      var cur=getComputedStyle(ed);
+      if(prop==='fontWeight')ed.style.fontWeight=parseInt(cur.fontWeight)>=600?'400':'700';
+      else if(prop==='fontStyle')ed.style.fontStyle=cur.fontStyle==='italic'?'normal':'italic';
+      else ed.style.textDecoration=(ed.style.textDecoration||'').indexOf(on)>-1?'none':on;
+      clearChildProp(ed,prop);
+    }else{css();document.execCommand(cmd)}
+  })}
+  function setColor(v){withSel(function(c,ed){
+    if(c){ed.style.color=v;clearChildProp(ed,'color')}else{css();document.execCommand('foreColor',false,v)}
+  })}
+  function setHi(v){withSel(function(c,ed){
+    if(c)ed.style.background=v;else{css();document.execCommand('hiliteColor',false,v)}
+  })}
+  function align(v){withSel(function(c,ed){ed.style.textAlign=v})}
+  function clearFmt(){withSel(function(c,ed){
+    if(c){ed.removeAttribute('style');ed.innerHTML=ed.innerHTML.replace(/<(?!br\s*\/?>)[^>]+>/gi,'')}
+    else document.execCommand('removeFormat');
+  })}
+
+  /* ---------- toolbar wiring ---------- */
+  toolbar.addEventListener('mousedown',function(e){if(e.target.closest('button'))e.preventDefault()});
+  $('fontSel').addEventListener('change',function(){setFamily(this.value)});
+  $('fontSize').addEventListener('change',function(){setSize(+this.value||13)});
+  $('colText').addEventListener('change',function(){setColor(this.value)});
+  $('colHi').addEventListener('change',function(){setHi(this.value)});
+  $('colAccent').addEventListener('input',function(){sheet.style.setProperty('--blue',this.value);schedule()});
+  $('colRed').addEventListener('input',function(){sheet.style.setProperty('--red',this.value);schedule()});
+  $('autoCalc').addEventListener('change',schedule);
+  $('showTotal').addEventListener('change',function(){applyTotalToggle();sumTotals();schedule()});
+  function applyTotalToggle(){$('totalRow').style.display=$('showTotal').checked?'flex':'none'}
+
+  function setLogo(html){$('logo').innerHTML=html;schedule()}
+  $('logoFile').addEventListener('change',function(){
+    var f=this.files[0];if(!f)return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      var img=new Image();
+      img.onload=function(){
+        var s=Math.min(1,320/Math.max(img.width,img.height)),cv=document.createElement('canvas');
+        cv.width=Math.round(img.width*s);cv.height=Math.round(img.height*s);
+        cv.getContext('2d').drawImage(img,0,0,cv.width,cv.height);
+        setLogo('<img alt="Logo" src="'+cv.toDataURL('image/png')+'">');
+      };
+      img.src=rd.result;
+    };
+    rd.readAsDataURL(f);this.value='';
+  });
+
+  var ACT={
+    sizeDown:function(){setSize((+$('fontSize').value||13)-1)},
+    sizeUp:function(){setSize((+$('fontSize').value||13)+1)},
+    bold:function(){toggle('bold','fontWeight')},
+    italic:function(){toggle('italic','fontStyle')},
+    underline:function(){toggle('underline','textDecoration','underline')},
+    strike:function(){toggle('strikeThrough','textDecoration','line-through')},
+    noHi:function(){setHi('transparent')},
+    left:function(){align('left')},center:function(){align('center')},right:function(){align('right')},
+    clear:clearFmt,
+    undo:function(){restore();document.execCommand('undo')},
+    redo:function(){restore();document.execCommand('redo')},
+    addRow:addRow,delRow:delRow,
+    logo:function(){$('logoFile').click()},
+    logoReset:function(){setLogo(LOGO_SVG)},
+    print:function(){window.print()},
+    png:function(){saveImage('png')},
+    jpg:function(){saveImage('jpg')},
+    'new':function(){
+      if(!confirm('Start a new invoice?\nRows are cleared and the number goes up by 1. Your formatting stays.'))return;
+      getGrid().querySelectorAll('tbody [data-col]:not([data-col=sl])').forEach(function(e){e.textContent='';delete e.dataset.auto});
+      var g=$('grandTotal');g.textContent='';delete g.dataset.manual;
+      $('sigL').textContent='';$('sigR').textContent='';
+      var n=$('invNo'),t=n.textContent.trim(),m=t.match(/(\d+)(\D*)$/);
+      if(m)n.textContent=t.slice(0,m.index)+String(+m[1]+1).padStart(m[1].length,'0')+m[2];
+      $('invDate').textContent=today();
+      save();toast('New invoice ready');
+    },
+    reset:function(){
+      if(!confirm('Reset everything to the original layout? Saved edits on this device will be lost.'))return;
+      try{localStorage.removeItem(KEY)}catch(e){}
+      location.reload();
+    }
+  };
+  toolbar.addEventListener('click',function(e){
+    var b=e.target.closest('button[data-act]');if(b&&ACT[b.dataset.act])ACT[b.dataset.act]();
+  });
+  document.addEventListener('keydown',function(e){
+    if((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='p'){e.preventDefault();window.print()}
+  });
+
+  /* ---------- save as image ---------- */
+  function saveImage(type){
+    if(!window.html2canvas){toast('Image library not loaded - check internet connection');return}
+    if(document.activeElement&&document.activeElement.blur)document.activeElement.blur();
+    var sel=getSelection();if(sel)sel.removeAllRanges();
+    sheet.style.zoom='';toast('Creating image...');
+    var ready=(document.fonts&&document.fonts.ready)?document.fonts.ready:Promise.resolve();
+    ready.then(function(){
+      return html2canvas(sheet,{scale:3,backgroundColor:'#ffffff',useCORS:true,logging:false});
+    }).then(function(cv){
+      var mime=type==='jpg'?'image/jpeg':'image/png';
+      cv.toBlob(function(b){
+        var name='Invoice-'+($('invNo').textContent.trim().replace(/[^\w-]+/g,'')||'draft')+'.'+(type==='jpg'?'jpg':'png');
+        var a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;
+        document.body.appendChild(a);a.click();a.remove();
+        setTimeout(function(){URL.revokeObjectURL(a.href)},2000);
+        toast('Saved '+name);
+      },mime,0.95);
+    }).catch(function(){toast('Could not create image')}).then(fit);
+  }
+
+  /* ---------- save / load ---------- */
+  var timer;
+  function schedule(){$('saved').textContent='Editing…';clearTimeout(timer);timer=setTimeout(save,500)}
+  function save(){
+    try{
+      localStorage.setItem(KEY,JSON.stringify({
+        html:sheet.innerHTML,
+        blue:sheet.style.getPropertyValue('--blue').trim(),
+        red:sheet.style.getPropertyValue('--red').trim(),
+        auto:$('autoCalc').checked,total:$('showTotal').checked
+      }));
+      $('saved').textContent='Saved in this browser';
+    }catch(e){$('saved').textContent='Could not save (storage full or blocked)'}
+  }
+  function toast(m){var t=$('toast');t.textContent=m;t.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(function(){t.classList.remove('on')},1800)}
+  function today(){var d=new Date();return ('0'+d.getDate()).slice(-2)+'/'+('0'+(d.getMonth()+1)).slice(-2)+'/'+d.getFullYear()}
+
+  /* ---------- init ---------- */
+  var saved=null;try{saved=JSON.parse(localStorage.getItem(KEY))}catch(e){}
+  if(saved&&saved.html){
+    sheet.innerHTML=saved.html;
+    if(saved.blue){sheet.style.setProperty('--blue',saved.blue);$('colAccent').value=saved.blue}
+    if(saved.red){sheet.style.setProperty('--red',saved.red);$('colRed').value=saved.red}
+    $('autoCalc').checked=saved.auto!==false;$('showTotal').checked=!!saved.total;
+  }else{
+    buildTable(DEFAULT_ROWS);
+    $('logo').innerHTML=LOGO_SVG;
+    $('invDate').textContent=today();
+  }
+  applyTotalToggle();
+
+  /* fit to narrow screens */
+  function fit(){var z=Math.min(1,(window.innerWidth-20)/814);sheet.style.zoom=z<1?z:''}
+  window.addEventListener('resize',fit);fit();
+  window.addEventListener('beforeprint',function(){sheet.style.zoom=''});
+  window.addEventListener('afterprint',fit);
+})();
+</script>
+</body>
+</html>

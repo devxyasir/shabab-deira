@@ -1,0 +1,64 @@
+# ======================================================================
+# Shabab Deira — Production Hosting Configuration (.htaccess)
+# ======================================================================
+
+# 1. Prevent Caching of HTML Files (Ensures fresh code on every update)
+<IfModule mod_headers.c>
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate, max-age=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # Cache versioned CSS and JS for a year (URLs carry ?v=, so immutable)
+  <FilesMatch "\.(css|js)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+  # Media & Fonts (Immutable long cache)
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|svg|ico|woff|woff2|ttf|eot)$">
+    Header set Cache-Control "public, max-age=2592000, immutable"
+  </FilesMatch>
+
+  # Security Headers
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Strict-Transport-Security "max-age=31536000"
+  Header always set Cross-Origin-Opener-Policy "same-origin-allow-popups"
+</IfModule>
+
+# 2. Gzip / Brotli Compression
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json application/xml image/svg+xml
+</IfModule>
+
+# 3. Default UTF-8 Encoding
+AddDefaultCharset UTF-8
+
+# 4. Clean URL Rewriting for Blog + transparent WebP serving
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Rewrite /blog/some-slug to /blog-post.php?slug=some-slug
+  RewriteRule ^blog/([a-zA-Z0-9_-]+)/?$ blog-post.php?slug=$1 [L,QSA]
+
+  # Rewrite /blog or /blog/ to /blog.php
+  RewriteRule ^blog/?$ blog.php [L,QSA]
+
+  # Serve .webp instead of .jpg/.png to supporting browsers (files generated alongside originals)
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule ^(.+)\.jpe?g$ $1.webp [T=image/webp,L]
+  RewriteCond %{HTTP_ACCEPT} image/webp
+  RewriteCond %{DOCUMENT_ROOT}/$1.webp -f
+  RewriteRule ^(.+)\.png$ $1.webp [T=image/webp,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # WebP negotiation changes the response by Accept header — tell caches
+  <FilesMatch "\.(jpg|jpeg|png|webp)$">
+    Header append Vary Accept
+  </FilesMatch>
+</IfModule>
+

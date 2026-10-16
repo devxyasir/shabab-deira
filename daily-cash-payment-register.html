@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Daily Cash Salary Payment Register - Shabab Deira</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/outfit/v15/QGYvz_MVcBeNP4NJtEtqUYLknw.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/plusjakartasans/v12/LDIoaomQNQcsA88c7O9yZ4KMCoOg4Ko20yygg_vb.woff2">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow+Semi+Condensed:wght@600;700&family=Source+Sans+3:wght@400;500;600;700&family=Cairo:wght@700;800&family=Cormorant+Garamond:ital,wght@1,600&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<style>
+:root{
+  --navy:#0f3763;
+  --navy2:#123f73;
+  --line:#7ea3d1;
+  --cell:#bdd0e8;
+  --alt:#eaf2fc;
+  --beige:#f1ece5;
+  --beige-line:#d9d2c6;
+  --tan:#c8ad7e;
+  --paper:#fbfaf8;
+  --muted:#5d6f88;
+  --row-h:30px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#d9e0ea}
+body{font-family:'Source Sans 3','Segoe UI',Arial,sans-serif;color:var(--navy);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+
+/* ---------- Toolbar (screen only) ---------- */
+.toolbar{position:sticky;top:0;z-index:20;display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:center;padding:10px 14px;background:#0a2442;color:#fff;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+.toolbar .count{font-size:12.5px;color:#b9c6da;margin-right:8px}
+.toolbar .count b{color:#fff}
+.btn{font:600 12.5px 'Source Sans 3',sans-serif;border:1px solid rgba(255,255,255,.25);background:transparent;color:#fff;padding:8px 14px;border-radius:6px;cursor:pointer}
+.btn:hover{background:rgba(255,255,255,.1)}
+.btn:focus-visible{outline:2px solid var(--tan);outline-offset:2px}
+.btn.primary{background:var(--tan);border-color:var(--tan);color:#1b1405}
+.btn.primary:hover{background:#d6bc8e}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+
+.holder{display:flex;justify-content:center;padding:18px 0 40px}
+.stage{width:794px;height:1123px;transform-origin:top center}
+
+/* ---------- A4 page ---------- */
+.page{position:relative;width:794px;height:1123px;background:var(--paper);overflow:hidden;display:flex;flex-direction:column;box-shadow:0 8px 30px rgba(12,36,68,.22)}
+.corner{position:absolute;left:0;top:0;width:240px;height:14px}
+
+/* brand row */
+.brandrow{flex:none;margin:22px 32px 0;height:80px;display:flex;align-items:center}
+.logo{width:80px;height:80px;flex:none}
+.vline{width:2px;height:62px;background:var(--navy);margin:0 18px 0 16px;flex:none}
+.names h1{font-family:'Barlow Condensed',sans-serif;font-weight:800;font-size:46px;line-height:.95;letter-spacing:.005em;color:var(--navy)}
+.names p{margin-top:3px;font-size:19.5px;font-weight:700;color:var(--navy);line-height:1.1}
+.ar{margin-left:auto;text-align:right;direction:rtl;font-family:'Cairo',sans-serif;font-weight:700;color:var(--navy)}
+.ar .a1{font-size:28px;line-height:1.25}
+.ar .a2{font-size:20px;line-height:1.25}
+
+/* contact */
+.contact{flex:none;margin:12px 32px 0;border-top:1px solid #dcdcdc;padding-top:6px;font-size:12.5px;color:#1c3a63}
+.c1,.c2{display:flex;align-items:center;justify-content:center;height:21px;gap:12px}
+.c1 span,.c2 span{display:inline-flex;align-items:center;gap:7px}
+.c1 svg,.c2 svg{width:17px;height:17px;flex:none}
+.sep{width:1px;height:16px;background:var(--line);margin:0 14px}
+.rule{flex:none;margin:6px 32px 0;height:1.5px;background:var(--navy)}
+
+/* banner */
+.banner{flex:none;margin:12px 32px 0;height:58px;border-radius:14px;background:var(--navy);color:#fff;display:flex;align-items:center;padding:0 22px}
+.banner .coin{width:50px;height:46px;flex:none}
+.banner .bar{width:2px;height:44px;background:rgba(255,255,255,.9);margin:0 16px 0 14px;flex:none}
+.banner h2{font-family:'Barlow Semi Condensed',sans-serif;font-weight:700;font-size:30px;line-height:1;letter-spacing:.012em}
+.banner small{display:block;margin-top:5px;font-size:12px;font-weight:500;letter-spacing:.36em}
+
+/* meta */
+.meta{flex:none;margin:12px 32px 0;height:62px;border-radius:10px;background:var(--beige);border:1px solid var(--beige-line);
+  display:grid;grid-template-columns:335fr 524fr;column-gap:36px;align-content:center;row-gap:6px;padding:0 20px}
+.f{display:flex;align-items:flex-end;gap:8px;height:24px;font-size:12.5px;font-weight:700}
+.f label{white-space:nowrap;padding-bottom:2px}
+.f input{flex:1;min-width:0;height:20px;border:0;border-bottom:1px solid var(--line);background:transparent;outline:none;font:600 12.5px 'Source Sans 3',sans-serif;color:var(--navy)}
+.f input:focus{border-bottom-color:var(--navy)}
+.f .txt{font-weight:500;padding-bottom:2px}
+
+/* table */
+.tablewrap{flex:1 1 0;min-height:0;margin:14px 32px 0}
+.tbox{border:1px solid var(--line);border-radius:10px;overflow:hidden;background:#fff}
+table{width:100%;border-collapse:collapse;table-layout:fixed}
+thead th{height:38px;background:var(--navy);color:#fff;padding:0 4px;font-size:10.5px;font-weight:600;line-height:1.15;border-left:1px solid rgba(255,255,255,.22)}
+thead th:first-child{border-left:0;font-size:11.5px}
+thead th>span{display:flex;align-items:center;justify-content:center;gap:6px;text-align:left}
+thead svg{width:15px;height:15px;flex:none}
+
+tbody td{height:var(--row-h);padding:0;border:1px solid var(--cell);position:relative;background:#fff}
+tbody tr:nth-child(even) td{background:var(--alt)}
+tbody tr:first-child td{border-top:0}
+tbody td:first-child{border-left:0}
+tbody td:last-child{border-right:0}
+tbody td input{display:block;width:100%;height:calc(var(--row-h) - 1px);border:0;background:transparent;outline:none;padding:0 9px;font:500 11.5px 'Source Sans 3',sans-serif;color:#10294b;text-overflow:ellipsis}
+tbody td input:focus{background:#fff6dc;box-shadow:inset 0 0 0 1.5px var(--tan)}
+td.sr{text-align:center;font-size:11.5px;font-weight:600;color:#1c3f6e}
+td.amt input{text-align:right;font-weight:700;padding-right:12px;font-variant-numeric:tabular-nums}
+.row-del{position:absolute;left:50%;top:50%;width:20px;height:20px;margin:-10px 0 0 -10px;display:none;align-items:center;justify-content:center;border-radius:50%;background:#fbe3e0;color:#b3261e;border:0;cursor:pointer;font:700 14px/1 sans-serif}
+td.sr:hover .row-del,td.sr:focus-within .row-del{display:flex}
+td.sr:hover .n{visibility:hidden}
+
+tfoot td{height:38px;border-top:1.5px solid var(--navy)}
+tfoot .lbl{background:var(--beige);padding:0 26px;font-size:14px;font-weight:700;letter-spacing:.01em;color:var(--navy)}
+tfoot .tot{background:var(--navy2);color:#fff;text-align:center;font-size:16px;font-weight:700;font-variant-numeric:tabular-nums}
+
+/* sign block */
+.sign{flex:none;margin:12px 32px 0;font-size:12.5px;font-weight:700}
+.srow{display:flex;gap:38px;height:26px;align-items:flex-end}
+.srow .f{height:26px}
+.srow .f.half{flex:1}
+.words{margin-top:6px;display:flex;align-items:flex-end;gap:8px;height:30px}
+.words label{white-space:nowrap;padding-bottom:2px}
+.words .line{flex:1;min-width:0;height:30px;border-bottom:1px solid var(--line);display:flex;align-items:flex-end;padding-bottom:2px}
+.words .line div{font-size:11px;font-weight:500;line-height:1.15;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:#10294b}
+.decl{margin-top:8px;font-size:9.5px;font-style:italic;font-weight:400;color:#1c3a63}
+.decl b{font-weight:700}
+
+/* footer */
+.foot{position:relative;flex:none;height:46px;margin-top:10px}
+.foot svg.bg{position:absolute;inset:0;width:794px;height:46px}
+.foot .co{position:absolute;left:32px;top:0;height:46px;display:flex;align-items:center;gap:10px;color:#fff;font-size:12px;font-weight:500}
+.foot .co svg{width:22px;height:22px}
+.foot .tag{position:absolute;right:20px;top:5px;display:flex;align-items:center;gap:10px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:19px;color:var(--navy);letter-spacing:.06em}
+.foot .tag i{display:block;height:1px;background:var(--tan)}
+.foot .tag i:first-child{width:70px}
+.foot .tag i:last-child{width:20px}
+
+/* export mode */
+.exporting .row-del{display:none!important}
+.exporting tbody td input:focus{background:transparent;box-shadow:none}
+.exporting .f input:focus{border-bottom-color:var(--line)}
+
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);background:#0a2442;color:#fff;font:600 13px 'Source Sans 3',sans-serif;padding:10px 18px;border-radius:8px;opacity:0;pointer-events:none;transition:.25s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%)}
+.toast.err{background:#b3261e}
+
+@page{size:A4;margin:0}
+@media print{
+  html,body{background:#fff}
+  .toolbar,.toast{display:none!important}
+  .holder{display:block;padding:0}
+  .stage{transform:none!important;width:210mm;height:297mm}
+  .page{width:210mm;height:297mm;box-shadow:none}
+  .row-del{display:none!important}
+}
+</style>
+</head>
+<body>
+
+<div class="toolbar">
+  <span class="count">Workers: <b id="rowCount">10</b> / <b id="rowMax">22</b></span>
+  <button class="btn" id="btnAdd">+ Add worker</button>
+  <button class="btn" id="btnClear">Clear all</button>
+  <button class="btn" id="btnPrint">Print</button>
+  <button class="btn" id="btnPng">Download PNG</button>
+  <button class="btn" id="btnPdf">Download PDF</button>
+  <button class="btn primary" id="btnSave">Save register</button>
+</div>
+
+<div class="holder" id="holder">
+  <div class="stage" id="stage">
+    <div class="page" id="page">
+
+      <!-- top-left corner accent -->
+      <svg class="corner" viewBox="0 0 240 14" aria-hidden="true">
+        <polygon points="0,0 232,0 219,14 0,14" fill="#0f3763"/>
+        <polygon points="30,0 68,0 55,14 17,14" fill="#c8ad7e"/>
+      </svg>
+
+      <!-- brand -->
+      <header class="brandrow">
+        <svg class="logo" viewBox="0 0 100 100" aria-label="SDSC logo">
+          <circle cx="50" cy="50" r="48" fill="#0f3763"/>
+          <circle cx="50" cy="50" r="44.5" fill="none" stroke="#fff" stroke-width="1.6"/>
+          <circle cx="50" cy="50" r="36" fill="none" stroke="#8fb2de" stroke-width="1"/>
+          <ellipse cx="50" cy="50" rx="17" ry="36" fill="none" stroke="#8fb2de" stroke-width="1"/>
+          <ellipse cx="50" cy="50" rx="30" ry="36" fill="none" stroke="#8fb2de" stroke-width=".8"/>
+          <line x1="14" y1="50" x2="86" y2="50" stroke="#8fb2de" stroke-width="1"/>
+          <path d="M18 34 Q50 40 82 34 M18 66 Q50 60 82 66" fill="none" stroke="#8fb2de" stroke-width=".9"/>
+          <g transform="rotate(-7 50 50)">
+            <rect x="12" y="38" width="76" height="24" rx="2" fill="#0f3763" stroke="#fff" stroke-width="1.6"/>
+            <text x="50" y="56" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-weight="700" font-size="19" fill="#fff" letter-spacing="1">SDSC</text>
+          </g>
+        </svg>
+        <div class="vline"></div>
+        <div class="names">
+          <h1>SHABAB DEIRA</h1>
+          <p>Shipping &amp; Cargo Services LLC</p>
+        </div>
+        <div class="ar" lang="ar" dir="rtl">
+          <div class="a1">شباب ديرة لخدمات</div>
+          <div class="a2">الملاحة والشحن ش.ذ.م.م</div>
+        </div>
+      </header>
+
+      <!-- contact -->
+      <div class="contact">
+        <div class="c1">
+          <span>
+            <svg viewBox="0 0 24 24"><path fill="#0f3763" d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+            Mob: +971 55 457 2414, +971 50 150 7188
+          </span>
+          <i class="sep"></i>
+          <span>
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="1.5" fill="#0f3763"/><path d="M3 6.5l9 6.5 9-6.5" stroke="#fff" fill="none" stroke-width="1.6"/></svg>
+            P.O.Box: 91856, Naif, Deira, Dubai - U.A.E.
+          </span>
+        </div>
+        <div class="c2">
+          <span>
+            <svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="1.5" fill="#0f3763"/><path d="M3 6.5l9 6.5 9-6.5" stroke="#fff" fill="none" stroke-width="1.6"/></svg>
+            E-mail: sdsc78682@gmail.com
+          </span>
+        </div>
+      </div>
+      <div class="rule"></div>
+
+      <!-- title banner -->
+      <div class="banner">
+        <svg class="coin" viewBox="0 0 60 52" fill="none" stroke="#fff" stroke-width="2.2" aria-hidden="true">
+          <ellipse cx="20" cy="9" rx="14" ry="5"/><path d="M6 9v7c0 2.8 6.3 5 14 5s14-2.2 14-5V9"/>
+          <path d="M6 16v7c0 2.8 6.3 5 14 5s14-2.2 14-5v-7"/><path d="M6 23v7c0 2.8 6.3 5 14 5"/>
+          <circle cx="40" cy="34" r="14" fill="#0f3763"/>
+          <text x="40" y="41" text-anchor="middle" font-family="Arial,sans-serif" font-weight="700" font-size="20" fill="#fff" stroke="none">$</text>
+        </svg>
+        <div class="bar"></div>
+        <div>
+          <h2>DAILY CASH SALARY PAYMENT REGISTER</h2>
+          <small>CASH PAYMENT TO OUTSOURCED WORKERS</small>
+        </div>
+      </div>
+
+      <!-- meta -->
+      <section class="meta">
+        <div class="f"><label for="payDate">Date:</label><input id="payDate" name="pay_date" type="date"></div>
+        <div class="f"><label for="siteName">Working Site Name:</label><input id="siteName" name="site_name" type="text" autocomplete="off"></div>
+        <div class="f"><label for="groupTeam">Group / Team:</label><input id="groupTeam" name="group_team" type="text" autocomplete="off"></div>
+        <div class="f"><label>Cash Purpose:</label><span class="txt">Daily Salary Payment to Outsourced Workers</span></div>
+      </section>
+
+      <!-- table -->
+      <div class="tablewrap" id="tablewrap">
+        <div class="tbox" id="tbox">
+          <table id="regTable">
+            <colgroup>
+              <col style="width:58px"><col style="width:193px"><col style="width:160px">
+              <col style="width:94px"><col style="width:108px"><col style="width:117px">
+            </colgroup>
+            <thead id="thead">
+              <tr>
+                <th>Sr. No.</th>
+                <th><span>
+                  <svg viewBox="0 0 24 24" fill="#fff"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c0-4.6 3.8-7.2 8.5-7.2s8.5 2.6 8.5 7.2z"/></svg>
+                  Employee / Recipient Name</span></th>
+                <th><span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><rect x="4" y="2.5" width="16" height="19" rx="2.2"/><circle cx="12" cy="10" r="2.6"/><path d="M7.5 17.5c.6-2.2 2.4-3.2 4.5-3.2s3.9 1 4.5 3.2"/></svg>
+                  Emirates ID / Passport No.</span></th>
+                <th><span>
+                  <svg viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.6 21 3 13.4 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>
+                  Contact No.</span></th>
+                <th><span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7"><ellipse cx="12" cy="6" rx="7.5" ry="3"/><path d="M4.5 6v4c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3V6M4.5 10v4c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-4M4.5 14v4c0 1.7 3.4 3 7.5 3s7.5-1.3 7.5-3v-4"/></svg>
+                  Amount (AED)</span></th>
+                <th><span>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.7" stroke-linejoin="round"><path d="M3.5 20.5l.9-4L16.5 4.4a1.8 1.8 0 0 1 2.6 0l.5.5a1.8 1.8 0 0 1 0 2.6L7.5 19.6z"/><path d="M14.5 6.5l3 3"/></svg>
+                  Recipient Signature</span></th>
+              </tr>
+            </thead>
+            <tbody id="rows"></tbody>
+            <tfoot id="tfoot">
+              <tr>
+                <td colspan="4" class="lbl">TOTAL CASH SALARY PAID (AED)</td>
+                <td colspan="2" class="tot" id="grandTotal">-</td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
+      <!-- sign block -->
+      <div class="sign">
+        <div class="srow">
+          <div class="f half"><label for="supSign">Supervisor Signature:</label><input id="supSign" name="supervisor_signature_name" type="text" autocomplete="off"></div>
+          <div class="f half"><label for="authBy">Authorized By:</label><input id="authBy" name="authorized_by" type="text" autocomplete="off"></div>
+        </div>
+        <div class="words">
+          <label>Amount in Words (AED):</label>
+          <div class="line"><div id="amountWords"></div></div>
+        </div>
+        <div class="decl"><b>Declaration:</b> I confirm that the cash salary payments recorded above are correct and acknowledged by the recipients.</div>
+      </div>
+      <input type="hidden" id="registerNo" name="register_no">
+
+      <!-- footer -->
+      <footer class="foot">
+        <svg class="bg" viewBox="0 0 794 46" aria-hidden="true">
+          <defs><linearGradient id="tanG" x1="0" x2="1"><stop offset="0" stop-color="#bda071"/><stop offset="1" stop-color="#d9c49b"/></linearGradient></defs>
+          <polygon points="0,0 380,0 427,46 0,46" fill="#0f3763"/>
+          <polygon points="413,32 794,32 794,46 427,46" fill="url(#tanG)"/>
+        </svg>
+        <div class="co">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><circle cx="12" cy="12" r="9.5"/><ellipse cx="12" cy="12" rx="4" ry="9.5"/><path d="M2.5 12h19M4 7.5h16M4 16.5h16"/></svg>
+          Shabab Deira Shipping &amp; Cargo Services LLC
+        </div>
+        <div class="tag"><i></i>Your Cargo, Our Priority<i></i></div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function(){
+  /* ============ CONFIG ============ */
+  var DEFAULT_ROWS = 10;
+  var MAX_ROWS     = 22;   // hard cap so the sheet always stays on one A4 page
+  var MIN_ROWS     = 1;
+  var ROW_MIN_H    = 25;   // rows never get shorter than this
+  var ROW_MAX_H    = 56;   // rows grow taller when there are fewer workers (room to sign)
+
+  var page   = document.getElementById('page');
+  var stage  = document.getElementById('stage');
+  var tbody  = document.getElementById('rows');
+  var $      = function(id){ return document.getElementById(id); };
+  $('rowMax').textContent = MAX_ROWS;
+
+  /* ============ ROWS ============ */
+  function rowHTML(){
+    return '<tr>' +
+      '<td class="sr"><span class="n"></span><button type="button" class="row-del" title="Remove this worker" aria-label="Remove row">&times;</button></td>' +
+      '<td><input data-f="employee_name" type="text" maxlength="40" autocomplete="off"></td>' +
+      '<td><input data-f="id_passport_no" type="text" maxlength="24" autocomplete="off"></td>' +
+      '<td><input data-f="contact_no" type="tel" maxlength="18" autocomplete="off"></td>' +
+      '<td class="amt"><input data-f="amount" type="text" inputmode="decimal" maxlength="10" autocomplete="off"></td>' +
+      '<td><input data-f="signature_note" type="text" tabindex="-1" aria-label="Recipient signature (sign on printed copy)"></td>' +
+    '</tr>';
+  }
+  function rowHeightFor(n){
+    var avail = $('tablewrap').clientHeight - 2 - $('thead').offsetHeight - $('tfoot').offsetHeight;
+    return Math.floor(avail / n);
+  }
+  function layoutRows(){
+    var h = rowHeightFor(tbody.rows.length);
+    h = Math.max(ROW_MIN_H, Math.min(ROW_MAX_H, h));
+    page.style.setProperty('--row-h', h + 'px');
+  }
+  function addRow(){
+    var n = tbody.rows.length;
+    if (n >= MAX_ROWS){ toast('Limit reached: ' + MAX_ROWS + ' workers fit on one A4 page.', true); return null; }
+    if (rowHeightFor(n + 1) < ROW_MIN_H){ toast('No more room on the A4 page.', true); return null; }
+    tbody.insertAdjacentHTML('beforeend', rowHTML());
+    refresh();
+    return tbody.lastElementChild;
+  }
+  function removeRow(tr){
+    if (tbody.rows.length <= MIN_ROWS){ toast('At least one row is required.', true); return; }
+    tr.remove(); refresh();
+  }
+  function refresh(){
+    Array.prototype.forEach.call(tbody.rows, function(tr, i){
+      tr.querySelector('.n').textContent = i + 1;
+      tr.querySelectorAll('input[data-f]').forEach(function(inp){ inp.name = 'rows[' + i + '][' + inp.dataset.f + ']'; });
+    });
+    $('rowCount').textContent = tbody.rows.length;
+    $('btnAdd').disabled = tbody.rows.length >= MAX_ROWS;
+    layoutRows();
+    totals();
+  }
+
+  /* ============ TOTALS ============ */
+  function num(v){ var n = parseFloat(String(v).replace(/,/g,'')); return isNaN(n) ? 0 : n; }
+  function fmt(n){ return n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2}); }
+  function totals(){
+    var sum = 0;
+    tbody.querySelectorAll('input[data-f="amount"]').forEach(function(i){ sum += num(i.value); });
+    sum = Math.round(sum * 100) / 100;
+    $('grandTotal').textContent = sum > 0 ? fmt(sum) : '-';
+    $('amountWords').textContent = sum > 0 ? toWords(sum) : '';
+    return sum;
+  }
+  var ONES = ['','One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve','Thirteen','Fourteen','Fifteen','Sixteen','Seventeen','Eighteen','Nineteen'];
+  var TENS = ['','','Twenty','Thirty','Forty','Fifty','Sixty','Seventy','Eighty','Ninety'];
+  function below1000(n){
+    var s = '';
+    if (n >= 100){ s += ONES[Math.floor(n/100)] + ' Hundred'; n %= 100; if (n) s += ' and '; }
+    if (n >= 20){ s += TENS[Math.floor(n/10)]; if (n % 10) s += '-' + ONES[n%10]; }
+    else if (n > 0){ s += ONES[n]; }
+    return s;
+  }
+  function intWords(n){
+    if (n === 0) return 'Zero';
+    var parts = [];
+    [[1e6,'Million'],[1e3,'Thousand']].forEach(function(u){ if (n >= u[0]){ parts.push(below1000(Math.floor(n/u[0])) + ' ' + u[1]); n %= u[0]; } });
+    if (n > 0) parts.push(below1000(n));
+    return parts.join(' ');
+  }
+  function toWords(a){
+    var d = Math.floor(a), f = Math.round((a - d) * 100);
+    var s = intWords(d) + ' Dirham' + (d === 1 ? '' : 's');
+    if (f > 0) s += ' and ' + intWords(f) + ' Fils';
+    return s + ' Only';
+  }
+
+  /* ============ EVENTS ============ */
+  tbody.addEventListener('input', function(e){
+    if (e.target.dataset.f === 'amount'){
+      e.target.value = e.target.value.replace(/[^0-9.]/g,'').replace(/(\..*)\./g,'$1');
+      totals();
+    }
+  });
+  tbody.addEventListener('focusout', function(e){
+    if (e.target.dataset.f === 'amount' && e.target.value !== ''){ e.target.value = num(e.target.value).toFixed(2); totals(); }
+  });
+  tbody.addEventListener('click', function(e){ var b = e.target.closest('.row-del'); if (b) removeRow(b.closest('tr')); });
+  tbody.addEventListener('keydown', function(e){
+    if (e.key !== 'Enter' || !e.target.dataset.f) return;
+    e.preventDefault();
+    var tr = e.target.closest('tr'), idx = Array.prototype.indexOf.call(tr.children, e.target.closest('td'));
+    var next = tr.nextElementSibling || addRow();
+    if (next) next.children[idx].querySelector('input').focus();
+  });
+  $('btnAdd').onclick = function(){ var tr = addRow(); if (tr) tr.querySelector('input').focus(); };
+  $('btnClear').onclick = function(){ if (confirm('Clear all entries and reset the register?')) reset(); };
+  $('btnPrint').onclick = function(){ window.print(); };
+  $('btnSave').onclick = save;
+
+  /* ============ DATA (for your database) ============ */
+  function pad(n){ return (n < 10 ? '0' : '') + n; }
+  function todayISO(){ var d = new Date(); return d.getFullYear() + '-' + pad(d.getMonth()+1) + '-' + pad(d.getDate()); }
+
+  function getData(){
+    var rows = [];
+    Array.prototype.forEach.call(tbody.rows, function(tr, i){
+      var g = function(f){ return tr.querySelector('[data-f="' + f + '"]').value.trim(); };
+      var r = { sr_no: i + 1, employee_name: g('employee_name'), id_passport_no: g('id_passport_no'), contact_no: g('contact_no'), amount: num(g('amount')) };
+      if (r.employee_name || r.id_passport_no || r.contact_no || r.amount) rows.push(r);
+    });
+    var total = totals();
+    return {
+      register_no: $('registerNo').value,
+      pay_date: $('payDate').value,
+      site_name: $('siteName').value.trim(),
+      group_team: $('groupTeam').value.trim(),
+      cash_purpose: 'Daily Salary Payment to Outsourced Workers',
+      supervisor_signature_name: $('supSign').value.trim(),
+      authorized_by: $('authBy').value.trim(),
+      currency: 'AED',
+      total_amount: total,
+      total_workers_paid: rows.filter(function(r){ return r.amount > 0; }).length,
+      amount_in_words: total > 0 ? toWords(total) : '',
+      rows: rows
+    };
+  }
+  function setData(d){
+    d = d || {};
+    $('registerNo').value = d.register_no || '';
+    $('payDate').value = d.pay_date || todayISO();
+    $('siteName').value = d.site_name || '';
+    $('groupTeam').value = d.group_team || '';
+    $('supSign').value = d.supervisor_signature_name || '';
+    $('authBy').value = d.authorized_by || '';
+    tbody.innerHTML = '';
+    var list = (d.rows || []).slice(0, MAX_ROWS);
+    var n = Math.max(DEFAULT_ROWS, list.length);
+    for (var i = 0; i < n; i++) tbody.insertAdjacentHTML('beforeend', rowHTML());
+    list.forEach(function(r, i){
+      var tr = tbody.rows[i];
+      tr.querySelector('[data-f="employee_name"]').value = r.employee_name || '';
+      tr.querySelector('[data-f="id_passport_no"]').value = r.id_passport_no || '';
+      tr.querySelector('[data-f="contact_no"]').value = r.contact_no || '';
+      tr.querySelector('[data-f="amount"]').value = r.amount ? Number(r.amount).toFixed(2) : '';
+    });
+    refresh();
+  }
+  function autoRegNo(){ return 'DCR-' + todayISO().replace(/-/g,'') + '-001'; }
+  function reset(){ setData({ register_no: autoRegNo(), pay_date: todayISO() }); }
+
+  function save(){
+    var d = getData(), problems = [];
+    if (!d.pay_date) problems.push('date');
+    if (!d.site_name) problems.push('site name');
+    if (!d.rows.length) problems.push('at least one worker');
+    d.rows.forEach(function(r){ if (r.amount > 0 && !r.employee_name) problems.push('name for row ' + r.sr_no); });
+    if (problems.length){ toast('Missing: ' + problems.join(', '), true); return; }
+    // >>> Hook into your app: document.addEventListener('cashregister:save', e => api.post(e.detail))
+    document.dispatchEvent(new CustomEvent('cashregister:save', { detail: d }));
+    console.log('cashregister:save', d);
+    toast('Register ready to save (' + d.rows.length + ' workers, AED ' + fmt(d.total_amount) + ')');
+  }
+  window.CashRegister = { getData: getData, setData: setData, reset: reset, MAX_ROWS: MAX_ROWS };
+
+  /* ============ EXPORT (PNG / PDF) ============ */
+  function fileBase(){ return 'Daily-Cash-Payment-Register-' + ($('payDate').value || todayISO()); }
+  function capture(){
+    var ready = (document.fonts && document.fonts.ready) ? document.fonts.ready : Promise.resolve();
+    return ready.then(function(){
+      return html2canvas(page, {
+        scale: 3, backgroundColor: '#fbfaf8', useCORS: true,
+        width: 794, height: 1123, windowWidth: 794, scrollX: 0, scrollY: 0,
+        onclone: function(doc){
+          doc.getElementById('stage').style.transform = 'none';
+          doc.getElementById('page').classList.add('exporting');
+          doc.querySelectorAll('input[type="date"]').forEach(function(i){
+            var p = i.value ? i.value.split('-') : [];
+            i.type = 'text';
+            i.value = p.length === 3 ? p[2] + '/' + p[1] + '/' + p[0] : '';
+          });
+        }
+      });
+    });
+  }
+  function busy(on){ ['btnPng','btnPdf','btnPrint','btnSave'].forEach(function(id){ $(id).disabled = on; }); }
+  $('btnPng').onclick = function(){
+    busy(true);
+    capture().then(function(c){
+      c.toBlob(function(b){
+        var a = document.createElement('a');
+        a.href = URL.createObjectURL(b); a.download = fileBase() + '.png'; a.click();
+        setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
+        busy(false);
+      }, 'image/png');
+    }).catch(function(err){ console.error(err); toast('PNG export failed', true); busy(false); });
+  };
+  $('btnPdf').onclick = function(){
+    busy(true);
+    capture().then(function(c){
+      var pdf = new window.jspdf.jsPDF({ orientation:'portrait', unit:'mm', format:'a4', compress:true });
+      pdf.addImage(c.toDataURL('image/jpeg', 0.97), 'JPEG', 0, 0, 210, 297);
+      pdf.save(fileBase() + '.pdf');
+      busy(false);
+    }).catch(function(err){ console.error(err); toast('PDF export failed', true); busy(false); });
+  };
+
+  /* ============ FIT TO SCREEN (preview only) ============ */
+  function fit(){
+    var s = Math.min(1, (window.innerWidth - 24) / 794);
+    stage.style.transform = s < 1 ? 'scale(' + s + ')' : 'none';
+    stage.style.marginBottom = s < 1 ? (-(1123 * (1 - s))) + 'px' : '0';
+  }
+  window.addEventListener('resize', fit);
+  window.addEventListener('beforeprint', function(){ stage.style.transform = 'none'; layoutRows(); });
+  window.addEventListener('afterprint', fit);
+
+  var tt;
+  function toast(msg, err){
+    var t = $('toast'); t.textContent = msg; t.className = 'toast show' + (err ? ' err' : '');
+    clearTimeout(tt); tt = setTimeout(function(){ t.className = 'toast'; }, 2800);
+  }
+
+  /* ============ INIT ============ */
+  reset(); fit();
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layoutRows);
+})();
+</script>
+</body>
+</html>
